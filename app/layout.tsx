@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fragment_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
+import Navibar from "./components/shared/layout/Navibar";
 
 const fragment = Fragment_Mono({
   subsets: ["latin"],
@@ -21,7 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={fragment.className}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <Navibar />
+          {children}
+        </Providers>
       </body>
     </html>
   );

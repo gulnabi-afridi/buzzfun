@@ -29,6 +29,13 @@ const config: Config = {
           3: "#1D252C",
           4: "#0E161C",
         },
+        white:{
+          1:'#ffffff',
+          2:'#D1DBE4'
+        },
+        orange:{
+          1:'#EF7216'
+        }
       },
     },
   },
