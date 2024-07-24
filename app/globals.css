@@ -1,13 +1,32 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Fragment+Mono:ital@0;1&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Fragment+Mono:ital@0;1&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Fragment+Mono:ital@0;1&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 /* shadows  */
 
 .navibarCardSh {
   box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+.shadow2{
+  box-shadow: 0px 0px 9.9px 0.99px #00000054;
+
+}
+.shadow3{
+  box-shadow: 0px 0px 10px 1px #317C858C;
+
+}
+
+
+.verticalOr{
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+
 }
 
 

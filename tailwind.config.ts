@@ -15,10 +15,13 @@ const config: Config = {
       },
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
+        courier: ["Courier Prime", "sans-serif"],
+
       },
       colors: {
         blue: {
           1: "#004BFE",
+          2:'#317C85'
         },
         yellow: {
           1: "#FEF652",
@@ -35,6 +38,9 @@ const config: Config = {
         },
         orange:{
           1:'#EF7216'
+        },
+        purple:{
+          1:'#4F40FF'
         }
       },
     },

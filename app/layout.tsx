@@ -4,6 +4,7 @@ import "./globals.css";
 import { Providers } from "./providers";
 import Navibar from "./components/shared/layout/Navibar";
 import Footer from "./components/shared/layout/Footer";
+import Breadcrumb from "./components/shared/layout/Breadcrumb";
 
 const fragment = Fragment_Mono({
   subsets: ["latin"],
@@ -22,9 +23,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={fragment.className}>
+      <body className={`${fragment.className} bg-white-2`}>
         <Providers>
           <Navibar />
+          <Breadcrumb/>
           {children}
           <Footer/>
         </Providers>
