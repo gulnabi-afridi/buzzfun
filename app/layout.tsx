@@ -3,6 +3,7 @@ import { Fragment_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import Navibar from "./components/shared/layout/Navibar";
+import Footer from "./components/shared/layout/Footer";
 
 const fragment = Fragment_Mono({
   subsets: ["latin"],
@@ -25,6 +26,7 @@ export default function RootLayout({
         <Providers>
           <Navibar />
           {children}
+          <Footer/>
         </Providers>
       </body>
     </html>
