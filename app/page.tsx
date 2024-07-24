@@ -1,5 +1,11 @@
-import Image from "next/image";
+import ThemeSwitch from "./components/ThemeSwitch";
 
 export default function Home() {
-  return <main className=""></main>;
+  return (
+    <main className="">
+      <div className="flex justify-between items-center h-[200px]">
+        <ThemeSwitch />
+      </div>
+    </main>
+  );
 }
