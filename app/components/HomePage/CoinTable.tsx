@@ -3,8 +3,8 @@ import Image from "next/image";
 
 const CoinTable = () => {
   return (
-    <div className="w-full flex flex-col">
-      <div className="w-full px-4 h-[42px] justify-center items-center grid grid-cols-[50px,3fr,1fr,1fr,1fr,1fr,1fr,1fr,1fr,1fr,1fr]">
+    <div className="w-full overflow-auto flex flex-col">
+      <div className="w-full min-w-[1300px] px-4 h-[42px] justify-center items-center grid grid-cols-[50px,3fr,1fr,1fr,1fr,1fr,1fr,1fr,1fr,1fr,1fr]">
         {headerData.map((item, index) => {
           return (
             <p
@@ -21,7 +21,7 @@ const CoinTable = () => {
         })}
       </div>
       {/* table row  */}
-      <div className="w-full flex flex-col">
+      <div className="w-full min-w-[1300px] flex flex-col">
         {rowsData.map((item, index) => {
           return (
             <div

@@ -20,11 +20,9 @@ export default function Home() {
           {/* Coin Table */}
           <CoinTable />
           {/* Pagination */}
-          <Pagination/>
+          <Pagination />
         </div>
       </ComponentWrapper>
     </main>
   );
 }
-
-
