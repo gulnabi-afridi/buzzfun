@@ -3,9 +3,9 @@ import Image from "next/image";
 
 const SearchBar = () => {
   return (
-    <div className="flex my-4 justify-between items-center w-full  h-[38px] bg-blue-1 px-3">
+    <div className="flex my-4 justify-between items-center w-full py-2 bg-blue-1 px-3">
       {/* bread crumbs  */}
-      <div className="flex justify-center items-center gap-3">
+      <div className="flex flex-wrap justify-center items-center gap-1 md:gap-3">
         {breadCrumbs.map((item, index) => {
           return (
             <div key={index} className="flex justify-center items-center gap-4">

@@ -11,7 +11,7 @@ const ComponentWrapper: React.FC<Props> = ({
 }: Props) => {
   return (
     <div className={`w-full ${style}`}>
-      <div className="w-full h-full max-w-[1450px] m-auto lg:px-8 px-4">
+      <div className="w-full h-full max-w-[1700px] m-auto lg:px-6 px-4">
         {children}
       </div>
     </div>

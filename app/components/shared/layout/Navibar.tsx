@@ -15,10 +15,10 @@ const Navibar: React.FC = () => {
       <div className="w-full  dark:bg-black-3 bg-white-2 px-5 flex justify-between items-center h-[65px]">
         {/* left portion */}
         <div className="flex justify-center items-center gap-6">
-          <div className="w-[193px] mr-8 h-[53px] relative">
+          <div className="w-[150px] sm:w-[193px] mr-0 sm:mr-8 h-[45px] sm:h-[53px] relative">
             <Image src="/assets/logo.svg" className="object-fill" fill alt="" />
           </div>
-          <div className="flex justify-center items-center gap-3">
+          <div className="justify-center md:flex hidden items-center gap-3">
             {socialLinks.map((item, index) => {
               return (
                 <Link
@@ -31,7 +31,7 @@ const Navibar: React.FC = () => {
               );
             })}
           </div>
-          <div className="bg-white-1 flex justify-center items-center px-2 py-1 navibarCardSh rounded-[2px] gap-2">
+          <div className="bg-white-1 xl:flex hidden justify-center items-center px-2 py-1 navibarCardSh rounded-[2px] gap-2">
             <Image
               src="/assets/green.svg"
               className="object-fill"
@@ -62,7 +62,7 @@ const Navibar: React.FC = () => {
 
         {/* right portion */}
         <div className="flex justify-center items-center gap-2">
-          <div className="flex justify-center navibarCardSh bg-blue-1 rounded-[2px] px-2 py-1  items-center gap-4">
+          <div className="hidden lg:flex justify-center navibarCardSh bg-blue-1 rounded-[2px] px-2 py-1  items-center gap-4">
             <p className="text-[10px] uppercase font-normal text-white-1">
               {" "}
               <span className="bg-black-1 uppercase p-[2px] mr-1">

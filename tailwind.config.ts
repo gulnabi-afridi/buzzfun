@@ -18,6 +18,17 @@ const config: Config = {
         courier: ["Courier Prime", "sans-serif"],
 
       },
+      screens: {
+        xs: '325px',
+        sm: '480px',
+        csm: '540px',
+        md: '768px',
+        cmd: '850px',
+        lg: '976px',
+        clg: '1080px',
+        xl: '1280px',
+        '2xl':'1400px'
+      },
       colors: {
         blue: {
           1: "#004BFE",
