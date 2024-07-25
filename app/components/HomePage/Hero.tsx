@@ -1,10 +1,14 @@
+"use client";
+import { useTheme } from "next-themes";
 import React from "react";
 import Image from "next/image";
 
 const Hero = () => {
+  const { setTheme, resolvedTheme } = useTheme();
+
   return (
     <div className="w-full flex flex-col justify-center items-center">
-      <div className="w-full flex flex-col max-w-[1350px] mt-4 px-4 py-3 dark:bg-black-1 bg-white-1 border-[1px] border-[#000B6D] rounded-[5px]">
+      <div className="w-full flex flex-col max-w-[1350px] mt-4 px-4 py-3 dark:bg-black-1 bg-white-1 border-[1px] dark:border-blue-1 border-[#000B6D] rounded-[5px]">
         <div className="w-full grid gap-4 grid-cols-1 lg:grid-cols-2 2xl:grid-cols-[1fr,1fr,40px,1fr]">
           {/* 1st col ------>  */}
           <div className="w-full flex justify-center items-center">
@@ -74,20 +78,20 @@ const Hero = () => {
                 </div>
               </div>
               {/* 2nd portion */}
-              <div className="w-full my-1 bg-orange-1 flex justify-center items-center px-2 h-[42px]">
+              <div className="w-full my-1 dark:bg-yellow-1 bg-orange-1 flex justify-center items-center px-2 h-[42px]">
                 <p className="text-[13px] text-black-1 font-normal">{text}</p>
               </div>
               {/* 3rd portion */}
               <div className="w-full flex flex-col">
                 {/* header */}
                 <div className="w-full bg-black-3 p-2 flex justify-center items-center gap-2">
-                  <p className="text-[18px] sm:text-[20px] text-white-1 font-montserrat bg-black-1 px-2">
+                  <p className="text-[18px] sm:text-[20px] text-white-1 font-montserrat bg-purple-1 px-2">
                     #3
                   </p>
-                  <p className="text-white-1 sm:block hidden text-[20px]">
+                  <p className="text-blue-1 sm:block hidden text-[20px]">
                     {pattern2}
                   </p>
-                  <p className="text-white-1 sm:hidden block text-[20px]">
+                  <p className="text-blue-1 sm:hidden block text-[20px]">
                     {pattern21}
                   </p>
                 </div>
@@ -145,7 +149,7 @@ const Hero = () => {
           </div>
           {/* 2nd col ------>  */}
           <div className="w-full flex justify-center items-center">
-            <div className="w-full max-w-[500px] bg-yellow-1 navibarCardSh rounded-[5px] flex flex-col p-3">
+            <div className="w-full max-w-[500px] dark:bg-orange-1 bg-yellow-1 navibarCardSh rounded-[5px] flex flex-col p-3">
               {/* 1st portiom */}
               <div className="flex mt-1 justify-center gap-1 items-center px-1 bg-black-1">
                 <p className="text-yellow-1">#1</p>
@@ -237,9 +241,15 @@ const Hero = () => {
             <div className="w-[8px] h-full bg-purple-1"></div>
           </div>
           <div className="w-full flex justify-center items-center">
-            <div className="w-full max-w-[500px] rounded-[5px] bg-black-1 relative min-h-[540px] h-full">
-              <Image src="/assets/3rdCol.png" fill alt="" />
-            </div>
+            {resolvedTheme === "dark" ? (
+              <div className="w-full max-w-[500px] rounded-[5px] bg-[#1b2a35] relative min-h-[540px] h-full">
+                <Image src="/assets/card2.png" fill alt="" />
+              </div>
+            ) : (
+              <div className="w-full max-w-[500px] rounded-[5px] bg-black-1 relative min-h-[540px] h-full">
+                <Image src="/assets/3rdCol.png" fill alt="" />
+              </div>
+            )}
           </div>
         </div>
         {/* down section */}
