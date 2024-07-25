@@ -4,7 +4,7 @@ import Image from "next/image";
 const Hero = () => {
   return (
     <div className="w-full flex flex-col justify-center items-center">
-      <div className="w-full flex flex-col max-w-[1350px] mt-4 px-4 py-3 bg-white-1 border-[1px] border-[#000B6D] rounded-[5px]">
+      <div className="w-full flex flex-col max-w-[1350px] mt-4 px-4 py-3 dark:bg-black-1 bg-white-1 border-[1px] border-[#000B6D] rounded-[5px]">
         <div className="w-full grid gap-4 grid-cols-[1fr,1fr,40px,1fr]">
           {/* 1st col ------>  */}
           <div className="w-full flex flex-col gap-3">
@@ -204,7 +204,7 @@ const Hero = () => {
                 lorem ipsum talkem sumit here making it cool and reassruing and
                 no rugginess for sure makin it based, yeah. innt.
               </p>
-              <button className="w-full hover:opacity-80 bg-black-1 rounded-[5px] text-[12px] h-[35px] text-white-1 font-semibold">
+              <button className="w-full font-courier hover:opacity-80 bg-black-1 rounded-[5px] text-[12px] h-[35px] text-white-1 font-semibold">
                 Ape Now
               </button>
             </div>

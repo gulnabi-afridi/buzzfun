@@ -13,7 +13,7 @@ const CoinTable = () => {
                 index + 1 === headerData.length
                   ? "justify-end"
                   : "justify-start "
-              } leading-[18px] font-normal text-black-1 w-full flex items-center`}
+              } leading-[18px] font-normal dark:text-white-1 text-black-1 w-full flex items-center`}
             >
               {item}
             </p>
@@ -27,21 +27,21 @@ const CoinTable = () => {
             <div
               key={index}
               className={`w-full ${
-                index === 0 && "border-t-[1px] border-black-1"
+                index === 0 && "border-t-[1px] dark:border-white-1/50 border-black-1"
               } ${
                 index + 1 === rowsData.length
                   ? "border-none"
-                  : "border-b-[1px] border-black-1"
+                  : "border-b-[1px] dark:border-white-1/50 border-black-1"
               }  px-4 h-[42px] justify-center items-center grid grid-cols-[50px,3fr,1fr,1fr,1fr,1fr,1fr,1fr,1fr,1fr,1fr]`}
             >
-              <p className="text-[14px] w-full flex justify-start font-normal text-black-1">
+              <p className="text-[14px] w-full flex justify-start font-normal dark:text-white-1 text-black-1">
                 # {index + 1}
               </p>
               <div className="flex w-full justify-start items-center gap-2">
                 <Image src={item.coin.icon} alt="" width={25} height={25} />
-                <p className="font-normal text-black">{item.coin.value}</p>
+                <p className="font-normal dark:text-white-1 text-black-1">{item.coin.value}</p>
               </div>
-              <p className="text-[14px] w-full flex justify-start font-normal text-black-1">
+              <p className="text-[14px] w-full flex justify-start font-normal dark:text-white-1 text-black-1">
                 {item.map}
               </p>
               <div className=" w-full flex justify-start ">
@@ -53,22 +53,22 @@ const CoinTable = () => {
                   {item.priceChange.value}
                 </p>
               </div>
-              <p className="text-[14px] w-full flex justify-start font-normal text-black-1">
+              <p className="text-[14px] w-full flex justify-start font-normal dark:text-white-1 text-black-1">
                 {item.holders}
               </p>
-              <p className="text-[14px] w-full flex justify-start font-normal text-black-1">
+              <p className="text-[14px] w-full flex justify-start font-normal dark:text-white-1 text-black-1">
                 {item.upvotes}
               </p>
-              <p className="text-[14px] w-full flex justify-start font-normal text-black-1">
+              <p className="text-[14px] w-full flex justify-start font-normal dark:text-white-1 text-black-1">
                 {item.downvotes}
               </p>
-              <p className="text-[14px] w-full flex justify-start font-normal text-black-1">
+              <p className="text-[14px] w-full flex justify-start font-normal dark:text-white-1 text-black-1">
                 {item.age}
               </p>
-              <p className="text-[14px] w-full flex justify-start font-normal text-black-1">
+              <p className="text-[14px] w-full flex justify-start font-normal dark:text-white-1 text-black-1">
                 {item.deployed}
               </p>
-              <p className="text-[14px] w-full flex justify-start font-normal text-black-1">
+              <p className="text-[14px] w-full flex justify-start font-normal dark:text-white-1 text-black-1">
                 {item.bondingCurve}
               </p>
               <div className="w-full flex justify-end items-center">

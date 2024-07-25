@@ -7,11 +7,12 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { Menu, Button, Text, rem } from "@mantine/core";
 import { BsMoon } from "react-icons/bs";
 import { IoCopyOutline } from "react-icons/io5";
+import ThemeSwitch from "../../ThemeSwitch";
 
 const Navibar: React.FC = () => {
   return (
     <React.Fragment>
-      <div className="w-full bg-white-2 px-5 flex justify-between items-center h-[65px]">
+      <div className="w-full  dark:bg-black-3 bg-white-2 px-5 flex justify-between items-center h-[65px]">
         {/* left portion */}
         <div className="flex justify-center items-center gap-6">
           <div className="w-[193px] mr-8 h-[53px] relative">
@@ -114,9 +115,8 @@ const Navibar: React.FC = () => {
                       </p>
                     </div>
                   </div>
-                  <button className="w-[24px] h-[24px] bg-blue-2 rounded-full flex justify-center items-center">
-                    <BsMoon className="text-[14px] text-yellow-1" />
-                  </button>
+                  {/* Theme switc ----> */}
+                  <ThemeSwitch />
                 </div>
                 {/* wallet address */}
                 <div className="w-full bg-[#D3DCE5] rounded-[3px] p-3 flex justify-between items-center gap-1">
@@ -179,12 +179,11 @@ const Navibar: React.FC = () => {
                     <IoCopyOutline className="text-[10px] text-white-1" />
                   </button>
                 </div>
-                  {/* platform version */}
-                  <div className="w-full h-[20px] bg-yellow-1 flex justify-start items-center px-3">
+                {/* platform version */}
+                <div className="w-full h-[20px] bg-yellow-1 flex justify-start items-center px-3">
                   <p className="text-[8px] text-black-1 font-normal">
-                  Platform version: 69.01
+                    Platform version: 69.01
                   </p>
-              
                 </div>
               </div>
             </Menu.Dropdown>

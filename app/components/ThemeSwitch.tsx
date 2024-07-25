@@ -4,6 +4,7 @@ import { FiSun, FiMoon } from "react-icons/fi";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
+import { BsMoon } from "react-icons/bs";
 
 export default function ThemeSwitch() {
   const [mounted, setMounted] = useState(false);
@@ -25,10 +26,24 @@ export default function ThemeSwitch() {
     );
 
   if (resolvedTheme === "dark") {
-    return <FiSun className="text-[red] text-[40px]" onClick={() => setTheme("light")} />;
+    return (
+      <button
+        onClick={() => setTheme("light")}
+        className="w-[24px] h-[24px] bg-blue-2 rounded-full flex justify-center items-center"
+      >
+        <FiSun className="text-yellow-1 text-[14px]" />
+      </button>
+    );
   }
 
   if (resolvedTheme === "light") {
-    return <FiMoon className="text-[back] text-[40px]" onClick={() => setTheme("dark")} />;
+    return (
+      <button
+        onClick={() => setTheme("dark")}
+        className="w-[24px] h-[24px] bg-blue-2 rounded-full flex justify-center items-center"
+      >
+        <BsMoon className="text-[14px] text-yellow-1" />
+      </button>
+    );
   }
 }

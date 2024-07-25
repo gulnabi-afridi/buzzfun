@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${fragment.className} bg-white-2`}>
+      <body className={`${fragment.className}`}>
         <Providers>
           <Navibar />
           <Breadcrumb/>

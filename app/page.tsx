@@ -8,7 +8,7 @@ import Pagination from "./components/shared/Pagination";
 
 export default function Home() {
   return (
-    <main className="bg-white-2 w-full">
+    <main className="bg-white-2 dark:bg-[#1D252C] pb-28 w-full">
       <ComponentWrapper style="">
         <div className="flex min-h-screen flex-col">
           {/* Hero Section */}
