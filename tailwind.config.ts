@@ -41,6 +41,12 @@ const config: Config = {
         },
         purple:{
           1:'#4F40FF'
+        },
+        green:{
+          1:'#2DB363'
+        },
+        red:{
+          1:'#EA0000'
         }
       },
     },

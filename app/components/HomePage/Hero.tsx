@@ -1,11 +1,10 @@
 import React from "react";
 import Image from "next/image";
 
-
 const Hero = () => {
   return (
-    <div className="w-full flex justify-center items-center">
-      <div className="w-full max-w-[1350px] mt-4 px-4 py-3 bg-white-1 border-[1px] border-[#000B6D] rounded-[5px]">
+    <div className="w-full flex flex-col justify-center items-center">
+      <div className="w-full flex flex-col max-w-[1350px] mt-4 px-4 py-3 bg-white-1 border-[1px] border-[#000B6D] rounded-[5px]">
         <div className="w-full grid gap-4 grid-cols-[1fr,1fr,40px,1fr]">
           {/* 1st col ------>  */}
           <div className="w-full flex flex-col gap-3">
@@ -127,7 +126,7 @@ const Hero = () => {
             </div>
           </div>
           {/* 2nd col ------>  */}
-          <div className="w-full bg-yellow-1 flex flex-col p-3">
+          <div className="w-full bg-yellow-1 navibarCardSh rounded-[5px] flex flex-col p-3">
             {/* 1st portiom */}
             <div className="flex mt-1 justify-center gap-1 items-center px-1 bg-black-1">
               <p className="text-yellow-1">#1</p>
@@ -220,6 +219,13 @@ const Hero = () => {
             <Image src="/assets/3rdCol.png" fill alt="" />
           </div>
         </div>
+        {/* down section */}
+        <div className="w-full px-3 bg-blue-2 h-[36px] flex justify-between gap-2 items-center mt-6">
+          <p className="text-black-1 text-[10px] font-normal">{pattern3}</p>
+          <p className="text-white-1 uppercase py-[2px] rounded-md font-semibold font-montserrat text-[10px] bg-black-1 px-2">
+            minimise ^^
+          </p>
+        </div>
       </div>
     </div>
   );
@@ -227,7 +233,8 @@ const Hero = () => {
 
 export default Hero;
 
-
 const text = "//YOU ARE A WINNER!¯_(ツ)_/¯_YOU ARE A WINNER!\\";
 const pattern1 = ">>>>>>>>>>>>>>>>>>>>>>>>>>";
 const pattern2 = "<<<<<<<<<<<<<<<<<<<<<<<<<<";
+const pattern3 =
+  "/////////////////////////////////#######( .  Y . )#######********}}}}}}}[][][L][F][G][][][0]******_______¯_(ツ)_/¯_________8==============D";

@@ -1,18 +1,25 @@
 import ComponentWrapper from "./components/shared/layout/ComponentWrapper";
 import Image from "next/image";
 import Hero from "./components/HomePage/Hero";
+import Stats from "./components/HomePage/Stats";
+import SearchBar from "./components/HomePage/SearchBar";
+import CoinTable from "./components/HomePage/CoinTable";
 
 export default function Home() {
   return (
     <main className="bg-white-2 w-full">
       <ComponentWrapper style="">
         <div className="flex min-h-screen flex-col">
-          {/* hero section */}
-            <Hero/>
+          {/* Hero Section */}
+          <Hero />
+          {/* Stats */}
+          <Stats />
+          {/* Search Bar   */}
+          <SearchBar />
+          {/* Coin Table */}
+          <CoinTable />
         </div>
       </ComponentWrapper>
     </main>
   );
 }
-
-
