@@ -28,7 +28,11 @@ const CoinTable = () => {
               key={index}
               className={`w-full ${
                 index === 0 && "border-t-[1px] border-black-1"
-              } border-b-[1px] border-black-1 px-4 h-[42px] justify-center items-center grid grid-cols-[50px,3fr,1fr,1fr,1fr,1fr,1fr,1fr,1fr,1fr,1fr]`}
+              } ${
+                index + 1 === rowsData.length
+                  ? "border-none"
+                  : "border-b-[1px] border-black-1"
+              }  px-4 h-[42px] justify-center items-center grid grid-cols-[50px,3fr,1fr,1fr,1fr,1fr,1fr,1fr,1fr,1fr,1fr]`}
             >
               <p className="text-[14px] w-full flex justify-start font-normal text-black-1">
                 # {index + 1}
@@ -68,9 +72,9 @@ const CoinTable = () => {
                 {item.bondingCurve}
               </p>
               <div className="w-full flex justify-end items-center">
-                <p className="text-[14px] text-center w-[43px] py-1 rounded-[2px] bg-blue-1 font-normal text-white-1">
+                <button className="text-[14px] hover:opacity-80 text-center w-[43px] py-1 rounded-[2px] bg-blue-1 font-normal text-white-1">
                   Buy
-                </p>
+                </button>
               </div>
             </div>
           );
@@ -82,156 +86,155 @@ const CoinTable = () => {
 
 export default CoinTable;
 
-
 const headerData = [
-    "Rank",
-    "Coin",
-    "Mcap",
-    "Price change(%)",
-    "Holders",
-    "Upvotes",
-    "Downvotes",
-    "Age(min)",
-    "Previously deployed",
-    "% Bonding Curve",
-    "Ape now",
-  ];
-  
-  const rowsData = [
-    {
-      coin: {
-        icon: "/assets/coin3.svg",
-        value: "/ Token name > [Ticker: TN]",
-      },
-      map: "34.5k",
-      priceChange: {
-        positive: true,
-        value: "+15%",
-      },
-      holders: "123",
-      upvotes: "15",
-      downvotes: "2",
-      age: "23",
-      deployed: "1",
-      bondingCurve: "73%",
+  "Rank",
+  "Coin",
+  "Mcap",
+  "Price change(%)",
+  "Holders",
+  "Upvotes",
+  "Downvotes",
+  "Age(min)",
+  "Previously deployed",
+  "% Bonding Curve",
+  "Ape now",
+];
+
+const rowsData = [
+  {
+    coin: {
+      icon: "/assets/coin3.svg",
+      value: "/ Token name > [Ticker: TN]",
     },
-    {
-      coin: {
-        icon: "/assets/coin3.svg",
-        value: "/ Token name > [Ticker: TN]",
-      },
-      map: "34.5k",
-      priceChange: {
-        positive: false,
-        value: "-10%",
-      },
-      holders: "123",
-      upvotes: "15",
-      downvotes: "2",
-      age: "23",
-      deployed: "1",
-      bondingCurve: "73%",
+    map: "34.5k",
+    priceChange: {
+      positive: true,
+      value: "+15%",
     },
-    {
-      coin: {
-        icon: "/assets/coin3.svg",
-        value: "/ Token name > [Ticker: TN]",
-      },
-      map: "34.5k",
-      priceChange: {
-        positive: true,
-        value: "+15%",
-      },
-      holders: "123",
-      upvotes: "15",
-      downvotes: "2",
-      age: "23",
-      deployed: "1",
-      bondingCurve: "73%",
+    holders: "123",
+    upvotes: "15",
+    downvotes: "2",
+    age: "23",
+    deployed: "1",
+    bondingCurve: "73%",
+  },
+  {
+    coin: {
+      icon: "/assets/coin3.svg",
+      value: "/ Token name > [Ticker: TN]",
     },
-    {
-      coin: {
-        icon: "/assets/coin3.svg",
-        value: "/ Token name > [Ticker: TN]",
-      },
-      map: "34.5k",
-      priceChange: {
-        positive: false,
-        value: "-10%",
-      },
-      holders: "123",
-      upvotes: "15",
-      downvotes: "2",
-      age: "23",
-      deployed: "1",
-      bondingCurve: "73%",
+    map: "34.5k",
+    priceChange: {
+      positive: false,
+      value: "-10%",
     },
-    {
-      coin: {
-        icon: "/assets/coin3.svg",
-        value: "/ Token name > [Ticker: TN]",
-      },
-      map: "34.5k",
-      priceChange: {
-        positive: false,
-        value: "-10%",
-      },
-      holders: "123",
-      upvotes: "15",
-      downvotes: "2",
-      age: "23",
-      deployed: "1",
-      bondingCurve: "73%",
+    holders: "123",
+    upvotes: "15",
+    downvotes: "2",
+    age: "23",
+    deployed: "1",
+    bondingCurve: "73%",
+  },
+  {
+    coin: {
+      icon: "/assets/coin3.svg",
+      value: "/ Token name > [Ticker: TN]",
     },
-    {
-      coin: {
-        icon: "/assets/coin3.svg",
-        value: "/ Token name > [Ticker: TN]",
-      },
-      map: "34.5k",
-      priceChange: {
-        positive: true,
-        value: "+15%",
-      },
-      holders: "123",
-      upvotes: "15",
-      downvotes: "2",
-      age: "23",
-      deployed: "1",
-      bondingCurve: "73%",
+    map: "34.5k",
+    priceChange: {
+      positive: true,
+      value: "+15%",
     },
-    {
-      coin: {
-        icon: "/assets/coin3.svg",
-        value: "/ Token name > [Ticker: TN]",
-      },
-      map: "34.5k",
-      priceChange: {
-        positive: false,
-        value: "-10%",
-      },
-      holders: "123",
-      upvotes: "15",
-      downvotes: "2",
-      age: "23",
-      deployed: "1",
-      bondingCurve: "73%",
+    holders: "123",
+    upvotes: "15",
+    downvotes: "2",
+    age: "23",
+    deployed: "1",
+    bondingCurve: "73%",
+  },
+  {
+    coin: {
+      icon: "/assets/coin3.svg",
+      value: "/ Token name > [Ticker: TN]",
     },
-    {
-      coin: {
-        icon: "/assets/coin3.svg",
-        value: "/ Token name > [Ticker: TN]",
-      },
-      map: "34.5k",
-      priceChange: {
-        positive: true,
-        value: "+15%",
-      },
-      holders: "123",
-      upvotes: "15",
-      downvotes: "2",
-      age: "23",
-      deployed: "1",
-      bondingCurve: "73%",
+    map: "34.5k",
+    priceChange: {
+      positive: false,
+      value: "-10%",
     },
-  ];
+    holders: "123",
+    upvotes: "15",
+    downvotes: "2",
+    age: "23",
+    deployed: "1",
+    bondingCurve: "73%",
+  },
+  {
+    coin: {
+      icon: "/assets/coin3.svg",
+      value: "/ Token name > [Ticker: TN]",
+    },
+    map: "34.5k",
+    priceChange: {
+      positive: false,
+      value: "-10%",
+    },
+    holders: "123",
+    upvotes: "15",
+    downvotes: "2",
+    age: "23",
+    deployed: "1",
+    bondingCurve: "73%",
+  },
+  {
+    coin: {
+      icon: "/assets/coin3.svg",
+      value: "/ Token name > [Ticker: TN]",
+    },
+    map: "34.5k",
+    priceChange: {
+      positive: true,
+      value: "+15%",
+    },
+    holders: "123",
+    upvotes: "15",
+    downvotes: "2",
+    age: "23",
+    deployed: "1",
+    bondingCurve: "73%",
+  },
+  {
+    coin: {
+      icon: "/assets/coin3.svg",
+      value: "/ Token name > [Ticker: TN]",
+    },
+    map: "34.5k",
+    priceChange: {
+      positive: false,
+      value: "-10%",
+    },
+    holders: "123",
+    upvotes: "15",
+    downvotes: "2",
+    age: "23",
+    deployed: "1",
+    bondingCurve: "73%",
+  },
+  {
+    coin: {
+      icon: "/assets/coin3.svg",
+      value: "/ Token name > [Ticker: TN]",
+    },
+    map: "34.5k",
+    priceChange: {
+      positive: true,
+      value: "+15%",
+    },
+    holders: "123",
+    upvotes: "15",
+    downvotes: "2",
+    age: "23",
+    deployed: "1",
+    bondingCurve: "73%",
+  },
+];
