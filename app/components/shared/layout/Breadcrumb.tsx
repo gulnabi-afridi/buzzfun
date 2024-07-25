@@ -7,11 +7,11 @@ const Breadcrumb = () => {
   return (
     <ComponentWrapper style="dark:bg-black-3 bg-white-2">
       <div className="w-full flex justify-center items-center">
-        <div className="flex max-w-[1350px] flex-wrap justify-center w-full items-center gap-2">
-          <div className="w-full hideScroll overflow-auto">
-            <div className="w-full min-w-[1200px] border-[1px] border-blue-1 mt-4 dark:bg-[#25303A] bg-white-1 flex py-[8px] justify-center items-center gap-4">
+        <div className="grid mt-4 grid-cols-[1fr,100px] max-w-[1600px] justify-center w-full items-center gap-2">
+          <div className="w-full h-full hideScroll overflow-auto">
+            <div className="w-full min-w-[1200px] border-[1px] border-blue-1 dark:bg-[#25303A] bg-white-1 flex h-full justify-center items-center gap-4">
               {/* 1st portion */}
-              <div className="px-4 py-2 h-full flex justify-center items-center gap-2">
+              <div className="px-4 h-full flex justify-center items-center gap-2">
                 {breadCrumbs.map((item, index) => {
                   return (
                     <div
@@ -40,7 +40,7 @@ const Breadcrumb = () => {
             </div>
           </div>
           {/* 2nd portion */}
-          <div className="h-[86px] relative w-[90px] p-1 dark:bg-black-1 bg-white-1 justify-center items-start border-[1px] border-blue-1 flex flex-col">
+          <div className=" relative w-full h-full p-1 dark:bg-black-1 bg-white-1 justify-center items-start border-[1px] border-blue-1 flex flex-col">
             <p className="text-[10px] bg-blue-1 uppercase font-normal text-white-1 px-0">
               find out <br /> more $BUZZ
             </p>
