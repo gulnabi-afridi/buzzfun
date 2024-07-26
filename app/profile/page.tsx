@@ -8,6 +8,7 @@ import { GoArrowUpRight } from "react-icons/go";
 import Followers from "../components/Profile/Followers";
 import Following from "../components/Profile/Following";
 import Replies from "../components/Profile/Replies";
+import CoinsLaunched from "../components/Profile/CoinsLaunched";
 
 const ProfilePage = () => {
   // states ----------->
@@ -24,11 +25,20 @@ const ProfilePage = () => {
     <ComponentWrapper style="bg-white-2">
       <div className="w-full pt-12 min-h-screen pb-10 flex justify-center items-start">
         <div
-          className={`w-full ${
-            selectedName === "Replies"
-              ? "max-w-[950px] grid-cols-[1fr,1fr,2fr]"
-              : "max-w-[860px] grid-cols-[1fr,1fr,1.5fr]"
-          } grid  gap-6 justify-center items-start`}
+          className={`w-full grid gap-6 justify-center items-start 
+            ${
+              selectedName === "Replies" &&
+              "max-w-[950px] grid-cols-[1fr,1fr,2fr]"
+            }
+            ${
+              selectedName === "Coins Launched" &&
+              "max-w-[900px] grid-cols-[1fr,1fr,1.8fr]"
+            }
+            ${
+              !["Replies", "Coins Launched"].includes(selectedName) &&
+              "max-w-[860px] grid-cols-[1fr,1fr,1.5fr]"
+            }
+          `}
         >
           {/* uer profile ----> */}
           <div className="w-full flex flex-col gap-3">
@@ -107,7 +117,7 @@ const ProfilePage = () => {
                       }`}
                     >
                       <p
-                        className={`w-full flex justify-start items-center text-[10px] font-normal ${
+                        className={`w-full flex text-left justify-start items-center text-[10px] font-normal ${
                           isSelected ? "text-white" : "text-black-1"
                         }`}
                       >
@@ -143,6 +153,7 @@ const ProfilePage = () => {
           {selectedName === "Followers" && <Followers />}
           {selectedName === "Following" && <Following />}
           {selectedName === "Replies" && <Replies />}
+          {selectedName === "Coins Launched" && <CoinsLaunched />}
         </div>
       </div>
     </ComponentWrapper>
