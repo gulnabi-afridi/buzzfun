@@ -6,6 +6,8 @@ import Image from "next/image";
 import { FiCopy } from "react-icons/fi";
 import { GoArrowUpRight } from "react-icons/go";
 import Followers from "../components/Profile/Followers";
+import Following from "../components/Profile/Following";
+
 
 const ProfilePage = () => {
   // states ----------->
@@ -133,6 +135,8 @@ const ProfilePage = () => {
           </div>
           {/* user - details components  */}
           {selectedName === "Followers" && <Followers />}
+          {selectedName === "Following" && <Following />}
+
         </div>
       </div>
     </ComponentWrapper>
