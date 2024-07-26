@@ -9,6 +9,7 @@ import Followers from "../components/Profile/Followers";
 import Following from "../components/Profile/Following";
 import Replies from "../components/Profile/Replies";
 import CoinsLaunched from "../components/Profile/CoinsLaunched";
+import CoinsHeld from "../components/Profile/CoinsHeld";
 
 const ProfilePage = () => {
   // states ----------->
@@ -154,6 +155,7 @@ const ProfilePage = () => {
           {selectedName === "Following" && <Following />}
           {selectedName === "Replies" && <Replies />}
           {selectedName === "Coins Launched" && <CoinsLaunched />}
+          {selectedName === "Coins held" && <CoinsHeld />}
         </div>
       </div>
     </ComponentWrapper>
