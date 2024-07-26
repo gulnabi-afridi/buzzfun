@@ -7,7 +7,7 @@ import { FiCopy } from "react-icons/fi";
 import { GoArrowUpRight } from "react-icons/go";
 import Followers from "../components/Profile/Followers";
 import Following from "../components/Profile/Following";
-
+import Replies from "../components/Profile/Replies";
 
 const ProfilePage = () => {
   // states ----------->
@@ -22,8 +22,14 @@ const ProfilePage = () => {
 
   return (
     <ComponentWrapper style="bg-white-2">
-      <div className="w-full pt-12 min-h-screen flex justify-center items-start">
-        <div className="w-full max-w-[860px] grid grid-cols-[1fr,1fr,1.5fr] gap-7 justify-center items-start">
+      <div className="w-full pt-12 min-h-screen pb-10 flex justify-center items-start">
+        <div
+          className={`w-full ${
+            selectedName === "Replies"
+              ? "max-w-[950px] grid-cols-[1fr,1fr,2fr]"
+              : "max-w-[860px] grid-cols-[1fr,1fr,1.5fr]"
+          } grid  gap-6 justify-center items-start`}
+        >
           {/* uer profile ----> */}
           <div className="w-full flex flex-col gap-3">
             <div className="w-full flex flex-col border-[1px] border-blue-1 rounded-[2px] py-[8px] px-[7px]">
@@ -49,14 +55,14 @@ const ProfilePage = () => {
                 <button className="text-white-1 hover:opacity-80 font-normal text-[10px] uppercase bg-black-1 px-2 py-[2px]">
                   Edit
                 </button>
-                <p className="text-[14px] uppercase font-normal text-black-1">
+                <p className="text-[10px] uppercase font-normal text-black-1">
                   Your Profile
                 </p>
               </div>
             </div>
             {/* referal link ---> */}
             <div className="w-full h-[44px] bg-transparent border-[1px] border-blue-1 rounded-[2px] flex justify-between items-center px-2 gap-3">
-              <p className="text-[14px] whitespace-nowrap uppercase font-normal text-black-1">
+              <p className="text-[10px]  uppercase font-normal text-black-1">
                 Referral Link
               </p>
               <button className="px-2 py-1 text-[10px] font-normal text-white-1 bg-[#404040]">
@@ -136,7 +142,7 @@ const ProfilePage = () => {
           {/* user - details components  */}
           {selectedName === "Followers" && <Followers />}
           {selectedName === "Following" && <Following />}
-
+          {selectedName === "Replies" && <Replies />}
         </div>
       </div>
     </ComponentWrapper>

@@ -2,7 +2,7 @@ import React from "react";
 
 const Pagination = () => {
   return (
-    <div className="w-full mt-8 flex justify-center items-center">
+    <div className="w-full flex justify-center items-center">
       <div className="w-fit px-4 py-1 bg-black-1 rounded-[2px] flex justify-center items-center gap-4">
         <button className="text-[14px] font-normal text-white-1">
           {pattern1}
