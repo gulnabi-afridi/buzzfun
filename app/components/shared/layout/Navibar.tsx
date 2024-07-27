@@ -346,9 +346,10 @@ const Navibar: React.FC = () => {
               return (
                 <div
                   key={index}
-                  className="w-full text-[12px] font-normal pl-5 pr-2 py-[10px] uppercase rounded-[2px] border-[1px] border-blue-1"
+                  className="w-full flex justify-start px-3 items-center gap-3 py-[10px] uppercase rounded-[2px] border-[1px] border-blue-1"
                 >
-                  {item}
+                  <img src={item.img} className="w-[28px] h-[28px]" alt="" />
+                  <p className="text-[12px] font-normal"> {item.name}</p>
                 </div>
               );
             })}
@@ -399,6 +400,27 @@ const menuLinks = [
   },
 ];
 
-const connectWallet = ["Phantom", "metamask", "Coinbase", "WalletConnet"];
+const connectWallet = [
+  {
+    img: "/assets/phantom.svg",
+    name: "Phantom",
+  },
+  {
+    name: "metamask",
+    img: "/assets/metaMask.svg",
+  },
+  {
+    name: "Coinbase",
+    img: "/assets/coinBase.svg",
+  },
+  {
+    name: "WalletConnet",
+    img: "/assets/walletConnection.svg",
+  },
+  {
+    name: "Smart Wallet",
+    img: "/assets/smartWallet.svg",
+  },
+];
 
 export default Navibar;

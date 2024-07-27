@@ -11,16 +11,16 @@ import Replies from "../components/Profile/Replies";
 import CoinsLaunched from "../components/Profile/CoinsLaunched";
 import CoinsHeld from "../components/Profile/CoinsHeld";
 import { useDisclosure } from "@mantine/hooks";
-import { Modal, Button } from "@mantine/core";
+import { Modal } from "@mantine/core";
 
 const ProfilePage = () => {
   // states ----------->
-  const [selectedIndex, setSelectedIndex] = useState(null);
-  const [selectedName, setSelectedName] = useState("");
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedName, setSelectedName] = useState("Followers");
   const [opened, { open, close }] = useDisclosure(false);
 
   //   functions --------->
-  const handleButtonClick = (index: number, name: string) => {
+  const handleButtonClick = (index: any, name: string) => {
     setSelectedIndex(index);
     setSelectedName(name);
   };
@@ -106,65 +106,65 @@ const ProfilePage = () => {
             </div>
             {/* Bio ---> */}
             <div className="w-full flex justify-center items-center">
-            <div className="w-full bg-transparent max-w-[300px] mt-0 sm:mt-5 flex flex-col">
-              <p className="text-[10px] flex justify-start pl-1 dark:mb-2 mb-0 items-center dark:bg-white-1 bg-transparent w-[30%] h-[28px] uppercase font-normal text-black-1">
-                Bio:
-              </p>
-              <p className="border-[1px] dark:bg-black-1 bg-transparent border-blue-1 text-[10px] font-normal dark:text-white-1 text-black-1 px-2 py-1">
-                bio goes here. make sure it is interesting otherwise people will
-                hate you.
-              </p>
-              <div className="mt-4 sm:mt-10 dark:bg-black-1 bg-transparent flex flex-col px-2 py-1 border-[1px] border-blue-1">
-                {/* header */}
-                <div className="w-full h-[30px] dark:bg-yellow-1 bg-transparent justify-center items-center grid grid-cols-[1.5fr,1fr,1fr]">
-                  <h2 className="text-[15px] font-normal uppercase text-black-1">
-                    BUZZ XP
-                  </h2>
-                  <h2 className="text-[15px] font-normal uppercase text-black-1">
-                    4000{" "}
-                  </h2>
-                </div>
-                {/* rows */}
-                <div className="flex flex-col">
-                  {userDetails.map((item, index) => {
-                    // Determine if the current item is selected
-                    const isSelected = selectedIndex === index;
+              <div className="w-full bg-transparent max-w-[300px] mt-0 sm:mt-5 flex flex-col">
+                <p className="text-[10px] flex justify-start pl-1 dark:mb-2 mb-0 items-center dark:bg-white-1 bg-transparent w-[30%] h-[28px] uppercase font-normal text-black-1">
+                  Bio:
+                </p>
+                <p className="border-[1px] dark:bg-black-1 bg-transparent border-blue-1 text-[10px] font-normal dark:text-white-1 text-black-1 px-2 py-1">
+                  bio goes here. make sure it is interesting otherwise people
+                  will hate you.
+                </p>
+                <div className="mt-4 sm:mt-10 dark:bg-black-1 bg-transparent flex flex-col px-2 py-1 border-[1px] border-blue-1">
+                  {/* header */}
+                  <div className="w-full h-[30px] dark:bg-yellow-1 bg-transparent justify-center items-center grid grid-cols-[1.5fr,1fr,1fr]">
+                    <h2 className="text-[15px] font-normal uppercase text-black-1">
+                      BUZZ XP
+                    </h2>
+                    <h2 className="text-[15px] font-normal uppercase text-black-1">
+                      4000{" "}
+                    </h2>
+                  </div>
+                  {/* rows */}
+                  <div className="flex flex-col">
+                    {userDetails.map((item, index) => {
+                      // Determine if the current item is selected
+                      const isSelected = selectedIndex === index;
 
-                    return (
-                      <button
-                        key={index}
-                        onClick={() => handleButtonClick(index, item.name)}
-                        className={`w-full justify-center items-center h-[28px] grid grid-cols-[1.5fr,1fr,1fr]`}
-                      >
-                        <p
-                          className={`w-full flex text-left dark:text-white-1 text-black-1 justify-start items-center text-[10px] font-normal`}
+                      return (
+                        <button
+                          key={index}
+                          onClick={() => handleButtonClick(index, item.name)}
+                          className={`w-full justify-center items-center h-[28px] grid grid-cols-[1.5fr,1fr,1fr]`}
                         >
-                          {item.name}
-                        </p>
-                        <p
-                          className={`w-full flex justify-start dark:text-white-1 text-black-1 items-center text-[10px] font-normal }`}
-                        >
-                          {item.value}
-                        </p>
-                        <div className="w-full flex justify-end items-center">
-                          <div
-                            className={`w-[12px] flex justify-center items-center h-[12px] ${
-                              isSelected ? "bg-black-1" : "bg-white-1"
-                            }`}
+                          <p
+                            className={`w-full flex text-left dark:text-white-1 text-black-1 justify-start items-center text-[10px] font-normal`}
                           >
-                            <GoArrowUpRight
-                              className={`text-[11px] ${
-                                isSelected ? "text-white-1" : "text-black-1"
+                            {item.name}
+                          </p>
+                          <p
+                            className={`w-full flex justify-start dark:text-white-1 text-black-1 items-center text-[10px] font-normal }`}
+                          >
+                            {item.value}
+                          </p>
+                          <div className="w-full flex justify-end items-center">
+                            <div
+                              className={`w-[12px] flex justify-center items-center h-[12px] ${
+                                isSelected ? "bg-black-1" : "bg-white-1"
                               }`}
-                            />
+                            >
+                              <GoArrowUpRight
+                                className={`text-[11px] ${
+                                  isSelected ? "text-white-1" : "text-black-1"
+                                }`}
+                              />
+                            </div>
                           </div>
-                        </div>
-                      </button>
-                    );
-                  })}
+                        </button>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
-            </div>
             </div>
             {/* user - details components  */}
             {selectedName === "Followers" && <Followers />}
@@ -187,7 +187,7 @@ const ProfilePage = () => {
         withCloseButton={false}
       >
         <div className="w-full flex justify-center items-center">
-          <div className="w-full py-6 max-w-[220px] flex flex-col">
+          <div className="w-full pb-5 pt-3 max-w-[230px] flex flex-col">
             <div className="flex justify-start mt-5 mb-3 items-center gap-2 pl-4">
               <button className="text-white-1 hover:opacity-80 font-normal text-[10px] uppercase bg-black-1 px-2 py-[2px]">
                 Edit
@@ -240,6 +240,18 @@ const ProfilePage = () => {
                 bio goes here. make sure it is interesting otherwise people will
                 hate you.
               </p>
+            </div>
+            {/* buttons  */}
+            <div className="w-full mt-4 flex justify-between items-center">
+              <button
+                onClick={close}
+                className="px-3 hover:opacity-80 text-[12px] font-normal text-white-1 py-2 bg-black-1 rounded-[2px]"
+              >
+                \ Close
+              </button>
+              <button className="px-3 hover:opacity-80 text-[12px] font-normal text-purple-1 py-2 bg-white-1 rounded-[2px]">
+                \ Save
+              </button>
             </div>
           </div>
         </div>
