@@ -8,8 +8,14 @@ import { Menu, Button, Text, rem } from "@mantine/core";
 import { BsMoon } from "react-icons/bs";
 import { IoCopyOutline } from "react-icons/io5";
 import ThemeSwitch from "../../ThemeSwitch";
+import { Modal } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
+import { GoArrowUpRight } from "react-icons/go";
 
 const Navibar: React.FC = () => {
+  const [connectWalletOpened, { open: connectOpen, close: connectClose }] =
+    useDisclosure(false);
+
   return (
     <React.Fragment>
       <div className="w-full  dark:bg-black-3 bg-white-2 px-5 flex justify-between items-center h-[65px]">
@@ -80,7 +86,10 @@ const Navibar: React.FC = () => {
             />
           </div>
           {/* connect btn */}
-          <button className="bg-yellow-1 ml-4 h-[30px] text-black-1 navibarCardSh rounded-[2px] px-4 flex justify-center items-center text-[15px] font-normal">
+          <button
+            onClick={connectOpen}
+            className="bg-yellow-1 ml-4 h-[30px] text-black-1 navibarCardSh rounded-[2px] px-4 flex justify-center items-center text-[15px] font-normal"
+          >
             Connect
           </button>
           {/* hamburger */}
@@ -190,6 +199,66 @@ const Navibar: React.FC = () => {
           </Menu>
         </div>
       </div>
+      {/* MDOAL FOR CONNECT WALLET -------------->  */}
+      {/* 1 connect wallet modal  */}
+      <Modal
+        opened={connectWalletOpened}
+        onClose={connectClose}
+        centered
+        size="md"
+        classNames={{
+          body: "bg-white-2 rounded-[2px]",
+        }}
+        withCloseButton={false}
+      >
+        <div className="w-full flex p-3 flex-col justify-center items-center">
+          {/* header  */}
+          <div className="flex justify-start items-center gap-2">
+            <button className="text-white-1 uppercase hover:opacity-80 font-normal text-[12px] bg-black-1 px-2 py-[2px]">
+              Connect
+            </button>
+            <p className="text-[12px] uppercase font-normal text-black-1">
+              Connect with us
+            </p>
+          </div>
+          <div className="w-full grid my-10 grid-cols-2 gap-3">
+            {/* create a wallet */}
+            <button className="w-full cursor-pointer bg-white-1 p-2 rounded-[3px]">
+              <div className="w-full flex justify-between items-start">
+                <p className="text-[12px] font-normal text-black-1 uppercase">
+                  Create a wallet
+                </p>
+                <div
+                  className={`w-[12px] bg-black-1 flex justify-center items-center h-[12px] `}
+                >
+                  <GoArrowUpRight className={`text-white-1 text-[11px] `} />
+                </div>
+              </div>
+              <p className="text-[12px] mt-6 font-normal text-black-1 uppercase">
+                text goes here to explain stuff
+              </p>
+            </button>
+            {/* connect a wallet */}
+            <button className="w-full cursor-pointer bg-white-1 p-2 rounded-[3px]">
+              <div className="w-full flex justify-between items-start">
+                <p className="text-[12px] font-normal text-black-1 uppercase">
+                Connect a wallet
+                </p>
+                <div
+                  className={`w-[12px] bg-black-1 flex justify-center items-center h-[12px] `}
+                >
+                  <GoArrowUpRight className={`text-white-1 text-[11px] `} />
+                </div>
+              </div>
+              <p className="text-[12px] mt-6 font-normal text-black-1 uppercase">
+              text goes here to explain stuff
+              </p>
+            </button>
+          </div>
+          {/*  */}
+          <button className="text-black-1 font-normal text-[12px] uppercase">\ pussy out</button>
+        </div>
+      </Modal>
     </React.Fragment>
   );
 };
