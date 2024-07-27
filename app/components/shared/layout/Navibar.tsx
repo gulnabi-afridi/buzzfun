@@ -17,6 +17,8 @@ const Navibar: React.FC = () => {
     useDisclosure(false);
   const [createWalletOpened, { open: createOpen, close: createClose }] =
     useDisclosure(false);
+  const [connectWallet2Opened, { open: connect2Open, close: connect2Close }] =
+    useDisclosure(false);
 
   return (
     <React.Fragment>
@@ -220,7 +222,7 @@ const Navibar: React.FC = () => {
               Connect
             </button>
             <p className="text-[12px] uppercase font-normal text-black-1">
-              Connect with us
+              with us
             </p>
           </div>
           <div className="w-full grid my-10 grid-cols-2 gap-3">
@@ -247,7 +249,14 @@ const Navibar: React.FC = () => {
               </p>
             </button>
             {/* connect a wallet */}
-            <button className="w-full cursor-pointer bg-white-1 p-2 rounded-[3px]">
+            <button
+              onClick={() => {
+                connect2Open();
+                createClose();
+                connectClose();
+              }}
+              className="w-full cursor-pointer bg-white-1 p-2 rounded-[3px]"
+            >
               <div className="w-full flex justify-between items-start">
                 <p className="text-[12px] font-normal text-black-1 uppercase">
                   Connect a wallet
@@ -264,7 +273,10 @@ const Navibar: React.FC = () => {
             </button>
           </div>
           {/*  */}
-          <button className="text-black-1 font-normal text-[12px] uppercase">
+          <button
+            onClick={connectClose}
+            className="text-black-1 font-normal text-[12px] uppercase"
+          >
             \ pussy out
           </button>
         </div>
@@ -296,8 +308,56 @@ const Navibar: React.FC = () => {
               Smart wallet
             </div>
             {/*  */}
-            <button className="text-black-1 font-normal text-[12px] uppercase">
+            <button
+              onClick={() => {
+                createClose();
+                connectOpen();
+              }}
+              className="text-black-1 font-normal text-[12px] uppercase"
+            >
               \ go back
+            </button>
+          </div>
+        </div>
+      </Modal>
+      {/* connect Wallet Modal  */}
+      <Modal
+        opened={connectWallet2Opened}
+        onClose={connect2Close}
+        centered
+        size="xs"
+        classNames={{
+          body: "bg-white-2 rounded-[2px]",
+        }}
+        withCloseButton={false}
+      >
+        <div className="w-full flex py-8 px-3 flex-col justify-center items-center">
+          {/* header  */}
+          <div className="flex justify-start items-center gap-2">
+            <button className="text-white-1 uppercase hover:opacity-80 font-normal text-[12px] bg-black-1 px-2 py-[2px]">
+              Connect
+            </button>
+            <p className="text-[12px] uppercase font-normal text-black-1">
+              Your Wallet
+            </p>
+          </div>
+          <div className="w-full mt-8 max-w-[230px] flex flex-col gap-5">
+            {connectWallet.map((item, index) => {
+              return (
+                <div
+                  key={index}
+                  className="w-full text-[12px] font-normal pl-5 pr-2 py-[10px] uppercase rounded-[2px] border-[1px] border-blue-1"
+                >
+                  {item}
+                </div>
+              );
+            })}
+            {/* button */}
+            <button
+              onClick={connect2Close}
+              className="px-4 w-fit hover:opacity-80 py-[6px] text-[10px] font-normal text-white-1 rounded-[5px] bg-black-1"
+            >
+              /close
             </button>
           </div>
         </div>
@@ -338,5 +398,7 @@ const menuLinks = [
     icon: "/assets/engage.svg",
   },
 ];
+
+const connectWallet = ["Phantom", "metamask", "Coinbase", "WalletConnet"];
 
 export default Navibar;
