@@ -4,8 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { Menu, Button, Text, rem } from "@mantine/core";
-import { BsMoon } from "react-icons/bs";
+import { Menu } from "@mantine/core";
 import { IoCopyOutline } from "react-icons/io5";
 import ThemeSwitch from "../../ThemeSwitch";
 import { Modal } from "@mantine/core";
@@ -25,9 +24,12 @@ const Navibar: React.FC = () => {
       <div className="w-full  dark:bg-black-3 bg-white-2 px-5 flex justify-between items-center h-[65px]">
         {/* left portion */}
         <div className="flex justify-center items-center gap-6">
-          <div className="w-[150px] sm:w-[193px] mr-0 sm:mr-8 h-[45px] sm:h-[53px] relative">
+          <Link
+            href="/"
+            className="w-[150px] sm:w-[193px] mr-0 sm:mr-8 h-[45px] sm:h-[53px] relative"
+          >
             <Image src="/assets/logo.svg" className="object-fill" fill alt="" />
-          </div>
+          </Link>
           <div className="justify-center md:flex hidden items-center gap-3">
             {socialLinks.map((item, index) => {
               return (
@@ -149,7 +151,8 @@ const Navibar: React.FC = () => {
                 <div className="w-full flex flex-col gap-2 ">
                   {menuLinks.map((item, index) => {
                     return (
-                      <button
+                      <Link
+                        href={item.path}
                         key={index}
                         className="w-full flex justify-start items-center gap-2"
                       >
@@ -157,7 +160,7 @@ const Navibar: React.FC = () => {
                         <p className="text-[14px] text-white-1 font-normal">
                           {item.name}
                         </p>
-                      </button>
+                      </Link>
                     );
                   })}
                   <button className="w-full flex justify-start items-center gap-2">
@@ -384,12 +387,12 @@ const socialLinks = [
 
 const menuLinks = [
   {
-    path: "#",
+    path: "/",
     name: "Home",
     icon: "/assets/home.svg",
   },
   {
-    path: "#",
+    path: "/profile",
     name: "Profile",
     icon: "/assets/profile.svg",
   },
