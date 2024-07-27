@@ -15,6 +15,8 @@ import { GoArrowUpRight } from "react-icons/go";
 const Navibar: React.FC = () => {
   const [connectWalletOpened, { open: connectOpen, close: connectClose }] =
     useDisclosure(false);
+  const [createWalletOpened, { open: createOpen, close: createClose }] =
+    useDisclosure(false);
 
   return (
     <React.Fragment>
@@ -200,7 +202,7 @@ const Navibar: React.FC = () => {
         </div>
       </div>
       {/* MDOAL FOR CONNECT WALLET -------------->  */}
-      {/* 1 connect wallet modal  */}
+      {/* 1 Connect Wallet Modal  */}
       <Modal
         opened={connectWalletOpened}
         onClose={connectClose}
@@ -223,7 +225,13 @@ const Navibar: React.FC = () => {
           </div>
           <div className="w-full grid my-10 grid-cols-2 gap-3">
             {/* create a wallet */}
-            <button className="w-full cursor-pointer bg-white-1 p-2 rounded-[3px]">
+            <button
+              onClick={() => {
+                createOpen();
+                connectClose();
+              }}
+              className="w-full cursor-pointer bg-white-1 p-2 rounded-[3px]"
+            >
               <div className="w-full flex justify-between items-start">
                 <p className="text-[12px] font-normal text-black-1 uppercase">
                   Create a wallet
@@ -242,7 +250,7 @@ const Navibar: React.FC = () => {
             <button className="w-full cursor-pointer bg-white-1 p-2 rounded-[3px]">
               <div className="w-full flex justify-between items-start">
                 <p className="text-[12px] font-normal text-black-1 uppercase">
-                Connect a wallet
+                  Connect a wallet
                 </p>
                 <div
                   className={`w-[12px] bg-black-1 flex justify-center items-center h-[12px] `}
@@ -251,12 +259,47 @@ const Navibar: React.FC = () => {
                 </div>
               </div>
               <p className="text-[12px] mt-6 font-normal text-black-1 uppercase">
-              text goes here to explain stuff
+                text goes here to explain stuff
               </p>
             </button>
           </div>
           {/*  */}
-          <button className="text-black-1 font-normal text-[12px] uppercase">\ pussy out</button>
+          <button className="text-black-1 font-normal text-[12px] uppercase">
+            \ pussy out
+          </button>
+        </div>
+      </Modal>
+      {/* 2) Create Wallet Modal */}
+      <Modal
+        opened={createWalletOpened}
+        onClose={createClose}
+        centered
+        size="xs"
+        classNames={{
+          body: "bg-white-2 rounded-[2px]",
+        }}
+        withCloseButton={false}
+      >
+        <div className="w-full px-3 py-8 flex justify-center items-center">
+          <div className="w-full max-w-[230px] flex flex-col justify-center items-center">
+            {/* header  */}
+            <div className="flex justify-start items-center gap-2">
+              <button className="text-white-1 uppercase hover:opacity-80 font-normal text-[12px] bg-black-1 px-2 py-[2px]">
+                create
+              </button>
+              <p className="text-[12px] uppercase font-normal text-black-1">
+                A Wallet
+              </p>
+            </div>
+            {/* smal wallet */}
+            <div className="w-full text-[12px] font-normal my-8 px-2 py-2 uppercase rounded-[2px] border-[1px] border-blue-1">
+              Smart wallet
+            </div>
+            {/*  */}
+            <button className="text-black-1 font-normal text-[12px] uppercase">
+              \ go back
+            </button>
+          </div>
         </div>
       </Modal>
     </React.Fragment>
