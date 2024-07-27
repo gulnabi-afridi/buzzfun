@@ -27,93 +27,96 @@ const ProfilePage = () => {
 
   return (
     <React.Fragment>
-      <ComponentWrapper style="bg-white-2">
-        <div className="w-full pt-12 min-h-screen pb-10 flex justify-center items-start">
+      <ComponentWrapper style="dark:bg-[#1D252C] bg-white-2">
+        <div className="w-full pt-8 sm:pt-12 min-h-screen pb-10 flex justify-center items-start">
           <div
-            className={`w-full grid gap-6 justify-center items-start 
+            className={`w-full grid gap-6 sm:gap-4 md:gap-6 justify-center items-start 
             ${
               selectedName === "Replies" &&
-              "max-w-[950px] grid-cols-[1fr,1fr,2fr]"
+              "max-w-[950px] grid-cols-1 sm:grid-cols-2 md:grid-cols-[1fr,1fr,2fr]"
             }
             ${
               selectedName === "Coins Launched" &&
-              "max-w-[900px] grid-cols-[1fr,1fr,1.8fr]"
+              "max-w-[900px] grid-cols-1 sm:grid-cols-2 md:grid-cols-[1fr,1fr,1.8fr]"
             }
             ${
               !["Replies", "Coins Launched"].includes(selectedName) &&
-              "max-w-[860px] grid-cols-[1fr,1fr,1.5fr]"
+              "max-w-[860px] grid-cols-1 sm:grid-cols-2 md:grid-cols-[1fr,1fr,1.5fr]"
             }
           `}
           >
             {/* uer profile ----> */}
-            <div className="w-full flex flex-col gap-3">
-              <div className="w-full flex flex-col border-[1px] border-blue-1 rounded-[2px] py-[8px] px-[7px]">
-                {/* profile image */}
-                <div className="w-full h-[200px] relative">
-                  <Image src="/assets/profile.png" alt="" fill />
+            <div className="w-full flex justify-center items-center">
+              <div className="w-full max-w-[300px] flex flex-col gap-3">
+                <div className="w-full flex flex-col border-[1px] bg-transparent dark:bg-black-1 border-blue-1 rounded-[2px] py-[8px] px-[7px]">
+                  {/* profile image */}
+                  <div className="w-full h-[200px] relative">
+                    <Image src="/assets/profile.png" alt="" fill />
+                  </div>
+                  {/* user name */}
+                  <div className="w-full mt-3 border-[1px] border-blue-1 grid grid-cols-[1fr,1.4fr] px-[5px] h-[43px] justify-center items-center">
+                    <p className="text-[14px] uppercase font-normal dark:text-white-1 text-black-1">
+                      Username:
+                    </p>
+                    <input
+                      placeholder="insert username"
+                      type="text"
+                      className="w-full focus:outline-none px-1 text-[10px] font-normal placeholder:text-white-1 text-white-1 uppercase h-[60%] bg-[#404040]"
+                      name="name"
+                      id="name"
+                    />
+                  </div>
+                  {/* edit your profile */}
+                  <div className="flex justify-start mt-5 mb-3 items-center gap-2 pl-4">
+                    <button
+                      onClick={open}
+                      className="text-white-1 dark:bg-purple-1 hover:opacity-80 font-normal text-[10px] uppercase bg-black-1 px-2 py-[2px]"
+                    >
+                      Edit
+                    </button>
+                    <p className="text-[10px] uppercase font-normal dark:text-white-1 text-black-1">
+                      Your Profile
+                    </p>
+                  </div>
                 </div>
-                {/* user name */}
-                <div className="w-full mt-3 border-[1px] border-blue-1 grid grid-cols-[1fr,1.4fr] px-[5px] h-[43px] justify-center items-center">
-                  <p className="text-[14px] uppercase font-normal text-black-1">
-                    Username:
+                {/* referal link ---> */}
+                <div className="w-full h-[44px] dark:bg-black-1 bg-transparent border-[1px] border-blue-1 rounded-[2px] flex justify-between items-center px-2 gap-3">
+                  <p className="text-[10px] dark:text-white-1 uppercase font-normal text-black-1">
+                    Referral Link
                   </p>
-                  <input
-                    placeholder="insert username"
-                    type="text"
-                    className="w-full focus:outline-none px-1 text-[10px] font-normal placeholder:text-white-1 text-white-1 uppercase h-[60%] bg-[#404040]"
-                    name="name"
-                    id="name"
-                  />
-                </div>
-                {/* edit your profile */}
-                <div className="flex justify-start mt-5 mb-3 items-center gap-2 pl-4">
-                  <button
-                    onClick={open}
-                    className="text-white-1 hover:opacity-80 font-normal text-[10px] uppercase bg-black-1 px-2 py-[2px]"
-                  >
-                    Edit
+                  <button className="px-2 py-1 text-[10px] font-normal text-white-1 bg-[#404040]">
+                    Generate
                   </button>
-                  <p className="text-[10px] uppercase font-normal text-black-1">
-                    Your Profile
-                  </p>
+                  <button className="w-[18px] h-[18px] bg-white-1 flex justify-center items-center">
+                    <FiCopy className="text-black-1 text-[12px]" />
+                  </button>
                 </div>
-              </div>
-              {/* referal link ---> */}
-              <div className="w-full h-[44px] bg-transparent border-[1px] border-blue-1 rounded-[2px] flex justify-between items-center px-2 gap-3">
-                <p className="text-[10px]  uppercase font-normal text-black-1">
-                  Referral Link
-                </p>
-                <button className="px-2 py-1 text-[10px] font-normal text-white-1 bg-[#404040]">
-                  Generate
-                </button>
-                <button className="w-[18px] h-[18px] bg-white-1 flex justify-center items-center">
-                  <FiCopy className="text-black-1 text-[12px]" />
-                </button>
-              </div>
-              {/* reactions to profile */}
-              <div className="bg-white-1 w-fit py-2 px-4 flex justify-center items-center gap-3">
-                <div className="flex justify-center items-center gap-1">
-                  <p>❤️</p>
-                  <p className="text-[10px] font-normal text-black-1">12</p>
-                </div>
-                <div className="flex justify-center items-center gap-1">
-                  <p>🤬</p>
-                  <p className="text-[10px] font-normal text-black-1">12</p>
+                {/* reactions to profile */}
+                <div className="bg-white-1 rounded-sm w-fit py-[6px] px-3 flex justify-center items-center gap-3">
+                  <div className="flex justify-center items-center gap-1">
+                    <p>❤️</p>
+                    <p className="text-[10px] font-normal text-black-1">12</p>
+                  </div>
+                  <div className="flex justify-center items-center gap-1">
+                    <p>🤬</p>
+                    <p className="text-[10px] font-normal text-black-1">12</p>
+                  </div>
                 </div>
               </div>
             </div>
             {/* Bio ---> */}
-            <div className="w-full mt-5 flex flex-col">
-              <p className="text-[10px] uppercase font-normal text-black-1">
+            <div className="w-full flex justify-center items-center">
+            <div className="w-full bg-transparent max-w-[300px] mt-0 sm:mt-5 flex flex-col">
+              <p className="text-[10px] flex justify-start pl-1 dark:mb-2 mb-0 items-center dark:bg-white-1 bg-transparent w-[30%] h-[28px] uppercase font-normal text-black-1">
                 Bio:
               </p>
-              <p className="border-[1px] border-blue-1 text-[10px] font-normal text-black-1 px-2 py-1">
+              <p className="border-[1px] dark:bg-black-1 bg-transparent border-blue-1 text-[10px] font-normal dark:text-white-1 text-black-1 px-2 py-1">
                 bio goes here. make sure it is interesting otherwise people will
                 hate you.
               </p>
-              <div className="mt-10 flex flex-col px-2 py-1 border-[1px] border-blue-1">
+              <div className="mt-4 sm:mt-10 dark:bg-black-1 bg-transparent flex flex-col px-2 py-1 border-[1px] border-blue-1">
                 {/* header */}
-                <div className="w-full h-[30px] justify-center items-center grid grid-cols-[1.5fr,1fr,1fr]">
+                <div className="w-full h-[30px] dark:bg-yellow-1 bg-transparent justify-center items-center grid grid-cols-[1.5fr,1fr,1fr]">
                   <h2 className="text-[15px] font-normal uppercase text-black-1">
                     BUZZ XP
                   </h2>
@@ -131,21 +134,15 @@ const ProfilePage = () => {
                       <button
                         key={index}
                         onClick={() => handleButtonClick(index, item.name)}
-                        className={`w-full justify-center items-center h-[28px] grid grid-cols-[1.5fr,1fr,1fr] ${
-                          isSelected ? "bg-black text-white" : "bg-transparent"
-                        }`}
+                        className={`w-full justify-center items-center h-[28px] grid grid-cols-[1.5fr,1fr,1fr]`}
                       >
                         <p
-                          className={`w-full flex text-left justify-start items-center text-[10px] font-normal ${
-                            isSelected ? "text-white" : "text-black-1"
-                          }`}
+                          className={`w-full flex text-left dark:text-white-1 text-black-1 justify-start items-center text-[10px] font-normal`}
                         >
                           {item.name}
                         </p>
                         <p
-                          className={`w-full flex justify-start items-center text-[10px] font-normal ${
-                            isSelected ? "text-white" : "text-black-1"
-                          }`}
+                          className={`w-full flex justify-start dark:text-white-1 text-black-1 items-center text-[10px] font-normal }`}
                         >
                           {item.value}
                         </p>
@@ -168,6 +165,7 @@ const ProfilePage = () => {
                 </div>
               </div>
             </div>
+            </div>
             {/* user - details components  */}
             {selectedName === "Followers" && <Followers />}
             {selectedName === "Following" && <Following />}
@@ -177,13 +175,13 @@ const ProfilePage = () => {
           </div>
         </div>
       </ComponentWrapper>
+      {/* EDIT USER PROFILE MODAL ---------------->  */}
       <Modal
         opened={opened}
         onClose={close}
         centered
-        size='xs'
+        size="xs"
         classNames={{
-            
           body: "bg-white-2 border-[1px] rounded-[2px] border-blue-1",
         }}
         withCloseButton={false}
