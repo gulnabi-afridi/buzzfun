@@ -5,6 +5,8 @@ import { Providers } from "./providers";
 import Navibar from "./components/shared/layout/Navibar";
 import Footer from "./components/shared/layout/Footer";
 import Breadcrumb from "./components/shared/layout/Breadcrumb";
+import CoinPercentageDisplay from "./components/shared/layout/CoinPercentageDisplay";
+
 
 const fragment = Fragment_Mono({
   subsets: ["latin"],
@@ -26,6 +28,7 @@ export default function RootLayout({
       <body className={`${fragment.className}`}>
         <Providers>
           <Navibar />
+          <CoinPercentageDisplay/>
           <Breadcrumb/>
           {children}
           <Footer/>

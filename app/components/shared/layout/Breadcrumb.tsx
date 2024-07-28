@@ -7,7 +7,7 @@ const Breadcrumb = () => {
   return (
     <ComponentWrapper style="dark:bg-black-3 bg-white-2">
       <div className="w-full flex justify-center items-center">
-        <div className="grid mt-4 grid-cols-[1fr,100px] max-w-[1600px] justify-center w-full items-center gap-2">
+        <div className="grid mt-5 grid-cols-[1fr,100px] max-w-[1600px] justify-center w-full items-center gap-2">
           <div className="w-full h-full hideScroll overflow-auto">
             <div className="w-full min-w-[1200px] border-[1px] border-blue-1 dark:bg-[#25303A] bg-white-1 flex h-full justify-center items-center gap-4">
               {/* 1st portion */}
