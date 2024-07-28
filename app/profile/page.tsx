@@ -180,9 +180,13 @@ const ProfilePage = () => {
         opened={opened}
         onClose={close}
         centered
+        overlayProps={{
+          backgroundOpacity: 0.55,
+          blur: 3,
+        }}
         size="xs"
         classNames={{
-          body: "bg-white-2 border-[1px] rounded-[2px] border-blue-1",
+          body: "bg-white-2 border-[1px] border-blue-1",
         }}
         withCloseButton={false}
       >

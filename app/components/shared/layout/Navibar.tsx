@@ -28,7 +28,7 @@ const Navibar: React.FC = () => {
             href="/"
             className="w-[150px] sm:w-[193px] mr-0 sm:mr-8 h-[45px] sm:h-[53px] relative"
           >
-            <Image src="/assets/logo.svg" className="object-fill" fill alt="" />
+            <Image src="/assets/logo.png" className="object-fill" fill alt="" />
           </Link>
           <div className="justify-center md:flex hidden items-center gap-3">
             {socialLinks.map((item, index) => {
@@ -213,6 +213,10 @@ const Navibar: React.FC = () => {
         onClose={connectClose}
         centered
         size="md"
+        overlayProps={{
+          backgroundOpacity: 0.55,
+          blur: 3,
+        }}
         classNames={{
           body: "bg-white-2 rounded-[2px]",
         }}
@@ -289,6 +293,10 @@ const Navibar: React.FC = () => {
         opened={createWalletOpened}
         onClose={createClose}
         centered
+        overlayProps={{
+          backgroundOpacity: 0.55,
+          blur: 3,
+        }}
         size="xs"
         classNames={{
           body: "bg-white-2 rounded-[2px]",
@@ -328,6 +336,10 @@ const Navibar: React.FC = () => {
         opened={connectWallet2Opened}
         onClose={connect2Close}
         centered
+        overlayProps={{
+          backgroundOpacity: 0.55,
+          blur: 3,
+        }}
         size="xs"
         classNames={{
           body: "bg-white-2 rounded-[2px]",
