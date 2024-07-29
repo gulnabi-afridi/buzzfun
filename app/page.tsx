@@ -4,7 +4,6 @@ import Hero from "./components/HomePage/Hero";
 import Stats from "./components/HomePage/Stats";
 import SearchBar from "./components/HomePage/SearchBar";
 import CoinTable from "./components/HomePage/CoinTable";
-import Pagination from "./components/shared/Pagination";
 import TokenCards from "./components/HomePage/TokenCards";
 
 export default function Home() {
@@ -28,8 +27,7 @@ export default function Home() {
           <SearchBar />
           {/* Coin Table */}
           <CoinTable />
-          {/* Pagination */}
-          <Pagination />
+       
         </div>
       </ComponentWrapper>
     </main>

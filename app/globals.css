@@ -28,24 +28,25 @@
 }
 
 .textShadow {
-  box-shadow: 0px 0px 4px 0px #FFFFFF;
+  box-shadow: 0px 0px 4px 0px #ffffff;
+}
 
+.tableShadow {
+  box-shadow: 0px 0px 9px 0px #00000054;
 }
 
 /* shadows ends here */
 
-
 .scrollSize::-webkit-scrollbar {
-  width: 4px; 
-  height: 40px; 
+  width: 4px;
+  height: 40px;
 }
 
 .scrollSize::-webkit-scrollbar-track {
-  background-color: #f1f1f1; 
+  background-color: #f1f1f1;
 }
 
 .scrollSize::-webkit-scrollbar-thumb {
-  background-color: black; 
-  border-radius: 1px; 
+  background-color: black;
+  border-radius: 1px;
 }
-

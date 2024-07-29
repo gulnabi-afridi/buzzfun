@@ -1,27 +1,68 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
+import Pagination from "../shared/Pagination";
 
 const CoinTable = () => {
+  const [iconStates, setIconStates] = useState<Record<number, boolean>>(
+    headerData.reduce((acc, item, index) => {
+      if (item.isIcon) {
+        acc[index] = false;
+      }
+      return acc;
+    }, {} as Record<number, boolean>)
+  );
+
+  const toggleIcon = (index: number) => {
+    setIconStates((prevStates) => ({
+      ...prevStates,
+      [index]: !prevStates[index],
+    }));
+  };
+
   return (
-    <div className="w-full overflow-auto flex flex-col">
-      <div className="w-full min-w-[1300px] px-5 h-[42px] justify-center items-center grid grid-cols-[50px,3fr,1fr,1fr,1fr,1fr,1fr,1fr,1fr,1fr,1fr]">
+    <div className="w-full tableShadow px-4 py-5 overflow-auto flex flex-col">
+      <div className="w-full min-w-[1350px] px-5 h-[42px] justify-center items-center grid grid-cols-[50px,3fr,.7fr,1fr,1fr,1fr,1fr,1fr,1fr,1fr,1fr,.7fr]">
         {headerData.map((item, index) => {
           return (
-            <p
-              key={index}
-              className={`text-[14px] ${
-                index + 1 === headerData.length
-                  ? "justify-end"
-                  : "justify-start "
-              } leading-[18px] font-normal dark:text-white-1 text-black-1 w-full flex items-center`}
-            >
-              {item}
-            </p>
+            <div key={index} className="flex w-full justify-start items-center">
+              <button
+                onClick={() => toggleIcon(index)}
+                className="flex justify-center items-center"
+              >
+                <p
+                  className={`text-[14px] ${
+                    index + 1 === headerData.length
+                      ? "justify-end"
+                      : "justify-start "
+                  } leading-[18px] text-left font-normal dark:text-white-1 text-black-1`}
+                >
+                  {item.name}
+                </p>
+                {item.isIcon && (
+                  <button
+                    className={`transition-transform duration-300 ${
+                      iconStates[index] ? "rotate-180" : "rotate-0"
+                    }`}
+                  >
+                    <div className="min-w-[9px] min-h-[9px] relative">
+                      <Image
+                        src="/assets/polygon.svg"
+                        className="cursor-pointer"
+                        alt="icon"
+                        fill
+                      />
+                    </div>
+                  </button>
+                )}
+              </button>
+            </div>
           );
         })}
       </div>
       {/* table row  */}
-      <div className="w-full min-w-[1300px] flex flex-col">
+      <div className="w-full min-w-[1350px] flex flex-col">
         {rowsData.map((item, index) => {
           return (
             <div
@@ -33,7 +74,7 @@ const CoinTable = () => {
                 index + 1 === rowsData.length
                   ? "border-none"
                   : "border-b-[1px] dark:border-white-1/50 border-black-1"
-              }  px-5 h-[42px] justify-center items-center grid grid-cols-[50px,3fr,1fr,1fr,1fr,1fr,1fr,1fr,1fr,1fr,1fr]`}
+              }  px-5 h-[42px] justify-center items-center grid grid-cols-[50px,3fr,.7fr,1fr,1fr,1fr,1fr,1fr,1fr,1fr,1fr,.7fr]`}
             >
               <p className="text-[14px] w-full flex justify-start font-normal dark:text-white-1 text-black-1">
                 # {index + 1}
@@ -44,12 +85,15 @@ const CoinTable = () => {
                   {item.coin.value}
                 </p>
               </div>
+              <div className="w-full flex justify-start items-center">
+                <Image src={item.img as string} width={22} height={22} alt="" />
+              </div>
               <p className="text-[14px] w-full flex justify-start font-normal dark:text-white-1 text-black-1">
                 {item.map}
               </p>
               <div className=" w-full flex justify-start ">
                 <p
-                  className={`font-normal text-center rounded-[2px] text-white-1 text-[14px] w-[87px] py-1 ${
+                  className={`font-normal  text-center rounded-[2px] text-white-1 text-[14px] w-[87px] py-1 ${
                     item.priceChange.positive ? "bg-green-1" : "bg-red-1"
                   } `}
                 >
@@ -83,6 +127,10 @@ const CoinTable = () => {
           );
         })}
       </div>
+      {/* Pagination */}
+      <div className="w-full flex justify-center items-center pt-8 pb-6">
+        <Pagination />
+      </div>
     </div>
   );
 };
@@ -90,17 +138,54 @@ const CoinTable = () => {
 export default CoinTable;
 
 const headerData = [
-  "Rank",
-  "Coin",
-  "Mcap",
-  "Price change(%)",
-  "Holders",
-  "Upvotes",
-  "Downvotes",
-  "Age(min)",
-  "Previously deployed",
-  "% Bonding Curve",
-  "Ape now",
+  {
+    name: "Rank",
+    isIcon: false,
+  },
+  {
+    name: "Coin",
+    isIcon: false,
+  },
+  {
+    name: "Chain",
+    isIcon: true,
+  },
+  {
+    name: "Mcap",
+    isIcon: true,
+  },
+  {
+    name: "Price change(%)",
+    isIcon: true,
+  },
+  {
+    name: "Holders",
+    isIcon: true,
+  },
+  {
+    name: "Upvotes",
+    isIcon: true,
+  },
+  {
+    name: "Downvotes",
+    isIcon: true,
+  },
+  {
+    name: "Age(min)",
+    isIcon: true,
+  },
+  {
+    name: "Previously deployed",
+    isIcon: false,
+  },
+  {
+    name: "% Bonding Curve",
+    isIcon: true,
+  },
+  {
+    name: "Ape now",
+    isIcon: false,
+  },
 ];
 
 const rowsData = [
@@ -109,6 +194,7 @@ const rowsData = [
       icon: "/assets/coin3.svg",
       value: "/ Token name > [Ticker: TN]",
     },
+    img: "/assets/chain.svg",
     map: "34.5k",
     priceChange: {
       positive: true,
@@ -127,6 +213,8 @@ const rowsData = [
       value: "/ Token name > [Ticker: TN]",
     },
     map: "34.5k",
+    img: "/assets/chain2.svg",
+
     priceChange: {
       positive: false,
       value: "-10%",
@@ -143,6 +231,8 @@ const rowsData = [
       icon: "/assets/coin3.svg",
       value: "/ Token name > [Ticker: TN]",
     },
+    img: "/assets/chain2.svg",
+
     map: "34.5k",
     priceChange: {
       positive: true,
@@ -160,6 +250,8 @@ const rowsData = [
       icon: "/assets/coin3.svg",
       value: "/ Token name > [Ticker: TN]",
     },
+    img: "/assets/chain2.svg",
+
     map: "34.5k",
     priceChange: {
       positive: false,
@@ -177,6 +269,8 @@ const rowsData = [
       icon: "/assets/coin3.svg",
       value: "/ Token name > [Ticker: TN]",
     },
+    img: "/assets/chain.svg",
+
     map: "34.5k",
     priceChange: {
       positive: false,
@@ -194,6 +288,8 @@ const rowsData = [
       icon: "/assets/coin3.svg",
       value: "/ Token name > [Ticker: TN]",
     },
+    img: "/assets/chain2.svg",
+
     map: "34.5k",
     priceChange: {
       positive: true,
@@ -211,6 +307,8 @@ const rowsData = [
       icon: "/assets/coin3.svg",
       value: "/ Token name > [Ticker: TN]",
     },
+    img: "/assets/chain2.svg",
+
     map: "34.5k",
     priceChange: {
       positive: false,
@@ -228,6 +326,8 @@ const rowsData = [
       icon: "/assets/coin3.svg",
       value: "/ Token name > [Ticker: TN]",
     },
+    img: "/assets/chain.svg",
+
     map: "34.5k",
     priceChange: {
       positive: true,
