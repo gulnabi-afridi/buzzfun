@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Pagination from "../shared/Pagination";
 import { useTheme } from "next-themes";
-
+import { Select } from "@mantine/core";
 
 const CoinTable = () => {
   const { setTheme, resolvedTheme } = useTheme();
@@ -14,7 +14,7 @@ const CoinTable = () => {
         acc[index] = false;
       }
       return acc;
-  }, {} as Record<number, boolean>)
+    }, {} as Record<number, boolean>)
   );
 
   const toggleIcon = (index: number) => {
@@ -25,7 +25,11 @@ const CoinTable = () => {
   };
 
   return (
-    <div className={`w-full dark:bg-black-1 bg-transparent dark:border-[#D7E0E7] border-[1px] border-transparent ${resolvedTheme === 'dark'?'forDarkShadow':'tableShadow'} px-4 py-5 overflow-auto flex flex-col`}>
+    <div
+      className={`w-full dark:bg-[#0E161C] bg-transparent dark:border-[#D7E0E7] border-[1px] border-transparent ${
+        resolvedTheme === "dark" ? "forDarkShadow" : "tableShadow"
+      } px-4 py-5 overflow-auto flex flex-col`}
+    >
       <div className="w-full min-w-[1350px] px-5 h-[42px] justify-center items-center grid grid-cols-[50px,3fr,.7fr,1fr,1fr,1fr,1fr,1fr,1fr,1fr,1fr,.7fr]">
         {headerData.map((item, index) => {
           return (
@@ -131,8 +135,27 @@ const CoinTable = () => {
         })}
       </div>
       {/* Pagination */}
-      <div className="w-full flex justify-center items-center pt-8 pb-6">
-        <Pagination />
+      <div className="w-full grid grid-cols-2 pt-8 pb-6">
+        <div className="w-full flex justify-end items-center">
+          <Pagination />
+        </div>
+        <div className="w-full flex justify-end items-center">
+          <Select
+            size="xs"
+            classNames={{
+              root: "flex justify-center items-center gap-2",
+              label: "!text-[16px] font-normal dark:text-white-1 text-black-1",
+              option: "hover:!bg-white-1/30 !text-[14px]",
+              dropdown:
+                "dark:!bg-black-1 bg-transparent !border-none !text-black-1 dark:!text-white-1",
+              input:
+                "!text-[16px] !w-[120px] !rounded-[2px] !bg-white-1 dark:!bg-black-1  !border-none focus:border-white-1 font-normal dark:text-white-1 text-black-1",
+            }}
+            label="Show"
+            placeholder="50"
+            data={["20", "30", "40", "100"]}
+          />
+        </div>
       </div>
     </div>
   );

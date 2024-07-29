@@ -52,12 +52,12 @@ const SearchBar = () => {
             size="xs"
             classNames={{
               root: "flex justify-center items-center gap-2",
-              label: "text-[16px] font-normal dark:text-white-1 text-black-1",
-              option: "hover:!bg-transparent",
+              label: "!text-[16px] font-normal dark:text-white-1 text-black-1",
+              option: "hover:!bg-white-1/30",
               dropdown:
                 "dark:!bg-black-1 bg-transparent !border-none !text-black-1 dark:!text-white-1",
               input:
-                "text-[14px] !w-[120px] !rounded-[2px] !bg-white-1 dark:!bg-black-1  !border-none focus:border-white-1 font-normal dark:text-white-1 text-black-1",
+                "!text-[14px] !w-[120px] !rounded-[2px] !bg-white-1 dark:!bg-black-1  !border-none focus:border-white-1 font-normal dark:text-white-1 text-black-1",
             }}
             label="Network"
             placeholder="Pick value"
