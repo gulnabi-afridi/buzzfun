@@ -35,6 +35,19 @@
   box-shadow: 0px 0px 9px 0px #00000054;
 }
 
+.trustedTextColor{
+  box-shadow: 0px 0px 10px 0px #EF72168C;
+
+}
+
+.boxShadow2{
+
+  box-shadow: 0px 0px 25px 0px #0000008C;
+}
+
+
+
+
 /* shadows ends here */
 
 .scrollSize::-webkit-scrollbar {

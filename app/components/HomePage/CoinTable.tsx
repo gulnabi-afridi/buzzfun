@@ -41,7 +41,7 @@ const CoinTable = () => {
                   {item.name}
                 </p>
                 {item.isIcon && (
-                  <button
+                  <div
                     className={`transition-transform duration-300 ${
                       iconStates[index] ? "rotate-180" : "rotate-0"
                     }`}
@@ -54,7 +54,7 @@ const CoinTable = () => {
                         fill
                       />
                     </div>
-                  </button>
+                  </div>
                 )}
               </button>
             </div>
