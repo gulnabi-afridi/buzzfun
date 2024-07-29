@@ -26,6 +26,7 @@ const config: Config = {
         cmd: '850px',
         lg: '976px',
         clg: '1080px',
+        cxl:'1200px',
         xl: '1280px',
         '2xl':'1400px'
       },

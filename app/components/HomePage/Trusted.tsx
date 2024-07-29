@@ -30,23 +30,24 @@ const Trusted: React.FC = () => {
 
   return (
     <div className="w-full flex justify-center items-center">
-      <div className={`w-full max-w-[1200px] flex mt-6 flex-col border-[1px] border-transparent dark:border-white-1 gap-7 dark:bg-black-1 bg-white-1 p-5 ${resolvedTheme === 'dark'?'forDarkShadow':'tableShadow'}`}>
+      <div className={`w-full max-w-[1200px] flex mt-6 flex-col border-[1px] border-transparent dark:border-white-1 gap-4 sm:gap-7 dark:bg-black-1 bg-white-1 p-4 sm:p-5 ${resolvedTheme === 'dark'?'forDarkShadow':'tableShadow'}`}>
         {/* top section */}
         <div className="flex w-full py-2 dark:bg-[#253039] bg-black-1 gap-4 justify-center items-center">
-          <p className="text-[40px] uppercase leading-[48px] font-normal text-orange-1">
+          <p className="text-[20px] md:text-[30px] text-center xl:text-[40px] uppercase leading-[48px] font-normal text-orange-1">
             {pattern1}
           </p>
-          <p className="uppercase text-[40px] leading-[48px] dark:bg-black-1 bg-yellow-1 dark:text-yellow-1 text-black-1 font-normal">
+          <p className="uppercase text-[20px] md:text-[30px] xl:text-[40px] leading-[48px] dark:bg-black-1 bg-yellow-1 dark:text-yellow-1 text-black-1 font-normal">
             Backed
           </p>
-          <p className="text-[40px] uppercase leading-[48px] font-normal text-orange-1">
+          <p className="text-[20px] md:text-[30px] text-center xl:text-[40px] uppercase leading-[48px] font-normal text-orange-1">
             {pattern2}
           </p>
         </div>
         {/* down section */}
-        <div className="w-full grid grid-cols-[.9fr,1fr] gap-6">
+        <div className="w-full flex justify-center items-center">
+        <div className="w-full max-w-[700px] cxl:max-w-full grid grid-cols-1 cxl:grid-cols-[.9fr,1fr] gap-6">
           {/* 1st col  */}
-          <div className="w-full grid gap-6 grid-cols-4 h-full">
+          <div className="w-full grid gap-4 sm:gap-6 grid-cols-3 sm:grid-cols-4 h-full">
             {trustedData.map((item, index) => (
               <button
                 key={index}
@@ -59,8 +60,8 @@ const Trusted: React.FC = () => {
           </div>
           {/* 2nd col  */}
           <div className="w-full bg-yellow-1 boxShadow2 gap-3 justify-between flex flex-col p-2">
-            <div className="grid grid-cols-[250px,calc(100%-250px)] gap-2">
-              <div className="w-full h-full relative">
+            <div className="grid grid-cols-1 csm:grid-cols-[250px,calc(100%-250px)] gap-2">
+              <div className="w-full max-w-[250px] h-[200px] csm:h-full relative">
                 {selectedImage && <Image src={selectedImage} fill alt="" />}
               </div>
               <div className="w-full flex flex-col pr-2 gap-4">
@@ -86,11 +87,12 @@ const Trusted: React.FC = () => {
               </div>
             </div>
             {selectedContent?.message && (
-              <p className="w-full text-[40px] bg-black-1 py-3 text-white-1 flex justify-start items-center leading-[40px]">
+              <p className="w-full text-[40px] px-2 bg-black-1 py-3 text-white-1 flex justify-start items-center leading-[40px]">
                 {selectedContent.message}
               </p>
             )}
           </div>
+        </div>
         </div>
         {/* last section */}
         <div className="flex justify-center items-center gap-2">
