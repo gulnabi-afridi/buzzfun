@@ -3,15 +3,18 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Pagination from "../shared/Pagination";
+import { useTheme } from "next-themes";
+
 
 const CoinTable = () => {
+  const { setTheme, resolvedTheme } = useTheme();
   const [iconStates, setIconStates] = useState<Record<number, boolean>>(
     headerData.reduce((acc, item, index) => {
       if (item.isIcon) {
         acc[index] = false;
       }
       return acc;
-    }, {} as Record<number, boolean>)
+  }, {} as Record<number, boolean>)
   );
 
   const toggleIcon = (index: number) => {
@@ -22,7 +25,7 @@ const CoinTable = () => {
   };
 
   return (
-    <div className="w-full tableShadow px-4 py-5 overflow-auto flex flex-col">
+    <div className={`w-full dark:bg-black-1 bg-transparent dark:border-[#D7E0E7] border-[1px] border-transparent ${resolvedTheme === 'dark'?'forDarkShadow':'tableShadow'} px-4 py-5 overflow-auto flex flex-col`}>
       <div className="w-full min-w-[1350px] px-5 h-[42px] justify-center items-center grid grid-cols-[50px,3fr,.7fr,1fr,1fr,1fr,1fr,1fr,1fr,1fr,1fr,.7fr]">
         {headerData.map((item, index) => {
           return (

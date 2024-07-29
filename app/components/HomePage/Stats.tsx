@@ -7,7 +7,7 @@ const Stats = () => {
       <div className="w-full hideScroll overflow-auto max-w-[1000px] justify-center items-center">
         <div className="min-w-[930px] w-full flex gap-4">
           <Image src="/assets/triangle.svg" width={47} height={79} alt="" />
-          <div className="h-[86px] border-[1px] border-black-1 dark:border-blue-1 gap-3 rounded-[5px] bg-black-1 px-5 flex justify-center items-center">
+          <div className="h-[86px] border-[1px] border-black-1 dark:border-white-1 tableShadow dark:forDarkShadow gap-3 rounded-[5px] bg-black-1 px-5 flex justify-center items-center">
             {statsData.map((item, index) => {
               return item.color === "" ? (
                 <div className="flex justify-center items-center gap-5">

@@ -2,11 +2,15 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { useTheme } from "next-themes";
+
 
 const Trusted: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string>(
     trustedData[0]?.img
   );
+  const { setTheme, resolvedTheme } = useTheme();
+
   const [selectedContent, setSelectedContent] = useState<any>(
     trustedData[0]?.content
   );
@@ -26,13 +30,13 @@ const Trusted: React.FC = () => {
 
   return (
     <div className="w-full flex justify-center items-center">
-      <div className="w-full max-w-[1200px] flex mt-6 flex-col gap-7 bg-white-1 p-5 tableShadow">
+      <div className={`w-full max-w-[1200px] flex mt-6 flex-col border-[1px] border-transparent dark:border-white-1 gap-7 dark:bg-black-1 bg-white-1 p-5 ${resolvedTheme === 'dark'?'forDarkShadow':'tableShadow'}`}>
         {/* top section */}
-        <div className="flex w-full py-2 bg-black-1 gap-4 justify-center items-center">
+        <div className="flex w-full py-2 dark:bg-[#253039] bg-black-1 gap-4 justify-center items-center">
           <p className="text-[40px] uppercase leading-[48px] font-normal text-orange-1">
             {pattern1}
           </p>
-          <p className="uppercase text-[40px] leading-[48px] bg-yellow-1 text-black-1 font-normal">
+          <p className="uppercase text-[40px] leading-[48px] dark:bg-black-1 bg-yellow-1 dark:text-yellow-1 text-black-1 font-normal">
             Backed
           </p>
           <p className="text-[40px] uppercase leading-[48px] font-normal text-orange-1">
@@ -91,7 +95,7 @@ const Trusted: React.FC = () => {
         {/* last section */}
         <div className="flex justify-center items-center gap-2">
           <Image src="/assets/emoji2.png" alt="" width={32} height={34} />
-          <p className="text-[12px] font-normal text-black-1">{pattern3}</p>
+          <p className="text-[12px] font-normal dark:text-white-1 text-black-1">{pattern3}</p>
         </div>
       </div>
     </div>

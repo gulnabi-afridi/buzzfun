@@ -10,7 +10,7 @@ const CoinPercentageDisplay: React.FC = () => {
   const [isHovering, setIsHovering] = useState(true);
 
   return (
-    <div className="w-full h-[40px] flex justify-start gap-4 items-center bg-white-1">
+    <div className="w-full h-[40px] flex justify-start gap-4 items-center dark:bg-[#0E161C] bg-white-1">
       <div className="flex justify-center pl-3 items-center gap-2">
         <button className="flex gap-1 px-1 justify-center items-center bg-black-1">
           <p className="text-[14px] font-normal text-white-1">Time</p>
@@ -33,7 +33,8 @@ const CoinPercentageDisplay: React.FC = () => {
                 <div key={index}>
                   <Menu
                     classNames={{
-                      dropdown: "!bg-white-2 !border-none min-w-[160px]",
+                      dropdown: "dark:!bg-black-1 !bg-white-2 !border-none min-w-[160px]",
+                      item:'text-black-1 dark:text-white-1 text-[14px] font-normal hover:bg-white-1/30'
                     }}
                     trigger="click-hover"
                     withArrow
@@ -63,7 +64,7 @@ const CoinPercentageDisplay: React.FC = () => {
                         {[0, 1, 2, 3, 4].map((item, index) => {
                           return (
                             <Menu.Item
-                              className="hover:!bg-white-2"
+                              className="hover:bg-white-1/30"
                               key={index}
                             >
                               15 min
