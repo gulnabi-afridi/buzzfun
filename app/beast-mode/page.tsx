@@ -647,6 +647,6 @@ const breakdownData = [
 const buzzConnection = ["bg-yellow-1", "bg-red-1", "bg-blue-1", "bg-black-1"];
 
 const pattern1 =
-  "// Please note that once the bonding curve target is achieved, all tokens deployed via buzz.fun will be automatically listed on Uniswap, along with the collateral liquidity pool (LP) collected through sales. Additionally, all contracts will be renounced upon LP provision. The only rug here, is you 🫡. ";
+  "// Please note that once the bonding curve target is achieved, all tokens deployed via buzz.fun will be automatically listed on Uniswap, along with the collateral liquidity pool (LP) collected through sales. Additionally, all contracts will be renounced upon LP provision. The only rug here, is you 🙌";
 
 export default BeastMode;
