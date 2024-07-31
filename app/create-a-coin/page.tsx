@@ -11,8 +11,11 @@ const page: NextPage = () => {
     <ComponentWrapper style="bg-white-2 dark:bg-[#1D252C]">
       <div className="w-full min-h-[calc(100vh-250px)] justify-center items-center flex flex-col gap-4">
         <div className="w-full max-w-[700px] flex flex-col md:py-0 py-8 gap-4 md:gap-8 justify-center items-center md:items-start">
-          <p className="uppercase text-[17px] font-normal text-black-1">
-            <span className="text-[12px] bg-blue-1 font-normal"> select</span>{" "}
+          <p className="uppercase text-[17px] flex justify-center gap-[5px] items-center font-normal">
+            <span className="text-[12px] text-white-1 bg-blue-1 font-normal">
+              {" "}
+              select
+            </span>{" "}
             <span className="text-black-1 dark:text-white-1"> Mode</span>
           </p>
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">

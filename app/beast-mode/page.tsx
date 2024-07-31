@@ -32,8 +32,8 @@ const BeastMode = () => {
             <span className="bg-yellow-1 px-1 text-black-1"> beast</span> <br />{" "}
             MODE
           </p>
-          <div className="flex dark:bg-black-1 bg-white-1 justify-center py-8 items-center w-full">
-            <div className="w-full max-w-[500px] gap-7 flex flex-col">
+          <div className="flex dark:bg-black-1 bg-white-1 justify-center md:px-0 px-4 py-8 items-center w-full">
+            <div className="w-full max-w-[500px] gap-6 md:gap-7 flex flex-col">
               {/* name  */}
               <div className="flex w-full flex-col gap-2">
                 <label
@@ -112,7 +112,7 @@ const BeastMode = () => {
                 />
               </button>
               {isExpanded && (
-                <div className={`flex flex-col gap-7`}>
+                <div className={`flex flex-col gap-6 md:gap-7`}>
                   {/* twitter link  */}
                   <div className="flex w-full flex-col gap-2">
                     <label
