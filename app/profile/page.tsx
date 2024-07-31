@@ -12,6 +12,7 @@ import CoinsLaunched from "../components/Profile/CoinsLaunched";
 import CoinsHeld from "../components/Profile/CoinsHeld";
 import { useDisclosure } from "@mantine/hooks";
 import { Modal } from "@mantine/core";
+import Breadcrumb from "../components/shared/layout/Breadcrumb";
 
 const ProfilePage = () => {
   // states ----------->
@@ -28,6 +29,7 @@ const ProfilePage = () => {
   return (
     <React.Fragment>
       <ComponentWrapper style="dark:bg-[#1D252C] bg-white-2">
+        <Breadcrumb/>
         <div className="w-full pt-8 sm:pt-12 min-h-screen pb-10 flex justify-center items-start">
           <div
             className={`w-full grid gap-6 sm:gap-4 md:gap-6 justify-center items-start 

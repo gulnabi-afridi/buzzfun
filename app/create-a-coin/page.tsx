@@ -4,11 +4,13 @@ import ComponentWrapper from "../components/shared/layout/ComponentWrapper";
 import Image from "next/image";
 import { GoArrowUpRight } from "react-icons/go";
 import Link from "next/link";
+import Breadcrumb from "../components/shared/layout/Breadcrumb";
 
 const page: NextPage = () => {
   return (
     // 65+40+50+38
     <ComponentWrapper style="bg-white-2 dark:bg-[#1D252C]">
+      <Breadcrumb/>
       <div className="w-full min-h-[calc(100vh-250px)] justify-center items-center flex flex-col gap-4">
         <div className="w-full max-w-[700px] flex flex-col md:py-0 py-8 gap-4 md:gap-8 justify-center items-center md:items-start">
           <p className="uppercase text-[17px] flex justify-center gap-[5px] items-center font-normal">

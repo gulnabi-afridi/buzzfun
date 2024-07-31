@@ -29,7 +29,6 @@ export default function RootLayout({
         <Providers>
           <Navibar />
           <CoinPercentageDisplay/>
-          <Breadcrumb/>
           {children}
           <Footer/>
         </Providers>

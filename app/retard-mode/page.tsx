@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { NextPage } from "next";
 import ComponentWrapper from "../components/shared/layout/ComponentWrapper";
 import { IoIosArrowDown } from "react-icons/io";
+import Breadcrumb from "../components/shared/layout/Breadcrumb";
 
 const RetardPage: NextPage = () => {
   const [fileName, setFileName] = useState<string>("no file chosen");
@@ -20,6 +21,7 @@ const RetardPage: NextPage = () => {
 
   return (
     <ComponentWrapper style="bg-white-2 dark:bg-[#1D252C]">
+      <Breadcrumb/>
       <div className="w-full py-10 flex justify-center items-center">
         <div className="w-full min-h-[calc(100vh-250px)] max-w-[650px] flex gap-6 flex-col justify-center items-start">
           <p className="text-[45px] font-normal dark:text-white-1 text-black-1 leading-[45px] uppercase">
