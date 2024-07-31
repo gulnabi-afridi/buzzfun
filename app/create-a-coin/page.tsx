@@ -42,7 +42,7 @@ const page: NextPage = () => {
               </button>
             </Link>
             {/* beast mode -----> */}
-            <div className="w-full max-w-[307px] min-h-[310px] relative p-3 bg-white-1 rounded-[5px] flex flex-col gap-4">
+            <Link href='/beast-mode' className="w-full max-w-[307px] min-h-[310px] relative p-3 bg-white-1 rounded-[5px] flex flex-col gap-4">
               <h1 className="text-[45px] uppercase leading-[40px] font-normal text-black-1">
                 Beast <br /> mode
               </h1>
@@ -62,7 +62,7 @@ const page: NextPage = () => {
               <button className="w-[40px] absolute right-[4px] top-[4px] h-[40px] hover:opacity-80 bg-blue-1 flex justify-center items-center">
                 <GoArrowUpRight className="text-[34px] text-white-1" />
               </button>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
