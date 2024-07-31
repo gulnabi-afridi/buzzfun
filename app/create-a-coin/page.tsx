@@ -3,6 +3,7 @@ import { NextPage } from "next";
 import ComponentWrapper from "../components/shared/layout/ComponentWrapper";
 import Image from "next/image";
 import { GoArrowUpRight } from "react-icons/go";
+import Link from "next/link";
 
 const page: NextPage = () => {
   return (
@@ -16,7 +17,10 @@ const page: NextPage = () => {
           </p>
           <div className="w-full grid grid-cols-2 gap-6">
             {/* retared mode -----> */}
-            <div className="w-full max-w-[307px] min-h-[310px] relative p-3 bg-white-1 rounded-[5px] flex flex-col gap-4">
+            <Link
+              href="/retard-mode"
+              className="w-full max-w-[307px] min-h-[310px] relative p-3 bg-white-1 rounded-[5px] flex flex-col gap-4"
+            >
               <h1 className="text-[45px] leading-[40px] font-normal text-black-1">
                 RETARD MODE
               </h1>
@@ -36,7 +40,7 @@ const page: NextPage = () => {
               <button className="w-[40px] absolute right-[4px] top-[4px] h-[40px] hover:opacity-80 bg-black-1 flex justify-center items-center">
                 <GoArrowUpRight className="text-[34px] text-white-1" />
               </button>
-            </div>
+            </Link>
             {/* beast mode -----> */}
             <div className="w-full max-w-[307px] min-h-[310px] relative p-3 bg-white-1 rounded-[5px] flex flex-col gap-4">
               <h1 className="text-[45px] uppercase leading-[40px] font-normal text-black-1">
