@@ -29,8 +29,25 @@ const ProfilePage = () => {
   return (
     <React.Fragment>
       <ComponentWrapper style="dark:bg-[#1D252C] bg-white-2">
-        <Breadcrumb/>
-        <div className="w-full pt-8 sm:pt-12 min-h-screen pb-10 flex justify-center items-start">
+        {/* top section */}
+        <div className="w-full flex justify-center items-center pt-8">
+          <div className="flex w-fit  px-4 sm:px-8 lg:px-6 py-2 dark:bg-[#253039] bg-black-1 gap-4 justify-center items-center">
+            <p className="text-[20px] md:text-[30px] text-center xl:text-[40px] uppercase leading-[48px] font-normal text-orange-1">
+              {pattern1}
+            </p>
+            <p className="uppercase text-[20px] md:text-[30px] xl:text-[40px] leading-[48px] dark:bg-black-1 bg-yellow-1 dark:text-yellow-1 text-black-1 font-normal">
+              Profile
+            </p>
+            <p className="text-[20px] md:block hidden md:text-[30px] text-center xl:text-[40px] uppercase leading-[48px] font-normal text-orange-1">
+              {pattern3}
+            </p>
+            <p className="text-[20px] md:hidden block md:text-[30px] text-center xl:text-[40px] uppercase leading-[48px] font-normal text-orange-1">
+              {pattern4}
+            </p>
+            
+          </div>
+        </div>
+        <div className="w-full pt-8 sm:pt-10 min-h-screen pb-10 flex justify-center items-start">
           <div
             className={`w-full grid gap-6 sm:gap-4 md:gap-6 justify-center items-start 
             ${
@@ -266,6 +283,8 @@ const ProfilePage = () => {
   );
 };
 
+export default ProfilePage;
+
 const userDetails = [
   {
     name: "Followers",
@@ -289,4 +308,6 @@ const userDetails = [
   },
 ];
 
-export default ProfilePage;
+const pattern1 = "/////";
+const pattern3 = "/".repeat(22) + "." + "\\".repeat(5);
+const pattern4 = "/".repeat(5) + "." + "\\".repeat(3);

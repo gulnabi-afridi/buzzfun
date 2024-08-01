@@ -4,7 +4,6 @@ import "./globals.css";
 import { Providers } from "./providers";
 import Navibar from "./components/shared/layout/Navibar";
 import Footer from "./components/shared/layout/Footer";
-import Breadcrumb from "./components/shared/layout/Breadcrumb";
 import CoinPercentageDisplay from "./components/shared/layout/CoinPercentageDisplay";
 
 
