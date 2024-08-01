@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@klinecharts/pro": "^0.1.1",
     "@mantine/core": "^7.11.2",
     "@mantine/hooks": "^7.11.2",
+    "klinecharts": "^9.8.10",
     "next": "14.2.5",
     "next-themes": "^0.3.0",
     "react": "^18",

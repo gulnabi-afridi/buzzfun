@@ -1,74 +1,182 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import ComponentWrapper from "../components/shared/layout/ComponentWrapper";
 import Image from "next/image";
+import CoinStatsBar from "../components/CoinPage/CoinStatsBar";
+import { IoCopyOutline } from "react-icons/io5";
+import Pagination from "../components/shared/Pagination";
+import CandleChart from "../components/CoinPage/CandleChart";
+import Thread from "../components/CoinPage/Threads";
+import Trades from "../components/CoinPage/Trades";
+import BuyAndSellWidget from "../components/CoinPage/BuyAndSellWidget";
+import DeployementMilestones from "../components/CoinPage/DeployementMilestones";
 
 const CoinPage = () => {
+  const [isThread, setIsTread] = useState(false);
+
   return (
-    <React.Fragment>
+    <div className="bg-white-2 pt-5 min-h-screen">
       {/* top header -----> */}
-      <div className="w-full my-5 bg-blue-1 flex justify-center items-center gap-4">
-        {/* coin name --> */}
-        <div className="flex justify-center items-center gap-2">
-          <p className="text-[14px] font-normal text-white-1">Token Name:</p>
-          <p className="text-[23px] font-normal text-white-1">Pepe Coin</p>
-        </div>
-        <hr className="w-[2px] h-[28px] bg-white-1 rotate-[40deg]" />
-        {/* ticker --> */}
-        <div className="flex justify-center items-center gap-2">
-          <p className="text-[14px] font-normal text-white-1">Ticker:</p>
-          <p className="text-[23px] font-normal bg-black-1 px-1 leading-[26px] text-white-1">
-            Pepe
-          </p>
-        </div>
-        <hr className="w-[2px] h-[28px] bg-white-1 rotate-[40deg]" />
-        {/* created by --> */}
-        <div className="flex justify-center items-center gap-2">
-          <p className="text-[14px] font-normal text-white-1">Created by:</p>
-          <Image
-            src="/assets/createdBy.png"
-            alt=""
-            className="object-fill"
-            width={19}
-            height={19}
-          />
-          <p className="text-[23px] font-normal leading-[26px] text-white-1">
-            ED1234
-          </p>
-        </div>
-        <hr className="w-[2px] h-[28px] bg-white-1 rotate-[40deg]" />
+      <CoinStatsBar />
+      <ComponentWrapper style="bg-white-2 pt-5">
+        <div className="w-full grid grid-cols-[2fr,1fr] gap-10">
+          {/* left portion  */}
+          <div className="w-full flex gap-4 flex-col">
+            {/* top header --> */}
+            <div className="w-full flex justify-start items-end gap-4">
+              <div className="w-[60px] h-[60px] bg-black-1 flex justify-center items-center">
+                <Image src="/assets/emoji2.png" alt="" width={45} height={45} />
+              </div>
+              <div className="w-fit h-[60px] bg-black-1 flex justify-center items-center gap-1 px-3">
+                <p className="text-[14px] font-normal text-black-1 bg-yellow-1">
+                  CA:
+                </p>
+                <p className="text-[14px] font-normal text-white-1">
+                  0x6969dd6fd01b42f3b9004ae9482296a67657a1ad
+                </p>
+                <button className="w-[18px] ml-4 h-[18px] flex justify-center items-center bg-white-1">
+                  <IoCopyOutline className="text-[14px] text-black-1" />
+                </button>
+              </div>
+              <p className="text-[14px] font-normal text-black-1">
+                / View on Basescan
+              </p>
+              {/* reaction */}
+              <div className="px-2 py-[6px] rounded-[2px] bg-white-1 flex justify-center items-center gap-3">
+                <div className="flex justify-center items-center gap-2">
+                  <Image src="/assets/like.png" alt="" width={18} height={18} />
+                  <p className="text-[8px] font-normal text-black-1">12</p>
+                </div>
+                <div className="flex justify-center items-center gap-2">
+                  <Image
+                    src="/assets/dislike.png"
+                    alt=""
+                    width={18}
+                    height={18}
+                  />
+                  <p className="text-[8px] font-normal text-black-1">2</p>
+                </div>
+              </div>
+            </div>
+            {/* candle chart ---> */}
+            <div className="w-full h-[430px] bg-white-1">
+              <CandleChart />
+            </div>
+            {/* project description --> */}
+            <div className="flex flex-col gap-4">
+              <p className="text-[18px] font-semibold text-black-1">
+                Project Description:
+              </p>
+              <p className="text-[14px] font-normal text-black-1">
+                orem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry&lsquo;s standard
+                dummy text ever since the 1500s, when an unknown printer took a
+                galley of type and scrambled it to make a type specimen book. It
+                has survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged.
+              </p>
+            </div>
+            {/* Thread + Trades -------------> */}
+            <div className="w-full mt-3 border-[1px] border-purple-1 p-3 flex flex-col justify-center items-center gap-4">
+              <div className="flex justify-center items-center gap-3">
+                <button
+                  onClick={() => setIsTread(true)}
+                  className={`text-[14px] ${
+                    isThread && "underline"
+                  } font-normal text-black-1`}
+                >
+                  [Thread]
+                </button>
+                <button
+                  onClick={() => setIsTread(false)}
+                  className={`text-[14px] ${
+                    !isThread && "underline"
+                  } font-normal text-black-1`}
+                >
+                  [Trades]
+                </button>
+              </div>
+              {/* threads section ----->  */}
+              {isThread && <Thread />}
+              {/* Trads section ----->  */}
+              {!isThread && <Trades />}
+              <div className="w-full mb-3 flex justify-center items-center">
+                <Pagination />
+              </div>
+            </div>
+          </div>
+          {/* right portion */}
+          <div className="w-full h-full gap-5 flex flex-col">
+            {/* top header  */}
+            <div className="w-full flex justify-between items-center">
+              <div className="flex flex-col gap-2">
+                <p className="text-[14px] font-normal text-black-1">
+                  [Socials]
+                </p>
+                <div className="flex justify-center items-center gap-2">
+                  <button className="w-[28px] bg-black-1 h-[28px] flex justify-center items-center rounded-[1px]">
+                    <Image
+                      src="/assets/twitter.svg"
+                      alt=""
+                      width={16}
+                      height={16}
+                    />
+                  </button>
+                  <button className="w-[28px] bg-black-1 h-[28px] flex justify-center items-center rounded-[1px]">
+                    <Image
+                      src="/assets/tellegram.svg"
+                      alt=""
+                      width={16}
+                      height={16}
+                    />
+                  </button>
+                  <button className="w-[28px] bg-black-1 h-[28px] flex justify-center items-center rounded-[1px]">
+                    <Image
+                      src="/assets/globe.svg"
+                      alt=""
+                      width={18}
+                      height={18}
+                    />
+                  </button>
+                </div>
+              </div>
+              <button className="text-[20px] font-normal text-black-1 bg-yellow-1 px-2 py-1 yellowSha">
+                [LIVE <span className="underline"> CHAT</span> AVAILABLE]
+              </button>
+            </div>
+            {/* Buy And Sell widget ----------> */}
 
-        {/* Mcap  --> */}
-        <div className="flex justify-center items-center gap-2">
-          <p className="text-[14px] font-normal text-white-1">Mcap:</p>
+            <BuyAndSellWidget />
 
-          <p className="text-[23px] font-normal bg-yellow-1 px-1 leading-[26px] text-black-1">
-            23,014 USD
-          </p>
+            {/* Bonding curve progress -----> */}
+            <div className="flex flex-col gap-3">
+              <p className="text-[14px] font-normal text-black-1">
+                [Bonding curve progress][69%]
+              </p>
+              <div className="w-full grid h-[25px] grid-cols-[1.5fr,1fr]">
+                <div className="w-full h-full bg-yellow-1"></div>
+                <div className="w-full h-full bg-black-1"></div>
+              </div>
+            </div>
+            <div className="flex flex-col gap-2">
+              <p className="text-[14px] font-normal text-black-1">
+                When the market cap reaches $66,000 all the liquidity from the
+                bonding curve will be deposited into a Uniswap v2 Pool and
+                burned. Progression increases as the price goes up.
+              </p>
+              <p className="text-[14px] font-normal text-black-1">
+                There are 479,108,240 tokens still available for sale in the
+                bonding curve and there is 12.411 SOL in the bonding curve.
+              </p>
+            </div>
+            {/* Deployment milestones ---------> */}
+            <DeployementMilestones />
+          </div>
         </div>
-        <hr className="w-[2px] h-[28px] bg-white-1 rotate-[40deg]" />
-        {/* holders  --> */}
-        <div className="flex justify-center items-center gap-2">
-          <p className="text-[14px] font-normal text-white-1">Holders:</p>
-
-          <p className="text-[23px] font-normal text-white-1">123</p>
-        </div>
-        <hr className="w-[2px] h-[28px] bg-white-1 rotate-[40deg]" />
-        {/* bonding curve  --> */}
-        <div className="flex justify-center items-center gap-2">
-          <p className="text-[14px] font-normal text-white-1">
-            Bonding Curve Progress:
-          </p>
-
-          <p className="text-[23px] font-normal bg-black-1 px-1 leading-[26px] text-white-1">
-            69%
-          </p>
-        </div>
-      </div>
-      <ComponentWrapper style="bg-white-2"></ComponentWrapper>
-    </React.Fragment>
+      </ComponentWrapper>
+    </div>
   );
 };
 
 export default CoinPage;
-
-
