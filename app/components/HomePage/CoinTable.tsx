@@ -5,6 +5,7 @@ import Image from "next/image";
 import Pagination from "../shared/Pagination";
 import { useTheme } from "next-themes";
 import { Select } from "@mantine/core";
+import Link from "next/link";
 
 const CoinTable = () => {
   const { setTheme, resolvedTheme } = useTheme();
@@ -86,12 +87,12 @@ const CoinTable = () => {
               <p className="text-[14px] w-full flex justify-start font-normal dark:text-white-1 text-black-1">
                 # {index + 1}
               </p>
-              <div className="flex w-full justify-start items-center gap-2">
+              <Link href='/coin-page' className="flex w-full justify-start items-center gap-2">
                 <Image src={item.coin.icon} alt="" width={25} height={25} />
                 <p className="font-normal text-[14px] dark:text-white-1 text-black-1">
                   {item.coin.value}
                 </p>
-              </div>
+              </Link>
               <div className="w-full flex justify-start items-center">
                 <Image src={item.img as string} width={22} height={22} alt="" />
               </div>
