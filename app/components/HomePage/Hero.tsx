@@ -384,7 +384,7 @@ const Hero = () => {
             className="flex justify-center gap-1 py-[2px] rounded-md items-center px-2 bg-black-1"
           >
             <p className="text-white-1 uppercase font-semibold font-montserrat text-[10px] ">
-              minimise
+              Expand
             </p>
             <p
               className={`text-white-1 duration-200 ease-linear ${

@@ -25,7 +25,7 @@ const ImportUrl: React.FC = () => {
           width={33}
           height={33}
         />
-        <p className="text-[12px] font-normal dark:text-white-1 text-black-1">
+        <p className="text-[11px] font-normal dark:text-white-1 text-black-1">
           {pattern1}
         </p>
       </div>
