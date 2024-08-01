@@ -3,7 +3,8 @@ import Image from "next/image";
 
 const Thread: React.FC = () => {
   return (
-    <div className="w-full flex flex-col gap-3">
+    <div className="w-full overflow-auto">
+    <div className="w-full min-w-[500px]  flex flex-col gap-3">
       {threads.map((item, index) => {
         return (
           <div
@@ -54,6 +55,7 @@ const Thread: React.FC = () => {
           </div>
         );
       })}
+    </div>
     </div>
   );
 };
