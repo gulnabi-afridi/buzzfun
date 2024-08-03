@@ -8,11 +8,14 @@ import TokenCards from "./components/HomePage/TokenCards";
 import Trusted from "./components/HomePage/Trusted";
 import ImportUrl from "./components/HomePage/ImportUrl";
 import Breadcrumb from "./components/shared/layout/Breadcrumb";
+import OpenChartBtn from "./components/shared/OpenChartBtn";
 
 export default function Home() {
   return (
     <main className="bg-white-2 dark:bg-[#1D252C] pb-16 w-full">
       <ComponentWrapper style="">
+        {/* open chat  */}
+        <OpenChartBtn/>
         <Breadcrumb />
         <div className="flex min-h-screen flex-col">
           {/* Hero Section */}
