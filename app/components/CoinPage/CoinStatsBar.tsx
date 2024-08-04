@@ -3,8 +3,9 @@ import Image from "next/image";
 
 const CoinStatsBar: React.FC = () => {
   return (
-    <div className="w-full px-4 overflow-auto hideScroll">
-      <div className="w-full max-w-[1250px] bg-blue-1  min-w-[1200px] mx-auto">
+    <div className="w-full overflow-auto hideScroll">
+    <div className="w-full min-w-[1400px] px-4">
+      <div className="w-full max-w-[1400px] bg-blue-1  mx-auto">
         <div className="w-full flex justify-center items-center gap-4">
           {/* coin name --> */}
           <div className="flex justify-center items-center gap-2">
@@ -65,6 +66,7 @@ const CoinStatsBar: React.FC = () => {
         </div>
       </div>
     </div>
+    </div> 
   );
 };
 
