@@ -2,9 +2,9 @@ import React from "react";
 
 const OpenChartBtn: React.FC = () => {
   return (
-    <div className="w-flex flex pt-3 justify-end items-center">
+    <div className="absolute right-9 -top-[121px]">
       <button className="text-[14px] font-normal text-black-1">
-        / Open Chet
+        / Open <span className="bg-yellow-1 px-[2px]"> Chet</span>
       </button>
     </div>
   );
