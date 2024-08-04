@@ -414,7 +414,7 @@ const Hero = () => {
       {/* drawer btn ----> */}
       <button
         onClick={open}
-        className="w-[40px] bg-[#D4DDE6] drawerSha absolute right-0 bottom-0 h-[calc(100%-107px)] flex items-start justify-center"
+        className="w-[40px] lg:flex hidden bg-[#D4DDE6] drawerSha absolute right-0 bottom-0 h-[calc(100%-107px)] items-start justify-center"
       >
         <div className="w-[20px] h-[350px] relative">
           <Image
@@ -430,11 +430,17 @@ const Hero = () => {
         opened={opened}
         onClose={close}
         position="right"
-        size="60rem"
+        transitionProps={{
+          transition: 'slide-left',
+          duration: 300,
+          timingFunction: 'linear',
+        }}
+        size="65rem"
         withCloseButton={false}
         overlayProps={{ backgroundOpacity: 0, blur: 0 }}
         classNames={{
-          content: "!bg-[#D4DDE6] !h-screen !mt-[106px] !overflow-hidden",
+          content:
+            "!bg-[#D4DDE6] !h-[calc(100vh-106px)] !mt-[106px] !overflow-hidden",
         }}
       >
         <div className="w-full h-full grid grid-cols-[30px,1fr]">
@@ -453,9 +459,63 @@ const Hero = () => {
             </div>
           </div>
           {/* content */}
-          <div className="w-full bg-white-1 grid grid-cols-[3.5fr,1fr]">
-            {/* ist col ----->  */}
-            <div className="w-full p-3 overflow-auto flex flex-col">
+          <div className="w-full bg-white-1 grid grid-cols-[1fr,3.5fr,1fr]">
+            {/* 1st col */}
+            <div className="w-full flex flex-col gap-2">
+              <div className="w-full flex border-[1px] border-blue-1 flex-col h-[calc(100vh-156px)]">
+                {/* Fixed header */}
+                <div className="w-full flex flex-col gap-2 px-4 py-2">
+                  <p className="text-[14px] font-normal text-black-1">
+                    {" "}
+                    My Chats (13){" "}
+                  </p>
+                  {/* search  */}
+                  <div className="w-full grid grid-cols-[1fr,30px]">
+                    <input
+                      type="text"
+                      className="h-[20px] text-[12px] font-normal text-black-1 w-full rounded-[2px] pl-2 focus:ring-0 focus:outline-none bg-[#D1DBE4]"
+                      name=""
+                      id=""
+                    />
+                    <div className="w-full flex justify-end items-center">
+                      <button className="w-[18px] h-[18px] flex justify-center items-center bg-black-1">
+                        <LuSearch className="text-[12px] text-white-1" />
+                      </button>
+                    </div>
+                  </div>
+                  {/* online  */}
+                  <div className="w-full relative flex justify-center items-center">
+                    <p
+                      className="text-[14px] [text-shadow:_-0.4px_-0.4px_0_#D90000,_0.4px_-0.4px_0_#D90000,_-0.4px_0.4px_0_#D90000,_0.4px_0.4px_0_#D90000]
+                    font-normal text-blue-1"
+                    >
+                      {generalChat}
+                    </p>
+                    <div className="w-[4px] h-[28px] bg-[#004BFE] absolute -left-2"></div>
+                    <div className="w-[4px] h-[28px] bg-[#004BFE] absolute -right-2"></div>
+                  </div>
+                </div>
+
+                {/* Scrollable user list */}
+                <div className="w-full flex-grow overflow-y-auto px-4">
+                  {[
+                    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 12, 3, 4, 5, 6, 3, 2, 1, 3,
+                    2, 3, 1, 2, 1, 1, 2,
+                  ].map((item, index) => {
+                    return (
+                      <div key={index} className="w-full ">
+                        <div></div>
+                        <p className="text-[14px] py-[4px] [text-shadow:_-0.4px_-0.4px_0_#D90000,_0.4px_-0.4px_0_#D90000,_-0.4px_0.4px_0_#D90000,_0.4px_0.4px_0_#D90000] w-full flex justify-start font-normal text-black-1">
+                          {chatName}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+            {/* 2nd col ----->  */}
+            <div className="w-full p-3 flex flex-col">
               {/* top header  */}
               <div className="w-full px-4 h-[50px] flex justify-between items-center">
                 <div className="flex justify-center items-center gap-2">
@@ -485,9 +545,9 @@ const Hero = () => {
                   <FaRegFlag className="text-[16px] cursor-pointer text-black-1" />
                 </button>
               </div>
-              <div className="w-full overflow-auto h-[calc(100%-580px)] flex flex-col">
+              <div className="w-full h-[calc(100vh-300px)] flex flex-col">
                 {/* messages ---> */}
-                <div className="w-full flex flex-col">
+                <div className="w-full overflow-y-auto flex-grow flex flex-col">
                   {messageData.map((item, index) => {
                     return (
                       <div
@@ -573,7 +633,7 @@ const Hero = () => {
                   })}
                 </div>
                 {/* send message ui ---> */}
-                <div className="w-full grid grid-cols-[1fr,80px] rounded-[2px] gap-3 border-[1px] border-blue-1">
+                <div className="w-full grid grid-cols-[1fr,80px] rounded-[2px] h-[100px] gap-3 border-[1px] border-blue-1">
                   <p className="text-[14px] p-2 font-normal text-black-1">
                     Lorem Ipsum is simply dummy text of the printing and
                     typesetting industry.Lorem Ipsum passages, and more recently
@@ -593,46 +653,88 @@ const Hero = () => {
                 </div>
               </div>
             </div>
-            {/* 2nd col ----> */}
-            <div className="w-full flex flex-col gap-2 px-4 py-2 h-[calc(100%-140px)] overflow-auto">
-              {/* search bar  */}
-              <div className="w-full flex justify-between items-center">
-                <p className="text-[14px] font-normal text-black-1">
-                  Degens (13)
-                </p>
-                <LuSearch className="text-[22px] text-black-1" />
-              </div>
-              {/* admin */}
-              <div className="w-full grid grid-cols-[50px,1fr]">
-                <p className="w-full flex justify-start">@</p>
-                <div className="w-full flex justify-start items-center">
-                  <p className="[text-shadow:_-0.4px_-0.4px_0_#D90000,_0.4px_-0.4px_0_#D90000,_-0.4px_0.4px_0_#D90000,_0.4px_0.4px_0_#D90000] text-[14px] font-semibold text-black-1">
-                    {admin}
-                  </p>
-                </div>
-              </div>
-              {/* mode */}
-              <div className="w-full grid grid-cols-[50px,1fr]">
-                <p className="w-full flex justify-start">@</p>
-                <div className="w-full flex justify-start items-center">
-                  <p className="[text-shadow:_-0.4px_-0.4px_0_#D90000,_0.4px_-0.4px_0_#D90000,_-0.4px_0.4px_0_#D90000,_0.4px_0.4px_0_#D90000] text-[14px] font-semibold text-black-1">
-                    {mode}
-                  </p>
-                </div>
-              </div>
-              {[
-                0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 12, 3, 4, 5, 6, 3, 2, 1
-                
-              ].map((item, index) => {
-                return (
-                  <div key={index} className="w-full grid grid-cols-[50px,1fr]">
-                    <div></div>
-                    <p className="text-[14px] w-full flex justify-start font-normal text-black-1">
-                      {userName}
+            {/* 3rd col ----> */}
+            <div className="w-full flex flex-col gap-2">
+              <div className="w-full flex border-[1px] border-blue-1 flex-col h-[calc(100vh-416px)]">
+                {/* Fixed header */}
+                <div className="w-full flex flex-col gap-2 px-4 py-2">
+                  {/* search bar  */}
+                  <div className="w-full flex justify-between items-center">
+                    <p className="text-[14px] font-normal text-black-1">
+                      Degens (13)
                     </p>
+                    <LuSearch className="text-[22px] text-black-1" />
                   </div>
-                );
-              })}
+                  {/* online  */}
+                  <div className="w-full relative flex justify-center items-center">
+                    <p className="text-[14px] font-normal text-black-1">
+                      {online}
+                    </p>
+                    <div className="w-[4px] h-[28px] bg-[#004BFE] absolute -left-2"></div>
+                    <div className="w-[4px] h-[28px] bg-[#004BFE] absolute -right-2"></div>
+                  </div>
+                  {/* admin */}
+                  <div className="w-full grid grid-cols-[40px,1fr]">
+                    <p className="w-full flex justify-start">@</p>
+                    <div className="w-full flex justify-start items-center">
+                      <p className="[text-shadow:_-0.4px_-0.4px_0_#D90000,_0.4px_-0.4px_0_#D90000,_-0.4px_0.4px_0_#D90000,_0.4px_0.4px_0_#D90000] text-[14px] font-semibold text-black-1">
+                        {admin}
+                      </p>
+                    </div>
+                  </div>
+                  {/* mode */}
+                  <div className="w-full grid grid-cols-[40px,1fr]">
+                    <p className="w-full flex justify-start">@</p>
+                    <div className="w-full flex justify-start items-center">
+                      <p className="text-[14px] font-semibold text-red-1">
+                        {mode}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Scrollable user list */}
+                <div className="w-full flex-grow overflow-y-auto px-4">
+                  {[
+                    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 12, 3, 4, 5, 6, 3, 2, 1, 3,
+                    2, 3, 1, 2, 1, 1, 2,
+                  ].map((item, index) => {
+                    return (
+                      <div
+                        key={index}
+                        className="w-full grid grid-cols-[40px,1fr]"
+                      >
+                        <div></div>
+                        <p className="text-[14px] py-[4px] w-full flex justify-start font-normal text-black-1">
+                          {userName}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+              {/*  */}
+              <div className="w-full h-[250px] border-[1px] border-blue-1 flex flex-col justify-between p-2">
+                <p className="text-[14px] underline font-normal text-black-1">
+                  General Admin
+                </p>
+                <p className="text-[14px] font-normal text-black-1">
+                  [manage users]
+                </p>
+                <p className="text-[14px] font-normal text-red-1">
+                  [manage roles]
+                </p>
+                <p className="text-[14px] font-normal text-[#336FFE]">
+                  [manage wallets]
+                </p>
+                <p className="text-[14px]  font-normal text-black-1">
+                  [manage coins]
+                </p>
+                <p className="text-[14px]  font-normal text-black-1">[stats]</p>
+                <p className="text-[14px] font-normal text-black-1">
+                  [News Post]
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -653,6 +755,9 @@ const pattern3 =
 const admin = "<ADMIN>";
 const mode = "<MOD>";
 const userName = "<[Username]>";
+const online = "<Online>";
+const generalChat = "<General Chat>";
+const chatName = "<Chat Name>";
 
 const messageData = [
   {

@@ -25,6 +25,7 @@ const CoinTable = () => {
     }));
   };
 
+
   return (
     <div
       className={`w-full dark:bg-[#0E161C] bg-transparent dark:border-[#D7E0E7] border-[1px] border-transparent ${
@@ -340,6 +341,214 @@ const rowsData = [
     priceChange: {
       positive: false,
       value: "-10%",
+    },
+    holders: "123",
+    upvotes: "15",
+    downvotes: "2",
+    age: "23",
+    deployed: "1",
+    bondingCurve: "73%",
+  },
+  {
+    coin: {
+      icon: "/assets/coin3.svg",
+      value: "/ Token name > [Ticker: TN]",
+    },
+    img: "/assets/chain.svg",
+
+    map: "34.5k",
+    priceChange: {
+      positive: true,
+      value: "+15%",
+    },
+    holders: "123",
+    upvotes: "15",
+    downvotes: "2",
+    age: "23",
+    deployed: "1",
+    bondingCurve: "73%",
+  },
+  {
+    coin: {
+      icon: "/assets/coin3.svg",
+      value: "/ Token name > [Ticker: TN]",
+    },
+    img: "/assets/chain.svg",
+    map: "34.5k",
+    priceChange: {
+      positive: true,
+      value: "+15%",
+    },
+    holders: "123",
+    upvotes: "15",
+    downvotes: "2",
+    age: "23",
+    deployed: "1",
+    bondingCurve: "73%",
+  },
+  {
+    coin: {
+      icon: "/assets/coin3.svg",
+      value: "/ Token name > [Ticker: TN]",
+    },
+    map: "34.5k",
+    img: "/assets/chain2.svg",
+
+    priceChange: {
+      positive: false,
+      value: "-10%",
+    },
+    holders: "123",
+    upvotes: "15",
+    downvotes: "2",
+    age: "23",
+    deployed: "1",
+    bondingCurve: "73%",
+  },
+  {
+    coin: {
+      icon: "/assets/coin3.svg",
+      value: "/ Token name > [Ticker: TN]",
+    },
+    img: "/assets/chain2.svg",
+
+    map: "34.5k",
+    priceChange: {
+      positive: true,
+      value: "+15%",
+    },
+    holders: "123",
+    upvotes: "15",
+    downvotes: "2",
+    age: "23",
+    deployed: "1",
+    bondingCurve: "73%",
+  },
+  {
+    coin: {
+      icon: "/assets/coin3.svg",
+      value: "/ Token name > [Ticker: TN]",
+    },
+    img: "/assets/chain2.svg",
+
+    map: "34.5k",
+    priceChange: {
+      positive: false,
+      value: "-10%",
+    },
+    holders: "123",
+    upvotes: "15",
+    downvotes: "2",
+    age: "23",
+    deployed: "1",
+    bondingCurve: "73%",
+  },
+  {
+    coin: {
+      icon: "/assets/coin3.svg",
+      value: "/ Token name > [Ticker: TN]",
+    },
+    img: "/assets/chain.svg",
+
+    map: "34.5k",
+    priceChange: {
+      positive: false,
+      value: "-10%",
+    },
+    holders: "123",
+    upvotes: "15",
+    downvotes: "2",
+    age: "23",
+    deployed: "1",
+    bondingCurve: "73%",
+  },
+  {
+    coin: {
+      icon: "/assets/coin3.svg",
+      value: "/ Token name > [Ticker: TN]",
+    },
+    img: "/assets/chain2.svg",
+
+    map: "34.5k",
+    priceChange: {
+      positive: true,
+      value: "+15%",
+    },
+    holders: "123",
+    upvotes: "15",
+    downvotes: "2",
+    age: "23",
+    deployed: "1",
+    bondingCurve: "73%",
+  },
+  {
+    coin: {
+      icon: "/assets/coin3.svg",
+      value: "/ Token name > [Ticker: TN]",
+    },
+    img: "/assets/chain2.svg",
+
+    map: "34.5k",
+    priceChange: {
+      positive: false,
+      value: "-10%",
+    },
+    holders: "123",
+    upvotes: "15",
+    downvotes: "2",
+    age: "23",
+    deployed: "1",
+    bondingCurve: "73%",
+  },
+  {
+    coin: {
+      icon: "/assets/coin3.svg",
+      value: "/ Token name > [Ticker: TN]",
+    },
+    img: "/assets/chain.svg",
+
+    map: "34.5k",
+    priceChange: {
+      positive: true,
+      value: "+15%",
+    },
+    holders: "123",
+    upvotes: "15",
+    downvotes: "2",
+    age: "23",
+    deployed: "1",
+    bondingCurve: "73%",
+  },
+  {
+    coin: {
+      icon: "/assets/coin3.svg",
+      value: "/ Token name > [Ticker: TN]",
+    },
+    img: "/assets/chain.svg",
+
+    map: "34.5k",
+    priceChange: {
+      positive: true,
+      value: "+15%",
+    },
+    holders: "123",
+    upvotes: "15",
+    downvotes: "2",
+    age: "23",
+    deployed: "1",
+    bondingCurve: "73%",
+  },
+  {
+    coin: {
+      icon: "/assets/coin3.svg",
+      value: "/ Token name > [Ticker: TN]",
+    },
+    img: "/assets/chain.svg",
+
+    map: "34.5k",
+    priceChange: {
+      positive: true,
+      value: "+15%",
     },
     holders: "123",
     upvotes: "15",
