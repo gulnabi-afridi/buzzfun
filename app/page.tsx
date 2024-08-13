@@ -11,13 +11,11 @@ import Breadcrumb from "./components/shared/layout/Breadcrumb";
 
 export default function Home() {
   return (
-    
     <main className="bg-white-2 dark:bg-[#1D252C] pb-16 w-full">
       <ComponentWrapper style="">
-         <div className="pt-6">
-
-        <Breadcrumb />
-         </div>
+        <div className="pt-6">
+          <Breadcrumb />
+        </div>
         <div className="flex min-h-screen flex-col">
           {/* Hero Section */}
           <Hero />

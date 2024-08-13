@@ -5,7 +5,8 @@ import { Providers } from "./providers";
 import Navibar from "./components/shared/layout/Navibar";
 import Footer from "./components/shared/layout/Footer";
 import CoinPercentageDisplay from "./components/shared/layout/CoinPercentageDisplay";
-
+import Link from "next/link";
+import Image from "next/image";
 
 const fragment = Fragment_Mono({
   subsets: ["latin"],
@@ -26,10 +27,30 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${fragment.className}`}>
         <Providers>
-          <Navibar />
-          <CoinPercentageDisplay/>
-          {children}
-          <Footer/>
+          <div className="w-full grid grid-cols-[200px,calc(100%-200px)]">
+            {/* left navigation  */}
+            <div className="w-full h-full bg-[red]">
+              <Link
+                href="/"
+                className="w-[150px] sm:w-[193px] mr-0 sm:mr-8 h-[45px] sm:h-[53px] relative"
+              >
+                <Image
+                  src="/assets/logo.png"
+                  className="object-fill"
+                  fill
+                  alt=""
+                />
+              </Link>
+            </div>
+            <div className="w-full">
+              <Navibar />
+              <CoinPercentageDisplay />
+              {children}
+            </div>
+            <div className="w-full col-span-2">
+              <Footer />
+            </div>
+          </div>
         </Providers>
       </body>
     </html>

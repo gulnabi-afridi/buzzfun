@@ -24,12 +24,7 @@ const Navibar: React.FC = () => {
       <div className="w-full  dark:bg-black-3 bg-white-2 px-5 flex justify-between items-center h-[65px]">
         {/* left portion */}
         <div className="flex justify-center items-center gap-6">
-          <Link
-            href="/"
-            className="w-[150px] sm:w-[193px] mr-0 sm:mr-8 h-[45px] sm:h-[53px] relative"
-          >
-            <Image src="/assets/logo.png" className="object-fill" fill alt="" />
-          </Link>
+    
           <div className="justify-center md:flex hidden items-center gap-3">
             {socialLinks.map((item, index) => {
               return (
