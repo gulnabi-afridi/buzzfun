@@ -93,7 +93,112 @@ const Navibar: React.FC = () => {
           >
             Connect
           </button>
-        
+          {/* hamburger */}
+          <Menu
+            shadow="md"
+            width={248}
+            withArrow
+            classNames={{ dropdown: "!bg-black-1 !border-none" }}
+          >
+            <Menu.Target>
+              <button className="w-[33px] bg-orange-1 flex justify-center items-center h-[30px] rounded-[2px] ">
+                <RxHamburgerMenu className="text-[20px] text-black-1" />
+              </button>
+            </Menu.Target>
+            <Menu.Dropdown>
+              <div className="w-full flex gap-2 flex-col p-3">
+                {/* user detail */}
+                <div className="w-full flex justify-between items-center">
+                  <div className="flex justify-center items-center gap-3">
+                    <Image
+                      src="/assets/user2.png"
+                      alt=""
+                      width={39}
+                      height={39}
+                    />
+                    <div className="flex flex-col">
+                      <p className="text-[15px] font-normal text-white-1">
+                        DrBoom
+                      </p>
+                      <p className="text-[15px] font-normal text-blue-1">
+                        @drboom
+                      </p>
+                    </div>
+                  </div>
+                  {/* Theme switc ----> */}
+                  <ThemeSwitch />
+                </div>
+                {/* wallet address */}
+                <div className="w-full bg-[#D3DCE5] rounded-[3px] p-3 flex justify-between items-center gap-1">
+                  <div className="flex flex-col">
+                    <p className="text-[12px] font-normal text-black-1">
+                      Wallet connected
+                    </p>
+                    <p className="text-[6px] font-normal text-black-1">
+                      0xEE3389cd8aC6FAc9392C97BAFdF7474927D51AFB
+                    </p>
+                  </div>
+                  <button className="w-[14px] h-[14px] bg-black-1 flex justify-center items-center">
+                    <IoCopyOutline className="text-[10px] text-white-1" />
+                  </button>
+                </div>
+                {/* links */}
+                <div className="w-full flex flex-col gap-2 ">
+                  {menuLinks.map((item, index) => {
+                    return (
+                      <Link
+                        href={item.path}
+                        key={index}
+                        className="w-full flex justify-start items-center gap-2"
+                      >
+                        <Image src={item.icon} alt="" width={20} height={20} />
+                        <p className="text-[14px] text-white-1 font-normal">
+                          {item.name}
+                        </p>
+                      </Link>
+                    );
+                  })}
+                  <button className="w-full flex justify-start items-center gap-2">
+                    <Image
+                      src="/assets/buzz.svg"
+                      alt=""
+                      width={20}
+                      height={20}
+                    />
+                    <p className="text-[14px] text-white-1 font-normal">
+                      <span className="text-yellow-1"> BUZZ</span> Leaderboard
+                    </p>
+                  </button>
+                  <button className="w-full flex justify-start items-center gap-2">
+                    <Image
+                      src="/assets/shutdown.svg"
+                      alt=""
+                      width={20}
+                      height={20}
+                    />
+                    <p className="text-[14px] text-red-1 font-normal">
+                      Disconnect
+                    </p>
+                  </button>
+                </div>
+                {/* profile link */}
+                <div className="w-full h-[20px] bg-blue-2 flex justify-between items-center px-3">
+                  <p className="text-[8px] text-black-1 font-normal">
+                    Copy Referral Link
+                  </p>
+                  <button className="w-[14px] h-[14px] bg-black-1 flex justify-center items-center">
+                    <IoCopyOutline className="text-[10px] text-white-1" />
+                  </button>
+                </div>
+                {/* platform version */}
+                <div className="w-full h-[20px] bg-yellow-1 flex justify-start items-center px-3">
+                  <p className="text-[8px] text-black-1 font-normal">
+                    Platform version: 69.01
+                  </p>
+                </div>
+              </div>
+            </Menu.Dropdown>
+          </Menu>
         </div>
       </div>
       {/* MDOAL FOR CONNECT WALLET -------------->  */}
