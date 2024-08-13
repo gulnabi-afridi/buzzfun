@@ -63,14 +63,15 @@
 .gradient-border::before {
   content: '';
   position: absolute;
-  top: -0.55px; /* Border width */
-  left: -0.55px; /* Border width */
-  right: -0.55px; /* Border width */
-  bottom: -0.55px; /* Border width */
-  border-radius: 11px; /* Match the border radius of the parent */
+  top: -0.55px; 
+  left: -0.55px; 
+  right: -0.55px;
+  bottom: -0.55px;
+  border-radius: 11px;
   background: linear-gradient(180deg, #141414 27.17%, rgba(255, 255, 255, 0.18) 100%);
   z-index: 0;
 }
+
 
 /* shadows ends here */
 
