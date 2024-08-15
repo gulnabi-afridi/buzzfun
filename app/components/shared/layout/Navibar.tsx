@@ -11,6 +11,8 @@ import { Modal } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { GoArrowUpRight } from "react-icons/go";
 import { RxCross2 } from "react-icons/rx";
+import { MdOutlineStarBorder } from "react-icons/md";
+
 
 const Navibar: React.FC = () => {
   const [connectWalletOpened, { open: connectOpen, close: connectClose }] =
@@ -88,31 +90,43 @@ const Navibar: React.FC = () => {
         </div>
 
         {/* right portion */}
-        <div className="flex justify-center items-center gap-2">
-          <div className="hidden lg:flex justify-center navibarCardSh bg-blue-1 rounded-[2px] px-2 py-1  items-center gap-4">
-            <p className="text-[10px] uppercase font-normal text-white-1">
-              {" "}
-              <span className="bg-black-1 uppercase p-[2px] mr-1">
+        <div className="flex justify-center items-center gap-3">
+          <div className="relative hidden lg:flex">
+            <div className="absolute inset-0 before:left-[-.4px] before:right-[-.4px] before:rounded-[6px] before:bottom-[-0.45px] gradient-border"></div>
+            <div className="flex justify-center rounded-[6px] z-10 navibarCardSh px-2 py-1 bg-[#1A1721] items-center gap-4">
+              <p className="text-[10px] uppercase font-normal text-white-1">
                 {" "}
-                $BUZZ airdrop{" "}
-              </span>{" "}
-              Leaderboard S1
-            </p>
-            <Image
-              src="/assets/coin.svg"
-              alt=""
-              className="object-fill"
-              width={19}
-              height={19}
-            />
+                <span className="bg-blue-1 uppercase p-[2px] mr-1">
+                  {" "}
+                  $BUZZ airdrop{" "}
+                </span>{" "}
+                Leaderboard S1
+              </p>
+              <Image
+                src="/assets/coin.svg"
+                alt=""
+                className="object-fill"
+                width={19}
+                height={19}
+              />
+            </div>
           </div>
-          {/* connect btn */}
-          <button
-            onClick={connectOpen}
-            className="bg-yellow-1 ml-4 h-[30px] text-black-1 navibarCardSh rounded-[2px] px-4 flex justify-center items-center text-[15px] font-normal"
-          >
-            Connect
-          </button>
+          {/* postions  */}
+          <div className="relative flex">
+            <div className="absolute inset-0 before:left-[-.8px] before:right-[-.7px] before:rounded-[6px] before:bottom-[-1.5px] gradient-border"></div>
+            <div className="flex !z-10 px-1 py-1 bg-[#1A1721] rounded-[6px] justify-center items-center gap-1">
+              <p className="px-[5px] text-[10px] font-normal text-white-1 rounded-[4px] bg-[#449C6E] py-[1px]">
+                1
+              </p>
+              <p className="text-[12px] font-normal text-white-1">Positions</p>
+            </div>
+          </div>
+          {/* favorite --->  */}
+          <div className="w-[35px] h-[35px] relative">
+            <button className="bg-[#1A1721] w-full h-full flex justify-center items-center">
+              <MdOutlineStarBorder className="text-[#EBFF00C4] text-[24px]"/>
+            </button>
+          </div>
         </div>
       </div>
       {/* MDOAL FOR CONNECT WALLET -------------->  */}
