@@ -12,7 +12,8 @@ import { useDisclosure } from "@mantine/hooks";
 import { GoArrowUpRight } from "react-icons/go";
 import { RxCross2 } from "react-icons/rx";
 import { MdOutlineStarBorder } from "react-icons/md";
-
+import { BsChatLeftText } from "react-icons/bs";
+import { IoMdNotificationsOutline } from "react-icons/io";
 
 const Navibar: React.FC = () => {
   const [connectWalletOpened, { open: connectOpen, close: connectClose }] =
@@ -122,9 +123,31 @@ const Navibar: React.FC = () => {
             </div>
           </div>
           {/* favorite --->  */}
-          <div className="w-[35px] h-[35px] relative">
-            <button className="bg-[#1A1721] w-full h-full flex justify-center items-center">
-              <MdOutlineStarBorder className="text-[#EBFF00C4] text-[24px]"/>
+          <div className="w-[35px] h-[35px] flex relative">
+            <div className="absolute inset-0 before:left-[-.8px] before:right-[-.8px] before:rounded-[6px] before:bottom-[-1.5px] gradient-border"></div>
+            <button className="bg-[#1A1721] z-10 rounded-[6px] w-full h-full flex justify-center items-center">
+              <MdOutlineStarBorder className="text-[#EBFF00C4] text-[24px]" />
+            </button>
+          </div>
+          {/* chat -----> */}
+          <div className="w-[35px] h-[35px] flex relative">
+            <div className="absolute inset-0 before:left-[-.8px] before:right-[-.8px] before:rounded-[6px] before:bottom-[-1.5px] gradient-border"></div>
+            <button className="bg-[#1A1721] z-10 rounded-[6px] w-full h-full flex justify-center items-center">
+              <BsChatLeftText className="text-[#787B99] text-[20px]" />
+            </button>
+          </div>
+          {/* Notification -----> */}
+          <div className="w-[35px] h-[35px] flex relative">
+            <div className="absolute inset-0 before:left-[-.8px] before:right-[-.8px] before:rounded-[6px] before:bottom-[-1.5px] gradient-border"></div>
+            <button className="bg-[#1A1721] z-10 rounded-[6px] w-full h-full flex justify-center items-center">
+              <div className="relative flex">
+                <IoMdNotificationsOutline className="text-[#787B99] text-[20px]" />
+                <div className="w-[7px] absolute top-0 right-0 h-[7px] bg-red-1 justify-center items-center rounded-full flex">
+                  <p className="text-[4px] text-center mt-[1px] font-normal text-white-1 ">
+                    1
+                  </p>
+                </div>
+              </div>
             </button>
           </div>
         </div>
