@@ -16,8 +16,10 @@ const CoinPercentageDisplay: React.FC = () => {
       <div className="flex justify-center pl-3 items-center gap-2">
         <Menu
           classNames={{
-            dropdown: "dark:!bg-black-1 !bg-white-2 !border-none min-w-[160px]",
-            item: "text-black-1 dark:text-white-1 text-[14px] font-normal hover:bg-white-1/30",
+            dropdown:
+              "dark:!bg-[#336FFE] !bg-white-2 dark:!border-[.2px] dark:!border-white-1/20 min-w-[160px]",
+            item: "!text-black-1 dark:text-white-1 text-[14px] font-normal hover:!bg-blue-1/20",
+            arrow: "!border-t-white-1/20  !border-l-white-1/20",
           }}
           withArrow
         >
@@ -32,7 +34,9 @@ const CoinPercentageDisplay: React.FC = () => {
             <div className="flex flex-col">
               {time2Options.map((item) => (
                 <Menu.Item
-                  className={`relative ${time === item ? "bg-white-1/30" : ""}`}
+                  className={`relative ${
+                    time === item ? "bg-white-1/30 !bg-[#1957EA]" : ""
+                  }`}
                   key={time}
                   onClick={() => setTime(item)}
                 >
@@ -40,8 +44,8 @@ const CoinPercentageDisplay: React.FC = () => {
                     {item}
                     {time === item && (
                       <>
-                        <div className="absolute top-0 left-0 bottom-0 w-[4px] bg-[#336FFE]"></div>
-                        <div className="absolute top-0 right-0 bottom-0 w-[4px] bg-[#336FFE]"></div>
+                        <div className="absolute inset-y-0 left-0 w-[4px] bg-black-1  pointer-events-none"></div>
+                        <div className="absolute inset-y-0 right-0 w-[4px] bg-black-1 pointer-events-none"></div>
                       </>
                     )}
                   </div>
@@ -50,7 +54,7 @@ const CoinPercentageDisplay: React.FC = () => {
             </div>
           </Menu.Dropdown>
         </Menu>
-        <p className="text-[14px] px-[2px] font-normal text-black-1 bg-yellow-1">
+        <p className="text-[14px] px-[2px] whitespace-nowrap font-normal text-black-1 bg-yellow-1">
           {time}
         </p>
       </div>
@@ -140,6 +144,6 @@ export default CoinPercentageDisplay;
 
 const timeOptions = ["15 min", "30 min", "1 hour", "4 hours", "1 day"];
 
-const time2Options = ["15min", "20min", "11min"];
+const time2Options = ["15 min", "1 hr ", "6 hr ", "12 hr ", "24 hr "];
 
-const pattern = '////////'
+const pattern = "////////";

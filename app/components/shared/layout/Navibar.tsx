@@ -3,10 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { RxHamburgerMenu } from "react-icons/rx";
 import { Menu } from "@mantine/core";
-import { IoCopyOutline } from "react-icons/io5";
-import ThemeSwitch from "../../ThemeSwitch";
 import { Modal } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { GoArrowUpRight } from "react-icons/go";
@@ -137,19 +134,60 @@ const Navibar: React.FC = () => {
             </button>
           </div>
           {/* Notification -----> */}
-          <div className="w-[35px] h-[35px] flex relative">
-            <div className="absolute inset-0 before:left-[-.8px] before:right-[-.8px] before:rounded-[6px] before:bottom-[-1.5px] gradient-border"></div>
-            <button className="bg-[#1A1721] z-10 rounded-[6px] w-full h-full flex justify-center items-center">
-              <div className="relative flex">
-                <IoMdNotificationsOutline className="text-[#787B99] text-[20px]" />
-                <div className="w-[7px] absolute top-0 right-0 h-[7px] bg-red-1 justify-center items-center rounded-full flex">
-                  <p className="text-[4px] text-center mt-[1px] font-normal text-white-1 ">
-                    1
-                  </p>
+          <Menu
+            classNames={{
+              dropdown:
+                "dark:!bg-[#336FFE] !bg-white-2 dark:!border-[.2px] dark:!border-white-1/20 max-w-[309px]",
+              item: "!text-black-1 dark:text-white-1 text-[14px] font-normal hover:!bg-blue-1/20",
+              arrow: "!border-t-white-1/20  !border-l-white-1/20",
+            }}
+            withArrow
+          >
+            <Menu.Target>
+              <div className="w-[35px] h-[35px] flex relative">
+                <div className="absolute inset-0 before:left-[-.8px] before:right-[-.8px] before:rounded-[6px] before:bottom-[-1.5px] gradient-border"></div>
+                <button className="bg-[#1A1721] z-10 rounded-[6px] w-full h-full flex justify-center items-center">
+                  <div className="relative flex">
+                    <IoMdNotificationsOutline className="text-[#787B99] text-[20px]" />
+                    <div className="w-[7px] absolute top-0 right-0 h-[7px] bg-red-1 justify-center items-center rounded-full flex">
+                      <p className="text-[4px] text-center mt-[1px] font-normal text-white-1 ">
+                        1
+                      </p>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </Menu.Target>
+            {/* Menu dropdown */}
+            <Menu.Dropdown>
+              <div className="w-full p-1 gap-2 flex flex-col">
+                {/*  */}
+                <div className="w-full h-[25px] relative after:min-w-[4px] after:h-full after:absolute after:right-0 after:top-0 after:bg-black-1 before:absolute before:min-w-[4px] before:h-full before:bg-black-1 before:left-0 before:top-0 text-[14px] flex justify-center items-center font-normal text-black-1 bg-[#1957EA]">
+                  Notifications
+                </div>
+                {/*  */}
+                <div className="w-full bg-[#1957EA] p-[4px]">
+                  <div className="w-full bg-[#336FFE] gap-2 p-1 flex flex-col">
+                    <p className="text-[10px] text-black-1 font-normal">{pattern1} </p>
+                    <p className="text-[10px] text-black-1 font-normal">Would you like to accept this transfer?</p>
+
+                  </div>
+                  {/* buttons ---->  */}
+                  <div className="w-full grid grid-cols-2 h-[33px] gap-7">
+                    <button className="w-full h-full flex bg-black-1/30 justify-center items-center text-[14px] font-normal text-white-1">Refuse</button>
+                    <button className="w-full h-full flex bg-black-1 justify-center items-center text-[14px] font-normal text-white-1">Accept</button>
+
+                  </div>
+                </div>
+                <hr className="w-full border-[1px] border-black-1"/>
+                {/*  */}
+                <div className="flex px-4 relative py-1 after:min-w-[4px] after:h-full after:absolute after:right-0 after:top-0 after:bg-[#1957EA] before:absolute before:min-w-[4px] before:h-full before:bg-[#1957EA] before:left-0 before:top-0 justify-center items-center gap-2">
+                  <Image src='/assets/vip.svg' alt="" width={30} height={30} />
+                  <p className="text-[10px] text-black-1 font-normal">You have been tagged in Pink Hood Froglicker chat. <span className="underline"> See Tag</span>.</p>
                 </div>
               </div>
-            </button>
-          </div>
+            </Menu.Dropdown>
+          </Menu>
         </div>
       </div>
       {/* MDOAL FOR CONNECT WALLET -------------->  */}
@@ -383,5 +421,7 @@ const connectWallet = [
     img: "/assets/smartWallet.svg",
   },
 ];
+
+const pattern1 = 'User {insert username} Would like to transfer the ownership of [Insert Group chat name] to you.'
 
 export default Navibar;
