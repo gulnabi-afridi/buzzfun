@@ -22,7 +22,7 @@ const Navibar: React.FC = () => {
 
   return (
     <React.Fragment>
-      <div className="w-full  dark:bg-black-3 bg-white-2 px-5 flex justify-between items-center h-[65px]">
+      <div className="w-full  dark:bg-[#201e26] bg-white-2 px-5 flex justify-between items-center h-[65px]">
         {/* left portion */}
         <div className="flex justify-center items-center gap-6">
           <div className="justify-center md:flex hidden items-center gap-3">
