@@ -72,6 +72,8 @@
   z-index: 0;
 }
 
+
+
 /* shadows ends here */
 
 .scrollSize::-webkit-scrollbar {
@@ -159,3 +161,5 @@
 .selected-item::after {
   right: 0;
 }
+
+

@@ -24,7 +24,7 @@ const Hero = () => {
         {/* open chat  */}
         <OpenChartBtn />
         <div
-          className={`w-full flex flex-col max-w-[1400px] mt-4 px-4 py-3 dark:bg-transparent dark:border-transparent bg-white-1 border-[2px] dark:border-white-1 border-black-1 rounded-[5px]`}
+          className={`w-full flex flex-col max-w-[1400px] mt-4 px-4 py-3 dark:bg-transparent dark:border-transparent bg-white-1 border-[2px] border-black-1 rounded-[5px]`}
         >
           <div
             className={`w-full grid gap-4 grid-cols-1 lg:grid-cols-2 2xl:grid-cols-[1fr,.9fr,1fr]`}
@@ -355,28 +355,14 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* down section -------------------------------> */}
-          <div className="w-full px-3 bg-blue-2 py-3 flex justify-between gap-2 items-center mt-3 sm:mt-6">
-            <p className="text-black-1 text-[10px] font-normal">{pattern3}</p>
-            <button
-              onClick={() => setIsMinimize(!isMinimize)}
-              className="flex justify-center gap-1 py-[2px] rounded-md items-center px-2 bg-black-1"
-            >
-              <p className="text-white-1 uppercase font-semibold font-montserrat text-[10px] ">
-                {isMinimize ? "Expand" : "minimise"}
-              </p>
-              <p
-                className={`text-white-1 duration-200 ease-linear ${
-                  isMinimize ? "rotate-180" : "rotate-0"
-                } text-[12px]`}
-              >
-                ^^
-              </p>
-            </button>
-          </div>
         </div>
       </div>
       {/* drawer btn ------------------------------> */}
+
+
+
+
+
       <button
         onClick={open}
         className="w-[40px] lg:flex hidden bg-[#D4DDE6] drawerSha absolute right-0 bottom-0 h-[calc(100%-107px)] items-start justify-center"
