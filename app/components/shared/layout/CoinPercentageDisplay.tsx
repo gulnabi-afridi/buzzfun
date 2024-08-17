@@ -12,7 +12,7 @@ const CoinPercentageDisplay: React.FC = () => {
   const [time, setTime] = useState("15 min");
 
   return (
-    <div className="w-full h-[40px] flex justify-start gap-4 items-center dark:bg-[#0E161C] bg-white-1">
+    <div className="w-full h-[40px] flex justify-start gap-4 items-center dark:bg-[#19171F] bg-white-1">
       <div className="flex justify-center pl-3 items-center gap-2">
         <Menu
           classNames={{
@@ -67,7 +67,7 @@ const CoinPercentageDisplay: React.FC = () => {
         <Marquee pauseOnHover={true} play={isHovering} speed={50} loop={0}>
           {/* Start text */}
           <div className="mx-[10px] flex items-center">
-            <p className="text-[14px] font-bold text-black-1">{pattern}</p>
+            <p className="text-[14px] font-bold dark:text-white-1 text-black-1">{pattern}</p>
           </div>
 
           {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, index) => {
