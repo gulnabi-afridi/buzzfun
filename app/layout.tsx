@@ -34,7 +34,7 @@ export default function RootLayout({
               <CoinPercentageDisplay />
               {children}
             </div>
-              <Footer />
+            <Footer />
           </div>
         </Providers>
       </body>
