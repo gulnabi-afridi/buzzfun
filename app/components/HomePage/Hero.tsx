@@ -1,6 +1,6 @@
 "use client";
 import { useTheme } from "next-themes";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Image from "next/image";
 import OpenChartBtn from "../shared/OpenChartBtn";
 import { useDisclosure } from "@mantine/hooks";
@@ -20,6 +20,22 @@ const Hero = () => {
   const { setTheme, resolvedTheme } = useTheme();
   const [isMinimize, setIsMinimize] = useState<boolean>(false);
   const [opened, { open, close }] = useDisclosure(false);
+  const [drawerButtonHeight, setDrawerButtonHeight] = useState('h-[calc(100%-107px)]');
+
+  // Function to handle scroll events
+  const handleScroll = () => {
+    const scrollPosition = window.scrollY;
+    if (scrollPosition > 100) {
+      setDrawerButtonHeight('h-screen');
+    } else {
+      setDrawerButtonHeight('h-[calc(100%-107px)]');
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <React.Fragment>
@@ -33,8 +49,8 @@ const Hero = () => {
             className={`w-full grid gap-y-8 gap-x-4 grid-cols-2 3xl:grid-cols-[1fr,.9fr,1fr]`}
           >
             {/* 1st col ----------------------------------> */}
-            <div className="w-full flex justify-center items-center">
-            <div className="w-full max-w-[450px] h-full justify-between items-center gap-4 flex flex-col">
+            <div className="w-full h-full flex justify-center items-center">
+            <div className="w-full h-full max-w-[450px] h-full justify-between items-center gap-4 flex flex-col">
               {/* top bar ---->  */}
               <div className="w-full py-2 flex justify-center items-center bg-[#4F40FF] rounded-[5px]">
                 <p className="text-[13px] font-normal text-white-1">
@@ -154,8 +170,8 @@ const Hero = () => {
             </div>
             </div>
             {/* 2nd col -------------------------------------->  */}
-            <div className="w-full flex justify-center items-center">
-              <div className="w-full max-w-[450px] dark:bg-orange-1 bg-yellow-1 navibarCardSh rounded-[5px] flex flex-col p-3">
+            <div className="w-full h-full flex justify-center items-center">
+              <div className="w-full h-full max-w-[450px] dark:bg-orange-1 bg-yellow-1 navibarCardSh rounded-[5px] flex flex-col p-3">
                 {/* 1st portiom */}
                 <div className="flex mt-1 justify-center gap-1 items-center px-1 bg-black-1">
                   <p className="text-yellow-1">#1</p>
@@ -276,8 +292,8 @@ const Hero = () => {
             </div>
 
             {/* 3rd col ---------------------------------------> */}
-            <div className="w-full flex justify-center items-center">
-            <div className="w-full max-w-[480px] flex flex-col gap-4 justify-between items-center">
+            <div className="w-full h-full flex justify-center items-center">
+            <div className="w-full h-full max-w-[480px] flex flex-col gap-4 justify-between items-center">
               {/* top bar ---->  */}
               <div className="w-full py-2 flex justify-center items-center bg-[#EF7216] rounded-[5px]">
                 <p className="text-[13px] font-normal text-black-1">
@@ -353,10 +369,9 @@ const Hero = () => {
         </div>
       </div>
       {/* drawer btn ------------------------------> */}
-
       <button
         onClick={open}
-        className="w-[40px] lg:flex hidden bg-[#1D252C] absolute right-0 bottom-0 h-[calc(100%-107px)] items-start justify-center"
+        className={`w-[40px] z-10 lg:fixed right-0 lg:flex hidden bg-[#1D252C] ${drawerButtonHeight} bottom-0 items-start justify-center`}
       >
         <div className="w-[20px] h-[350px] relative">
           <Image

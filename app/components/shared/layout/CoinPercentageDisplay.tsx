@@ -76,8 +76,9 @@ const CoinPercentageDisplay: React.FC = () => {
                 <Menu
                   classNames={{
                     dropdown:
-                      "dark:!bg-black-1 !bg-white-2 !border-none min-w-[160px]",
-                    item: "text-black-1 dark:text-white-1 text-[14px] font-normal hover:bg-white-1/30",
+                      "dark:!bg-[#336FFE] !bg-white-2 dark:!border-[.2px] dark:!border-white-1/20 min-w-[160px]",
+                    item: "!text-black-1 dark:text-white-1 text-[14px] font-normal hover:!bg-blue-1/20",
+                    arrow: "!border-t-white-1/20  !border-l-white-1/20",
                   }}
                   trigger="click-hover"
                   withArrow
@@ -104,20 +105,20 @@ const CoinPercentageDisplay: React.FC = () => {
                   {/* Menu dropdown */}
                   <Menu.Dropdown>
                     <div className="flex flex-col">
-                      {timeOptions.map((time) => (
+                      {time2Options.map((item) => (
                         <Menu.Item
                           className={`relative ${
-                            selectedTime === time ? "bg-white-1/30" : ""
+                            time === item ? "bg-white-1/30 !bg-[#1957EA]" : ""
                           }`}
                           key={time}
-                          onClick={() => setSelectedTime(time)}
+                          onClick={() => setTime(item)}
                         >
                           <div className="relative py-[2px] px-4">
-                            {time}
-                            {selectedTime === time && (
+                            {item}
+                            {time === item && (
                               <>
-                                <div className="absolute top-0 left-0 bottom-0 w-[4px] bg-[#336FFE]"></div>
-                                <div className="absolute top-0 right-0 bottom-0 w-[4px] bg-[#336FFE]"></div>
+                                <div className="absolute inset-y-0 left-0 w-[4px] bg-black-1  pointer-events-none"></div>
+                                <div className="absolute inset-y-0 right-0 w-[4px] bg-black-1 pointer-events-none"></div>
                               </>
                             )}
                           </div>
