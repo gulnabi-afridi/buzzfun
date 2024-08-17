@@ -1,5 +1,4 @@
 import ComponentWrapper from "./components/shared/layout/ComponentWrapper";
-import Image from "next/image";
 import Hero from "./components/HomePage/Hero";
 import Stats from "./components/HomePage/Stats";
 import SearchBar from "./components/HomePage/SearchBar";
@@ -24,11 +23,12 @@ export default function Home() {
           {/* Token Cards --------> */}
           <TokenCards />
           {/* Search Bar   */}
+          <div className="w-full flex flex-col my-4">
           <SearchBar />
           {/* Coin Table */}
           <CoinTable />
+          </div>
           {/* Stats */}
-          <CoinStatsCards/>
           <Stats />
           {/* Trusted */}
           <Trusted />

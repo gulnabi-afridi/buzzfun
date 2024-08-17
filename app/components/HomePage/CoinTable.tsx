@@ -138,7 +138,7 @@ const CoinTable = () => {
                 {item.age}
               </p>
               <div className="flex w-full justify-start items-center gap-1">
-                <MdPerson className="text-white-1 text-[14px]" />
+                <MdPerson className="text-black-1 dark:text-white-1 text-[14px]" />
                 <p className="text-[14px] w-full flex justify-start font-normal dark:text-white-1 text-black-1">
                   {item.topTen}
                 </p>
@@ -178,7 +178,7 @@ const CoinTable = () => {
                 {item.isFavorite ? (
                   ""
                 ) : (
-                  <IoMdStarOutline className="text-[16px] text-[#EBFF00]" />
+                  <IoMdStarOutline className="text-[16px] text-black-1 dark:text-[#EBFF00]" />
                 )}
               </div>
               <div className="flex w-full justify-center items-center">
@@ -265,15 +265,15 @@ const headerData = [
     isIcon: true,
   },
   {
-    name: <GoPeople className="text-[14px] text-white-1" />,
+    name: <GoPeople className="text-[14px] text-black-1 dark:text-white-1" />,
     isIcon: true,
   },
   {
-    name: <IoMdThumbsUp className="text-[14px] text-[#004BFE]" />,
+    name: <IoMdThumbsUp className="text-[14px] text-black-1 dark:text-[#004BFE]" />,
     isIcon: true,
   },
   {
-    name: <BiSolidDislike className="text-[14px] text-[#FEF652]" />,
+    name: <BiSolidDislike className="text-[14px] text-black-1 dark:text-[#FEF652]" />,
     isIcon: true,
   },
   {
@@ -281,11 +281,11 @@ const headerData = [
     isIcon: false,
   },
   {
-    name: <GoGraph className="text-[14px] text-white-1" />,
+    name: <GoGraph className="text-[14px] text-black-1 dark:text-white-1" />,
     isIcon: true,
   },
   {
-    name: <IoMdStarOutline className="text-[16px] text-[#EBFF00E8]" />,
+    name: <IoMdStarOutline className="text-[16px] text-black-1 dark:text-[#EBFF00E8]" />,
     isIcon: true,
   },
   {

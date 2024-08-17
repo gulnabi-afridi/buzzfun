@@ -30,7 +30,7 @@ const Trusted: React.FC = () => {
 
   return (
     <div className="w-full flex justify-center items-center">
-      <div className={`w-full max-w-[1200px] flex mt-6 flex-col border-[1px] border-transparent dark:border-white-1 gap-4 sm:gap-7 dark:bg-black-1 bg-white-1 p-4 sm:p-5 ${resolvedTheme === 'dark'?'forDarkShadow':'tableShadow'}`}>
+      <div className={`w-full max-w-[1200px] flex mt-8 flex-col border-[1px] border-transparent dark:border-white-1 gap-4 sm:gap-7 dark:bg-black-1 bg-white-1 p-4 sm:p-5 ${resolvedTheme === 'dark'?'forDarkShadow':'tableShadow'}`}>
         {/* top section */}
         <div className="flex w-full py-2 dark:bg-[#253039] bg-black-1 gap-4 justify-center items-center">
           <p className="text-[20px] md:text-[30px] text-center xl:text-[40px] uppercase leading-[48px] font-normal text-orange-1">

@@ -13,7 +13,7 @@ const LeftNavigation: React.FC = () => {
   const [selectedItem, setSelectedItem] = useState("Home");
 
   return (
-    <div className="w-[210px] z-10 flex fixed flex-col h-screen justify-between bg-[#1D252C] border-r-[1px] border-[#2B2C39] p-4 left-0 top-0">
+    <div className="w-[210px] z-10 flex fixed overflow-auto flex-col h-screen gap-4 justify-between bg-[#1D252C] border-r-[1px] border-[#2B2C39] p-4 left-0 top-0">
       <div className="gap-4 flex flex-col justify-start items-start ">
         <div className="w-[177px] h-[40px] relative">
           <Image src="/assets/logo2.png" alt="" fill />
@@ -43,7 +43,7 @@ const LeftNavigation: React.FC = () => {
         </div>
         <hr className="w-full h-[1px] border-[1px] border-[#2E2B36] lineSha" />
         <div className="w-full flex justify-center items-center">
-          <div className="w-[120px] h-[34px] flex justify-center items-center relative">
+          <div className="w-[120px] h-[20px] flex justify-center items-center relative">
             <Image src="/assets/downArrows2.svg" alt="" fill />
           </div>
         </div>
@@ -152,7 +152,7 @@ const LeftNavigation: React.FC = () => {
         </div>
       </div>
       {/* platform version  */}
-      <div className="relative w-full h-[44px] flex justify-center items-center rounded-[11px]">
+      <div className="relative w-full min-h-[44px] flex justify-center items-center rounded-[11px]">
         <div className="absolute inset-0 rounded-[11px] gradient-border"></div>
         <div className="relative z-10 w-full rounded-[11px] h-full bg-[#0E161C] flex justify-center items-center">
           <p className="text-[9px] font-normal text-[#595959]">

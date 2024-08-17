@@ -12,6 +12,9 @@ import { LuTimerReset } from "react-icons/lu";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { MdOutlineElectricBolt } from "react-icons/md";
 import { MdOutlineStarBorder } from "react-icons/md";
+import { GoGraph } from "react-icons/go";
+import { TbUsers } from "react-icons/tb";
+
 
 const Hero = () => {
   const { setTheme, resolvedTheme } = useTheme();
@@ -27,10 +30,11 @@ const Hero = () => {
           className={`w-full flex flex-col max-w-[1400px] mt-4 px-4 py-3 dark:bg-transparent dark:border-transparent bg-white-1 border-[2px] border-black-1 rounded-[5px]`}
         >
           <div
-            className={`w-full grid gap-4 grid-cols-1 lg:grid-cols-2 2xl:grid-cols-[1fr,.9fr,1fr]`}
+            className={`w-full grid gap-y-8 gap-x-4 grid-cols-2 3xl:grid-cols-[1fr,.9fr,1fr]`}
           >
             {/* 1st col ----------------------------------> */}
-            <div className="w-full h-full justify-between items-center gap-4 flex flex-col">
+            <div className="w-full flex justify-center items-center">
+            <div className="w-full max-w-[450px] h-full justify-between items-center gap-4 flex flex-col">
               {/* top bar ---->  */}
               <div className="w-full py-2 flex justify-center items-center bg-[#4F40FF] rounded-[5px]">
                 <p className="text-[13px] font-normal text-white-1">
@@ -38,7 +42,7 @@ const Hero = () => {
                 </p>
               </div>
               {/* table ---> */}
-              <div className="w-full bg-black-1 border-[1px] border-[#FEF652] rounded-[5px] p-2">
+              <div className="w-full bg-transparent dark:bg-black-1 border-[1px] border-black-1 dark:border-[#FEF652] rounded-[5px] p-2">
                 {/* table filter -->  */}
                 <div className="flex pt-1 pb-3 justify-between items-center">
                   <div className="flex justify-center items-center gap-2">
@@ -72,14 +76,14 @@ const Hero = () => {
                         <p
                           className={`w-full whitespace-nowrap flex justify-center items-center ${
                             index === 0 ? "bg-[#00C673] " : "bg-transparent"
-                          }rounded-[3px] px-1 text-white-1 text-[12px] font-normal`}
+                          }rounded-[3px] px-1 text-black-1 dark:text-white-1 text-[12px] font-normal`}
                         >
                           #{index + 1}
                         </p>
                         {/* name  */}
                         <div className="flex border-r-[1px] border-[#B746F0] justify-center items-center gap-1">
                           <div className="w-[20px] h-[20px] rounded-full bg-[#EF7216]"></div>
-                          <p className="text-[12px] font-normal text-white-1">
+                          <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
                             TICKER
                           </p>
                           <Image
@@ -91,31 +95,21 @@ const Hero = () => {
                         </div>
                         {/* value  */}
                         <div className="w-full border-r-[1px] border-[#B746F0]  flex gap-1 justify-center items-center ">
-                          <Image
-                            src="/assets/graph.svg"
-                            alt=""
-                            width={10}
-                            height={10}
-                          />
+                          <GoGraph className="text-[14px] text-black-1 dark:text-white-1"/>
                           <p className="text-[10px] font-normal text-[#00C673]">
                             78%
                           </p>
                         </div>
                         {/* users  */}
-                        <div className="w-full border-r-[1px] border-[#B746F0]  flex gap-1 justify-center items-center ">
-                          <Image
-                            src="/assets/users.svg"
-                            alt=""
-                            width={12}
-                            height={12}
-                          />
+                        <div className="w-full border-r-[1px] border-[#B746F0] flex gap-1 justify-center items-center ">
+                          <TbUsers className="text-black-1 dark:text-white-1 text-[13px]"/>
                           <p className="text-[10px] font-normal text-[#00C673]">
                             1.2k
                           </p>
                         </div>
                         {/* MC  */}
                         <div className="w-full border-r-[1px] border-[#B746F0]  flex gap-1 justify-center items-center ">
-                          <p className="text-[10px] font-normal text-white-1">
+                          <p className="text-[10px] font-normal text-black-1 dark:text-white-1">
                             MC
                           </p>
                           <p className="text-[10px] font-normal text-[#00C673]">
@@ -124,7 +118,7 @@ const Hero = () => {
                         </div>
                         {/* volume  */}
                         <div className="w-full border-r-[1px] border-[#B746F0]  flex gap-1 justify-center items-center ">
-                          <p className="text-[10px] font-normal text-white-1">
+                          <p className="text-[10px] font-normal text-black-1 dark:text-white-1">
                             V
                           </p>
                           <p className="text-[10px] font-normal text-[#00C673]">
@@ -133,7 +127,7 @@ const Hero = () => {
                         </div>
                         {/* favorite */}
                         <div className="w-full flex justify-center items-center">
-                          <MdOutlineStarBorder className="text-[#EBFF00C4] text-[12px]" />
+                          <MdOutlineStarBorder className="text-black-1 dark:text-[#EBFF00C4] text-[12px]" />
                         </div>
                         {/*  */}
                         <div className="flex justify-center items-center">
@@ -158,10 +152,10 @@ const Hero = () => {
                 </p>
               </div>
             </div>
-
+            </div>
             {/* 2nd col -------------------------------------->  */}
             <div className="w-full flex justify-center items-center">
-              <div className="w-full max-w-[500px] dark:bg-orange-1 bg-yellow-1 navibarCardSh rounded-[5px] flex flex-col p-3">
+              <div className="w-full max-w-[450px] dark:bg-orange-1 bg-yellow-1 navibarCardSh rounded-[5px] flex flex-col p-3">
                 {/* 1st portiom */}
                 <div className="flex mt-1 justify-center gap-1 items-center px-1 bg-black-1">
                   <p className="text-yellow-1">#1</p>
@@ -282,7 +276,8 @@ const Hero = () => {
             </div>
 
             {/* 3rd col ---------------------------------------> */}
-            <div className="w-full flex flex-col gap-4 justify-between items-center">
+            <div className="w-full flex justify-center items-center">
+            <div className="w-full max-w-[450px] flex flex-col gap-4 justify-between items-center">
               {/* top bar ---->  */}
               <div className="w-full py-2 flex justify-center items-center bg-[#EF7216] rounded-[5px]">
                 <p className="text-[13px] font-normal text-black-1">
@@ -290,18 +285,18 @@ const Hero = () => {
                 </p>
               </div>
               {/* middle section ---> */}
-              <div className="w-full bg-black-1 border-[1px] border-[#FEF652] rounded-[5px] p-2">
+              <div className="w-full bg-transparent dark:bg-black-1 border-[1px] border-black-1 dark:border-[#FEF652] rounded-[5px] p-2">
                 <div className="w-full py-2 flex justify-center items-center bg-[#FEF652] rounded-[5px]">
-                  <p className="text-[13px] font-normal text-black-1">
+                  <p className="text-[13px] font-normal text-black-1 dark:text-black-1">
                     {pattern5}
                   </p>
                 </div>
                 {/* earn by  */}
                 <div className="w-full grid grid-cols-2 py-4">
-                  <p className="w-full flex justify-center text-white-1 text-[13px] font-normal items-center">
+                  <p className="w-full flex justify-center text-black-1 dark:text-white-1 text-[13px] font-normal items-center">
                     Earn Buzz XP by:
                   </p>
-                  <p className="w-full flex justify-center text-white-1 text-[13px] font-normal items-center">
+                  <p className="w-full flex justify-center text-black-1 dark:text-white-1 text-[13px] font-normal items-center">
                     [doing sh!t]
                   </p>
                 </div>
@@ -314,8 +309,8 @@ const Hero = () => {
                         className="w-full flex justify-between items-center py-4"
                       >
                         <div className="flex justify-center items-center gap-2">
-                          <p className="text-[#FEF652]">{`//`}</p>
-                          <p className="w-full flex justify-center text-white-1 text-[13px] font-normal items-center">
+                          <p className="text-black-1 dark:text-[#FEF652]">{`//`}</p>
+                          <p className="w-full flex justify-center text-black-1 dark:text-white-1 text-[13px] font-normal items-center">
                             {item.name}
                           </p>
                         </div>
@@ -353,19 +348,15 @@ const Hero = () => {
                 </button>
               </div>
             </div>
+            </div>
           </div>
-
         </div>
       </div>
       {/* drawer btn ------------------------------> */}
 
-
-
-
-
       <button
         onClick={open}
-        className="w-[40px] lg:flex hidden bg-[#D4DDE6] drawerSha absolute right-0 bottom-0 h-[calc(100%-107px)] items-start justify-center"
+        className="w-[40px] lg:flex hidden bg-[#1D252C] absolute right-0 bottom-0 h-[calc(100%-107px)] items-start justify-center"
       >
         <div className="w-[20px] h-[350px] relative">
           <Image

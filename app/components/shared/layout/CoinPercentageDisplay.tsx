@@ -9,7 +9,7 @@ import { Menu } from "@mantine/core";
 const CoinPercentageDisplay: React.FC = () => {
   const [isHovering, setIsHovering] = useState(true);
   const [selectedTime, setSelectedTime] = useState("15 min");
-  const [time, setTime] = useState("15min");
+  const [time, setTime] = useState("15 min");
 
   return (
     <div className="w-full h-[40px] flex justify-start gap-4 items-center dark:bg-[#0E161C] bg-white-1">

@@ -14,15 +14,15 @@ import { MdPerson } from "react-icons/md";
 
 const CoinStatsCards: React.FC = () => {
   return (
-    <div className="w-full flex gap-6 flex-col mt-6 bg-[#0E161C] rounded-[5px] border-[1px] border-[#38394A] py-4 px-2">
+    <div className="w-full flex gap-6 flex-col mt-3 bg-transparent dark:bg-[#0E161C] rounded-[5px] border-[1px] border-[#38394A] py-4 px-2">
       <div className="w-full grid grid-cols-3 gap-3">
         {coinsStatsCards.map((item, index) => {
           return (
             <div key={index} className="w-full flex flex-col gap-3">
-              <p className="w-full py-1 text-center z-40 bg-black-1 rounded-[4px] text-[#FEF652] font-normal text-[14px]">{`// Tokens recently created \\`}</p>
+              <p className="w-full py-1 text-center z-40 bg-blue-1 dark:bg-black-1 rounded-[4px] text-[#FEF652] font-normal text-[14px]">{`// Tokens recently created \\`}</p>
               {/* table  */}
               <div
-                className={`w-full border-[1px] p-2 ${item.cardBorderColor} bg-black-1 rounded-[5px] flex flex-col gap-4`}
+                className={`w-full border-[1px] p-2 ${item.cardBorderColor} bg-transparent dark:bg-black-1 rounded-[5px] flex flex-col gap-4`}
               >
                 {/* table filter  */}
                 <div className="w-full flex justify-between items-center">
@@ -48,7 +48,7 @@ const CoinStatsCards: React.FC = () => {
                     return (
                       <div
                         key={index}
-                        className="w-full grid py-[6px] relative gap-2 bg-black-1 grid-cols-[65px,1fr] px-[8px]"
+                        className="w-full grid py-[6px] relative gap-2 bg-transparent dark:bg-black-1 grid-cols-[65px,1fr] px-[8px]"
                       >
                         {/* coin image */}
                         <div className="w-full border-[1px] border-[#FEF652] rounded-[5px] h-[65px] relative">
@@ -67,13 +67,13 @@ const CoinStatsCards: React.FC = () => {
                             <div className="w-full flex justify-between items-center gap-2">
                               <div className="flex flex-col gap-1">
                                 <div className="flex justify-center items-center gap-2">
-                                  <p className="text-white-1 font-normal text-[12px]">
+                                  <p className="text-black-1 dark:text-white-1 font-normal text-[12px]">
                                     Ticker
                                   </p>
-                                  <p className="text-white-1 font-normal text-[12px]">
+                                  <p className="text-black-1 dark:text-white-1 font-normal text-[12px]">
                                     /
                                   </p>
-                                  <p className="text-white-1 font-normal text-[12px]">
+                                  <p className="text-black-1 dark:text-white-1 font-normal text-[12px]">
                                     Token name
                                   </p>
                                   <Image
@@ -82,7 +82,7 @@ const CoinStatsCards: React.FC = () => {
                                     width={12}
                                     height={12}
                                   />
-                                  <IoCopy className="text-[14px] cursor-pointer text-[#D9D9D9]" />
+                                  <IoCopy className="text-[14px] cursor-pointer text-black-1 dark:text-[#D9D9D9]" />
                                 </div>
                               </div>
                               {/*  */}
@@ -109,7 +109,7 @@ const CoinStatsCards: React.FC = () => {
                             </div>
                             {/* down section */}
                             <div className="flex justify-start items-center gap-4">
-                              <p className="text-[12px] font-normal text-white-1">
+                              <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
                                 3s
                               </p>
                               <hr className=" h-[14px] border-r-[1px] border-[#B746F0]" />
@@ -120,7 +120,7 @@ const CoinStatsCards: React.FC = () => {
                                   width={10}
                                   height={12}
                                 />
-                                <p className="text-[12px] font-normal text-white-1">
+                                <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
                                   7%
                                 </p>
                               </div>
@@ -150,17 +150,17 @@ const CoinStatsCards: React.FC = () => {
                           {/* coin channel + followers */}
                           <div className="w-full flex justify-between items-center gap-2">
                             <div className="flex justify-center items-center gap-2">
-                              <BsChat className="text-[14px] text-white-1" />
-                              <RiTwitterXFill className="text-[14px] text-white-1" />
-                              <FaTelegramPlane className="text-[14px] text-white-1" />
-                              <GrLanguage className="text-[14px] text-white-1" />
+                              <BsChat className="text-[14px] text-black-1 dark:text-white-1" />
+                              <RiTwitterXFill className="text-[14px] text-black-1 dark:text-white-1" />
+                              <FaTelegramPlane className="text-[14px] text-black-1 dark:text-white-1" />
+                              <GrLanguage className="text-[14px] text-black-1 dark:text-white-1" />
                             </div>
                             <div className="flex justify-center items-center gap-2">
-                              <MdOutlineStarOutline className="text-[14px] text-[#EBFF00E8]" />
+                              <MdOutlineStarOutline className="text-[14px] text-black-1 dark:text-[#EBFF00E8]" />
                               <hr className=" h-[14px] border-r-[1px] border-[#B746F0]" />
 
                               <div className="flex justify-center items-center gap-1">
-                                <MdPerson className="text-[14px] text-white-1" />
+                                <MdPerson className="text-[14px] text-black-1 dark:text-white-1" />
                                 <p className="text-[12px] font-normal text-[#00C673]">
                                   3
                                 </p>
@@ -168,7 +168,7 @@ const CoinStatsCards: React.FC = () => {
                               <hr className=" h-[14px] border-r-[1px] border-[#B746F0]" />
 
                               <div className="flex justify-center items-center gap-1">
-                                <p className="text-[12px] font-normal text-white-1">
+                                <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
                                   V
                                 </p>
                                 <p className="text-[12px] font-normal text-[#00C673]">
@@ -178,7 +178,7 @@ const CoinStatsCards: React.FC = () => {
                               <hr className=" h-[14px] border-r-[1px] border-[#B746F0]" />
 
                               <div className="flex justify-center items-center gap-1">
-                                <p className="text-[12px] font-normal text-white-1">
+                                <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
                                   MC
                                 </p>
                                 <p className="text-[12px] font-normal text-[#00C673]">

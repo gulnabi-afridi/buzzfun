@@ -38,7 +38,7 @@ const Navibar: React.FC = () => {
               );
             })}
           </div>
-          <div className="bg-white-1 xl:flex hidden justify-center items-center px-2 py-1 navibarCardSh rounded-[2px] gap-2">
+          <div className="bg-white-1 2xl:flex hidden justify-center items-center px-2 py-1 navibarCardSh rounded-[2px] gap-2">
             <Image
               src="/assets/green.svg"
               className="object-fill"
@@ -68,7 +68,7 @@ const Navibar: React.FC = () => {
         </div>
 
         {/* middle portion  */}
-        <div className="relative w-[460px] h-[35px]">
+        <div className="relative w-[250px] 3xl:w-[460px] h-[35px]">
           <div className="absolute inset-0 before:right-[0px] before:rounded-[6px] before:bottom-[-0.65px] gradient-border"></div>
           <div className="relative z-10 w-full h-full rounded-[6px] bg-[#1A1721] grid grid-cols-[30px,1fr,30px]">
             <div className="flex justify-center items-center w-full">
