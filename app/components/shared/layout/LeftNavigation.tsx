@@ -8,12 +8,14 @@ import Link from "next/link";
 import * as Icons from "../SVGs/Icons";
 import { Menu } from "@mantine/core";
 import { RiArrowDownSLine } from "react-icons/ri";
+import { LuLogOut } from "react-icons/lu";
+
 
 const LeftNavigation: React.FC = () => {
   const [selectedItem, setSelectedItem] = useState("Home");
 
   return (
-    <div className="w-[210px] z-10 flex fixed overflow-auto flex-col h-screen gap-4 justify-between bg-[#1D252C] border-r-[1px] border-[#2B2C39] p-4 left-0 top-0">
+    <div className="w-[210px] -z-10 flex fixed overflow-auto flex-col h-screen gap-4 justify-between bg-[#1D252C] border-r-[1px] border-[#2B2C39] p-4 left-0 top-0">
       <div className="gap-4 flex flex-col justify-start items-start ">
         <div className="w-[177px] h-[40px] relative">
           <Image src="/assets/logo2.png" alt="" fill />
@@ -152,12 +154,19 @@ const LeftNavigation: React.FC = () => {
         </div>
       </div>
       {/* platform version  */}
-      <div className="relative w-full min-h-[44px] flex justify-center items-center rounded-[11px]">
-        <div className="absolute inset-0 rounded-[11px] gradient-border"></div>
-        <div className="relative z-10 w-full rounded-[11px] h-full bg-[#0E161C] flex justify-center items-center">
-          <p className="text-[9px] font-normal text-[#595959]">
-            Platform version: 69.01
-          </p>
+      <div className="w-full flex flex-col gap-5">
+        {/* Disconnect button ---->  */}
+        <button className="flex justify-start gap-1 items-center">
+          <LuLogOut className="text-white-1 text-[20px]"/>
+          <p className="text-white-1 text-[14px] font-normal">Disconnect</p>
+        </button>
+        <div className="relative w-full min-h-[44px] flex justify-center items-center rounded-[11px]">
+          <div className="absolute inset-0 rounded-[11px] gradient-border"></div>
+          <div className="relative z-10 w-full rounded-[11px] h-full bg-[#0E161C] flex justify-center items-center">
+            <p className="text-[9px] font-normal text-[#595959]">
+              Platform version: 69.01
+            </p>
+          </div>
         </div>
       </div>
     </div>
