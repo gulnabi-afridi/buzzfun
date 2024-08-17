@@ -1,5 +1,4 @@
 import ComponentWrapper from "./components/shared/layout/ComponentWrapper";
-import Image from "next/image";
 import Hero from "./components/HomePage/Hero";
 import Stats from "./components/HomePage/Stats";
 import SearchBar from "./components/HomePage/SearchBar";
@@ -8,10 +7,11 @@ import TokenCards from "./components/HomePage/TokenCards";
 import Trusted from "./components/HomePage/Trusted";
 import ImportUrl from "./components/HomePage/ImportUrl";
 import Breadcrumb from "./components/shared/layout/Breadcrumb";
+import CoinStatsCards from "./components/HomePage/CoinStatsCards";
 
 export default function Home() {
   return (
-    <main className="bg-white-2 dark:bg-[#1D252C] pb-16 w-full">
+    <main className="bg-white-2 dark:bg-[#201e26] pb-16 w-full">
       <ComponentWrapper style="">
         <div className="pt-6">
           <Breadcrumb />
@@ -23,9 +23,11 @@ export default function Home() {
           {/* Token Cards --------> */}
           <TokenCards />
           {/* Search Bar   */}
+          <div className="w-full flex flex-col my-4">
           <SearchBar />
           {/* Coin Table */}
           <CoinTable />
+          </div>
           {/* Stats */}
           <Stats />
           {/* Trusted */}
