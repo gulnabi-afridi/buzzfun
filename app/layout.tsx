@@ -26,17 +26,15 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${fragment.className}`}>
         <Providers>
-          <div className="w-full grid grid-cols-[200px,calc(100%-200px)]">
+          <div className="w-full">
             {/* left navigation  */}
             <LeftNavigation />
-            <div className="w-full">
+            <div className="w-full pl-[210px]">
               <Navibar />
               <CoinPercentageDisplay />
               {children}
             </div>
-            <div className="w-full col-span-2">
-              <Footer />
-            </div>
+            <Footer />
           </div>
         </Providers>
       </body>

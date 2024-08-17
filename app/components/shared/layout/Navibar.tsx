@@ -3,13 +3,14 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { RxHamburgerMenu } from "react-icons/rx";
 import { Menu } from "@mantine/core";
-import { IoCopyOutline } from "react-icons/io5";
-import ThemeSwitch from "../../ThemeSwitch";
 import { Modal } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { GoArrowUpRight } from "react-icons/go";
+import { RxCross2 } from "react-icons/rx";
+import { MdOutlineStarBorder } from "react-icons/md";
+import { BsChatLeftText } from "react-icons/bs";
+import { IoMdNotificationsOutline } from "react-icons/io";
 
 const Navibar: React.FC = () => {
   const [connectWalletOpened, { open: connectOpen, close: connectClose }] =
@@ -21,10 +22,9 @@ const Navibar: React.FC = () => {
 
   return (
     <React.Fragment>
-      <div className="w-full  dark:bg-black-3 bg-white-2 px-5 flex justify-between items-center h-[65px]">
+      <div className="w-full  dark:bg-[#201e26] bg-white-2 px-5 flex justify-between items-center h-[65px]">
         {/* left portion */}
         <div className="flex justify-center items-center gap-6">
-    
           <div className="justify-center md:flex hidden items-center gap-3">
             {socialLinks.map((item, index) => {
               return (
@@ -38,7 +38,7 @@ const Navibar: React.FC = () => {
               );
             })}
           </div>
-          <div className="bg-white-1 xl:flex hidden justify-center items-center px-2 py-1 navibarCardSh rounded-[2px] gap-2">
+          <div className="bg-white-1 2xl:flex hidden justify-center items-center px-2 py-1 navibarCardSh rounded-[2px] gap-2">
             <Image
               src="/assets/green.svg"
               className="object-fill"
@@ -67,33 +67,127 @@ const Navibar: React.FC = () => {
           </div>
         </div>
 
-        {/* right portion */}
-        <div className="flex justify-center items-center gap-2">
-          <div className="hidden lg:flex justify-center navibarCardSh bg-blue-1 rounded-[2px] px-2 py-1  items-center gap-4">
-            <p className="text-[10px] uppercase font-normal text-white-1">
-              {" "}
-              <span className="bg-black-1 uppercase p-[2px] mr-1">
-                {" "}
-                $BUZZ airdrop{" "}
-              </span>{" "}
-              Leaderboard S1
-            </p>
-            <Image
-              src="/assets/coin.svg"
-              alt=""
-              className="object-fill"
-              width={19}
-              height={19}
+        {/* middle portion  */}
+        <div className="relative w-[250px] 3xl:w-[460px] h-[35px]">
+          <div className="absolute inset-0 before:right-[0px] before:rounded-[6px] before:bottom-[-0.65px] gradient-border"></div>
+          <div className="relative z-10 w-full h-full rounded-[6px] bg-[#1A1721] grid grid-cols-[30px,1fr,30px]">
+            <div className="flex justify-center items-center w-full">
+              <Image src="/assets/search.svg" alt="" width={12} height={12} />
+            </div>
+            <input
+              type="text"
+              placeholder="Search"
+              className="w-full focus:outline-none rounded-[6px] bg-[#1A1721] hover:outline-none text-[11px] font-normal text-[#787B99] h-full"
+              name=""
+              id=""
             />
+            <div className="w-full flex justify-center items-center">
+              <RxCross2 className="text-[20px] text-[#787B99]" />
+            </div>
           </div>
-          {/* connect btn */}
-          <button
-            onClick={connectOpen}
-            className="bg-yellow-1 ml-4 h-[30px] text-black-1 navibarCardSh rounded-[2px] px-4 flex justify-center items-center text-[15px] font-normal"
+        </div>
+
+        {/* right portion */}
+        <div className="flex justify-center items-center gap-3">
+          <div className="relative hidden lg:flex">
+            <div className="absolute inset-0 before:left-[-.4px] before:right-[-.4px] before:rounded-[6px] before:bottom-[-0.45px] gradient-border"></div>
+            <div className="flex justify-center rounded-[6px] z-10 navibarCardSh px-2 py-1 bg-[#1A1721] items-center gap-4">
+              <p className="text-[10px] uppercase font-normal text-white-1">
+                {" "}
+                <span className="bg-blue-1 uppercase p-[2px] mr-1">
+                  {" "}
+                  $BUZZ airdrop{" "}
+                </span>{" "}
+                Leaderboard S1
+              </p>
+              <Image
+                src="/assets/coin.svg"
+                alt=""
+                className="object-fill"
+                width={19}
+                height={19}
+              />
+            </div>
+          </div>
+          {/* postions  */}
+          <div className="relative flex">
+            <div className="absolute inset-0 before:left-[-.8px] before:right-[-.7px] before:rounded-[6px] before:bottom-[-1.5px] gradient-border"></div>
+            <div className="flex !z-10 px-1 py-1 bg-[#1A1721] rounded-[6px] justify-center items-center gap-1">
+              <p className="px-[5px] text-[10px] font-normal text-white-1 rounded-[4px] bg-[#449C6E] py-[1px]">
+                1
+              </p>
+              <p className="text-[12px] font-normal text-white-1">Positions</p>
+            </div>
+          </div>
+          {/* favorite --->  */}
+          <div className="w-[35px] h-[35px] flex relative">
+            <div className="absolute inset-0 before:left-[-.8px] before:right-[-.8px] before:rounded-[6px] before:bottom-[-1.5px] gradient-border"></div>
+            <button className="bg-[#1A1721] z-10 rounded-[6px] w-full h-full flex justify-center items-center">
+              <MdOutlineStarBorder className="text-[#EBFF00C4] text-[24px]" />
+            </button>
+          </div>
+          {/* chat -----> */}
+          <div className="w-[35px] h-[35px] flex relative">
+            <div className="absolute inset-0 before:left-[-.8px] before:right-[-.8px] before:rounded-[6px] before:bottom-[-1.5px] gradient-border"></div>
+            <button className="bg-[#1A1721] z-10 rounded-[6px] w-full h-full flex justify-center items-center">
+              <BsChatLeftText className="text-[#787B99] text-[20px]" />
+            </button>
+          </div>
+          {/* Notification -----> */}
+          <Menu
+            classNames={{
+              dropdown:
+                "dark:!bg-[#336FFE] !bg-white-2 dark:!border-[.2px] dark:!border-white-1/20 max-w-[309px]",
+              item: "!text-black-1 dark:text-white-1 text-[14px] font-normal hover:!bg-blue-1/20",
+              arrow: "!border-t-white-1/20  !border-l-white-1/20",
+            }}
+            withArrow
           >
-            Connect
-          </button>
-        
+            <Menu.Target>
+              <div className="w-[35px] h-[35px] flex relative">
+                <div className="absolute inset-0 before:left-[-.8px] before:right-[-.8px] before:rounded-[6px] before:bottom-[-1.5px] gradient-border"></div>
+                <button className="bg-[#1A1721] z-10 rounded-[6px] w-full h-full flex justify-center items-center">
+                  <div className="relative flex">
+                    <IoMdNotificationsOutline className="text-[#787B99] text-[20px]" />
+                    <div className="w-[7px] absolute top-0 right-0 h-[7px] bg-red-1 justify-center items-center rounded-full flex">
+                      <p className="text-[4px] text-center mt-[1px] font-normal text-white-1 ">
+                        1
+                      </p>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </Menu.Target>
+            {/* Menu dropdown */}
+            <Menu.Dropdown>
+              <div className="w-full p-1 gap-2 flex flex-col">
+                {/*  */}
+                <div className="w-full h-[25px] relative after:min-w-[4px] after:h-full after:absolute after:right-0 after:top-0 after:bg-black-1 before:absolute before:min-w-[4px] before:h-full before:bg-black-1 before:left-0 before:top-0 text-[14px] flex justify-center items-center font-normal text-black-1 bg-[#1957EA]">
+                  Notifications
+                </div>
+                {/*  */}
+                <div className="w-full bg-[#1957EA] p-[4px]">
+                  <div className="w-full bg-[#336FFE] gap-2 p-1 flex flex-col">
+                    <p className="text-[10px] text-black-1 font-normal">{pattern1} </p>
+                    <p className="text-[10px] text-black-1 font-normal">Would you like to accept this transfer?</p>
+
+                  </div>
+                  {/* buttons ---->  */}
+                  <div className="w-full grid grid-cols-2 h-[33px] gap-7">
+                    <button className="w-full h-full flex bg-black-1/30 justify-center items-center text-[14px] font-normal text-white-1">Refuse</button>
+                    <button className="w-full h-full flex bg-black-1 justify-center items-center text-[14px] font-normal text-white-1">Accept</button>
+
+                  </div>
+                </div>
+                <hr className="w-full border-[1px] border-black-1"/>
+                {/*  */}
+                <div className="flex px-4 relative py-1 after:min-w-[4px] after:h-full after:absolute after:right-0 after:top-0 after:bg-[#1957EA] before:absolute before:min-w-[4px] before:h-full before:bg-[#1957EA] before:left-0 before:top-0 justify-center items-center gap-2">
+                  <Image src='/assets/vip.svg' alt="" width={30} height={30} />
+                  <p className="text-[10px] text-black-1 font-normal">You have been tagged in Pink Hood Froglicker chat. <span className="underline"> See Tag</span>.</p>
+                </div>
+              </div>
+            </Menu.Dropdown>
+          </Menu>
         </div>
       </div>
       {/* MDOAL FOR CONNECT WALLET -------------->  */}
@@ -327,5 +421,7 @@ const connectWallet = [
     img: "/assets/smartWallet.svg",
   },
 ];
+
+const pattern1 = 'User {insert username} Would like to transfer the ownership of [Insert Group chat name] to you.'
 
 export default Navibar;
