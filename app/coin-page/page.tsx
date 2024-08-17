@@ -82,13 +82,13 @@ const CoinPage = () => {
                   Project Description:
                 </p>
                 <p className="text-[14px] dark:text-white-1 font-normal text-black-1">
-                  orem Ipsum is simply dummy text of the printing and
+                  orem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the
                   industry&lsquo;s standard dummy text ever since the 1500s,
                   when an unknown printer took a galley of type and scrambled it
                   to make a type specimen book. It has survived not only five
                   centuries, but also the leap into electronic typesetting,
-                  remaining essentially unchanged.
+                  remaining essentially.
                 </p>
               </div>
               {/* Thread + Trades -------------> */}
