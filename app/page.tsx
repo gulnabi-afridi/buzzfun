@@ -8,6 +8,7 @@ import TokenCards from "./components/HomePage/TokenCards";
 import Trusted from "./components/HomePage/Trusted";
 import ImportUrl from "./components/HomePage/ImportUrl";
 import Breadcrumb from "./components/shared/layout/Breadcrumb";
+import CoinStatsCards from "./components/HomePage/CoinStatsCards";
 
 export default function Home() {
   return (
@@ -27,6 +28,7 @@ export default function Home() {
           {/* Coin Table */}
           <CoinTable />
           {/* Stats */}
+          <CoinStatsCards/>
           <Stats />
           {/* Trusted */}
           <Trusted />
