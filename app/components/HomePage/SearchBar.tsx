@@ -28,11 +28,10 @@ const SearchBar = () => {
                 item: "!text-black-1 dark:text-white-1 text-[14px] font-normal hover:!bg-blue-1/20",
                 arrow: "!border-t-white-1/20 !border-l-white-1/20",
               }}
-              className="!min-h-[30px] rounded-l-[2px]"
               withArrow
             >
               <Menu.Target>
-                <button className="flex gap-1 px-1 justify-center items-center bg-black-1">
+                <button className="flex gap-1 min-h-[30px] rounded-l-[2px] px-1 justify-center items-center bg-black-1">
                   <p className="text-[14px] font-normal text-white-1">Time</p>
                   <RiArrowDownSLine className="text-[16px] text-white-1" />
                 </button>

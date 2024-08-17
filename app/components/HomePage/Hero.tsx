@@ -277,7 +277,7 @@ const Hero = () => {
 
             {/* 3rd col ---------------------------------------> */}
             <div className="w-full flex justify-center items-center">
-            <div className="w-full max-w-[450px] flex flex-col gap-4 justify-between items-center">
+            <div className="w-full max-w-[480px] flex flex-col gap-4 justify-between items-center">
               {/* top bar ---->  */}
               <div className="w-full py-2 flex justify-center items-center bg-[#EF7216] rounded-[5px]">
                 <p className="text-[13px] font-normal text-black-1">
@@ -320,7 +320,7 @@ const Hero = () => {
                   })}
                 </div>
                 {/* read the white paper  */}
-                <div className="w-full flex justify-between items-center py-3">
+                <div className="w- gap-1 flex justify-between items-center py-3">
                   <div className="flex justify-center items-center gap-2">
                     <p className="text-[#FEF652]">{`//`}</p>
                     <p className="text-[13px] font-normal text-[#A85419]">
@@ -328,7 +328,7 @@ const Hero = () => {
                     </p>
                     <p className="text-[#FEF652]">{`//`}</p>
                   </div>
-                  <button className="flex text-[13px] font-normal text-white-1 bg-[#4F40FF] rounded-[4px] justify-center items-center px-2 py-[5px]">
+                  <button className="flex whitespace-nowrap text-[13px] font-normal text-white-1 bg-[#4F40FF] rounded-[4px] justify-center items-center px-2 py-[5px]">
                     🏆 View Leaderboard
                   </button>
                 </div>
