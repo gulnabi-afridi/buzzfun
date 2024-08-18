@@ -4,13 +4,17 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu } from "@mantine/core";
-import { Modal } from "@mantine/core";
+import { Drawer, Modal } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { GoArrowUpRight } from "react-icons/go";
 import { RxCross2 } from "react-icons/rx";
 import { MdOutlineStarBorder } from "react-icons/md";
 import { BsChatLeftText } from "react-icons/bs";
 import { IoMdNotificationsOutline } from "react-icons/io";
+import { FaFilter } from "react-icons/fa6";
+import { Checkbox } from "@mantine/core";
+import { VscPercentage } from "react-icons/vsc";
+import { RiArrowGoBackLine } from "react-icons/ri";
 
 const Navibar: React.FC = () => {
   const [connectWalletOpened, { open: connectOpen, close: connectClose }] =
@@ -18,6 +22,8 @@ const Navibar: React.FC = () => {
   const [createWalletOpened, { open: createOpen, close: createClose }] =
     useDisclosure(false);
   const [connectWallet2Opened, { open: connect2Open, close: connect2Close }] =
+    useDisclosure(false);
+  const [filterDrawer, { open: openFilterDrawer, close: closeFilterDrawer }] =
     useDisclosure(false);
 
   return (
@@ -129,7 +135,10 @@ const Navibar: React.FC = () => {
           {/* chat -----> */}
           <div className="w-[35px] h-[35px] flex relative">
             <div className="absolute inset-0 before:left-[-.8px] before:right-[-.8px] before:rounded-[6px] before:bottom-[-1.5px] gradient-border"></div>
-            <button className="bg-[#1A1721] z-10 rounded-[6px] w-full h-full flex justify-center items-center">
+            <button
+              onClick={openFilterDrawer}
+              className="bg-[#1A1721] z-10 rounded-[6px] w-full h-full flex justify-center items-center"
+            >
               <BsChatLeftText className="text-[#787B99] text-[20px]" />
             </button>
           </div>
@@ -168,22 +177,31 @@ const Navibar: React.FC = () => {
                 {/*  */}
                 <div className="w-full bg-[#1957EA] p-[4px]">
                   <div className="w-full bg-[#336FFE] gap-2 p-1 flex flex-col">
-                    <p className="text-[10px] text-black-1 font-normal">{pattern1} </p>
-                    <p className="text-[10px] text-black-1 font-normal">Would you like to accept this transfer?</p>
-
+                    <p className="text-[10px] text-black-1 font-normal">
+                      {pattern1}{" "}
+                    </p>
+                    <p className="text-[10px] text-black-1 font-normal">
+                      Would you like to accept this transfer?
+                    </p>
                   </div>
                   {/* buttons ---->  */}
                   <div className="w-full grid grid-cols-2 h-[33px] gap-7">
-                    <button className="w-full h-full flex bg-black-1/30 justify-center items-center text-[14px] font-normal text-white-1">Refuse</button>
-                    <button className="w-full h-full flex bg-black-1 justify-center items-center text-[14px] font-normal text-white-1">Accept</button>
-
+                    <button className="w-full h-full flex bg-black-1/30 justify-center items-center text-[14px] font-normal text-white-1">
+                      Refuse
+                    </button>
+                    <button className="w-full h-full flex bg-black-1 justify-center items-center text-[14px] font-normal text-white-1">
+                      Accept
+                    </button>
                   </div>
                 </div>
-                <hr className="w-full border-[1px] border-black-1"/>
+                <hr className="w-full border-[1px] border-black-1" />
                 {/*  */}
                 <div className="flex px-4 relative py-1 after:min-w-[4px] after:h-full after:absolute after:right-0 after:top-0 after:bg-[#1957EA] before:absolute before:min-w-[4px] before:h-full before:bg-[#1957EA] before:left-0 before:top-0 justify-center items-center gap-2">
-                  <Image src='/assets/vip.svg' alt="" width={30} height={30} />
-                  <p className="text-[10px] text-black-1 font-normal">You have been tagged in Pink Hood Froglicker chat. <span className="underline"> See Tag</span>.</p>
+                  <Image src="/assets/vip.svg" alt="" width={30} height={30} />
+                  <p className="text-[10px] text-black-1 font-normal">
+                    You have been tagged in Pink Hood Froglicker chat.{" "}
+                    <span className="underline"> See Tag</span>.
+                  </p>
                 </div>
               </div>
             </Menu.Dropdown>
@@ -362,6 +380,120 @@ const Navibar: React.FC = () => {
           </div>
         </div>
       </Modal>
+      {/* Filter drawer -------------------> */}
+      <Drawer
+        opened={filterDrawer}
+        onClose={closeFilterDrawer}
+        position="right"
+        transitionProps={{
+          transition: "slide-left",
+          duration: 300,
+          timingFunction: "linear",
+        }}
+        size="24rem"
+        withCloseButton={false}
+        overlayProps={{ backgroundOpacity: 0, blur: 0 }}
+        classNames={{
+          content:
+            "!bg-[#1D252C] border-[1px] border-[#2B2C39] !h-[calc(100vh-106px)] !mt-[106px] !overflow-auto",
+        }}
+      >
+        <div className="w-full justify-between h-[calc(100vh-146px)]  gap-3 flex flex-col">
+          <div className="w-full flex flex-col gap-3">
+            {/* close drawer */}
+            <div className="w-full flex justify-start">
+              <div className="w-full flex justify-between items-center">
+                <div className="flex bg-[#0E161C] py-1 px-2 rounded-[2px] justify-center items-center gap-1">
+                  <FaFilter className="text-[16px] text-white-1" />
+                  <p className="text-[10px] font-normal text-white-1">
+                    Filters:
+                  </p>
+                  <p className="text-[10px] font-normal text-white-1">
+                    New Tokens
+                  </p>
+                </div>
+                <button className="w-[18px] h-[18px] bg-[#1C2126] flex justify-center items-center ">
+                  <RxCross2 className="text-[#004BFE] text-[14px]" />
+                </button>
+              </div>
+            </div>
+            {/* check boxes */}
+            <div className="w-full mt-3 flex flex-col gap-3">
+              {filters.map((item, index) => {
+                return (
+                  <>
+                    <div
+                      key={index}
+                      className="w-full flex justify-between items-center"
+                    >
+                      <Checkbox
+                        classNames={{
+                          body: "!flex !w-full !justify-between",
+                          root: "!w-full",
+                          label: "text-[12px] font-normal !text-white-1",
+                          input: "!bg-black-1 !border-transparent",
+                        }}
+                        label={item}
+                        color="black"
+                        radius="xl"
+                        labelPosition="left"
+                      />
+                    </div>
+                    {index === 1 && (
+                      <div className="w-full h-[1px] bg-[#2E2B36]"></div>
+                    )}
+                  </>
+                );
+              })}
+            </div>
+            <div className="w-full my-2 h-[1px] bg-[#2E2B36]"></div>
+
+            {/* range filters */}
+            <div className="w-full flex flex-col gap-3">
+              {rangeFilters.map((item, index) => {
+                return (
+                  <div
+                    key={index}
+                    className="w-full flex justify-between items-center"
+                  >
+                    <p className="text-[12px] font-normal text-white-1">
+                      {item.label}
+                    </p>
+                    <div className="flex justify-center items-center gap-2">
+                      {item.inputs?.map((inp, index) => {
+                        return (
+                          <div
+                            key={index}
+                            className="w-[100px] bg-[#282828] px-1 justify-center items-center border-[1px] border-[#B746F0] rounded-[4px] grid grid-cols-[1fr,auto] h-[29px]"
+                          >
+                            <input
+                              placeholder={inp.place}
+                              type="text"
+                              className="w-full focus:outline-none text-[10px] font-normal text-white-1/30 bg-transparent h-full"
+                            />
+                            {inp.icon}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* buttons ----> */}
+          <div className="w-full flex justify-between gap-2 items-center">
+            <button className="flex justify-center items-center gap-1">
+              <RiArrowGoBackLine className="text-[14px] text-[#6E6E6E]" />
+              <p className="text-[10px] font-normal text-[#6E6E6E]">Reset</p>
+            </button>
+            <button className="flex rounded-[4px] bg-[#004BFE] w-[75px] h-[31px] justify-center items-center gap-1">
+              <p className="text-[10px] font-normal text-white-1">/ Save</p>
+            </button>
+          </div>
+        </div>
+      </Drawer>
     </React.Fragment>
   );
 };
@@ -422,6 +554,129 @@ const connectWallet = [
   },
 ];
 
-const pattern1 = 'User {insert username} Would like to transfer the ownership of [Insert Group chat name] to you.'
+const pattern1 =
+  "User {insert username} Would like to transfer the ownership of [Insert Group chat name] to you.";
+
+const filters = [
+  "Retard Contract",
+  "Beast Contract",
+  "Top 10 Holders",
+  "Live Chat Enabled",
+  "Has Twitter",
+  "Has Telegram",
+  "Has Website",
+];
+
+const rangeFilters = [
+  {
+    label: "Dev Owns less than",
+    inputs: [
+      {
+        place: "Max",
+        icon: <VscPercentage className="text-[12px] text-white-1/30" />,
+      },
+    ],
+  },
+  {
+    label: "Age",
+    inputs: [
+      {
+        place: "Min",
+        icon: <p className="text-[12px] font-normal text-white-1/30">sec</p>,
+      },
+      {
+        place: "Max",
+        icon: <p className="text-[12px] font-normal text-white-1/30">min</p>,
+      },
+    ],
+  },
+  {
+    label: "Liquidity",
+    inputs: [
+      {
+        place: "Min",
+        icon: <p className="text-[12px] font-normal text-white-1/30">$</p>,
+      },
+      {
+        place: "Max",
+        icon: <p className="text-[12px] font-normal text-white-1/30">$</p>,
+      },
+    ],
+  },
+  {
+    label: "Volume",
+    inputs: [
+      {
+        place: "Min",
+        icon: <p className="text-[12px] font-normal text-white-1/30">$</p>,
+      },
+      {
+        place: "Max",
+        icon: <p className="text-[12px] font-normal text-white-1/30">$</p>,
+      },
+    ],
+  },
+  {
+    label: "Market Cap",
+    inputs: [
+      {
+        place: "Min",
+        icon: <p className="text-[12px] font-normal text-white-1/30">$</p>,
+      },
+      {
+        place: "Max",
+        icon: <p className="text-[12px] font-normal text-white-1/30">$</p>,
+      },
+    ],
+  },
+  {
+    label: "Txns",
+    inputs: [
+      {
+        place: "Min",
+        icon: <p className="text-[12px] font-normal text-white-1/30">$</p>,
+      },
+      {
+        place: "Max",
+        icon: <p className="text-[12px] font-normal text-white-1/30">$</p>,
+      },
+    ],
+  },
+  {
+    label: "Buys",
+    inputs: [
+      {
+        place: "Min",
+        icon: <p className="text-[12px] font-normal text-white-1/30">$</p>,
+      },
+      {
+        place: "Max",
+        icon: <p className="text-[12px] font-normal text-white-1/30">$</p>,
+      },
+    ],
+  },
+  {
+    label: "Sells",
+    inputs: [
+      {
+        place: "Min",
+        icon: <p className="text-[12px] font-normal text-white-1/30">$</p>,
+      },
+      {
+        place: "Max",
+        icon: <p className="text-[12px] font-normal text-white-1/30">$</p>,
+      },
+    ],
+  },
+  {
+    label: "Holders",
+    inputs: [
+      {
+        place: "Al least",
+        icon: "",
+      },
+    ],
+  },
+];
 
 export default Navibar;
