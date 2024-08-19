@@ -14,6 +14,7 @@ interface Props {
 const ChatDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
   const [isNewUser, setNewUser] = useState(true);
 
+
   return (
     <Drawer
       opened={open}
@@ -105,7 +106,21 @@ const ChatDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
             </div>
           </div>
           {/* 2nd col ----->  */}
-          {isNewUser ? <NewUser /> : <Chat />}
+          <div className="w-full p-3 flex flex-col">
+            {/* top header  */}
+            <div className="w-full bg-transparent dark:bg-[#1B2A35] px-4 h-[50px] flex justify-between items-center">
+              <div className="flex px-2 py-[4px] bg-white-1 dark:bg-black-1 justify-center items-center gap-2">
+                <p className="text-[14px] font-bold text-white-1 dark:text-white-1">
+                  News
+                </p>
+                <p className="bg-[#FF0000] px-[8px] py-[0px] text-white-1">2</p>
+              </div>
+              <p className="text-[14px] font-bold text-white-1 dark:text-white-1">
+                General [Chat]
+              </p>
+            </div>
+            {isNewUser ? <NewUser /> : <Chat />}
+          </div>
           {/* 3rd col ----> */}
           <div className="w-full flex flex-col gap-2">
             <div className="w-full flex border-[1px] border-blue-1 flex-col h-[calc(100vh-285px)]">
