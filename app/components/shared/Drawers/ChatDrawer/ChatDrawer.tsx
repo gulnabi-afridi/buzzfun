@@ -5,6 +5,7 @@ import { IoHammerOutline } from "react-icons/io5";
 import Chat from "./Chat";
 import NewUser from "./NewUser";
 import { LuSearch } from "react-icons/lu";
+import CustomMenu from "../../CustomMenu";
 
 interface Props {
   open: boolean;
@@ -12,8 +13,8 @@ interface Props {
 }
 
 const ChatDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
-  const [isNewUser, setNewUser] = useState(true);
-
+  const [isNewUser, setNewUser] = useState(false);
+  const [userNameMenuOption, setUserMenuOption] = useState("View Profile");
 
   return (
     <Drawer
@@ -180,11 +181,22 @@ const ChatDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
                                   >
                                     {us.icon}
                                     <div className="w-full flex justify-start items-center">
-                                      <p
-                                        className={`text-[14px] font-normal dark:text-white-1/80 text-black-1`}
-                                      >
-                                        {us.name}
-                                      </p>
+                                      {
+                                        <CustomMenu
+                                          size="!w-[180px]"
+                                          trigger="click"
+                                          options={userNameOptions}
+                                          value={userNameMenuOption}
+                                          setValue={setUserMenuOption}
+                                          targetComponent={
+                                            <p
+                                              className={`text-[14px] font-normal dark:text-white-1/80 text-black-1`}
+                                            >
+                                              {us.name}
+                                            </p>
+                                          }
+                                        />
+                                      }
                                     </div>
                                   </div>
                                 );
@@ -435,4 +447,13 @@ const degonsData = [
       },
     ],
   },
+];
+
+const userNameOptions = [
+  "View Profile",
+  "Follow",
+  "Timeout",
+  "Kick",
+  "Ban",
+  "Delete all & Ban",
 ];

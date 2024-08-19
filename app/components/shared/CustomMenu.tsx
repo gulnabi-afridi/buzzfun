@@ -9,6 +9,7 @@ interface Props {
   setValue: (value: any) => void;
   targetComponent: ReactNode;
   trigger: "click" | "hover";
+  position?:'bottom'| 'left'
 }
 
 const CustomMenu: React.FC<Props> = ({
@@ -18,6 +19,7 @@ const CustomMenu: React.FC<Props> = ({
   setValue,
   trigger,
   targetComponent,
+  position = 'bottom'
 }: Props) => {
   return (
     <Menu
@@ -28,6 +30,7 @@ const CustomMenu: React.FC<Props> = ({
       }}
       trigger={trigger}
       withArrow
+      position={position}
     >
       <Menu.Target>{targetComponent}</Menu.Target>
 
