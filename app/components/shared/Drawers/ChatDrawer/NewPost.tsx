@@ -11,8 +11,16 @@ const NewPost: React.FC = () => {
     dimensions: "",
     imageUrl: "",
   });
+  const [links, setLinks] = useState([{ name: "", url: "" }]);
 
-  // Function to handle file input change
+  // function for adding the new link ui --------->
+  const handleAddLink = () => {
+    if (links.length < 5) {
+      setLinks([...links, { name: "", url: "" }]);
+    }
+  };
+
+  // Function to handle file input change ----------->
   const handleFileChange = (event: any) => {
     const file = event.target.files[0];
     if (file) {
@@ -122,11 +130,11 @@ const NewPost: React.FC = () => {
             </div>
             {/* uploaded image  */}
             <div className="w-full flex justify-start items-center gap-2">
-              <div className="w-[300px] h-[100px] relative">
-                {fileDetails.imageUrl && (
+              {fileDetails.imageUrl && (
+                <div className="w-[300px] h-[100px] relative">
                   <Image src={fileDetails.imageUrl} alt="" fill />
-                )}
-              </div>
+                </div>
+              )}
               {fileDetails.fileName && (
                 <div className="mt-2 text-white-1 text-[12px]">
                   <p>Type: {fileDetails.fileType}</p>
@@ -136,6 +144,62 @@ const NewPost: React.FC = () => {
               )}
             </div>
           </div>
+        </div>
+        {/* links  */}
+        <div className="w-full flex flex-col gap-1">
+          {" "}
+          <p className="text-[14px] font-normal text-blue-1/80">
+            Links (Optional)- [max 6]
+          </p>
+          <div className="w-full overflow-auto flex justify-start bg-black-1 p-5">
+            <div className="flex w-full h-[80px] justify-between flex-col gap-3">
+              {links.map((link, index) => (
+                <div
+                  key={index}
+                  className="w-full min-h-[30px] grid grid-cols-[120px,1fr] justify-center items-center gap-3"
+                >
+                  <input
+                    type="text"
+                    placeholder="Insert Name"
+                    value={link.name}
+                    className="text-[12px] flex text-center placeholder:text-white-1/35 justify-center items-center pl-1 focus:outline-none bg-transparent w-full h-full rounded-[3px] border-[1px] border-[#004BFE] font-normal text-white-1/35"
+                  />
+                  <input
+                    placeholder="Insert URL [https://..]"
+                    type="text"
+                    className="w-full placeholder:text-white-1/35 border-[1px] border-white-1/20 rounded-[3px] h-full bg-transparent focus:outline-none text-[12px] font-normal text-white-1/35 pl-1"
+                  />
+                </div>
+              ))}
+
+              {/* add another link  */}
+              <button
+                type="button"
+                onClick={handleAddLink}
+                className={`bg-blue-1 w-fit px-3 py-1 rounded-[4px] text-[12px] font-normal text-white-1 ${
+                  links.length >= 5 ? "opacity-50 cursor-not-allowed" : ""
+                }`}
+                disabled={links.length >= 5}
+              >
+                Add Another
+              </button>
+            </div>
+          </div>
+        </div>
+        {/* buttons ---> */}
+        <div className="w-full h-[69px] px-5 bg-black-1 flex justify-end items-center gap-2">
+          <button
+            type="button"
+            className="px-2 py-1 rounded-[5px] bg-white-1 text-[12px] font-normal text-black-1"
+          >
+            Cancel
+          </button>
+          <button
+            type="button"
+            className="px-2 py-1 rounded-[5px] bg-[#FEF652] text-[12px] font-normal text-black-1"
+          >
+            Save and Publish
+          </button>
         </div>
       </form>
     </div>
