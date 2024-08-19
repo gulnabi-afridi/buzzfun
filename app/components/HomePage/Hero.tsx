@@ -1,6 +1,6 @@
 "use client";
 import { useTheme } from "next-themes";
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import OpenChartBtn from "../shared/OpenChartBtn";
 import { useDisclosure } from "@mantine/hooks";
@@ -14,27 +14,29 @@ import { MdOutlineElectricBolt } from "react-icons/md";
 import { MdOutlineStarBorder } from "react-icons/md";
 import { GoGraph } from "react-icons/go";
 import { TbUsers } from "react-icons/tb";
-
+import { IoHammerOutline } from "react-icons/io5";
 
 const Hero = () => {
   const { setTheme, resolvedTheme } = useTheme();
   const [isMinimize, setIsMinimize] = useState<boolean>(false);
   const [opened, { open, close }] = useDisclosure(false);
-  const [drawerButtonHeight, setDrawerButtonHeight] = useState('h-[calc(100%-107px)]');
+  const [drawerButtonHeight, setDrawerButtonHeight] = useState(
+    "h-[calc(100%-107px)]"
+  );
 
   // Function to handle scroll events
   const handleScroll = () => {
     const scrollPosition = window.scrollY;
     if (scrollPosition > 100) {
-      setDrawerButtonHeight('h-screen');
+      setDrawerButtonHeight("h-screen");
     } else {
-      setDrawerButtonHeight('h-[calc(100%-107px)]');
+      setDrawerButtonHeight("h-[calc(100%-107px)]");
     }
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -50,124 +52,126 @@ const Hero = () => {
           >
             {/* 1st col ----------------------------------> */}
             <div className="w-full h-full flex justify-center items-center">
-            <div className="w-full h-full max-w-[450px] h-full justify-between items-center gap-4 flex flex-col">
-              {/* top bar ---->  */}
-              <div className="w-full py-2 flex justify-center items-center bg-[#4F40FF] rounded-[5px]">
-                <p className="text-[13px] font-normal text-white-1">
-                  {pattern1}
-                </p>
-              </div>
-              {/* table ---> */}
-              <div className="w-full bg-transparent dark:bg-black-1 border-[1px] border-black-1 dark:border-[#FEF652] rounded-[5px] p-2">
-                {/* table filter -->  */}
-                <div className="flex pt-1 pb-3 justify-between items-center">
-                  <div className="flex justify-center items-center gap-2">
-                    <p className="px-[6px] py-[3px] bg-blue-1 text-white-1 font-normal text-[12px] rounded-[2px]">
-                      Top 10
-                    </p>
-                    <button className="flex bg-[#0E161C] justify-center items-center px-[6px] py-[3px] rounded-[2px]">
-                      <LuTimerReset className="text-[12px] text-white-1" />
-                      <p className="text-[10px] text-white-1 font-normal">
-                        15m
-                      </p>
-                      <MdKeyboardArrowDown className="text-[12px] text-[#94A3B8]" />
-                    </button>
-                  </div>
-                  <div className="px-[6px] py-[3px] bg-[#282828] text-white-1 flex justify-center items-center rounded-[2px]">
-                    <MdOutlineElectricBolt className="text-[12px] text-[#B746F0]" />
-                    <p className="text-[12px] font-normal text-white-1">Buy:</p>
-                    <p className="text-[12px] font-normal text-white-1">$</p>
-                    <p className="text-[12px] font-normal text-white-1">10</p>
-                  </div>
+              <div className="w-full h-full max-w-[450px] h-full justify-between items-center gap-4 flex flex-col">
+                {/* top bar ---->  */}
+                <div className="w-full py-2 flex justify-center items-center bg-[#4F40FF] rounded-[5px]">
+                  <p className="text-[13px] font-normal text-white-1">
+                    {pattern1}
+                  </p>
                 </div>
-                {/* rows ---->  */}
-                <div className="w-full flex flex-col gap-3">
-                  {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, index) => {
-                    return (
-                      <div
-                        key={index}
-                        className="w-full py-1 grid grid-cols-[.5fr,2fr,1fr,1fr,1fr,1fr,.5fr,.5fr]"
-                      >
-                        {/* ser no */}
-                        <p
-                          className={`w-full whitespace-nowrap flex justify-center items-center ${
-                            index === 0 ? "bg-[#00C673] " : "bg-transparent"
-                          }rounded-[3px] px-1 text-black-1 dark:text-white-1 text-[12px] font-normal`}
-                        >
-                          #{index + 1}
+                {/* table ---> */}
+                <div className="w-full bg-transparent dark:bg-black-1 border-[1px] border-black-1 dark:border-[#FEF652] rounded-[5px] p-2">
+                  {/* table filter -->  */}
+                  <div className="flex pt-1 pb-3 justify-between items-center">
+                    <div className="flex justify-center items-center gap-2">
+                      <p className="px-[6px] py-[3px] bg-blue-1 text-white-1 font-normal text-[12px] rounded-[2px]">
+                        Top 10
+                      </p>
+                      <button className="flex bg-[#0E161C] justify-center items-center px-[6px] py-[3px] rounded-[2px]">
+                        <LuTimerReset className="text-[12px] text-white-1" />
+                        <p className="text-[10px] text-white-1 font-normal">
+                          15m
                         </p>
-                        {/* name  */}
-                        <div className="flex border-r-[1px] border-[#B746F0] justify-center items-center gap-1">
-                          <div className="w-[20px] h-[20px] rounded-full bg-[#EF7216]"></div>
-                          <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
-                            TICKER
+                        <MdKeyboardArrowDown className="text-[12px] text-[#94A3B8]" />
+                      </button>
+                    </div>
+                    <div className="px-[6px] py-[3px] bg-[#282828] text-white-1 flex justify-center items-center rounded-[2px]">
+                      <MdOutlineElectricBolt className="text-[12px] text-[#B746F0]" />
+                      <p className="text-[12px] font-normal text-white-1">
+                        Buy:
+                      </p>
+                      <p className="text-[12px] font-normal text-white-1">$</p>
+                      <p className="text-[12px] font-normal text-white-1">10</p>
+                    </div>
+                  </div>
+                  {/* rows ---->  */}
+                  <div className="w-full flex flex-col gap-3">
+                    {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, index) => {
+                      return (
+                        <div
+                          key={index}
+                          className="w-full py-1 grid grid-cols-[.5fr,2fr,1fr,1fr,1fr,1fr,.5fr,.5fr]"
+                        >
+                          {/* ser no */}
+                          <p
+                            className={`w-full whitespace-nowrap flex justify-center items-center ${
+                              index === 0 ? "bg-[#00C673] " : "bg-transparent"
+                            }rounded-[3px] px-1 text-black-1 dark:text-white-1 text-[12px] font-normal`}
+                          >
+                            #{index + 1}
                           </p>
-                          <Image
-                            src="/assets/symbol.svg"
-                            alt=""
-                            width={12}
-                            height={12}
-                          />
-                        </div>
-                        {/* value  */}
-                        <div className="w-full border-r-[1px] border-[#B746F0]  flex gap-1 justify-center items-center ">
-                          <GoGraph className="text-[14px] text-black-1 dark:text-white-1"/>
-                          <p className="text-[10px] font-normal text-[#00C673]">
-                            78%
-                          </p>
-                        </div>
-                        {/* users  */}
-                        <div className="w-full border-r-[1px] border-[#B746F0] flex gap-1 justify-center items-center ">
-                          <TbUsers className="text-black-1 dark:text-white-1 text-[13px]"/>
-                          <p className="text-[10px] font-normal text-[#00C673]">
-                            1.2k
-                          </p>
-                        </div>
-                        {/* MC  */}
-                        <div className="w-full border-r-[1px] border-[#B746F0]  flex gap-1 justify-center items-center ">
-                          <p className="text-[10px] font-normal text-black-1 dark:text-white-1">
-                            MC
-                          </p>
-                          <p className="text-[10px] font-normal text-[#00C673]">
-                            $400k
-                          </p>
-                        </div>
-                        {/* volume  */}
-                        <div className="w-full border-r-[1px] border-[#B746F0]  flex gap-1 justify-center items-center ">
-                          <p className="text-[10px] font-normal text-black-1 dark:text-white-1">
-                            V
-                          </p>
-                          <p className="text-[10px] font-normal text-[#00C673]">
-                            $900k
-                          </p>
-                        </div>
-                        {/* favorite */}
-                        <div className="w-full flex justify-center items-center">
-                          <MdOutlineStarBorder className="text-black-1 dark:text-[#EBFF00C4] text-[12px]" />
-                        </div>
-                        {/*  */}
-                        <div className="flex justify-center items-center">
-                          <div className="w-[24px] h-[19px] flex justify-center items-center rounded-[5px] border-[1px] border-[#B746F0]">
+                          {/* name  */}
+                          <div className="flex border-r-[1px] border-[#B746F0] justify-center items-center gap-1">
+                            <div className="w-[20px] h-[20px] rounded-full bg-[#EF7216]"></div>
+                            <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
+                              TICKER
+                            </p>
                             <Image
-                              src="/assets/light.svg"
+                              src="/assets/symbol.svg"
                               alt=""
-                              width={8}
-                              height={9}
+                              width={12}
+                              height={12}
                             />
                           </div>
+                          {/* value  */}
+                          <div className="w-full border-r-[1px] border-[#B746F0]  flex gap-1 justify-center items-center ">
+                            <GoGraph className="text-[14px] text-black-1 dark:text-white-1" />
+                            <p className="text-[10px] font-normal text-[#00C673]">
+                              78%
+                            </p>
+                          </div>
+                          {/* users  */}
+                          <div className="w-full border-r-[1px] border-[#B746F0] flex gap-1 justify-center items-center ">
+                            <TbUsers className="text-black-1 dark:text-white-1 text-[13px]" />
+                            <p className="text-[10px] font-normal text-[#00C673]">
+                              1.2k
+                            </p>
+                          </div>
+                          {/* MC  */}
+                          <div className="w-full border-r-[1px] border-[#B746F0]  flex gap-1 justify-center items-center ">
+                            <p className="text-[10px] font-normal text-black-1 dark:text-white-1">
+                              MC
+                            </p>
+                            <p className="text-[10px] font-normal text-[#00C673]">
+                              $400k
+                            </p>
+                          </div>
+                          {/* volume  */}
+                          <div className="w-full border-r-[1px] border-[#B746F0]  flex gap-1 justify-center items-center ">
+                            <p className="text-[10px] font-normal text-black-1 dark:text-white-1">
+                              V
+                            </p>
+                            <p className="text-[10px] font-normal text-[#00C673]">
+                              $900k
+                            </p>
+                          </div>
+                          {/* favorite */}
+                          <div className="w-full flex justify-center items-center">
+                            <MdOutlineStarBorder className="text-black-1 dark:text-[#EBFF00C4] text-[12px]" />
+                          </div>
+                          {/*  */}
+                          <div className="flex justify-center items-center">
+                            <div className="w-[24px] h-[19px] flex justify-center items-center rounded-[5px] border-[1px] border-[#B746F0]">
+                              <Image
+                                src="/assets/light.svg"
+                                alt=""
+                                width={8}
+                                height={9}
+                              />
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
+                  </div>
+                </div>
+                {/* down bar ---->  */}
+                <div className="w-full py-2 flex justify-center items-center bg-[#787B99] rounded-[5px]">
+                  <p className="text-[13px] font-normal text-white-1">
+                    {pattern2}
+                  </p>
                 </div>
               </div>
-              {/* down bar ---->  */}
-              <div className="w-full py-2 flex justify-center items-center bg-[#787B99] rounded-[5px]">
-                <p className="text-[13px] font-normal text-white-1">
-                  {pattern2}
-                </p>
-              </div>
-            </div>
             </div>
             {/* 2nd col -------------------------------------->  */}
             <div className="w-full h-full flex justify-center items-center">
@@ -293,77 +297,82 @@ const Hero = () => {
 
             {/* 3rd col ---------------------------------------> */}
             <div className="w-full h-full flex justify-center items-center">
-            <div className="w-full h-full max-w-[480px] flex flex-col gap-4 justify-between items-center">
-              {/* top bar ---->  */}
-              <div className="w-full py-2 flex justify-center items-center bg-[#EF7216] rounded-[5px]">
-                <p className="text-[13px] font-normal text-black-1">
-                  {pattern4}
-                </p>
-              </div>
-              {/* middle section ---> */}
-              <div className="w-full bg-transparent dark:bg-black-1 border-[1px] border-black-1 dark:border-[#FEF652] rounded-[5px] p-2">
-                <div className="w-full py-2 flex justify-center items-center bg-[#FEF652] rounded-[5px]">
-                  <p className="text-[13px] font-normal text-black-1 dark:text-black-1">
-                    {pattern5}
+              <div className="w-full h-full max-w-[480px] flex flex-col gap-4 justify-between items-center">
+                {/* top bar ---->  */}
+                <div className="w-full py-2 flex justify-center items-center bg-[#EF7216] rounded-[5px]">
+                  <p className="text-[13px] font-normal text-black-1">
+                    {pattern4}
                   </p>
                 </div>
-                {/* earn by  */}
-                <div className="w-full grid grid-cols-2 py-4">
-                  <p className="w-full flex justify-center text-black-1 dark:text-white-1 text-[13px] font-normal items-center">
-                    Earn Buzz XP by:
-                  </p>
-                  <p className="w-full flex justify-center text-black-1 dark:text-white-1 text-[13px] font-normal items-center">
-                    [doing sh!t]
-                  </p>
-                </div>
-                {/* options  */}
-                <div className="w-full flex px-8 flex-col">
-                  {options.map((item, index) => {
-                    return (
-                      <div
-                        key={index}
-                        className="w-full flex justify-between items-center py-4"
-                      >
-                        <div className="flex justify-center items-center gap-2">
-                          <p className="text-black-1 dark:text-[#FEF652]">{`//`}</p>
-                          <p className="w-full flex justify-center text-black-1 dark:text-white-1 text-[13px] font-normal items-center">
-                            {item.name}
-                          </p>
-                        </div>
-                        <Image src={item.icon} alt="" width={14} height={14} />
-                      </div>
-                    );
-                  })}
-                </div>
-                {/* read the white paper  */}
-                <div className="w- gap-1 flex justify-between items-center py-3">
-                  <div className="flex justify-center items-center gap-2">
-                    <p className="text-[#FEF652]">{`//`}</p>
-                    <p className="text-[13px] font-normal text-[#A85419]">
-                      📃 📃 Read The White paper
+                {/* middle section ---> */}
+                <div className="w-full bg-transparent dark:bg-black-1 border-[1px] border-black-1 dark:border-[#FEF652] rounded-[5px] p-2">
+                  <div className="w-full py-2 flex justify-center items-center bg-[#FEF652] rounded-[5px]">
+                    <p className="text-[13px] font-normal text-black-1 dark:text-black-1">
+                      {pattern5}
                     </p>
-                    <p className="text-[#FEF652]">{`//`}</p>
                   </div>
-                  <button className="flex whitespace-nowrap text-[13px] font-normal text-white-1 bg-[#4F40FF] rounded-[4px] justify-center items-center px-2 py-[5px]">
-                    🏆 View Leaderboard
+                  {/* earn by  */}
+                  <div className="w-full grid grid-cols-2 py-4">
+                    <p className="w-full flex justify-center text-black-1 dark:text-white-1 text-[13px] font-normal items-center">
+                      Earn Buzz XP by:
+                    </p>
+                    <p className="w-full flex justify-center text-black-1 dark:text-white-1 text-[13px] font-normal items-center">
+                      [doing sh!t]
+                    </p>
+                  </div>
+                  {/* options  */}
+                  <div className="w-full flex px-8 flex-col">
+                    {options.map((item, index) => {
+                      return (
+                        <div
+                          key={index}
+                          className="w-full flex justify-between items-center py-4"
+                        >
+                          <div className="flex justify-center items-center gap-2">
+                            <p className="text-black-1 dark:text-[#FEF652]">{`//`}</p>
+                            <p className="w-full flex justify-center text-black-1 dark:text-white-1 text-[13px] font-normal items-center">
+                              {item.name}
+                            </p>
+                          </div>
+                          <Image
+                            src={item.icon}
+                            alt=""
+                            width={14}
+                            height={14}
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
+                  {/* read the white paper  */}
+                  <div className="w- gap-1 flex justify-between items-center py-3">
+                    <div className="flex justify-center items-center gap-2">
+                      <p className="text-[#FEF652]">{`//`}</p>
+                      <p className="text-[13px] font-normal text-[#A85419]">
+                        📃 📃 Read The White paper
+                      </p>
+                      <p className="text-[#FEF652]">{`//`}</p>
+                    </div>
+                    <button className="flex whitespace-nowrap text-[13px] font-normal text-white-1 bg-[#4F40FF] rounded-[4px] justify-center items-center px-2 py-[5px]">
+                      🏆 View Leaderboard
+                    </button>
+                  </div>
+                </div>
+                {/* down bar -----> */}
+                <div className="w-full py-2 flex justify-center items-center bg-[#BA0000] rounded-[5px]">
+                  <p className="text-[13px] font-normal text-white-1">
+                    {`//Daily Engage Tasks!¯\_(ツ)_/¯_click to Earn!`}
+                  </p>
+                </div>
+                <div className="w-full grid grid-cols-2 gap-4 border-[1px] border-[#BA0000] rounded-[5px] p-[6px]">
+                  <button className="w-full px-1 py-2 text-[12px] rounded-[5px] text-white-1 bg-[#BA0000]">
+                    Follow BUzz on X [100xp]
+                  </button>
+                  <button className="w-full px-1 py-2 text-[12px] rounded-[5px] text-[#FEF652] bg-[#BA0000] opacity-30">
+                    Like & RT for [100xp]
                   </button>
                 </div>
               </div>
-              {/* down bar -----> */}
-              <div className="w-full py-2 flex justify-center items-center bg-[#BA0000] rounded-[5px]">
-                <p className="text-[13px] font-normal text-white-1">
-                  {`//Daily Engage Tasks!¯\_(ツ)_/¯_click to Earn!`}
-                </p>
-              </div>
-              <div className="w-full grid grid-cols-2 gap-4 border-[1px] border-[#BA0000] rounded-[5px] p-[6px]">
-                <button className="w-full px-1 py-2 text-[12px] rounded-[5px] text-white-1 bg-[#BA0000]">
-                  Follow BUzz on X [100xp]
-                </button>
-                <button className="w-full px-1 py-2 text-[12px] rounded-[5px] text-[#FEF652] bg-[#BA0000] opacity-30">
-                  Like & RT for [100xp]
-                </button>
-              </div>
-            </div>
             </div>
           </div>
         </div>
@@ -394,10 +403,11 @@ const Hero = () => {
         }}
         size="65rem"
         withCloseButton={false}
-        overlayProps={{ backgroundOpacity: 0, blur: 0 }}
+        overlayProps={{ backgroundOpacity: 0.4, blur: 1 }}
         classNames={{
           content:
-            "!bg-[#D4DDE6] !h-[calc(100vh-106px)] !mt-[106px] !overflow-hidden",
+            "!bg-[#D4DDE6] dark:!bg-[#1D252C] !h-[calc(100vh-106px)] !mt-[106px] !overflow-hidden",
+            body:'!p-[8px]'
         }}
       >
         <div className="w-full h-full grid grid-cols-[30px,1fr]">
@@ -405,7 +415,7 @@ const Hero = () => {
           <div className="w-full flex justify-start">
             <div
               onClick={close}
-              className="w-[23px] h-[380px] cursor-pointer relative"
+              className="w-[20px] h-[340px] cursor-pointer relative"
             >
               <Image
                 src="/assets/drawerBtn.svg"
@@ -416,13 +426,13 @@ const Hero = () => {
             </div>
           </div>
           {/* content */}
-          <div className="w-full bg-white-1 grid grid-cols-[1fr,3.5fr,1fr]">
+          <div className="w-full p-2 dark:bg-[#0E161C] bg-white-1 grid grid-cols-[1fr,3.5fr,1fr]">
             {/* 1st col */}
-            <div className="w-full flex flex-col gap-2">
+            <div className="w-full bg-transparent dark:bg-black-1 flex flex-col gap-2">
               <div className="w-full flex border-[1px] border-blue-1 flex-col h-[calc(100vh-156px)]">
                 {/* Fixed header */}
                 <div className="w-full flex flex-col gap-2 px-4 py-2">
-                  <p className="text-[14px] font-normal text-black-1">
+                  <p className="text-[14px] font-normal dark:text-white-1 text-black-1">
                     {" "}
                     My Chats (13){" "}
                   </p>
@@ -443,8 +453,8 @@ const Hero = () => {
                   {/* online  */}
                   <div className="w-full relative flex justify-center items-center">
                     <p
-                      className="text-[14px] [text-shadow:_-0.4px_-0.4px_0_#D90000,_0.4px_-0.4px_0_#D90000,_-0.4px_0.4px_0_#D90000,_0.4px_0.4px_0_#D90000]
-                    font-normal text-blue-1"
+                      className="text-[14px]
+                   dark:text-white-1 font-semibold text-blue-1"
                     >
                       {generalChat}
                     </p>
@@ -462,7 +472,7 @@ const Hero = () => {
                     return (
                       <div key={index} className="w-full ">
                         <div></div>
-                        <p className="text-[14px] py-[4px] [text-shadow:_-0.4px_-0.4px_0_#D90000,_0.4px_-0.4px_0_#D90000,_-0.4px_0.4px_0_#D90000,_0.4px_0.4px_0_#D90000] w-full flex justify-start font-normal text-black-1">
+                        <p className="text-[14px] py-[4px] w-full flex justify-start font-normal dark:text-white-1 text-black-1">
                           {chatName}
                         </p>
                       </div>
@@ -474,23 +484,30 @@ const Hero = () => {
             {/* 2nd col ----->  */}
             <div className="w-full p-3 flex flex-col">
               {/* top header  */}
-              <div className="w-full px-4 h-[50px] flex justify-between items-center">
-                <div className="flex justify-center items-center gap-2">
+              <div className="w-full bg-transparent dark:bg-[#1B2A35] px-4 h-[50px] flex justify-between items-center">
+                <div className="flex px-2 py-[1px] bg-transparent dark:bg-white-1 justify-center items-center gap-2">
                   <p className="text-[14px] font-bold text-black-1">News</p>
                   <p className="bg-[#FF0000] px-[8px] py-[0px] text-white-1">
                     2
                   </p>
                 </div>
-                <p className="text-[14px] font-bold text-black-1">
+                <p className="text-[14px] font-bold dark:text-white-1 text-black-1">
                   General [Chat]
                 </p>
-                <p className="text-[14px] font-bold text-black-1">[My Chats]</p>
               </div>
               {/* token name ---> */}
               <div className="w-full bg-[#D4DDE6] h-[40px] px-4 flex justify-between items-center ">
-                <p className="text-[14px] font-bold text-black-1">
-                  Token name [chet]
-                </p>
+                <div className="flex justify-center items-center gap-3">
+                  <Image
+                    src="/assets/token3.svg"
+                    alt=""
+                    width={26}
+                    height={26}
+                  />
+                  <p className="text-[14px] font-semibold text-black-1">
+                    Pink Hood Froglicker | $Froglic [chat]
+                  </p>
+                </div>
                 <HiOutlineDotsHorizontal className="text-[20px] cursor-pointer text-black-1" />
               </div>
               {/* update bar ---> */}
@@ -511,19 +528,19 @@ const Hero = () => {
                         key={index}
                         className="w-full px-4 py-2 grid items-start grid-cols-[80px,110px,1fr]"
                       >
-                        <p className="w-full flex justify-start text-[14px] font-normal text-black-1">
+                        <p className="w-full flex justify-start text-[14px] font-normal dark:text-white-1/80 text-black-1">
                           {item.serNo}
                         </p>
                         <div className="w-full flex flex-col gap-1 items-center justify-center">
                           <p className="text-[14px] font-semibold text-[#004BFE]">
                             {item.userName}
                           </p>
-                          <p className="text-[14px] font-normal text-black-1">
+                          <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
                             {item.roloe}
                           </p>
                         </div>
                         <div className="w-full pl-3 items-start gap-2 flex flex-col">
-                          <p className="text-[12px] font-normal text-black-1">
+                          <p className="text-[12px] font-normal dark:text-white-1/80 text-black-1">
                             {item.message}
                           </p>
                           {/* image ---> */}
@@ -537,30 +554,30 @@ const Hero = () => {
                               />
                               {/* image detail */}
                               <div className="flex w-full max-w-[180px] flex-col items-start">
-                                <p className="text-[10px] font-normal text-black-1">
+                                <p className="text-[10px] font-normal dark:text-white-1/80 text-black-1">
                                   Image{" "}
                                 </p>
                                 <div className="flex w-full justify-between items-center gap-2">
-                                  <p className="text-[10px] font-normal text-black-1">
+                                  <p className="text-[10px] font-normal dark:text-white-1/80 text-black-1">
                                     file type{" "}
                                   </p>
-                                  <p className="text-[10px] font-normal text-black-1">
+                                  <p className="text-[10px] font-normal dark:text-white-1/80 text-black-1">
                                     .jpg
                                   </p>
                                 </div>{" "}
                                 <div className="flex w-full justify-between items-center gap-2">
-                                  <p className="text-[10px] font-normal text-black-1">
+                                  <p className="text-[10px] font-normal dark:text-white-1/80 text-black-1">
                                     Size
                                   </p>
-                                  <p className="text-[10px] font-normal text-black-1">
+                                  <p className="text-[10px] font-normal dark:text-white-1/80 text-black-1">
                                     1.2mb
                                   </p>
                                 </div>
                                 <div className="flex w-full justify-between items-center gap-2">
-                                  <p className="text-[10px] font-normal text-black-1">
+                                  <p className="text-[10px] font-normal dark:text-white-1/80 text-black-1">
                                     dimensions
                                   </p>
-                                  <p className="text-[10px] font-normal text-black-1">
+                                  <p className="text-[10px] font-normal dark:text-white-1/80 text-black-1">
                                     1200x1000
                                   </p>
                                 </div>
@@ -572,38 +589,46 @@ const Hero = () => {
                             <div className="flex justify-center items-center gap-3">
                               <div className="flex justify-center items-center gap-1">
                                 ♥️
-                                <p className="text-[11px] font-normal text-black-1">
+                                <p className="text-[11px] font-normal dark:text-white-1/80 text-black-1">
                                   2
                                 </p>
                               </div>
                               <div className="flex justify-center items-center gap-1">
                                 😍
-                                <p className="text-[11px] font-normal text-black-1">
+                                <p className="text-[11px] font-normal dark:text-white-1/80 text-black-1">
                                   4
                                 </p>
                               </div>
                             </div>
                           )}
                         </div>
+                        {/* date */}
+                        {item.isDate && (
+                          <div className="w-full col-span-3 my-2 flex justify-center items-center">
+                            <div className="w-[250px] flex justify-center items-center py-[2px] rounded-[10px] text-white-1 text-[8px] font-normal bg-black-1">
+                              Today (13/08/2024)
+                            </div>
+                          </div>
+                        )}
                       </div>
                     );
                   })}
                 </div>
                 {/* send message ui ---> */}
                 <div className="w-full grid grid-cols-[1fr,80px] rounded-[2px] h-[100px] gap-3 border-[1px] border-blue-1">
-                  <p className="text-[14px] p-2 font-normal text-black-1">
+                  <p className="text-[14px] p-2 font-normal dark:text-white-1/80 text-black-1">
                     Lorem Ipsum is simply dummy text of the printing and
                     typesetting industry.Lorem Ipsum passages, and more recently
                     with desktop publishing software like{" "}
                   </p>
-                  <button className="bg-[#D4DDE6] p-2 flex flex-col justify-center items-center w-full">
+                  <button className="bg-[#D4DDE6] dark:bg-[#1D252C] p-2 flex flex-col justify-center items-center w-full">
                     <p className="text-[14px] font-normal text-black-1 bg-yellow-1 px-[4px]">
                       /SEND
                     </p>
-                    <p className="text-[14px] font-normal text-black-1">
+                    <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
                       [image]
                     </p>
-                    <p className="text-[14px] font-normal text-black-1">
+                    <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
                       [Emoji]
                     </p>
                   </button>
@@ -612,83 +637,91 @@ const Hero = () => {
             </div>
             {/* 3rd col ----> */}
             <div className="w-full flex flex-col gap-2">
-              <div className="w-full flex border-[1px] border-blue-1 flex-col h-[calc(100vh-416px)]">
+              <div className="w-full flex border-[1px] border-blue-1 flex-col h-[calc(100vh-285px)]">
                 {/* Fixed header */}
                 <div className="w-full flex flex-col gap-2 px-4 py-2">
                   {/* search bar  */}
                   <div className="w-full flex justify-between items-center">
-                    <p className="text-[14px] font-normal text-black-1">
+                    <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
                       Degens (13)
                     </p>
-                    <LuSearch className="text-[22px] text-black-1" />
-                  </div>
-                  {/* online  */}
-                  <div className="w-full relative flex justify-center items-center">
-                    <p className="text-[14px] font-normal text-black-1">
-                      {online}
-                    </p>
-                    <div className="w-[4px] h-[28px] bg-[#004BFE] absolute -left-2"></div>
-                    <div className="w-[4px] h-[28px] bg-[#004BFE] absolute -right-2"></div>
-                  </div>
-                  {/* admin */}
-                  <div className="w-full grid grid-cols-[40px,1fr]">
-                    <p className="w-full flex justify-start">@</p>
-                    <div className="w-full flex justify-start items-center">
-                      <p className="[text-shadow:_-0.4px_-0.4px_0_#D90000,_0.4px_-0.4px_0_#D90000,_-0.4px_0.4px_0_#D90000,_0.4px_0.4px_0_#D90000] text-[14px] font-semibold text-black-1">
-                        {admin}
-                      </p>
-                    </div>
-                  </div>
-                  {/* mode */}
-                  <div className="w-full grid grid-cols-[40px,1fr]">
-                    <p className="w-full flex justify-start">@</p>
-                    <div className="w-full flex justify-start items-center">
-                      <p className="text-[14px] font-semibold text-red-1">
-                        {mode}
-                      </p>
-                    </div>
+                    <LuSearch className="text-[22px] dark:text-white-1/80 text-black-1" />
                   </div>
                 </div>
 
                 {/* Scrollable user list */}
                 <div className="w-full flex-grow overflow-y-auto px-4">
-                  {[
-                    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 12, 3, 4, 5, 6, 3, 2, 1, 3,
-                    2, 3, 1, 2, 1, 1, 2,
-                  ].map((item, index) => {
-                    return (
-                      <div
-                        key={index}
-                        className="w-full grid grid-cols-[40px,1fr]"
-                      >
-                        <div></div>
-                        <p className="text-[14px] py-[4px] w-full flex justify-start font-normal text-black-1">
-                          {userName}
-                        </p>
-                      </div>
-                    );
-                  })}
+                  <div className="w-full flex flex-col gap-4">
+                    {degonsData.map((item, index) => {
+                      return (
+                        <div key={index} className="w-full flex flex-col gap-2">
+                          {/* type */}
+                          <div className="w-full relative flex justify-center items-center">
+                            <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
+                              {item.type}
+                            </p>
+                            <div
+                              className={`w-[5px] h-[28px] ${item.color} absolute -left-2`}
+                            ></div>
+                            <div
+                              className={`w-[5px] h-[28px] ${item.color} absolute -right-2`}
+                            ></div>
+                          </div>
+                          {/* attributes ---> */}
+                          {item.attributes?.map((att, index) => {
+                            return (
+                              <div
+                                key={index}
+                                className="w-full gap-2 flex flex-col"
+                              >
+                                {/* attri title */}
+                                <div className="w-full grid grid-cols-[40px,1fr]">
+                                  {att.icon}
+                                  <div className="w-full flex justify-start items-center">
+                                    <p
+                                      className={`text-[14px] font-semibold ${att.color}`}
+                                    >
+                                      {att.name}
+                                    </p>
+                                  </div>
+                                </div>
+                                {/* attri users */}
+                                {att.users.map((us, index) => {
+                                  return (
+                                    <div
+                                      key={index}
+                                      className="w-full grid grid-cols-[40px,1fr]"
+                                    >
+                                      {us.icon}
+                                      <div className="w-full flex justify-start items-center">
+                                        <p
+                                          className={`text-[14px] font-normal dark:text-white-1/80 text-black-1`}
+                                        >
+                                          {us.name}
+                                        </p>
+                                      </div>
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
               {/*  */}
-              <div className="w-full h-[250px] border-[1px] border-blue-1 flex flex-col justify-between p-2">
-                <p className="text-[14px] underline font-normal text-black-1">
+              <div className="w-full h-[120px] border-[1px] border-blue-1 flex flex-col justify-between p-2">
+                <p className="text-[14px] underline font-normal dark:text-white-1/80 text-black-1">
                   General Admin
                 </p>
-                <p className="text-[14px] font-normal text-black-1">
+                <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
                   [manage users]
                 </p>
-                <p className="text-[14px] font-normal text-red-1">
-                  [manage roles]
-                </p>
-                <p className="text-[14px] font-normal text-[#336FFE]">
-                  [manage wallets]
-                </p>
-                <p className="text-[14px]  font-normal text-black-1">
-                  [manage coins]
-                </p>
-                <p className="text-[14px]  font-normal text-black-1">[stats]</p>
-                <p className="text-[14px] font-normal text-black-1">
+
+                <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
                   [News Post]
                 </p>
               </div>
@@ -724,6 +757,7 @@ const messageData = [
     roloe: "[Role]",
     message:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem.",
+    isDate: true,
   },
   {
     serNo: "23:16",
@@ -737,6 +771,8 @@ const messageData = [
     userName: "<Username>",
     roloe: "[Role]",
     isReactions: true,
+    isDate: true,
+
     message:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
   },
@@ -745,6 +781,8 @@ const messageData = [
     userName: "<Username>",
     roloe: "[Role]",
     isReactions: true,
+    isDate: true,
+
     message:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem.",
   },
@@ -753,6 +791,8 @@ const messageData = [
     userName: "<Username>",
     roloe: "[Role]",
     isReactions: true,
+    isDate: false,
+
     message:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem.",
   },
@@ -761,6 +801,8 @@ const messageData = [
     userName: "<Username>",
     roloe: "[Role]",
     isReactions: true,
+    isDate: false,
+
     message:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem.",
   },
@@ -770,6 +812,8 @@ const messageData = [
     roloe: "[Role]",
     isReactions: true,
     isImage: true,
+    isDate: false,
+
     message:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem.",
   },
@@ -778,6 +822,8 @@ const messageData = [
     userName: "<Username>",
     roloe: "[Role]",
     isReactions: true,
+    isDate: false,
+
     message:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem.",
   },
@@ -786,6 +832,8 @@ const messageData = [
     userName: "<Username>",
     roloe: "[Role]",
     isReactions: true,
+    isDate: false,
+
     message:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem.",
   },
@@ -794,6 +842,8 @@ const messageData = [
     userName: "<Username>",
     roloe: "[Role]",
     isReactions: true,
+    isDate: false,
+
     message:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem.",
   },
@@ -811,5 +861,183 @@ const options = [
   {
     name: "Engaging with Buzz",
     icon: "/assets/twitter2.svg",
+  },
+];
+
+const degonsData = [
+  {
+    type: "<Online>",
+    color: "bg-black-1 dark:bg-[#FEF652]",
+    attributes: [
+      {
+        icon: <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">@</p>,
+        name: "<CHEF>",
+        color: "text-[#004BFE]",
+        users: [
+          {
+            icon: <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">@</p>,
+            name: "<[Username]>",
+          },
+        ],
+      },
+
+      {
+        icon: <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">@</p>,
+        name: "<MODS>",
+        color: "text-[#FF0000]",
+        users: [
+          {
+            icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
+            name: "<[Username]>",
+          },
+          {
+            icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
+            name: "<[Username]>",
+          },
+          {
+            icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
+            name: "<[Username]>",
+          },
+          {
+            icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
+            name: "<[Username]>",
+          },
+        ],
+      },
+      {
+        icon: <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">@</p>,
+        name: "<SUBS>",
+        color: "text-[#00DD4B]",
+        users: [
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+        ],
+      },
+      {
+        icon: <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">@</p>,
+        name: "<GUESTS>",
+        color: "text-[#808080]",
+        users: [
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    type: "<Offline>",
+    color: "bg-black-1 dark:bg-[#BA0000]",
+    attributes: [
+      {
+        icon: <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">@</p>,
+        name: "<CHEF>",
+        color: "text-[#004BFE]",
+        users: [
+          {
+            icon: <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">@</p>,
+            name: "<[Username]>",
+          },
+        ],
+      },
+
+      {
+        icon: <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">@</p>,
+        name: "<MODS>",
+        color: "text-[#FF0000]",
+        users: [
+          {
+            icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
+            name: "<[Username]>",
+          },
+          {
+            icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
+            name: "<[Username]>",
+          },
+          {
+            icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
+            name: "<[Username]>",
+          },
+          {
+            icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
+            name: "<[Username]>",
+          },
+        ],
+      },
+      {
+        icon: <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">@</p>,
+        name: "<SUBS>",
+        color: "text-[#00DD4B]",
+        users: [
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+        ],
+      },
+    ],
   },
 ];
