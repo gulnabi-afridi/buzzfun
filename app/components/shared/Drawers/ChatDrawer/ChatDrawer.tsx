@@ -7,6 +7,8 @@ import NewUser from "./NewUser";
 import LeftSideBar from "./LeftSideBar";
 import RightSideBar from "./RightSideBar";
 import SettingSidebar from "./Setting/SettingSidebar";
+import ChatPermission from "./Setting/ChatPermission";
+
 
 interface Props {
   open: boolean;
@@ -53,7 +55,7 @@ const ChatDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
           </div>
         </div>
         {/* content */}
-        <div className="w-full p-2 dark:bg-[#0E161C] bg-white-1 grid grid-cols-[1fr,3.5fr,1fr]">
+        <div className="w-full p-2 dark:bg-[#0E161C] gap-3 bg-white-1 grid grid-cols-[1fr,3.5fr,1fr]">
           {/* 1st col */}
           {showSetting ? (
             <SettingSidebar
@@ -66,7 +68,7 @@ const ChatDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
 
           {/* 2nd col ----->  */}
           {showSetting ? (
-            <div className=""></div>
+            <ChatPermission/>
           ) : (
             <div className="w-full p-3 flex flex-col">
               {/* top header  */}
