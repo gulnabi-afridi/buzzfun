@@ -62,7 +62,7 @@ const Chat: React.FC = () => {
   ]);
 
   return (
-    <>
+    <React.Fragment>
       <div className="w-full">
         {/* token name ---> */}
         <div className="w-full bg-[#D4DDE6] relative h-[40px] px-4 flex justify-between items-center ">
@@ -107,9 +107,14 @@ const Chat: React.FC = () => {
                   key={index}
                   className="w-full px-4 py-2 grid items-start grid-cols-[80px,110px,1fr]"
                 >
-                  <p className="w-full flex justify-start text-[14px] font-normal dark:text-white-1/80 text-black-1">
-                    {item.serNo}
-                  </p>
+                  <div className="w-full flex items-start flex-col justify-center">
+                    <p className=" text-[14px] font-normal dark:text-white-1/80 text-black-1">
+                      {item.date.date}
+                    </p>
+                    <p className=" text-[14px] font-normal dark:text-white-1/80 text-black-1">
+                      {item.date.time}
+                    </p>
+                  </div>
                   <div className="w-full flex flex-col gap-1 items-center justify-center">
                     {
                       <CustomMenu
@@ -392,7 +397,7 @@ const Chat: React.FC = () => {
           </div>
         </div>
       </Modal>
-    </>
+    </React.Fragment>
   );
 };
 
@@ -400,7 +405,10 @@ export default Chat;
 
 const messageData = [
   {
-    serNo: "23:16",
+    date: {
+      date: "11/08/24",
+      time: "23:16",
+    },
     userName: "<Username>",
     roloe: "[Role]",
     message:
@@ -409,7 +417,10 @@ const messageData = [
     icIcons: false,
   },
   {
-    serNo: "23:16",
+    date: {
+      date: "Yesterday",
+      time: "23:16",
+    },
     userName: "<Username>",
     roloe: "[Role]",
     icIcons: false,
@@ -417,7 +428,10 @@ const messageData = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
   },
   {
-    serNo: "23:16",
+    date: {
+      date: "Today",
+      time: "23:16",
+    },
     userName: "<Username>",
     roloe: "[Role]",
     isReactions: true,
@@ -429,7 +443,10 @@ const messageData = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
   },
   {
-    serNo: "23:16",
+    date: {
+      date: "Today",
+      time: "23:16",
+    },
     userName: "<Username>",
     roloe: "[Role]",
     isReactions: true,
@@ -439,7 +456,10 @@ const messageData = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem.",
   },
   {
-    serNo: "23:16",
+    date: {
+      date: "Today",
+      time: "23:16",
+    },
     userName: "<Username>",
     roloe: "[Role]",
     isReactions: true,
@@ -449,7 +469,10 @@ const messageData = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem.",
   },
   {
-    serNo: "23:16",
+    date: {
+      date: "Yesterday",
+      time: "23:16",
+    },
     userName: "<Username>",
     roloe: "[Role]",
     isReactions: true,
@@ -459,7 +482,10 @@ const messageData = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem.",
   },
   {
-    serNo: "23:16",
+    date: {
+      date: "Yesterday",
+      time: "23:16",
+    },
     userName: "<Username>",
     roloe: "[Role]",
     isReactions: true,
@@ -471,7 +497,10 @@ const messageData = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem.",
   },
   {
-    serNo: "23:16",
+    date: {
+      date: "Yesterday",
+      time: "23:16",
+    },
     userName: "<Username>",
     roloe: "[Role]",
     isReactions: true,
@@ -481,7 +510,10 @@ const messageData = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem.",
   },
   {
-    serNo: "23:16",
+    date: {
+      date: "Yesterday",
+      time: "23:16",
+    },
     userName: "<Username>",
     roloe: "[Role]",
     isReactions: true,
@@ -491,7 +523,10 @@ const messageData = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem.",
   },
   {
-    serNo: "23:16",
+    date: {
+      date: "Yesterday",
+      time: "23:16",
+    },
     userName: "<Username>",
     roloe: "[Role]",
     isReactions: true,
