@@ -8,7 +8,7 @@ import LeftSideBar from "./LeftSideBar";
 import RightSideBar from "./RightSideBar";
 import SettingSidebar from "./Setting/SettingSidebar";
 import ChatPermission from "./Setting/ChatPermission";
-
+import Members from "./Setting/Members";
 
 interface Props {
   open: boolean;
@@ -68,7 +68,10 @@ const ChatDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
 
           {/* 2nd col ----->  */}
           {showSetting ? (
-            <ChatPermission/>
+            <>
+              {settingOption === "Chat permissions" && <ChatPermission />}
+              {settingOption === "Members" && <Members />}
+            </>
           ) : (
             <div className="w-full p-3 flex flex-col">
               {/* top header  */}
