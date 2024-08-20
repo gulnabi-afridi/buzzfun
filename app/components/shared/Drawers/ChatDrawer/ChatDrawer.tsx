@@ -15,6 +15,12 @@ interface Props {
 const ChatDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
   const [isNewUser, setNewUser] = useState(false);
   const [userNameMenuOption, setUserMenuOption] = useState("View Profile");
+  const [showSearch, setSearch] = useState(true);
+  // chat-admin
+  // platform-admin
+  // chat-owner
+  // normal-user
+  const [useType, setUserType] = useState("normal-user");
 
   return (
     <Drawer
@@ -124,16 +130,36 @@ const ChatDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
           </div>
           {/* 3rd col ----> */}
           <div className="w-full flex flex-col gap-2">
-            <div className="w-full flex border-[1px] border-blue-1 flex-col h-[calc(100vh-285px)]">
+            <div
+              className={`w-full flex border-[1px] border-blue-1 ${
+                useType === "chat-admin" && " h-[calc(100vh-268px)]"
+              } ${useType === "normal-user" && " h-[calc(100vh-155px)]"} 
+               ${useType === "platform-admin" && " h-[calc(100vh-280px)]"} 
+               ${useType === "chat-owner" && " h-[calc(100vh-268px)]"} 
+
+              flex-col`}
+            >
               {/* Fixed header */}
-              <div className="w-full flex flex-col gap-2 px-4 py-2">
-                {/* search bar  */}
-                <div className="w-full flex justify-between items-center">
-                  <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
+              <div className="w-full grid px-4 py-2 grid-cols-[1fr,30px]">
+                {showSearch ? (
+                  <input
+                    type="text"
+                    className="h-[20px] text-[12px] font-normal text-black-1 w-full rounded-[2px] pl-2 focus:ring-0 focus:outline-none bg-[#D1DBE4]"
+                    name=""
+                    id=""
+                  />
+                ) : (
+                  <p className="text-[14px] w-full flex justify-start items-center font-normal dark:text-white-1/80 text-black-1">
                     Degens (13)
                   </p>
-                  <LuSearch className="text-[22px] dark:text-white-1/80 text-black-1" />
-                </div>
+                )}
+
+                <button
+                  onClick={() => setSearch(!showSearch)}
+                  className="w-full flex justify-end items-center"
+                >
+                  <LuSearch className="text-[20px] text-white-1" />
+                </button>
               </div>
 
               {/* Scrollable user list */}
@@ -210,19 +236,46 @@ const ChatDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
                 </div>
               </div>
             </div>
-            {/*  */}
-            <div className="w-full h-[120px] border-[1px] border-blue-1 flex flex-col justify-between p-2">
-              <p className="text-[14px] underline font-normal dark:text-white-1/80 text-black-1">
-                General Admin
-              </p>
-              <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
-                [manage users]
-              </p>
-
-              <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
-                [News Post]
-              </p>
-            </div>
+            {/* user type details ---->  */}
+            {useType === "chat-admin" && (
+              <div className="w-full border-[1px] border-blue-1 flex flex-col justify-between px-4 py-3">
+                <p className="text-[14px] underline font-normal dark:text-white-1/80 text-black-1">
+                  Role:
+                </p>
+                <p className="text-[14px] mt-3 font-normal dark:text-white-1/80 text-black-1">
+                  Project name
+                </p>
+                <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
+                  [Chat Admin]
+                </p>
+              </div>
+            )}
+            {useType === "platform-admin" && (
+              <div className="w-full border-[1px] border-blue-1 gap-3 flex flex-col justify-between px-4 py-3">
+                <p className="text-[14px] underline font-normal dark:text-white-1/80 text-black-1">
+                  General Admin
+                </p>
+                <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
+                  [manage users]
+                </p>
+                <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
+                  [News Post]
+                </p>
+              </div>
+            )}
+            {useType === "chat-owner" && (
+              <div className="w-full border-[1px] border-blue-1 flex flex-col justify-between px-4 py-3">
+                <p className="text-[14px] underline font-normal dark:text-white-1/80 text-black-1">
+                  Role:
+                </p>
+                <p className="text-[14px] mt-3 font-normal dark:text-white-1/80 text-black-1">
+                  Project name
+                </p>
+                <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
+                  [Chat Owner]
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -34,7 +34,8 @@ const config: Config = {
       colors: {
         blue: {
           1: "#004BFE",
-          2:'#317C85'
+          2:'#317C85',
+          3:'#336FFE',
         },
         yellow: {
           1: "#FEF652",
