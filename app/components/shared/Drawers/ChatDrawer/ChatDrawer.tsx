@@ -9,6 +9,7 @@ import RightSideBar from "./RightSideBar";
 import SettingSidebar from "./Setting/SettingSidebar";
 import ChatPermission from "./Setting/ChatPermission";
 import Members from "./Setting/Members";
+import Blacklist from "./Setting/Blacklist";
 
 interface Props {
   open: boolean;
@@ -71,6 +72,8 @@ const ChatDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
             <>
               {settingOption === "Chat permissions" && <ChatPermission />}
               {settingOption === "Members" && <Members />}
+              {settingOption === "Blacklist" && <Blacklist />}
+
             </>
           ) : (
             <div className="w-full p-3 flex flex-col">
