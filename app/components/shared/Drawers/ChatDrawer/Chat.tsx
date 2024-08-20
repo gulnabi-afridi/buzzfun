@@ -10,7 +10,11 @@ import CustomMenu from "../../CustomMenu";
 import { useDisclosure } from "@mantine/hooks";
 import { Modal, Button } from "@mantine/core";
 
-const Chat: React.FC = () => {
+interface Props {
+  setSetting: (value: boolean) => void;
+}
+
+const Chat: React.FC<Props> = ({ setSetting }: Props) => {
   const [userNameMenuOption, setUserMenuOption] = useState("");
   const [chatOption, setChatOption] = useState("React");
   const [chatGeneralOption, setChatGeneralOption] = useState("Info");
@@ -50,6 +54,9 @@ const Chat: React.FC = () => {
       closeKickModal();
       openTimeOutModal();
     }
+    if (chatGeneralOption === "Settings") {
+      setSetting(true);
+    }
   }, [
     userNameMenuOption,
     openDelAllBinModal,
@@ -59,6 +66,8 @@ const Chat: React.FC = () => {
     closeBinModal,
     closeKickModal,
     openTimeOutModal,
+    chatGeneralOption,
+    setSetting,
   ]);
 
   return (

@@ -6,6 +6,7 @@ import Chat from "./Chat";
 import NewUser from "./NewUser";
 import LeftSideBar from "./LeftSideBar";
 import RightSideBar from "./RightSideBar";
+import SettingSidebar from "./Setting/SettingSidebar";
 
 interface Props {
   open: boolean;
@@ -14,13 +15,8 @@ interface Props {
 
 const ChatDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
   const [isNewUser, setNewUser] = useState(false);
-  const [userNameMenuOption, setUserMenuOption] = useState("View Profile");
-  const [showSearch, setSearch] = useState(true);
-  // chat-admin
-  // platform-admin
-  // chat-owner
-  // normal-user
-  const [useType, setUserType] = useState("normal-user");
+  const [showSetting, setSetting] = useState(false);
+  const [settingOption, setSettingOption] = useState("Chat permissions");
 
   return (
     <Drawer
@@ -59,25 +55,40 @@ const ChatDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
         {/* content */}
         <div className="w-full p-2 dark:bg-[#0E161C] bg-white-1 grid grid-cols-[1fr,3.5fr,1fr]">
           {/* 1st col */}
-          <LeftSideBar/>
+          {showSetting ? (
+            <SettingSidebar
+              selectedSetting={settingOption}
+              setSelectedSetting={setSettingOption}
+            />
+          ) : (
+            <LeftSideBar />
+          )}
+
           {/* 2nd col ----->  */}
-          <div className="w-full p-3 flex flex-col">
-            {/* top header  */}
-            <div className="w-full bg-transparent dark:bg-[#1B2A35] px-4 h-[50px] flex justify-between items-center">
-              <div className="flex px-2 py-[4px] bg-white-1 dark:bg-black-1 justify-center items-center gap-2">
+          {showSetting ? (
+            <div className=""></div>
+          ) : (
+            <div className="w-full p-3 flex flex-col">
+              {/* top header  */}
+              <div className="w-full bg-transparent dark:bg-[#1B2A35] px-4 h-[50px] flex justify-between items-center">
+                <div className="flex px-2 py-[4px] bg-white-1 dark:bg-black-1 justify-center items-center gap-2">
+                  <p className="text-[14px] font-bold text-white-1 dark:text-white-1">
+                    News
+                  </p>
+                  <p className="bg-[#FF0000] px-[8px] py-[0px] text-white-1">
+                    2
+                  </p>
+                </div>
                 <p className="text-[14px] font-bold text-white-1 dark:text-white-1">
-                  News
+                  General [Chat]
                 </p>
-                <p className="bg-[#FF0000] px-[8px] py-[0px] text-white-1">2</p>
               </div>
-              <p className="text-[14px] font-bold text-white-1 dark:text-white-1">
-                General [Chat]
-              </p>
+              {isNewUser ? <NewUser /> : <Chat setSetting={setSetting} />}
             </div>
-            {isNewUser ? <NewUser /> : <Chat />}
-          </div>
+          )}
+
           {/* 3rd col ----> */}
-          <RightSideBar/>
+          <RightSideBar />
         </div>
       </div>
     </Drawer>
@@ -85,9 +96,6 @@ const ChatDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
 };
 
 export default ChatDrawer;
-
-const generalChat = "<General Chat>";
-const chatName = "<Chat Name>";
 
 const degonsData = [
   {

@@ -14,8 +14,6 @@ const RightSideBar: React.FC = () => {
   const [showSearch, setSearch] = useState(true);
   const [userNameMenuOption, setUserMenuOption] = useState("View Profile");
 
-
-
   return (
     <div className="w-full flex flex-col gap-2">
       <div
@@ -167,227 +165,225 @@ const RightSideBar: React.FC = () => {
 
 export default RightSideBar;
 
-
 const degonsData = [
-    {
-      type: "<Online>",
-      color: "bg-black-1 dark:bg-[#FEF652]",
-      attributes: [
-        {
-          icon: (
-            <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
-              @
-            </p>
-          ),
-          name: "<CHEF>",
-          color: "text-[#004BFE]",
-          users: [
-            {
-              icon: (
-                <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
-                  @
-                </p>
-              ),
-              name: "<[Username]>",
-            },
-          ],
-        },
-  
-        {
-          icon: (
-            <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
-              @
-            </p>
-          ),
-          name: "<MODS>",
-          color: "text-[#FF0000]",
-          users: [
-            {
-              icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
-              name: "<[Username]>",
-            },
-            {
-              icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
-              name: "<[Username]>",
-            },
-            {
-              icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
-              name: "<[Username]>",
-            },
-            {
-              icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
-              name: "<[Username]>",
-            },
-          ],
-        },
-        {
-          icon: (
-            <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
-              @
-            </p>
-          ),
-          name: "<SUBS>",
-          color: "text-[#00DD4B]",
-          users: [
-            {
-              icon: <p></p>,
-              name: "<[Username]>",
-            },
-            {
-              icon: <p></p>,
-              name: "<[Username]>",
-            },
-            {
-              icon: <p></p>,
-              name: "<[Username]>",
-            },
-            {
-              icon: <p></p>,
-              name: "<[Username]>",
-            },
-            {
-              icon: <p></p>,
-              name: "<[Username]>",
-            },
-            {
-              icon: <p></p>,
-              name: "<[Username]>",
-            },
-          ],
-        },
-        {
-          icon: (
-            <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
-              @
-            </p>
-          ),
-          name: "<GUESTS>",
-          color: "text-[#808080]",
-          users: [
-            {
-              icon: <p></p>,
-              name: "<[Username]>",
-            },
-            {
-              icon: <p></p>,
-              name: "<[Username]>",
-            },
-            {
-              icon: <p></p>,
-              name: "<[Username]>",
-            },
-            {
-              icon: <p></p>,
-              name: "<[Username]>",
-            },
-            {
-              icon: <p></p>,
-              name: "<[Username]>",
-            },
-            {
-              icon: <p></p>,
-              name: "<[Username]>",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      type: "<Offline>",
-      color: "bg-black-1 dark:bg-[#BA0000]",
-      attributes: [
-        {
-          icon: (
-            <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
-              @
-            </p>
-          ),
-          name: "<CHEF>",
-          color: "text-[#004BFE]",
-          users: [
-            {
-              icon: (
-                <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
-                  @
-                </p>
-              ),
-              name: "<[Username]>",
-            },
-          ],
-        },
-  
-        {
-          icon: (
-            <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
-              @
-            </p>
-          ),
-          name: "<MODS>",
-          color: "text-[#FF0000]",
-          users: [
-            {
-              icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
-              name: "<[Username]>",
-            },
-            {
-              icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
-              name: "<[Username]>",
-            },
-            {
-              icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
-              name: "<[Username]>",
-            },
-            {
-              icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
-              name: "<[Username]>",
-            },
-          ],
-        },
-        {
-          icon: (
-            <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
-              @
-            </p>
-          ),
-          name: "<SUBS>",
-          color: "text-[#00DD4B]",
-          users: [
-            {
-              icon: <p></p>,
-              name: "<[Username]>",
-            },
-            {
-              icon: <p></p>,
-              name: "<[Username]>",
-            },
-            {
-              icon: <p></p>,
-              name: "<[Username]>",
-            },
-            {
-              icon: <p></p>,
-              name: "<[Username]>",
-            },
-            {
-              icon: <p></p>,
-              name: "<[Username]>",
-            },
-            {
-              icon: <p></p>,
-              name: "<[Username]>",
-            },
-          ],
-        },
-      ],
-    },
-  ];
+  {
+    type: "<Online>",
+    color: "bg-black-1 dark:bg-[#FEF652]",
+    attributes: [
+      {
+        icon: (
+          <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
+            @
+          </p>
+        ),
+        name: "<CHEF>",
+        color: "text-[#004BFE]",
+        users: [
+          {
+            icon: (
+              <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
+                @
+              </p>
+            ),
+            name: "<[Username]>",
+          },
+        ],
+      },
 
-  const userNameOptions = [
-    "View Profile",
-    "Follow",
-    "Timeout",
-    "Kick",
-    "Ban",
-    "Delete all & Ban",
-  ];
-  
+      {
+        icon: (
+          <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
+            @
+          </p>
+        ),
+        name: "<MODS>",
+        color: "text-[#FF0000]",
+        users: [
+          {
+            icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
+            name: "<[Username]>",
+          },
+          {
+            icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
+            name: "<[Username]>",
+          },
+          {
+            icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
+            name: "<[Username]>",
+          },
+          {
+            icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
+            name: "<[Username]>",
+          },
+        ],
+      },
+      {
+        icon: (
+          <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
+            @
+          </p>
+        ),
+        name: "<SUBS>",
+        color: "text-[#00DD4B]",
+        users: [
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+        ],
+      },
+      {
+        icon: (
+          <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
+            @
+          </p>
+        ),
+        name: "<GUESTS>",
+        color: "text-[#808080]",
+        users: [
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    type: "<Offline>",
+    color: "bg-black-1 dark:bg-[#BA0000]",
+    attributes: [
+      {
+        icon: (
+          <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
+            @
+          </p>
+        ),
+        name: "<CHEF>",
+        color: "text-[#004BFE]",
+        users: [
+          {
+            icon: (
+              <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
+                @
+              </p>
+            ),
+            name: "<[Username]>",
+          },
+        ],
+      },
+
+      {
+        icon: (
+          <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
+            @
+          </p>
+        ),
+        name: "<MODS>",
+        color: "text-[#FF0000]",
+        users: [
+          {
+            icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
+            name: "<[Username]>",
+          },
+          {
+            icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
+            name: "<[Username]>",
+          },
+          {
+            icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
+            name: "<[Username]>",
+          },
+          {
+            icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
+            name: "<[Username]>",
+          },
+        ],
+      },
+      {
+        icon: (
+          <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
+            @
+          </p>
+        ),
+        name: "<SUBS>",
+        color: "text-[#00DD4B]",
+        users: [
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+          {
+            icon: <p></p>,
+            name: "<[Username]>",
+          },
+        ],
+      },
+    ],
+  },
+];
+
+const userNameOptions = [
+  "View Profile",
+  "Follow",
+  "Timeout",
+  "Kick",
+  "Ban",
+  "Delete all & Ban",
+];
