@@ -94,8 +94,8 @@ const NewPost: React.FC = () => {
           </label>
           <textarea
             id="mainText"
-            placeholder={`<MAIN TEXT GOES HERE> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem.`}
-            className="w-full placeholder:text-white-1/50 pl-3 py-2 min-h-[170px] pr-2 focus:outline-none text-white-1/50 bg-black-1 text-[12px] font-normal"
+            placeholder={`<MAIN TEXT GOES HERE> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.`}
+            className="w-full placeholder:text-white-1/50 pl-3 py-2 min-h-[80px] pr-2 focus:outline-none text-white-1/50 bg-black-1 text-[12px] font-normal"
           />
         </div>
         {/* upload an image  */}
