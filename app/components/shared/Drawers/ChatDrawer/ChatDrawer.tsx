@@ -11,6 +11,8 @@ import ChatPermission from "./Setting/ChatPermission";
 import Members from "./Setting/Members";
 import Blacklist from "./Setting/Blacklist";
 import Mods from "./Setting/Mods";
+import Stickers from "./Setting/Stickers";
+import ChatInformation from "./Setting/ChatInformation";
 
 interface Props {
   open: boolean;
@@ -20,6 +22,7 @@ interface Props {
 const ChatDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
   const [isNewUser, setNewUser] = useState(false);
   const [showSetting, setSetting] = useState(false);
+  const [showChatInformation, setChatInformation] = useState(false);
   const [settingOption, setSettingOption] = useState("Chat permissions");
 
   return (
@@ -75,11 +78,20 @@ const ChatDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
               {settingOption === "Members" && <Members />}
               {settingOption === "Blacklist" && <Blacklist />}
               {settingOption === "Mods" && <Mods />}
+              {settingOption === "Stickers" && <Stickers />}
             </>
           ) : (
-            <div className="w-full p-3 flex flex-col">
+            <div
+              className={`w-full ${
+                showChatInformation ? "p-0" : "p-3"
+              }  flex flex-col`}
+            >
               {/* top header  */}
-              <div className="w-full bg-transparent dark:bg-[#1B2A35] px-4 h-[50px] flex justify-between items-center">
+              <div
+                className={`w-full ${
+                  showChatInformation ? "hidden" : "flex"
+                } bg-transparent dark:bg-[#1B2A35] px-4 h-[50px] justify-between items-center`}
+              >
                 <div className="flex px-2 py-[4px] bg-white-1 dark:bg-black-1 justify-center items-center gap-2">
                   <p className="text-[14px] font-bold text-white-1 dark:text-white-1">
                     News
@@ -92,7 +104,16 @@ const ChatDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
                   General [Chat]
                 </p>
               </div>
-              {isNewUser ? <NewUser /> : <Chat setSetting={setSetting} />}
+              {isNewUser ? (
+                <NewUser />
+              ) : showChatInformation ? (
+                <ChatInformation />
+              ) : (
+                <Chat
+                  setChatInformation={setChatInformation}
+                  setSetting={setSetting}
+                />
+              )}
             </div>
           )}
 
@@ -105,226 +126,3 @@ const ChatDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
 };
 
 export default ChatDrawer;
-
-const degonsData = [
-  {
-    type: "<Online>",
-    color: "bg-black-1 dark:bg-[#FEF652]",
-    attributes: [
-      {
-        icon: (
-          <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
-            @
-          </p>
-        ),
-        name: "<CHEF>",
-        color: "text-[#004BFE]",
-        users: [
-          {
-            icon: (
-              <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
-                @
-              </p>
-            ),
-            name: "<[Username]>",
-          },
-        ],
-      },
-
-      {
-        icon: (
-          <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
-            @
-          </p>
-        ),
-        name: "<MODS>",
-        color: "text-[#FF0000]",
-        users: [
-          {
-            icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
-            name: "<[Username]>",
-          },
-          {
-            icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
-            name: "<[Username]>",
-          },
-          {
-            icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
-            name: "<[Username]>",
-          },
-          {
-            icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
-            name: "<[Username]>",
-          },
-        ],
-      },
-      {
-        icon: (
-          <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
-            @
-          </p>
-        ),
-        name: "<SUBS>",
-        color: "text-[#00DD4B]",
-        users: [
-          {
-            icon: <p></p>,
-            name: "<[Username]>",
-          },
-          {
-            icon: <p></p>,
-            name: "<[Username]>",
-          },
-          {
-            icon: <p></p>,
-            name: "<[Username]>",
-          },
-          {
-            icon: <p></p>,
-            name: "<[Username]>",
-          },
-          {
-            icon: <p></p>,
-            name: "<[Username]>",
-          },
-          {
-            icon: <p></p>,
-            name: "<[Username]>",
-          },
-        ],
-      },
-      {
-        icon: (
-          <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
-            @
-          </p>
-        ),
-        name: "<GUESTS>",
-        color: "text-[#808080]",
-        users: [
-          {
-            icon: <p></p>,
-            name: "<[Username]>",
-          },
-          {
-            icon: <p></p>,
-            name: "<[Username]>",
-          },
-          {
-            icon: <p></p>,
-            name: "<[Username]>",
-          },
-          {
-            icon: <p></p>,
-            name: "<[Username]>",
-          },
-          {
-            icon: <p></p>,
-            name: "<[Username]>",
-          },
-          {
-            icon: <p></p>,
-            name: "<[Username]>",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    type: "<Offline>",
-    color: "bg-black-1 dark:bg-[#BA0000]",
-    attributes: [
-      {
-        icon: (
-          <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
-            @
-          </p>
-        ),
-        name: "<CHEF>",
-        color: "text-[#004BFE]",
-        users: [
-          {
-            icon: (
-              <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
-                @
-              </p>
-            ),
-            name: "<[Username]>",
-          },
-        ],
-      },
-
-      {
-        icon: (
-          <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
-            @
-          </p>
-        ),
-        name: "<MODS>",
-        color: "text-[#FF0000]",
-        users: [
-          {
-            icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
-            name: "<[Username]>",
-          },
-          {
-            icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
-            name: "<[Username]>",
-          },
-          {
-            icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
-            name: "<[Username]>",
-          },
-          {
-            icon: <IoHammerOutline className="text-[14px] text-[#FF0000]" />,
-            name: "<[Username]>",
-          },
-        ],
-      },
-      {
-        icon: (
-          <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
-            @
-          </p>
-        ),
-        name: "<SUBS>",
-        color: "text-[#00DD4B]",
-        users: [
-          {
-            icon: <p></p>,
-            name: "<[Username]>",
-          },
-          {
-            icon: <p></p>,
-            name: "<[Username]>",
-          },
-          {
-            icon: <p></p>,
-            name: "<[Username]>",
-          },
-          {
-            icon: <p></p>,
-            name: "<[Username]>",
-          },
-          {
-            icon: <p></p>,
-            name: "<[Username]>",
-          },
-          {
-            icon: <p></p>,
-            name: "<[Username]>",
-          },
-        ],
-      },
-    ],
-  },
-];
-
-const userNameOptions = [
-  "View Profile",
-  "Follow",
-  "Timeout",
-  "Kick",
-  "Ban",
-  "Delete all & Ban",
-];

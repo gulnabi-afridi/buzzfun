@@ -18,7 +18,7 @@ const Members: React.FC = () => {
           <div className="flex justify-center items-center gap-3">
             <Image src="/assets/token3.svg" alt="" width={26} height={26} />
             <p className="text-[14px] font-semibold text-black-1">
-              Pink Hood Froglicker | $Froglic [chat]
+              {`$Froglic: Settings > [Chat permissions]`}
             </p>
           </div>
         </div>

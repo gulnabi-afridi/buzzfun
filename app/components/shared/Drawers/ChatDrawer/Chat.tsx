@@ -12,12 +12,13 @@ import { Modal, Button } from "@mantine/core";
 
 interface Props {
   setSetting: (value: boolean) => void;
+  setChatInformation:(value:boolean) => void;
 }
 
-const Chat: React.FC<Props> = ({ setSetting }: Props) => {
+const Chat: React.FC<Props> = ({ setSetting,setChatInformation }: Props) => {
   const [userNameMenuOption, setUserMenuOption] = useState("");
   const [chatOption, setChatOption] = useState("React");
-  const [chatGeneralOption, setChatGeneralOption] = useState("Info");
+  const [chatGeneralOption, setChatGeneralOption] = useState("");
   const [timeOut, setTimeOut] = useState("30 min");
 
   // states for modal -------->
@@ -57,6 +58,9 @@ const Chat: React.FC<Props> = ({ setSetting }: Props) => {
     if (chatGeneralOption === "Settings") {
       setSetting(true);
     }
+    if (chatGeneralOption === "Info") {
+      setChatInformation(true);
+    }
   }, [
     userNameMenuOption,
     openDelAllBinModal,
@@ -68,6 +72,7 @@ const Chat: React.FC<Props> = ({ setSetting }: Props) => {
     openTimeOutModal,
     chatGeneralOption,
     setSetting,
+    setChatInformation
   ]);
 
   return (
