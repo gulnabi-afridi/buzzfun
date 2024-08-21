@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { LuSearch } from "react-icons/lu";
@@ -8,8 +8,11 @@ import { FaRegCalendarCheck } from "react-icons/fa";
 import { LuSkull } from "react-icons/lu";
 import { BsVolumeMuteFill } from "react-icons/bs";
 import { LuTimerOff } from "react-icons/lu";
+import CustomMenu from "../../../CustomMenu";
 
 const Members: React.FC = () => {
+  const [sortOption, setSortOption] = useState("");
+
   return (
     <div className="w-full border-[1px] border-blue-1 rounded-[2px] flex flex-col">
       {/* top header */}
@@ -18,7 +21,7 @@ const Members: React.FC = () => {
           <div className="flex justify-center items-center gap-3">
             <Image src="/assets/token3.svg" alt="" width={26} height={26} />
             <p className="text-[14px] font-semibold text-black-1">
-              {`$Froglic: Settings > [Chat permissions]`}
+              {`$Froglic: Settings > Members [Total 1200]`}
             </p>
           </div>
         </div>
@@ -27,10 +30,19 @@ const Members: React.FC = () => {
           {/* sort by  */}
           <div className="flex justify-center items-center gap-3">
             <p className="text-[16px] font-normal text-black-1">Sort by</p>
-            <button className="px-2 bg-black-1 py-[2px] flex justify-center items-center gap-1">
-              <p className="text-[16px] font-normal text-white-1">A-Z</p>
-              <MdKeyboardArrowDown className="text-blue-1 text-[14px]" />
-            </button>
+            <CustomMenu
+              size="!w-[150px]"
+              options={sortOptions}
+              value={sortOption}
+              trigger="click"
+              setValue={setSortOption}
+              targetComponent={
+                <button className="px-2 bg-black-1 py-[2px] flex justify-center items-center gap-1">
+                  <p className="text-[16px] font-normal text-white-1">A-Z</p>
+                  <MdKeyboardArrowDown className="text-blue-1 text-[14px]" />
+                </button>
+              }
+            />
           </div>
           {/* search  */}
           <div className="flex justify-center items-center gap-3">
@@ -87,5 +99,7 @@ const Members: React.FC = () => {
     </div>
   );
 };
+
+const sortOptions = ["Recently Joined", "Oldest", "A-Z", "Z-A"];
 
 export default Members;
