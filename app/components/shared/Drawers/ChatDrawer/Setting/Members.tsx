@@ -12,8 +12,9 @@ import CustomMenu from "../../../CustomMenu";
 import { useDisclosure } from "@mantine/hooks";
 import ConfirmationModal from "../../../Modals/ConfirmationModal";
 import { GoUnmute } from "react-icons/go";
-import { GiSkullCrossedBones } from "react-icons/gi";
 import { FiClock } from "react-icons/fi";
+
+
 
 const Members: React.FC = () => {
   const [sortOption, setSortOption] = useState("");
@@ -24,7 +25,7 @@ const Members: React.FC = () => {
     blacklist: false,
   });
 
-  // stats for modeling handling
+  // stats for modeling
   const [muteModal, { open: openMuteModal, close: closeMuteModal }] =
     useDisclosure(false);
   const [
@@ -42,15 +43,6 @@ const Members: React.FC = () => {
     }));
 
     closeMuteModal();
-  };
-
-  const handleBlackList = () => {
-    setUserDetail((prevState) => ({
-      ...prevState,
-      blacklist: !userDetail.blacklist,
-    }));
-
-    closeBlackListEnableModal();
   };
 
   const addTimeOut = () => {
@@ -151,17 +143,11 @@ const Members: React.FC = () => {
                 </div>
                 {/* 3rd col  */}
                 <div className="w-full flex justify-end gap-6 items-center">
-                  {userDetail.blacklist ? (
-                    <GiSkullCrossedBones
-                      onClick={openBlackListEnableModal}
-                      className="text-[22px] cursor-pointer text-white-1"
-                    />
-                  ) : (
-                    <LuSkull
-                      onClick={openBlackListEnableModal}
-                      className="text-[22px] cursor-pointer text-white-1"
-                    />
-                  )}
+                  <LuSkull
+                    onClick={openBlackListEnableModal}
+                    className="text-[22px] cursor-pointer text-white-1"
+                  />
+
                   {userDetail.isMute ? (
                     <BsVolumeMuteFill
                       onClick={openMuteModal}
@@ -191,6 +177,7 @@ const Members: React.FC = () => {
           })}
         </div>
       </div>
+
       {/* modals -------------------->   */}
       {/* mute + unmute user ----> */}
       {userDetail.isMute ? (
@@ -216,28 +203,14 @@ const Members: React.FC = () => {
         />
       )}
       {/* blacklist + unblacklist user -------->  */}
-      {userDetail.blacklist ? (
-        <ConfirmationModal
-          open={blackListEnableModal}
-          onClose={closeBlackListEnableModal}
-          title="/ Attention - Blacklist"
-          des1="Are you sure you want to Blacklist [insert user name]?"
-          des2="They will no longer be able to access the chat and be added to the chat blacklist. "
-          btn2="Blacklist"
-          btn2Event={handleBlackList}
-        />
-      ) : (
-        <ConfirmationModal
-          open={blackListEnableModal}
-          onClose={closeBlackListEnableModal}
-          title="/ Attention - Reinstate"
-          des1="Are you sure you want to 
-remove Blacklist for [insert user name]?"
-          des2="They will have their access to the chat reinstated."
-          btn2="Reinstate"
-          btn2Event={handleBlackList}
-        />
-      )}
+      <ConfirmationModal
+        open={blackListEnableModal}
+        onClose={closeBlackListEnableModal}
+        title="/ Attention - Blacklist"
+        des1="Are you sure you want to Blacklist [insert user name]?"
+        des2="They will no longer be able to access the chat and be added to the chat blacklist. "
+        btn2="Blacklist"
+      />
 
       {/* set timeout modal ---------> */}
       {userDetail.timeout === "" ? (
