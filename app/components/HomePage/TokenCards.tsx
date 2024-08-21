@@ -10,11 +10,12 @@ import CoinStatsCards from "./CoinStatsCards";
 import { GoGraph } from "react-icons/go";
 import { TbUsers } from "react-icons/tb";
 
+
 const TokenCards: React.FC = () => {
   const [showCoinDetails, setShowCoinDetails] = useState(false);
 
   return (
-    <>
+    <React.Fragment>
       {!showCoinDetails ? (
         <div className="w-full grid grid-cols-1 cmd:grid-cols-2 3xl:grid-cols-3 gap-3">
           {/* 1st col ----> */}
@@ -265,7 +266,7 @@ const TokenCards: React.FC = () => {
       ) : (
         <CoinStatsCards />
       )}
-    </>
+    </React.Fragment>
   );
 };
 
