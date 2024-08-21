@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Drawer } from "@mantine/core";
 import Image from "next/image";
-import { IoHammerOutline } from "react-icons/io5";
 import Chat from "./Chat";
 import NewUser from "./NewUser";
 import LeftSideBar from "./LeftSideBar";
