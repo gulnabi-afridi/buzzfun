@@ -17,6 +17,7 @@ import { FiSkipBack } from "react-icons/fi";
 import AddAdmin from "./AddAdmin";
 import { useDisclosure } from "@mantine/hooks";
 import { Modal } from "@mantine/core";
+import ConfirmationModal from "../../../Modals/ConfirmationModal";
 
 const Mods: React.FC = () => {
   const [modsMenu, setModsMenu] = useState("");
@@ -34,6 +35,8 @@ const Mods: React.FC = () => {
   ] = useDisclosure(false);
   const [promoteModal, { open: openPromoteModal, close: closePromoteModal }] =
     useDisclosure(false);
+  const [demoteModal, { open: openDemoteModal, close: closeDemoteModal }] =
+    useDisclosure(false);
 
   // useeffect for handling the modal opening ------->
 
@@ -47,7 +50,16 @@ const Mods: React.FC = () => {
     if (modsMenu === "Revoke Admin") {
       openPromoteModal();
     }
-  }, [modsMenu, openChangeRoleModal, openBlackListModal, openPromoteModal]);
+    if (modsMenu === "View Profile") {
+      openDemoteModal();
+    }
+  }, [
+    modsMenu,
+    openChangeRoleModal,
+    openBlackListModal,
+    openPromoteModal,
+    openDemoteModal,
+  ]);
 
   return (
     <React.Fragment>
@@ -168,105 +180,46 @@ const Mods: React.FC = () => {
         )}
       </div>
       {/* Transfer Owner Modal ------------------> */}
-      <Modal
-        opened={changeRoleModal}
+      <ConfirmationModal
+        open={changeRoleModal}
         onClose={closeChangeRoleModal}
-        centered
-        withCloseButton={false}
-        size="24rem"
-        classNames={{ content: "!bg-black-1 !p-0" }}
-      >
-        <div className="w-full flex flex-col gap-3 p-5 bg-black-1 border-[1px] border-white-1">
-          <p className="text-[14px] font-normal text-[#FEF652]">
-            / Attention - Transfer Owner
-          </p>
-          <p className="text-[14px] font-normal text-white-1">
-            Are you sure you want to transfer ownership to [insert user name]?
-          </p>
-          <p className="text-[11px] font-normal text-[#6D6D6D] mt-3">
-            You will no longer be the owner of this group chat.
-          </p>
-          {/* buttons */}
-          <div className="w-full mt-8 h-[34px] grid grid-cols-2 justify-center items-center">
-            <button
-              onClick={closeChangeRoleModal}
-              className="w-full text-white-1 bg-[#224aaa] h-full flex justify-center items-center relative before:w-[5px] before:h-full before:bg-[#336FFE] before:absolute before:left-0 before:top-0 after:w-[5px] after:h-full after:bg-[#336FFE] after:absolute after:top-0 after:right-0"
-            >
-              Cancel
-            </button>
-            <button className="w-full hover:bg-[#FEF652] hover:text-black-1 text-white-1 bg-transparent h-full flex justify-center items-center relative after:w-[5px] after:h-full after:bg-[#336FFE] after:absolute after:top-0 after:right-0">
-              Handover
-            </button>
-          </div>
-        </div>
-      </Modal>
+        title=" / Attention - Transfer Owner"
+        des1="Are you sure you want to transfer ownership to [insert user name]?"
+        des2="You will no longer be the owner of this group chat."
+        btn2="Handover"
+      />
+
       {/* blacklist modal --------------->  */}
-      <Modal
-        opened={blackListModal}
+      <ConfirmationModal
+        open={blackListModal}
         onClose={closeBlackListModal}
-        centered
-        withCloseButton={false}
-        size="24rem"
-        classNames={{ content: "!bg-black-1 !p-0" }}
-      >
-        <div className="w-full flex flex-col gap-3 p-5 bg-black-1 border-[1px] border-white-1">
-          <p className="text-[14px] font-normal text-[#FEF652]">
-            / Attention - Blacklist
-          </p>
-          <p className="text-[14px] font-normal text-white-1">
-            Are you sure you want to Blacklist Mod [insert user name]?
-          </p>
-          <p className="text-[11px] font-normal text-[#6D6D6D] mt-3">
-            They will have their admin tole removed and added to the blacklist.
-          </p>
-          {/* buttons */}
-          <div className="w-full mt-8 h-[34px] grid grid-cols-2 justify-center items-center">
-            <button
-              onClick={closeChangeRoleModal}
-              className="w-full text-white-1 bg-[#224aaa] h-full flex justify-center items-center relative before:w-[5px] before:h-full before:bg-[#336FFE] before:absolute before:left-0 before:top-0 after:w-[5px] after:h-full after:bg-[#336FFE] after:absolute after:top-0 after:right-0"
-            >
-              Cancel
-            </button>
-            <button className="w-full hover:bg-[#FEF652] hover:text-black-1 text-white-1 bg-transparent h-full flex justify-center items-center relative after:w-[5px] after:h-full after:bg-[#336FFE] after:absolute after:top-0 after:right-0">
-              Blacklist
-            </button>
-          </div>
-        </div>
-      </Modal>
+        title="/ Attention - Blacklist"
+        des1="Are you sure you want to Blacklist Mod [insert user name]?"
+        des2="They will have their admin tole removed and added to the blacklist."
+        btn2="Blacklist"
+      />
+
       {/* Promote Modal --------------->  */}
-      <Modal
-        opened={promoteModal}
+      <ConfirmationModal
+        open={promoteModal}
         onClose={closePromoteModal}
-        centered
-        withCloseButton={false}
-        size="24rem"
-        classNames={{ content: "!bg-black-1 !p-0" }}
-      >
-        <div className="w-full flex flex-col gap-3 p-5 bg-black-1 border-[1px] border-white-1">
-          <p className="text-[14px] font-normal text-[#FEF652]">
-            / Attention - Change role
-          </p>
-          <p className="text-[14px] font-normal text-white-1">
-            Are you sure you want to apply Mod role to [insert user name]?
-          </p>
-          <p className="text-[11px] font-normal text-[#6D6D6D] mt-3">
-            They will be able to manage all chats, blacklist users and assign
-            mods.
-          </p>
-          {/* buttons */}
-          <div className="w-full mt-8 h-[34px] grid grid-cols-2 justify-center items-center">
-            <button
-              onClick={closeChangeRoleModal}
-              className="w-full text-white-1 bg-[#224aaa] h-full flex justify-center items-center relative before:w-[5px] before:h-full before:bg-[#336FFE] before:absolute before:left-0 before:top-0 after:w-[5px] after:h-full after:bg-[#336FFE] after:absolute after:top-0 after:right-0"
-            >
-              Cancel
-            </button>
-            <button className="w-full hover:bg-[#FEF652] hover:text-black-1 text-white-1 bg-transparent h-full flex justify-center items-center relative after:w-[5px] after:h-full after:bg-[#336FFE] after:absolute after:top-0 after:right-0">
-              Promote
-            </button>
-          </div>
-        </div>
-      </Modal>
+        title="/ Attention - Change role"
+        des1="Are you sure you want to apply Mod role to [insert user name]?"
+        des2="They will be able to manage all chats, blacklist users and assign
+            mods."
+        btn2="Promote"
+      />
+
+      {/* demote modal ---------------> */}
+      <ConfirmationModal
+        open={demoteModal}
+        btn2="Demote"
+        onClose={closeDemoteModal}
+        title="/ Attention - Change role"
+        des1="Are you sure you want to apply Mod role to [insert user name]?"
+        des2="They will be able to manage all chats, blacklist users and assign
+            mods."
+      />
     </React.Fragment>
   );
 };
