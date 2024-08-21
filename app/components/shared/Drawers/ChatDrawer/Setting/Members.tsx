@@ -24,6 +24,7 @@ const Members: React.FC = () => {
     blacklist: false,
   });
 
+  // stats for modeling handling
   const [muteModal, { open: openMuteModal, close: closeMuteModal }] =
     useDisclosure(false);
   const [
