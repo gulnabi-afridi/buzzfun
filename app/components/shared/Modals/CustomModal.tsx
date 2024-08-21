@@ -21,7 +21,11 @@ const CustomModal: React.FC<Props> = ({
       centered
       withCloseButton={false}
       size={size}
-      classNames={{ content: "!bg-black-1 !p-0" }}
+      overlayProps={{
+        backgroundOpacity: 0.55,
+        blur: 3,
+      }}
+      classNames={{ content: "!bg-black-1 !p-0 !border-[1px] textShadow !border-white-1" }}
     >
       {children}
     </Modal>

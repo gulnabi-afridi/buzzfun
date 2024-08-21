@@ -2,17 +2,29 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { LuTimerReset } from "react-icons/lu";
 import { MdOutlineElectricBolt } from "react-icons/md";
 import { MdOutlineStarBorder } from "react-icons/md";
 import { LuExpand } from "react-icons/lu";
 import CoinStatsCards from "./CoinStatsCards";
 import { GoGraph } from "react-icons/go";
 import { TbUsers } from "react-icons/tb";
-
+import CustomModal from "../shared/Modals/CustomModal";
+import { useDisclosure } from "@mantine/hooks";
+import { PiBagSimple } from "react-icons/pi";
+import { RxCross2 } from "react-icons/rx";
+import { FaFilter } from "react-icons/fa6";
+import { IoCaretUp } from "react-icons/io5";
+import { IoEyeOutline } from "react-icons/io5";
 
 const TokenCards: React.FC = () => {
   const [showCoinDetails, setShowCoinDetails] = useState(false);
+  const [
+    buyAndSellModal,
+    { open: openBuyAndSellModal, close: closeBuyAndSellModal },
+  ] = useDisclosure(false);
+
+  const [activeModal, { open: openActiveModal, close: closeActiveModal }] =
+    useDisclosure(false);
 
   return (
     <React.Fragment>
@@ -37,7 +49,10 @@ const TokenCards: React.FC = () => {
                     </p>
                   </div>
                   {/* right  */}
-                  <button className="px-2 py-2 bg-[#4F40FF] text-[10px] font-normal rounded-[4px] text-black-1 dark:text-white-1">
+                  <button
+                    onClick={openActiveModal}
+                    className="px-2 py-2 bg-[#4F40FF] text-[10px] font-normal rounded-[4px] text-black-1 dark:text-white-1"
+                  >
                     View All
                   </button>
                 </div>
@@ -157,12 +172,15 @@ const TokenCards: React.FC = () => {
                           />
                         </div>
                         {/* value  */}
-                        <div className="w-full border-r-[1px] border-[#B746F0]  flex gap-1 justify-center items-center ">
+                        <button
+                          onClick={openBuyAndSellModal}
+                          className="w-full border-r-[1px] border-[#B746F0]  flex gap-1 justify-center items-center "
+                        >
                           <GoGraph className="text-[14px] text-black-1 dark:text-white-1" />
                           <p className="text-[10px] font-normal text-[#00C673]">
                             78%
                           </p>
-                        </div>
+                        </button>
                         {/* users  */}
                         <div className="w-full border-r-[1px] border-[#B746F0]  flex gap-1 justify-center items-center ">
                           <TbUsers className="text-black-1 dark:text-white-1 text-[13px]" />
@@ -266,6 +284,164 @@ const TokenCards: React.FC = () => {
       ) : (
         <CoinStatsCards />
       )}
+
+      {/* buy and sell modal ----> */}
+      <CustomModal
+        size="24rem"
+        open={buyAndSellModal}
+        onClose={closeBuyAndSellModal}
+      >
+        <div className="w-full bg-black-1 flex flex-col gap-6">
+          {/* buttons */}
+          <div className="w-full grid h-[40px] grid-cols-2 gap-2">
+            <button className="text-[22px] font-normal text-black-1 w-full h-full bg-green-1">
+              Buy
+            </button>
+            <button className="text-[22px] font-normal text-black-1/40 w-full h-full bg-[#EA000054]">
+              Sell
+            </button>
+          </div>
+          {/* switch to coin --> */}
+          <div className="w-full flex justify-between items-center">
+            <p className="text-[15px] font-normal text-white-1 bg-black-1 px-[6px] rounded-[3px]">
+              Switch to ETH
+            </p>
+            <p className="text-[15px] font-normal text-white-1 bg-blue-1 px-[6px] rounded-[3px]">
+              Slippage
+            </p>
+          </div>
+          {/* ticker input --->  */}
+          <div className="w-full border-[1px] px-2 dark:border-white-1 border-black-1 h-[50px] grid grid-cols-[1fr,105px]">
+            <input
+              placeholder="0.0"
+              type="text"
+              className="w-full focus:outline-none border-r-[1px] border-white-1 placeholder:text-black-1 h-full bg-transparent dark:placeholder:text-white-1 text-[22px] dark:text-white-1 font-normal text-black-1"
+              name="ticker"
+              id=""
+            />
+            <div className="flex justify-end items-center gap-2">
+              <p className="text-[15px] font-normal dark:text-white-1 text-black-1">
+                Ticker
+              </p>
+              <div className="w-[32px] h-[32px] bg-black-1 flex justify-center items-center">
+                <Image src="/assets/emoji2.png" alt="" width={30} height={30} />
+              </div>
+            </div>
+          </div>
+          {/* you spend ---> */}
+          <div className="w-full flex px-4 justify-between items-center">
+            <p className="text-[15px] pl-20 dark:text-white-1 font-normal text-black-1">
+              You spend:
+            </p>
+            <p className="text-[15px] font-normal dark:text-white-1 text-black-1">
+              0.1 ETH
+            </p>
+          </div>
+          {/* system messages ---> */}
+          <div className="w-full flex gap-[2px] flex-col">
+            <p className="text-[8px] font-normal text-white-1">
+              System messages{" "}
+            </p>
+            <p className="text-[12px] font-normal px-1 py-[2px] text-white-1 border-[1px] border-white-1 border-dotted">
+              Insufficient balance.{" "}
+            </p>
+          </div>
+          {/* place trade button ---->  */}
+          <button className="w-full h-[42px] rounded-[2px] bg-yellow-1 text-[16px] font-normal text-black-1 flex justify-center items-center">
+            Place trade
+          </button>
+        </div>
+      </CustomModal>
+      {/* active modal ------> */}
+      <CustomModal size="40rem" open={activeModal} onClose={closeActiveModal}>
+        <div className="w-full flex flex-col bg-black-1 px-3">
+          {/* modal header ---> */}
+          <div className="w-full border-b-[1px] border-white-1/20 pb-3 flex justify-between items-center">
+            <div className="flex justify-center items-center gap-2">
+              <PiBagSimple className="text-[#808080] text-[14px]" />
+              <p className="text-[12px] font-normal text-yellow-1">Active</p>
+              <p className="text-[12px] font-normal text-[#808080]">
+                Active Degenerations
+              </p>
+            </div>
+            <button
+              onClick={closeActiveModal}
+              className="w-[24px] h-[24px] flex justify-center items-center border-[1px] border-white-1/10 rounded-[2px]"
+            >
+              <RxCross2 className="text-[16px] text-blue-1" />
+            </button>
+          </div>
+          {/* table header  */}
+          <div className="w-full border-b-[1px] border-white-1/20 py-3 grid grid-cols-[1.2fr,1fr,1fr,1fr]">
+            {/* token name */}
+            <div className="w-full flex justify-between items-center">
+              <p className="text-[12px] font-normal text-white-1">Token</p>
+              <FaFilter className="text-white-1 text-[16px]" />
+            </div>
+            {/* amount  */}
+            <div className="w-full flex justify-end items-center gap-1">
+              <p className="text-[12px] font-normal text-white-1">Amount USD</p>
+              <div className="flex flex-col">
+                <IoCaretUp className="text-purple-1 cursor-pointer text-[12px]" />
+                <IoCaretUp className="text-purple-1 cursor-pointer rotate-180 text-[12px]" />
+              </div>
+            </div>
+            {/* Liquidity  */}
+            <div className="w-full flex justify-end items-center gap-1">
+              <p className="text-[12px] font-normal text-white-1">Liquidity</p>
+              <div className="flex flex-col">
+                <IoCaretUp className="text-purple-1 cursor-pointer text-[12px]" />
+                <IoCaretUp className="text-purple-1 cursor-pointer rotate-180 text-[12px]" />
+              </div>
+            </div>
+            {/* PnL  */}
+            <div className="w-full flex justify-end items-center gap-1">
+              <p className="text-[12px] font-normal text-white-1">PnL</p>
+              <div className="flex flex-col">
+                <IoCaretUp className="text-purple-1 cursor-pointer text-[12px]" />
+                <IoCaretUp className="text-purple-1 cursor-pointer rotate-180 text-[12px]" />
+              </div>
+            </div>
+          </div>
+          {/* rows ----> */}
+          {[0, 1, 2, 3, 4, 5].map((item, index) => {
+            return (
+              <div
+                key={index}
+                className="w-full py-3 border-b-[1px] border-white-1/20 grid grid-cols-[1.2fr,1fr,1fr,1fr]"
+              >
+                {/* token name */}
+                <div className="w-full flex justify-between items-center">
+                  <div className="flex justify-center items-center gap-2">
+                    <Image
+                      src="/assets/active.svg"
+                      alt=""
+                      width={29}
+                      height={26}
+                    />
+                    <p className="text-[12px] font-normal text-white-1">Mog</p>
+                  </div>
+                  <IoEyeOutline className="text-white-1 text-[16px]" />
+                </div>
+                {/* amount  */}
+                <div className="w-full flex justify-end items-center gap-1">
+                  <p className="text-[12px] font-normal text-white-1">$3.4k</p>
+                </div>
+                {/* Liquidity  */}
+                <div className="w-full flex justify-end items-center gap-1">
+                  <p className="text-[12px] font-normal text-white-1">$3.4k</p>
+                </div>
+                {/* PnL  */}
+                <div className="w-full flex justify-end items-center gap-1">
+                  <p className="text-[12px] font-normal text-[#57C78D]">
+                    +$ 769,57
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </CustomModal>
     </React.Fragment>
   );
 };
