@@ -64,6 +64,7 @@ const ChatDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
           {showSetting ? (
             <SettingSidebar
               selectedSetting={settingOption}
+              setSettingShow={setSetting}
               setSelectedSetting={setSettingOption}
             />
           ) : (

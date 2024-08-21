@@ -5,17 +5,22 @@ import React, { useState } from "react";
 interface Props {
   selectedSetting: string;
   setSelectedSetting: (value: string) => void;
+  setSettingShow:(value:boolean) => void
 }
 
 const SettingSidebar: React.FC<Props> = ({
   selectedSetting,
   setSelectedSetting,
+  setSettingShow
 }: Props) => {
   return (
     <div className="w-full bg-transparent dark:bg-black-1 flex flex-col gap-2">
       <div className="w-full flex items-start border-[1px] border-blue-1 flex-col h-[calc(100vh-156px)]">
         <div className="w-full flex p-4 items-start flex-col gap-3">
-          <button className="text-[14px] font-normal text-white-1">{`<< Go Back`}</button>
+          <button
+            onClick={() => setSettingShow(false)}
+            className="text-[14px] font-normal text-white-1"
+          >{`<< Go Back`}</button>
           <button className="text-[14px] font-semibold text-[#FEF652]">{`<Settings>`}</button>
           <button className="text-[14px] font-normal text-[#FEF652]">{`----------------`}</button>
         </div>

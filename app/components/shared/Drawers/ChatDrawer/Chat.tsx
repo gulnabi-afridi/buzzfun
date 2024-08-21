@@ -9,13 +9,14 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import CustomMenu from "../../CustomMenu";
 import { useDisclosure } from "@mantine/hooks";
 import { Modal, Button } from "@mantine/core";
+import ConfirmationModal from "../../Modals/ConfirmationModal";
 
 interface Props {
   setSetting: (value: boolean) => void;
-  setChatInformation:(value:boolean) => void;
+  setChatInformation: (value: boolean) => void;
 }
 
-const Chat: React.FC<Props> = ({ setSetting,setChatInformation }: Props) => {
+const Chat: React.FC<Props> = ({ setSetting, setChatInformation }: Props) => {
   const [userNameMenuOption, setUserMenuOption] = useState("");
   const [chatOption, setChatOption] = useState("React");
   const [chatGeneralOption, setChatGeneralOption] = useState("");
@@ -72,7 +73,7 @@ const Chat: React.FC<Props> = ({ setSetting,setChatInformation }: Props) => {
     openTimeOutModal,
     chatGeneralOption,
     setSetting,
-    setChatInformation
+    setChatInformation,
   ]);
 
   return (
@@ -272,145 +273,64 @@ const Chat: React.FC<Props> = ({ setSetting,setChatInformation }: Props) => {
       </div>
 
       {/* deleteAllBinModal ----------> */}
-      <Modal
-        opened={openDeletAllBinModal}
+      <ConfirmationModal
+        des1="Are you sure you want to Ban this user and delete all their messages from [chat name]?"
+        title="/ Attention - Delete + Ban"
+        size="20rem"
+        open={openDeletAllBinModal}
         onClose={closeDelAllBinModal}
-        centered
-        withCloseButton={false}
-        size="20rem"
-        classNames={{ content: "!bg-black-1 !p-0" }}
-      >
-        <div className="w-full flex flex-col gap-3 p-5 bg-black-1 border-[1px] border-white-1">
-          <p className="text-[14px] font-normal text-[#FEF652]">
-            / Attention - Delete + Ban
-          </p>
-          <p className="text-[14px] font-normal text-white-1">
-            Are you sure you want to Ban this user and delete all their messages
-            from [chat name]?
-          </p>
-          {/* buttons */}
-          <div className="w-full mt-5 h-[34px] grid grid-cols-2 justify-center items-center">
-            <button
-              onClick={closeDelAllBinModal}
-              className="w-full text-white-1 bg-blue-3/30 h-full flex justify-center items-center relative before:w-[4px] before:h-full before:bg-[#336FFE] before:absolute before:left-0 before:top-0 after:w-[4px] after:h-full after:bg-[#336FFE] after:absolute after:top-0 after:right-0"
-            >
-              Cancel
-            </button>
-            <button className="w-full hover:bg-[#FEF652] hover:text-black-1 text-white-1 bg-transparent h-full flex justify-center items-center relative after:w-[4px] after:h-full after:bg-[#336FFE] after:absolute after:top-0 after:right-0">
-              Erase mfer
-            </button>
-          </div>
-        </div>
-      </Modal>
+        btn2="Erase mfer"
+      />
+
       {/* Bin Modal ------------------> */}
-      <Modal
-        opened={binModal}
-        onClose={closeBinModal}
-        centered
-        withCloseButton={false}
+      <ConfirmationModal
+        des1="Are you sure you want to Ban this user from [insert chat name]?"
+        title="/ Attention - Ban"
         size="20rem"
-        classNames={{ content: "!bg-black-1 !p-0" }}
-      >
-        <div className="w-full flex flex-col gap-3 p-5 bg-black-1 border-[1px] border-white-1">
-          <p className="text-[14px] font-normal text-[#FEF652]">
-            / Attention - Ban
-          </p>
-          <p className="text-[14px] font-normal text-white-1">
-            Are you sure you want to Ban this user from [insert chat name]?
-          </p>
-          {/* buttons */}
-          <div className="w-full mt-5 h-[34px] grid grid-cols-2 justify-center items-center">
-            <button
-              onClick={closeBinModal}
-              className="w-full text-white-1 bg-blue-3/30 h-full flex justify-center items-center relative before:w-[4px] before:h-full before:bg-[#336FFE] before:absolute before:left-0 before:top-0 after:w-[4px] after:h-full after:bg-[#336FFE] after:absolute after:top-0 after:right-0"
-            >
-              Cancel
-            </button>
-            <button className="w-full hover:bg-[#FEF652] hover:text-black-1 text-white-1 bg-transparent h-full flex justify-center items-center relative after:w-[4px] after:h-full after:bg-[#336FFE] after:absolute after:top-0 after:right-0">
-              Ban
-            </button>
-          </div>
-        </div>
-      </Modal>
+        open={binModal}
+        onClose={closeBinModal}
+        btn2="Ban"
+      />
 
       {/* Kick Modal ------------------> */}
-      <Modal
-        opened={kickModal}
-        onClose={closeKickModal}
-        centered
-        withCloseButton={false}
+
+      <ConfirmationModal
+        des1=" Are you sure you want to Ban this user from [insert chat name]?"
+        title="/ Attention - Kick"
         size="20rem"
-        classNames={{ content: "!bg-black-1 !p-0" }}
-      >
-        <div className="w-full flex flex-col gap-3 p-5 bg-black-1 border-[1px] border-white-1">
-          <p className="text-[14px] font-normal text-[#FEF652]">
-            / Attention - Kick
-          </p>
-          <p className="text-[14px] font-normal text-white-1">
-            Are you sure you want to Ban this user from [insert chat name]?
-          </p>
-          {/* buttons */}
-          <div className="w-full mt-5 h-[34px] grid grid-cols-2 justify-center items-center">
-            <button
-              onClick={closeKickModal}
-              className="w-full text-white-1 bg-blue-3/30 h-full flex justify-center items-center relative before:w-[4px] before:h-full before:bg-[#336FFE] before:absolute before:left-0 before:top-0 after:w-[4px] after:h-full after:bg-[#336FFE] after:absolute after:top-0 after:right-0"
-            >
-              Cancel
-            </button>
-            <button className="w-full hover:bg-[#FEF652] hover:text-black-1 text-white-1 bg-transparent h-full flex justify-center items-center relative after:w-[4px] after:h-full after:bg-[#336FFE] after:absolute after:top-0 after:right-0">
-              Kick
-            </button>
-          </div>
-        </div>
-      </Modal>
+        open={kickModal}
+        onClose={closeKickModal}
+        btn2="Kick"
+      />
 
       {/* Timeout Modal ------------------> */}
-      <Modal
-        opened={timeOutModal}
-        onClose={closeTimeOutModal}
-        centered
-        withCloseButton={false}
+
+      <ConfirmationModal
+        des1="How long would you like to apply timeout for?"
+        title="/ Attention - Timeout"
         size="20rem"
-        classNames={{ content: "!bg-black-1 !p-0" }}
+        open={timeOutModal}
+        onClose={closeTimeOutModal}
+        btn2="Apply"
       >
-        <div className="w-full flex flex-col gap-3 p-5 bg-black-1 border-[1px] border-white-1">
-          <p className="text-[14px] font-normal text-[#FEF652]">
-            / Attention - Timeout
-          </p>
-          <p className="text-[14px] font-normal text-white-1">
-            How long would you like to apply timeout for?
-          </p>
-          {/* times ---> */}
-          <div className="w-full mt-3 grid gap-3 grid-cols-5">
-            {timeOutOptions.map((item, index) => {
-              return (
-                <button
-                  key={index}
-                  onClick={() => setTimeOut(item)}
-                  className={`text-[10px] ${
-                    timeOut === item &&
-                    "border-[1px] p-1 rounded-[2px] border-blue-1"
-                  } font-normal text-white-1`}
-                >
-                  {item}
-                </button>
-              );
-            })}
-          </div>
-          {/* buttons */}
-          <div className="w-full mt-5 h-[34px] grid grid-cols-2 justify-center items-center">
-            <button
-              onClick={closeTimeOutModal}
-              className="w-full text-white-1 bg-blue-3/30 h-full flex justify-center items-center relative before:w-[4px] before:h-full before:bg-[#336FFE] before:absolute before:left-0 before:top-0 after:w-[4px] after:h-full after:bg-[#336FFE] after:absolute after:top-0 after:right-0"
-            >
-              Cancel
-            </button>
-            <button className="w-full hover:bg-[#FEF652] hover:text-black-1 text-white-1 bg-transparent h-full flex justify-center items-center relative after:w-[4px] after:h-full after:bg-[#336FFE] after:absolute after:top-0 after:right-0">
-              Apply
-            </button>
-          </div>
+        {/* times ---> */}
+        <div className="w-full mt-4 grid gap-3 grid-cols-5">
+          {timeOutOptions.map((item, index) => {
+            return (
+              <button
+                key={index}
+                onClick={() => setTimeOut(item)}
+                className={`text-[10px] ${
+                  timeOut === item &&
+                  "border-[1px] p-1 rounded-[2px] border-blue-1"
+                } font-normal text-white-1`}
+              >
+                {item}
+              </button>
+            );
+          })}
         </div>
-      </Modal>
+      </ConfirmationModal>
     </React.Fragment>
   );
 };
