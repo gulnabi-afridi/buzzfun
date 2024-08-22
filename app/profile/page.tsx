@@ -13,6 +13,7 @@ import CoinsHeld from "../components/Profile/CoinsHeld";
 import { useDisclosure } from "@mantine/hooks";
 import { Modal } from "@mantine/core";
 import Breadcrumb from "../components/shared/layout/Breadcrumb";
+import BuzzEngage from "../components/Profile/BuzzEngage";
 
 const ProfilePage = () => {
   // states ----------->
@@ -57,8 +58,14 @@ const ProfilePage = () => {
               selectedName === "Coins Launched" &&
               "max-w-[950px] grid-cols-1 sm:grid-cols-2 md:grid-cols-[1fr,1fr,2fr]"
             }
+                ${
+                  selectedName === "Buzz engage" &&
+                  "max-w-[900px] grid-cols-1 sm:grid-cols-2 md:grid-cols-[1fr,1fr,1.8fr]"
+                }
             ${
-              !["Replies", "Coins Launched"].includes(selectedName) &&
+              !["Replies", "Coins Launched", "Buzz engage"].includes(
+                selectedName
+              ) &&
               "max-w-[860px] grid-cols-1 sm:grid-cols-2 md:grid-cols-[1fr,1fr,1.5fr]"
             }
           `}
@@ -162,7 +169,9 @@ const ProfilePage = () => {
                         <button
                           key={index}
                           onClick={() => handleButtonClick(index, item.name)}
-                          className={`w-full ${isSelected && 'bg-[#317C85]'} px-2 justify-center items-center h-[28px] grid grid-cols-[1.5fr,1fr,1fr]`}
+                          className={`w-full ${
+                            isSelected && "bg-[#317C85]"
+                          } px-2 justify-center items-center h-[28px] grid grid-cols-[1.5fr,1fr,1fr]`}
                         >
                           <p
                             className={`w-full flex text-left dark:text-white-1 text-black-1 justify-start items-center text-[10px] font-normal`}
@@ -196,6 +205,7 @@ const ProfilePage = () => {
             {selectedName === "Replies" && <Replies />}
             {selectedName === "Coins Launched" && <CoinsLaunched />}
             {selectedName === "Coins held" && <CoinsHeld />}
+            {selectedName === "Buzz engage" && <BuzzEngage />}
           </div>
         </div>
       </ComponentWrapper>
