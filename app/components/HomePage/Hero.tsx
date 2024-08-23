@@ -13,6 +13,7 @@ import { TbUsers } from "react-icons/tb";
 import ChatDrawer from "../shared/Drawers/ChatDrawer/ChatDrawer";
 import ProcessModal from "../shared/Modals/ProcessModal";
 import TransactionModal from "../shared/Modals/TransactionModal";
+import SuccessModal from "../shared/Modals/SuccessModal";
 
 const Hero = () => {
   // states
@@ -400,7 +401,8 @@ const Hero = () => {
 
       <ChatDrawer open={opened} closeDrawer={close} />
       {/* <ProcessModal open={activeModal} onClose={closeProcessModal} /> */}
-      <TransactionModal open={activeModal} onClose={closeProcessModal} />
+      {/* <TransactionModal open={activeModal} onClose={closeProcessModal} /> */}
+      <SuccessModal open={activeModal} onClose={closeProcessModal} />
     </React.Fragment>
   );
 };
