@@ -12,6 +12,7 @@ import { GoGraph } from "react-icons/go";
 import { TbUsers } from "react-icons/tb";
 import ChatDrawer from "../shared/Drawers/ChatDrawer/ChatDrawer";
 import ProcessModal from "../shared/Modals/ProcessModal";
+import TransactionModal from "../shared/Modals/TransactionModal";
 
 const Hero = () => {
   // states
@@ -398,7 +399,8 @@ const Hero = () => {
       {/* chat drawer ------------------>  */}
 
       <ChatDrawer open={opened} closeDrawer={close} />
-      <ProcessModal open={activeModal} onClose={closeProcessModal} />
+      {/* <ProcessModal open={activeModal} onClose={closeProcessModal} /> */}
+      <TransactionModal open={activeModal} onClose={closeProcessModal} />
     </React.Fragment>
   );
 };
