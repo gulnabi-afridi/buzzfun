@@ -16,6 +16,8 @@ import { FaFilter } from "react-icons/fa6";
 import { IoCaretUp } from "react-icons/io5";
 import { IoEyeOutline } from "react-icons/io5";
 import { IoIosStarOutline } from "react-icons/io";
+import { Menu } from "@mantine/core";
+import * as Icons from "../shared/SVGs/Icons";
 
 const TokenCards: React.FC = () => {
   const [showCoinDetails, setShowCoinDetails] = useState(false);
@@ -23,6 +25,7 @@ const TokenCards: React.FC = () => {
     buyAndSellModal,
     { open: openBuyAndSellModal, close: closeBuyAndSellModal },
   ] = useDisclosure(false);
+  const [filter, setFilter] = useState("");
 
   const [activeModal, { open: openActiveModal, close: closeActiveModal }] =
     useDisclosure(false);
@@ -377,7 +380,7 @@ const TokenCards: React.FC = () => {
               onClick={closeActiveModal}
               className="w-[24px] h-[24px] flex justify-center items-center border-[1px] border-white-1/10 rounded-[2px]"
             >
-              <RxCross2 className="text-[16px] text-blue-1" />
+              <RxCross2 className="text-[16px] cursor-pointer text-blue-1" />
             </button>
           </div>
           {/* table header  */}
@@ -385,7 +388,40 @@ const TokenCards: React.FC = () => {
             {/* token name */}
             <div className="w-full flex justify-between items-center">
               <p className="text-[12px] font-normal text-white-1">Token</p>
-              <FaFilter className="text-white-1 text-[16px]" />
+              <Menu
+                classNames={{
+                  dropdown: `dark:!bg-[#336FFE] !z-50 !p-2 !bg-white-2 dark:!border-[.2px] dark:!border-white-1/20`,
+                  item: "!text-black-1 dark:text-white-1 text-[14px] font-normal hover:!bg-transparent",
+                  arrow: "!border-t-white-1/20 !border-l-white-1/20",
+                }}
+                trigger="click"
+                withArrow
+              >
+                <Menu.Target>
+                  <FaFilter className="text-white-1 cursor-pointer text-[16px]" />
+                </Menu.Target>
+
+                <Menu.Dropdown>
+                  <div className="w-full !z-50 flex flex-col">
+                    {filterOptions.map((option: any) => (
+                      <Menu.Item
+                        className={`relative w-full transition-colors duration-200 ${
+                          filter === option
+                            ? "!bg-[#1957EA] font-semibold before:absolute before:h-full before:inset-y-0 before:left-0 before:w-[5px] before:bg-black-1 after:absolute after:h-full after:inset-y-0 after:right-0 after:w-[5px] after:bg-black-1"
+                            : "hover:!bg-blue-1/20"
+                        }`}
+                        key={option}
+                        onClick={() => setFilter(option)}
+                      >
+                        <div className="py-[2px] w-full gap-2 px-4 flex justify-between items-center">
+                          <p>{option.name}</p>
+                          {option.icon}
+                        </div>
+                      </Menu.Item>
+                    ))}
+                  </div>
+                </Menu.Dropdown>
+              </Menu>
             </div>
             {/* amount  */}
             <div className="w-full flex justify-end items-center gap-1">
@@ -547,3 +583,14 @@ const TokenCards: React.FC = () => {
 };
 
 export default TokenCards;
+
+const filterOptions = [
+  {
+    name: "Ethereum",
+    icon: <Icons.ethereum />,
+  },
+  {
+    name: "Base",
+    icon: <Icons.subtract />,
+  },
+];

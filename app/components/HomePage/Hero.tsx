@@ -11,14 +11,19 @@ import { MdOutlineStarBorder } from "react-icons/md";
 import { GoGraph } from "react-icons/go";
 import { TbUsers } from "react-icons/tb";
 import ChatDrawer from "../shared/Drawers/ChatDrawer/ChatDrawer";
+import ProcessModal from "../shared/Modals/ProcessModal";
 
 const Hero = () => {
+  // states
   const { setTheme, resolvedTheme } = useTheme();
   const [isMinimize, setIsMinimize] = useState<boolean>(false);
   const [opened, { open, close }] = useDisclosure(false);
   const [drawerButtonHeight, setDrawerButtonHeight] = useState(
     "h-[calc(100%-107px)]"
   );
+
+  const [activeModal, { open: openProcessModal, close: closeProcessModal }] =
+    useDisclosure(false);
 
   // Function to handle scroll events
   const handleScroll = () => {
@@ -48,9 +53,12 @@ const Hero = () => {
           >
             {/* 1st col ----------------------------------> */}
             <div className="w-full h-full flex justify-center items-center">
-              <div className="w-full h-full max-w-[450px] h-full justify-between items-center gap-4 flex flex-col">
+              <div className="w-full h-full max-w-[450px] justify-between items-center gap-4 flex flex-col">
                 {/* top bar ---->  */}
-                <div className="w-full py-2 flex justify-center items-center bg-[#4F40FF] rounded-[5px]">
+                <div
+                  onClick={openProcessModal}
+                  className="w-full cursor-pointer py-2 flex justify-center items-center bg-[#4F40FF] rounded-[5px]"
+                >
                   <p className="text-[13px] font-normal text-white-1">
                     {pattern1}
                   </p>
@@ -390,6 +398,7 @@ const Hero = () => {
       {/* chat drawer ------------------>  */}
 
       <ChatDrawer open={opened} closeDrawer={close} />
+      <ProcessModal open={activeModal} onClose={closeProcessModal} />
     </React.Fragment>
   );
 };
