@@ -14,6 +14,7 @@ import { useDisclosure } from "@mantine/hooks";
 import { Modal } from "@mantine/core";
 import Breadcrumb from "../components/shared/layout/Breadcrumb";
 import BuzzEngage from "../components/Profile/BuzzEngage";
+import CustomModal from "../components/shared/Modals/CustomModal";
 
 const ProfilePage = () => {
   // states ----------->
@@ -210,32 +211,19 @@ const ProfilePage = () => {
         </div>
       </ComponentWrapper>
       {/* EDIT USER PROFILE MODAL ---------------->  */}
-      <Modal
-        opened={opened}
-        onClose={close}
-        centered
-        overlayProps={{
-          backgroundOpacity: 0.55,
-          blur: 3,
-        }}
-        size="xs"
-        classNames={{
-          body: "bg-white-2 border-[1px] border-blue-1",
-        }}
-        withCloseButton={false}
-      >
+      <CustomModal open={opened} onClose={close} size="19rem">
         <div className="w-full flex justify-center items-center">
           <div className="w-full pb-5 pt-3 max-w-[230px] flex flex-col">
             <div className="flex justify-start mt-5 mb-3 items-center gap-2 pl-4">
-              <button className="text-white-1 hover:opacity-80 font-normal text-[10px] uppercase bg-black-1 px-2 py-[2px]">
+              <button className="text-white-1 dark:text-black-1 dark:bg-yellow-1 hover:opacity-80 font-normal text-[10px] uppercase bg-black-1 px-2 py-[2px]">
                 Edit
               </button>
-              <p className="text-[10px] uppercase font-normal text-black-1">
+              <p className="text-[10px] uppercase font-normal dark:text-white-1 text-black-1">
                 Your Profile
               </p>
             </div>
             {/* user pic  */}
-            <div className="w-full mt-4 border-[1px] border-blue-1 rounded-[2px] p-2 grid grid-cols-[71px,1fr] justify-center items-center gap-2">
+            <div className="w-full mt-4 border-[1px] dark:border-yellow-1 border-blue-1 rounded-[2px] p-2 grid grid-cols-[71px,1fr] justify-center items-center gap-2">
               <div className="w-full h-[72px] relative">
                 <Image
                   src="/assets/profile.png"
@@ -245,55 +233,55 @@ const ProfilePage = () => {
                 />
               </div>
               <div className="flex justify-center items-center w-full flex-col gap-2">
-                <p className="text-[10px] font-normal text-black-1 uppercase">
+                <p className="text-[10px] font-normal dark:text-white-1 text-black-1 uppercase">
                   Profile photo
                 </p>
-                <button className="text-[10px] font-normal text-black-1 underline">
+                <button className="text-[10px] font-normal dark:text-white-1 text-black-1 underline">
                   Edit
                 </button>
               </div>
             </div>
             {/* user name */}
-            <div className="w-full mt-3 border-[1px] border-blue-1 grid grid-cols-[1fr,1.4fr] px-[5px] h-[43px] justify-center items-center">
-              <p className="text-[14px] uppercase font-normal text-black-1">
+            <div className="w-full mt-3 rounded-[2px] border-[1px] border-blue-1 grid grid-cols-[1fr,1.4fr] px-[5px] h-[43px] justify-center items-center">
+              <p className="text-[14px] uppercase font-normal dark:text-white-1 text-black-1">
                 Username:
               </p>
               <input
                 placeholder="insert username"
                 type="text"
-                className="w-full focus:outline-none px-1 text-[10px] font-normal placeholder:text-white-1 text-white-1 uppercase h-[60%] bg-[#404040]"
+                className="w-full focus:outline-none dark:bg-[#1D252C] px-1 text-[10px] font-normal placeholder:text-white-1 text-white-1 uppercase h-[60%] bg-[#404040]"
                 name="name"
                 id="name"
               />
             </div>
-            <p className="text-[8px] font-normal text-[#343434] my-3">
+            <p className="text-[8px] dark:text-yellow-1 font-normal text-[#343434] my-3">
               [you can only edit your username <br /> every 69 hours]
             </p>
             {/* Bio */}
             <div className="flex flex-col gap-1">
-              <p className="text-[10px] uppercase font-normal text-black-1">
+              <p className="text-[10px] dark:text-white-1 uppercase font-normal text-black-1">
                 Bio:
               </p>
-              <p className="border-[1px] border-blue-1 text-[10px] font-normal text-black-1 px-2 py-1">
+              <p className="border-[1px] rounded-[2px] dark:bg-[#1D252C] dark:text-white-1 border-blue-1 text-[10px] font-normal text-black-1 px-2 py-1">
                 bio goes here. make sure it is interesting otherwise people will
                 hate you.
               </p>
             </div>
             {/* buttons  */}
-            <div className="w-full mt-4 flex justify-between items-center">
+            <div className="w-full px-4 mt-4 flex justify-between items-center">
               <button
                 onClick={close}
                 className="px-3 hover:opacity-80 text-[12px] font-normal text-white-1 py-2 bg-black-1 rounded-[2px]"
               >
                 \ Close
               </button>
-              <button className="px-3 hover:opacity-80 text-[12px] font-normal text-purple-1 py-2 bg-white-1 rounded-[2px]">
+              <button className="px-3 hover:opacity-80 text-[12px] font-normal text-white-1 py-2 dark:bg-blue-1 bg-white-1 rounded-[2px]">
                 \ Save
               </button>
             </div>
           </div>
         </div>
-      </Modal>
+      </CustomModal>
     </React.Fragment>
   );
 };

@@ -46,7 +46,7 @@ const CustomMenu: React.FC<Props> = ({
               key={option}
               onClick={() => setValue(option)}
             >
-              <div className="py-[2px] px-4">{option}</div>
+              <div className="py-[2px] px-4 flex justify-between items-center">{option}</div>
             </Menu.Item>
           ))}
         </div>

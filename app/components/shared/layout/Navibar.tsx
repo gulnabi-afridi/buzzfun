@@ -20,7 +20,6 @@ const Navibar: React.FC = () => {
   const [connectWallet2Opened, { open: connect2Open, close: connect2Close }] =
     useDisclosure(false);
 
-
   return (
     <React.Fragment>
       <div className="w-full  dark:bg-[#201e26] bg-white-2 px-5 flex justify-between items-center h-[65px]">
@@ -130,9 +129,7 @@ const Navibar: React.FC = () => {
           {/* chat -----> */}
           <div className="w-[35px] h-[35px] flex relative">
             <div className="absolute inset-0 before:left-[-.8px] before:right-[-.8px] before:rounded-[6px] before:bottom-[-1.5px] gradient-border"></div>
-            <button
-              className="bg-[#1A1721] z-10 rounded-[6px] w-full h-full flex justify-center items-center"
-            >
+            <button className="bg-[#1A1721] z-10 rounded-[6px] w-full h-full flex justify-center items-center">
               <BsChatLeftText className="text-[#787B99] text-[20px]" />
             </button>
           </div>
@@ -374,7 +371,6 @@ const Navibar: React.FC = () => {
           </div>
         </div>
       </Modal>
-  
     </React.Fragment>
   );
 };

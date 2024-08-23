@@ -16,10 +16,10 @@ const CoinPage = () => {
   const [isThread, setIsTread] = useState(false);
 
   return (
-    <div className="dark:bg-[#1D252C] bg-white-2 pt-5 min-h-screen">
+    <div className="dark:bg-[#201e26] bg-white-2 pt-5 min-h-screen">
       {/* top header -----> */}
       <CoinStatsBar />
-      <ComponentWrapper style="dark:bg-[#1D252C] bg-white-2 pt-5 pb-16">
+      <ComponentWrapper style="dark:bg-[#201e26] bg-white-2 pt-5 pb-16">
         <div className="w-full flex justify-center items-center">
           <div className="w-full max-w-[700px] md:max-w-full grid grid-cols-1 cxl:grid-cols-[2fr,1fr] gap-5 xl:gap-10">
             {/* left portion  */}

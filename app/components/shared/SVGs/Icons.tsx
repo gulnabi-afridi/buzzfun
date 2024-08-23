@@ -202,7 +202,7 @@ export const Exclamation: React.FC<Props> = ({
   className = "w-[21px] h-[21px]",
 }: Props) => (
   <svg
-  className={className}
+    className={className}
     viewBox="0 0 21 21"
     fill={fill}
     xmlns="http://www.w3.org/2000/svg"
@@ -227,6 +227,48 @@ export const Exclamation: React.FC<Props> = ({
       stroke-width="1.66667"
       stroke-linecap="round"
       stroke-linejoin="round"
+    />
+  </svg>
+);
+
+export const ethereum: React.FC<Props> = ({
+  fill = "#000000",
+  stroke = "",
+  className = "w-[21px] h-[21px]",
+}: Props) => (
+  <svg
+    className={className}
+    viewBox="0 0 21 21"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M3.86572 10.7201L10.4999 0.0253906L17.1341 10.7201L10.4999 14.6757L3.86572 10.7201Z"
+      fill={fill}
+    />
+    <path
+      d="M10.4999 15.8478L3.86572 11.8922L10.4999 20.9754L17.1341 11.7457L10.4999 15.8478Z"
+      fill={fill}
+    />
+  </svg>
+);
+
+export const subtract: React.FC<Props> = ({
+  fill = "#000000",
+  stroke = "",
+  className = "w-[21px] h-[21px]",
+}: Props) => (
+  <svg
+    className={className}
+    viewBox="0 0 21 21"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M10.4847 20.9769C16.2773 20.9769 20.9731 16.2811 20.9731 10.4885C20.9731 4.69584 16.2773 0 10.4847 0C5.0167 0 0.525997 4.18426 0.0398347 9.52553H13.8525V11.2896H0.0263672C0.43564 16.7079 4.96162 20.9769 10.4847 20.9769Z"
+      fill={fill}
     />
   </svg>
 );
