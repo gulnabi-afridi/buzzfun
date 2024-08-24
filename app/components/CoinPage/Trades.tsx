@@ -5,7 +5,7 @@ const Trades: React.FC = () => {
     <div className="w-full overflow-auto">
       <div className="w-full min-w-[580px] flex flex-col gap-1">
         {/* table header ---->   */}
-        <div className="w-full h-[43px] px-4 md:px-5 bg-black-1 justify-center items-center grid grid-cols-6">
+        <div className="w-full h-[43px] px-4 md:px-5 bg-black-1 dark:bg-yellow-1 justify-center items-center grid grid-cols-6">
           {tradeHeader.map((item, index) => {
             return (
               <p
@@ -14,7 +14,7 @@ const Trades: React.FC = () => {
                   index + 1 === tradeHeader.length
                     ? "justify-end"
                     : "justify-start"
-                } flex items-center text-[14px] text-white-1 font-normal`}
+                } flex items-center text-[14px] dark:text-black-1 text-white-1 font-normal`}
               >
                 {item}
               </p>
@@ -27,25 +27,25 @@ const Trades: React.FC = () => {
             return (
               <div
                 key={index}
-                className="w-full h-[43px] bg-white-1 px-4 md:px-5 justify-center items-center grid grid-cols-6"
+                className="w-full h-[43px] dark:bg-black-1 bg-white-1 px-4 md:px-5 justify-center items-center grid grid-cols-6"
               >
-                <p className="w-full flex justify-start items-center text-[14px] font-normal text-black-1">
+                <p className="w-full flex dark:text-white-1 justify-start items-center text-[14px] font-normal text-black-1">
                   {item.name}
                 </p>
-                <p className="w-full flex justify-start items-center text-[14px] font-normal text-black-1">
+                <p className="w-full flex dark:text-white-1 justify-start items-center text-[14px] font-normal text-black-1">
                   {item.type}
                 </p>
-                <p className="w-full flex justify-start items-center text-[14px] font-normal text-black-1">
+                <p className="w-full flex dark:text-white-1 justify-start items-center text-[14px] font-normal text-black-1">
                   {item.eth}
                 </p>
-                <p className="w-full flex justify-start items-center text-[14px] font-normal text-black-1">
+                <p className="w-full flex dark:text-white-1 justify-start items-center text-[14px] font-normal text-black-1">
                   {item.token}
                 </p>
-                <p className="w-full flex justify-start items-center text-[14px] font-normal text-black-1">
+                <p className="w-full flex dark:text-white-1 justify-start items-center text-[14px] font-normal text-black-1">
                   {item.timestammp}
                 </p>
                 <p
-                  className={`w-full underline justify-end flex items-center text-[14px] font-normal text-black-1`}
+                  className={`w-full dark:text-white-1 underline justify-end flex items-center text-[14px] font-normal text-black-1`}
                 >
                   view
                 </p>

@@ -9,20 +9,20 @@ const Thread: React.FC = () => {
         return (
           <div
             key={index}
-            className="w-full bg-white-1 p-2 flex flex-col gap-2"
+            className="w-full dark:bg-black-1 bg-white-1 p-2 flex flex-col gap-2"
           >
             {/* replyer details ---- */}
             <div className="flex justify-start items-center gap-2">
-              <p className="bg-black-1 text-[11px] font-normal text-white-1">
+              <p className="bg-black-1 dark:bg-white-1 dark:text-black-1 text-[11px] font-normal text-white-1">
                 Username
               </p>
-              <p className="text-[11px] font-normal text-black-1">
+              <p className="text-[11px] dark:text-white-1 font-normal text-black-1">
                 DD/MM/YYYY ,{" "}
               </p>
-              <p className="text-[11px] font-normal text-black-1">hh:mm:ss</p>
-              <p className="text-[11px] font-normal text-black-1">#1945448</p>
-              <p className="text-[11px] font-normal text-black-1">❤️2</p>
-              <button className="text-[11px] font-normal text-black-1">
+              <p className="text-[11px] dark:text-white-1 font-normal text-black-1">hh:mm:ss</p>
+              <p className="text-[11px] dark:text-white-1 font-normal text-black-1">#1945448</p>
+              <p className="text-[11px] dark:text-white-1 font-normal text-black-1">❤️2</p>
+              <button className="text-[11px] dark:text-white-1 font-normal text-black-1">
                 / <span className="underline">reply</span>{" "}
               </button>
             </div>
@@ -37,7 +37,7 @@ const Thread: React.FC = () => {
                     fill
                   />
                 </div>
-                <p className="text-[11px] font-normal text-black-1">
+                <p className="text-[11px] dark:text-white-1 font-normal text-black-1">
                   lorem ipsum talkem sumit here making it cool and reassruing
                   and no rugginess for sure makin it based, yeah. innt. lorem
                   ipsum talkem sumit here making it cool and reassruing and no
@@ -45,7 +45,7 @@ const Thread: React.FC = () => {
                 </p>
               </div>
             ) : (
-              <p className="text-[11px] font-normal text-black-1">
+              <p className="text-[11px] dark:text-white-1 font-normal text-black-1">
                 lorem ipsum talkem sumit here making it cool and reassruing and
                 no rugginess for sure makin it based, yeah. innt. lorem ipsum
                 talkem sumit here making it cool and reassruing and no rugginess

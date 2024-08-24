@@ -11,6 +11,9 @@ import Thread from "../components/CoinPage/Threads";
 import Trades from "../components/CoinPage/Trades";
 import BuyAndSellWidget from "../components/CoinPage/BuyAndSellWidget";
 import DeployementMilestones from "../components/CoinPage/DeployementMilestones";
+import { GoInfo } from "react-icons/go";
+import { GoGraph } from "react-icons/go";
+import { Tooltip } from "@mantine/core";
 
 const CoinPage = () => {
   const [isThread, setIsTread] = useState(false);
@@ -59,7 +62,9 @@ const CoinPage = () => {
                       width={18}
                       height={18}
                     />
-                    <p className="text-[8px] font-normal dark:text-white-1 text-black-1">12</p>
+                    <p className="text-[8px] font-normal dark:text-white-1 text-black-1">
+                      12
+                    </p>
                   </div>
                   <div className="flex justify-center items-center gap-2">
                     <Image
@@ -68,7 +73,9 @@ const CoinPage = () => {
                       width={18}
                       height={18}
                     />
-                    <p className="text-[8px] font-normal dark:text-white-1 text-black-1">2</p>
+                    <p className="text-[8px] font-normal dark:text-white-1 text-black-1">
+                      2
+                    </p>
                   </div>
                 </div>
               </div>
@@ -93,23 +100,28 @@ const CoinPage = () => {
               </div>
               {/* Thread + Trades -------------> */}
               <div className="w-full mt-3 border-[1px] border-purple-1 p-3 flex flex-col justify-center items-center gap-4">
-                <div className="flex justify-center items-center gap-3">
-                  <button
-                    onClick={() => setIsTread(true)}
-                    className={`text-[14px] ${
-                      isThread && "underline"
-                    } font-normal dark:text-white-1 text-black-1`}
-                  >
-                    [Thread]
-                  </button>
-                  <button
-                    onClick={() => setIsTread(false)}
-                    className={`text-[14px] ${
-                      !isThread && "underline"
-                    } font-normal dark:text-white-1 text-black-1`}
-                  >
-                    [Trades]
-                  </button>
+                <div className="flex w-full justify-between items-center gap-3">
+                  <div className="flex justify-center items-center gap-2">
+                    <button
+                      onClick={() => setIsTread(true)}
+                      className={`text-[14px] ${
+                        isThread && "underline"
+                      } font-normal dark:text-white-1 text-black-1`}
+                    >
+                      [Thread]
+                    </button>
+                    <button
+                      onClick={() => setIsTread(false)}
+                      className={`text-[14px] ${
+                        !isThread && "underline"
+                      } font-normal dark:text-white-1 text-black-1`}
+                    >
+                      [Trades]
+                    </button>
+                  </div>
+                  <p className="text-[14px] font-normal text-black-1 dark:text-white-1">
+                    [Make a Post]
+                  </p>
                 </div>
                 {/* threads section ----->  */}
                 {isThread && <Thread />}
@@ -163,14 +175,89 @@ const CoinPage = () => {
 
               <BuyAndSellWidget />
 
+              {/* tax option + max buy ------------>  */}
+              <div className="w-full flex justify-center items-center gap-7">
+                <div className="flex justify-center items-center gap-2">
+                  <button className="w-[25px] flex justify-center items-center h-[25px] border-[1px] border-black-1 dark:border-white-1">
+                    <div className="w-[18px] h-[18px] bg-red-1"></div>
+                  </button>
+                  <div className="flex flex-col">
+                    <p className="text-[14px] font-normal text-black-1 dark:text-white-1">
+                      Tax option 1
+                    </p>
+                    <p className="text-[14px] font-normal text-black-1 dark:text-white-1">
+                      {`(5:15>2.5:45>0:∞)`}
+                    </p>
+                  </div>
+                  <Tooltip
+                    withArrow
+                    multiline
+                    classNames={{ tooltip: "!w-[230px] !py-2" }}
+                    color="#004BFE"
+                    label={
+                      <div className="flex flex-col gap-2">
+                        <p className="text-[8px] font-normal text-black-1">
+                          CONTRACT WILL HAVE BUY AND SELL TAX ON DEX LISTING.
+                          TAX FREE DURING BONDING CURVE.
+                        </p>
+                        <p className="text-[8px] font-normal text-black-1">
+                          {`TAX OPTION 1: 5% TAX FIRST 15 MINS > 2.5% TAX FOR 45MINS > TAX ZEROED INDEFINITELY.  `}
+                        </p>
+                      </div>
+                    }
+                  >
+                    <button className="bg-red-1 p-[2px]">
+                      <GoInfo className="text-black-1 text-[22px]" />
+                    </button>
+                  </Tooltip>
+                </div>
+                <div className="flex justify-center items-center gap-2">
+                  <button className="w-[25px] flex justify-center items-center h-[25px] border-[1px] border-black-1 dark:border-white-1">
+                    <div className="w-[18px] h-[18px] bg-blue-1"></div>
+                  </button>
+                  <div className="flex flex-col">
+                    <p className="text-[14px] font-normal text-black-1 dark:text-white-1">
+                      Max buy 1%
+                    </p>
+                    <p className="text-[14px] font-normal text-black-1 dark:text-white-1">
+                      {`BC+DEX-15`}
+                    </p>
+                  </div>
+                  <Tooltip
+                    withArrow
+                    multiline
+                    classNames={{ tooltip: "!w-[230px] !py-2" }}
+                    color="#004BFE"
+                    label={
+                      <div className="flex flex-col gap-2">
+                        <p className="text-[8px] font-normal text-black-1">
+                          CONTRACT WILL HAVE BUY AND SELL TAX ON DEX LISTING.
+                          TAX FREE DURING BONDING CURVE.
+                        </p>
+                        <p className="text-[8px] font-normal text-black-1">
+                          {`TAX OPTION 1: 5% TAX FIRST 15 MINS > 2.5% TAX FOR 45MINS > TAX ZEROED INDEFINITELY.  `}
+                        </p>
+                      </div>
+                    }
+                  >
+                    <button className="bg-blue-1 p-[2px]">
+                      <GoInfo className="text-black-1 text-[22px]" />
+                    </button>
+                  </Tooltip>
+                </div>
+              </div>
+
               {/* Bonding curve progress -----> */}
               <div className="flex flex-col gap-3">
-                <p className="text-[14px] font-normal dark:text-white-1 text-black-1">
-                  [Bonding curve progress][69%]
-                </p>
-                <div className="w-full grid h-[25px] grid-cols-[1.5fr,1fr]">
-                  <div className="w-full h-full bg-yellow-1"></div>
-                  <div className="w-full h-full dark:bg-white-1 bg-black-1"></div>
+                <div className="flex justify-start items-center gap-2">
+                  <GoGraph className="text-black-1 dark:text-white-1 text-[14px]" />
+                  <p className="text-[14px] font-normal dark:text-white-1 text-black-1">
+                    [Bonding curve progress]{" "}
+                    <span className="text-[#01C171]"> [69%] </span>
+                  </p>
+                </div>
+                <div className="w-full relative rounded-full h-[19px] bg-black-1">
+                  <div className="w-[70%] absolute left-0 top-0 h-full rounded-full bg-yellow-1"></div>
                 </div>
               </div>
               <div className="flex flex-col gap-2">
