@@ -51,7 +51,7 @@ const CoinPage = () => {
                   / View on Basescan
                 </p>
                 {/* reaction */}
-                <div className="px-2 py-[6px] rounded-[2px] bg-white-1 flex justify-center items-center gap-3">
+                <div className="px-2 py-[6px] rounded-[2px] dark:bg-black-1 bg-white-1 flex justify-center items-center gap-3">
                   <div className="flex justify-center items-center gap-2">
                     <Image
                       src="/assets/like.png"
@@ -59,7 +59,7 @@ const CoinPage = () => {
                       width={18}
                       height={18}
                     />
-                    <p className="text-[8px] font-normal text-black-1">12</p>
+                    <p className="text-[8px] font-normal dark:text-white-1 text-black-1">12</p>
                   </div>
                   <div className="flex justify-center items-center gap-2">
                     <Image
@@ -68,7 +68,7 @@ const CoinPage = () => {
                       width={18}
                       height={18}
                     />
-                    <p className="text-[8px] font-normal text-black-1">2</p>
+                    <p className="text-[8px] font-normal dark:text-white-1 text-black-1">2</p>
                   </div>
                 </div>
               </div>
