@@ -75,7 +75,6 @@ const tradeRows = [
     eth: "0.05",
     token: "2,000,000",
     timestammp: "1s ago",
-
   },
   {
     name: "<Username>",
@@ -83,7 +82,6 @@ const tradeRows = [
     eth: "0.05",
     token: "2,000,000",
     timestammp: "1s ago",
-
   },
   {
     name: "<Username>",
@@ -91,7 +89,6 @@ const tradeRows = [
     eth: "0.05",
     token: "2,000,000",
     timestammp: "1s ago",
-
   },
   {
     name: "<Username>",
@@ -99,7 +96,6 @@ const tradeRows = [
     eth: "0.05",
     token: "2,000,000",
     timestammp: "1s ago",
-
   },
   {
     name: "<Username>",
@@ -107,7 +103,6 @@ const tradeRows = [
     eth: "0.05",
     token: "2,000,000",
     timestammp: "1s ago",
-
   },
   {
     name: "<Username>",
@@ -115,7 +110,6 @@ const tradeRows = [
     eth: "0.05",
     token: "2,000,000",
     timestammp: "1s ago",
-
   },
 
   {
@@ -124,7 +118,6 @@ const tradeRows = [
     eth: "0.05",
     token: "2,000,000",
     timestammp: "1s ago",
-
   },
   {
     name: "<Username>",
@@ -132,6 +125,5 @@ const tradeRows = [
     eth: "0.05",
     token: "2,000,000",
     timestammp: "1s ago",
-
   },
 ];

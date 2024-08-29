@@ -1,389 +1,52 @@
 // @ts-nocheck
-"use client";
+// TradingViewWidget.jsx
+import React, { useEffect, useRef, memo } from "react";
+import { useTheme } from "next-themes";
 
-import React, { useState, useRef, useEffect } from "react";
-import { init, dispose } from "klinecharts";
-import "@klinecharts/pro/dist/klinecharts-pro.css";
+function TradingViewWidget() {
+  const container = useRef();
+  const { resolvedTheme } = useTheme();
 
-const CandleChart: React.FC = () => {
   useEffect(() => {
-    const chart = init("chart");
+    // Remove any existing script and widget content before adding a new one
+    container.current.innerHTML = "";
 
-    // Apply data
-    chart?.applyNewData([
+    const script = document.createElement("script");
+    script.src =
+      "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
+    script.type = "text/javascript";
+    script.async = true;
+    script.innerHTML = `
       {
-        timestamp: 1625097600000,
-        open: 34000.5,
-        high: 34756.75,
-        low: 33650.2,
-        close: 34550.8,
-        volume: 1250,
-      },
-      {
-        timestamp: 1625184000000,
-        open: 34550.8,
-        high: 35200.0,
-        low: 34100.25,
-        close: 34975.5,
-        volume: 1500,
-      },
-      {
-        timestamp: 1625270400000,
-        open: 34975.5,
-        high: 35700.0,
-        low: 34200.0,
-        close: 34300.25,
-        volume: 1800,
-      },
-      {
-        timestamp: 1625356800000,
-        open: 34300.25,
-        high: 34900.5,
-        low: 33400.75,
-        close: 33650.0,
-        volume: 2000,
-      },
-      {
-        timestamp: 1625443200000,
-        open: 33650.0,
-        high: 34300.0,
-        low: 33200.0,
-        close: 34150.75,
-        volume: 2200,
-      },
-      {
-        timestamp: 1625529600000,
-        open: 34150.75,
-        high: 35200.0,
-        low: 33900.0,
-        close: 35050.5,
-        volume: 1900,
-      },
-      {
-        timestamp: 1625616000000,
-        open: 35050.5,
-        high: 35800.0,
-        low: 34600.25,
-        close: 34750.0,
-        volume: 2100,
-      },
-      {
-        timestamp: 1625702400000,
-        open: 34750.0,
-        high: 35500.5,
-        low: 34200.0,
-        close: 35250.75,
-        volume: 2300,
-      },
-      {
-        timestamp: 1625788800000,
-        open: 35250.75,
-        high: 36000.0,
-        low: 34500.5,
-        close: 34650.25,
-        volume: 2500,
-      },
-      {
-        timestamp: 1625875200000,
-        open: 34650.25,
-        high: 35300.0,
-        low: 33900.0,
-        close: 35250.5,
-        volume: 2700,
-      },
-      {
-        timestamp: 1625961600000,
-        open: 35250.5,
-        high: 36100.75,
-        low: 34700.25,
-        close: 35950.0,
-        volume: 2900,
-      },
-      {
-        timestamp: 1626048000000,
-        open: 35950.0,
-        high: 36700.0,
-        low: 35400.5,
-        close: 35450.25,
-        volume: 3100,
-      },
-      {
-        timestamp: 1626134400000,
-        open: 35450.25,
-        high: 36200.5,
-        low: 34800.0,
-        close: 36050.75,
-        volume: 3300,
-      },
-      {
-        timestamp: 1626220800000,
-        open: 36050.75,
-        high: 37000.0,
-        low: 35500.25,
-        close: 36850.5,
-        volume: 3500,
-      },
-      {
-        timestamp: 1626307200000,
-        open: 36850.5,
-        high: 37500.0,
-        low: 36200.0,
-        close: 36250.25,
-        volume: 3700,
-      },
-      {
-        timestamp: 1626393600000,
-        open: 36250.25,
-        high: 36900.75,
-        low: 35600.5,
-        close: 36850.0,
-        volume: 3900,
-      },
-      {
-        timestamp: 1626480000000,
-        open: 36850.0,
-        high: 37600.0,
-        low: 36300.25,
-        close: 37550.5,
-        volume: 4100,
-      },
-      {
-        timestamp: 1626566400000,
-        open: 37550.5,
-        high: 38200.25,
-        low: 36900.0,
-        close: 37150.75,
-        volume: 4300,
-      },
-      {
-        timestamp: 1626652800000,
-        open: 37150.75,
-        high: 37800.5,
-        low: 36400.25,
-        close: 37550.0,
-        volume: 4500,
-      },
-      {
-        timestamp: 1626739200000,
-        open: 37550.0,
-        high: 38200.0,
-        low: 36900.5,
-        close: 38150.25,
-        volume: 4700,
-      },
-      {
-        timestamp: 1626825600000,
-        open: 38150.25,
-        high: 38900.0,
-        low: 37500.0,
-        close: 37600.5,
-        volume: 4900,
-      },
-      {
-        timestamp: 1626912000000,
-        open: 37600.5,
-        high: 38250.0,
-        low: 36950.0,
-        close: 38200.75,
-        volume: 5100,
-      },
-      {
-        timestamp: 1626998400000,
-        open: 38200.75,
-        high: 39000.0,
-        low: 37650.0,
-        close: 38850.0,
-        volume: 5300,
-      },
-      {
-        timestamp: 1627084800000,
-        open: 38850.0,
-        high: 39500.0,
-        low: 38200.0,
-        close: 38250.5,
-        volume: 5500,
-      },
-      {
-        timestamp: 1627171200000,
-        open: 38250.5,
-        high: 38900.0,
-        low: 37600.0,
-        close: 38800.25,
-        volume: 5700,
-      },
-      {
-        timestamp: 1627257600000,
-        open: 38800.25,
-        high: 39450.0,
-        low: 38150.0,
-        close: 39400.75,
-        volume: 5900,
-      },
-      {
-        timestamp: 1627344000000,
-        open: 39400.75,
-        high: 40100.0,
-        low: 38800.0,
-        close: 39050.0,
-        volume: 6100,
-      },
-      {
-        timestamp: 1627430400000,
-        open: 39050.0,
-        high: 39700.0,
-        low: 38400.0,
-        close: 39450.25,
-        volume: 6300,
-      },
-      {
-        timestamp: 1627516800000,
-        open: 39450.25,
-        high: 40100.0,
-        low: 38800.0,
-        close: 40000.5,
-        volume: 6500,
-      },
-      {
-        timestamp: 1627603200000,
-        open: 40000.5,
-        high: 40650.0,
-        low: 39350.0,
-        close: 40600.75,
-        volume: 6700,
-      },
-      {
-        timestamp: 1627689600000,
-        open: 40600.75,
-        high: 41300.0,
-        low: 40000.0,
-        close: 40250.0,
-        volume: 6900,
-      },
-      {
-        timestamp: 1627776000000,
-        open: 40250.0,
-        high: 40900.0,
-        low: 39600.0,
-        close: 40650.25,
-        volume: 7100,
-      },
-      {
-        timestamp: 1627862400000,
-        open: 40650.25,
-        high: 41300.0,
-        low: 40000.0,
-        close: 41200.5,
-        volume: 7300,
-      },
-      {
-        timestamp: 1627948800000,
-        open: 41200.5,
-        high: 41850.0,
-        low: 40550.0,
-        close: 41800.75,
-        volume: 7500,
-      },
-      {
-        timestamp: 1628035200000,
-        open: 41800.75,
-        high: 42500.0,
-        low: 41200.0,
-        close: 41950.0,
-        volume: 7700,
-      },
-      {
-        timestamp: 1628121600000,
-        open: 41950.0,
-        high: 42600.0,
-        low: 41300.0,
-        close: 41850.25,
-        volume: 7900,
-      },
-      {
-        timestamp: 1628208000000,
-        open: 41850.25,
-        high: 42500.0,
-        low: 41200.0,
-        close: 42400.5,
-        volume: 8100,
-      },
-      {
-        timestamp: 1628294400000,
-        open: 42400.5,
-        high: 43050.0,
-        low: 41750.0,
-        close: 43000.75,
-        volume: 8300,
-      },
-      {
-        timestamp: 1628380800000,
-        open: 43000.75,
-        high: 43700.0,
-        low: 42400.0,
-        close: 43650.0,
-        volume: 8500,
-      },
-      {
-        timestamp: 1628467200000,
-        open: 43650.0,
-        high: 44300.0,
-        low: 43000.0,
-        close: 44050.25,
-        volume: 8700,
-      },
-      {
-        timestamp: 1628553600000,
-        open: 44050.25,
-        high: 44700.0,
-        low: 43400.0,
-        close: 44600.5,
-        volume: 8900,
-      },
-      {
-        timestamp: 1628640000000,
-        open: 44600.5,
-        high: 45250.0,
-        low: 43950.0,
-        close: 45200.75,
-        volume: 9100,
-      },
-      {
-        timestamp: 1628726400000,
-        open: 45200.75,
-        high: 45900.0,
-        low: 44600.0,
-        close: 45850.0,
-        volume: 9300,
-      },
-    ]);
+        "autosize": true,
+        "symbol": "NASDAQ:AAPL",
+        "interval": "D",
+        "timezone": "Etc/UTC",
+        "theme": "${resolvedTheme === 'dark' ? 'dark' : 'light'}",
+        "style": "1",
+        "locale": "en",
+        "withdateranges": true,
+        "hide_side_toolbar": false,
+        "allow_symbol_change": true,
+        "calendar": false,
+        "hide_volume": true,
+        "support_host": "https://www.tradingview.com"
+      }`;
+    container.current.appendChild(script);
+  }, [resolvedTheme]); // React to theme changes
 
-    // Customize chart styles
-    chart?.setStyles({
-      candle: {
-        type: "candle_solid",
-        bar: {
-          upColor: "#ffffff",
-          downColor: "#000000",
-          noChangeColor: "#888888",
-          upBorderColor: "#000000",
-          downBorderColor: "#000000",
-          noChangeBorderColor: "#888888",
-          upWickColor: "#000000",
-          downWickColor: "#000000",
-          noChangeWickColor: "#888888",
-        },
-      },
-      grid: {
-        show: false,
-      },
-    });
+  return (
+    <div
+      className="tradingview-widget-container"
+      ref={container}
+      style={{ height: "100%", width: "100%" }}
+    >
+      <div
+        className="tradingview-widget-container__widget"
+        style={{ height: "calc(100% - 32px)", width: "100%" }}
+      ></div>
+    </div>
+  );
+}
 
-    return () => {
-      dispose("chart");
-    };
-  }, []);
-
-  return <div id="chart" style={{ width: "100%", height: "100%" }} />;
-};
-
-export default CandleChart;
+export default memo(TradingViewWidget);

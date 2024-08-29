@@ -6,7 +6,6 @@ import Image from "next/image";
 import CoinStatsBar from "../components/CoinPage/CoinStatsBar";
 import { IoCopyOutline } from "react-icons/io5";
 import Pagination from "../components/shared/Pagination";
-import CandleChart from "../components/CoinPage/CandleChart";
 import Thread from "../components/CoinPage/Threads";
 import Trades from "../components/CoinPage/Trades";
 import BuyAndSellWidget from "../components/CoinPage/BuyAndSellWidget";
@@ -14,6 +13,7 @@ import DeployementMilestones from "../components/CoinPage/DeployementMilestones"
 import { GoInfo } from "react-icons/go";
 import { GoGraph } from "react-icons/go";
 import { Tooltip } from "@mantine/core";
+import TradingViewWidget from '../components/CoinPage/CandleChart';
 
 const CoinPage = () => {
   const [isThread, setIsTread] = useState(false);
@@ -81,7 +81,7 @@ const CoinPage = () => {
               </div>
               {/* candle chart ---> */}
               <div className="w-full h-[300px] sm:h-[380px] md:h-[430px] bg-white-1">
-                <CandleChart />
+                <TradingViewWidget />
               </div>
               {/* project description --> */}
               <div className="flex flex-col gap-4">
