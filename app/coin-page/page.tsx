@@ -80,7 +80,7 @@ const CoinPage = () => {
                 </div>
               </div>
               {/* candle chart ---> */}
-              <div className="w-full h-[300px] sm:h-[380px] md:h-[430px] bg-white-1">
+              <div className="w-full h-[300px] sm:h-[380px] md:h-[430px] z-40">
                 <TradingViewWidget />
               </div>
               {/* project description --> */}
