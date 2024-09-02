@@ -223,19 +223,19 @@ const Navibar: React.FC = () => {
                 createOpen();
                 connectClose();
               }}
-              className="w-full cursor-pointer border-[1px] border-purple-1 dark:border-white-1 dark:bg-[#1D252C] bg-white-1 p-2 rounded-[3px]"
+              className="w-full cursor-pointer border-[1px] border-black-1 duration-100 hover:border-purple-1 hover:dark:border-purple-1 dark:border-white-1 dark:bg-[#1D252C] bg-white-1 p-2 rounded-[3px]"
             >
               <div className="w-full flex justify-between items-start">
                 <p className="text-[12px] font-normal dark:text-white-1 text-black-1 uppercase">
-                  <span className="bg-yellow-1 text-black-1 px-[2px]">
+                  <span className="bg-black-1 dark:bg-white-1 text-white-1 dark:text-black-1 px-[2px]">
                     Create
                   </span>{" "}
                   a <br /> wallet
                 </p>
                 <div
-                  className={`w-[12px] bg-yellow-1 flex justify-center items-center h-[12px] `}
+                  className={`w-[12px] bg-black-1 dark:bg-white-1 flex justify-center items-center h-[12px] `}
                 >
-                  <GoArrowUpRight className={`text-black-1 text-[11px] `} />
+                  <GoArrowUpRight className={`text-white-1 dark:text-black-1 text-[11px] `} />
                 </div>
               </div>
               <p className="text-[12px] mt-5 font-normal dark:text-white-1 text-black-1 uppercase">
@@ -249,7 +249,7 @@ const Navibar: React.FC = () => {
                 createClose();
                 connectClose();
               }}
-              className="w-full cursor-pointer border-[1px] border-purple-1 dark:bg-[#1D252C] bg-white-1 p-2 rounded-[3px]"
+              className="w-full cursor-pointer border-[1px] border-black-1 dark:border-white-1 hover:border-purple-1 duration-100 hover:dark:border-purple-1 dark:bg-[#1D252C] bg-white-1 p-2 rounded-[3px]"
             >
               <div className="w-full flex justify-between items-start">
                 <p className="text-[12px] font-normal text-black-1 dark:text-white-1 uppercase">
@@ -274,7 +274,7 @@ const Navibar: React.FC = () => {
           {/*  */}
           <button
             onClick={connectClose}
-            className="text-black-1 dark:text-white-1 font-normal text-[12px] uppercase"
+            className="text-black-1 hover:text-black-1 hover:dark:text-yellow-1 duration-150 dark:text-white-1 font-normal text-[12px] uppercase"
           >
             \ pussy out
           </button>
@@ -287,7 +287,7 @@ const Navibar: React.FC = () => {
           <div className="w-full max-w-[230px] flex flex-col justify-center items-center">
             {/* header  */}
             <div className="flex justify-start items-center gap-2">
-              <button className="text-white-1 dark:text-white-1 uppercase hover:opacity-80 font-normal text-[12px] bg-black-1 px-2 py-[2px]">
+              <button className="text-white-1 dark:text-black-1 uppercase hover:opacity-80 font-normal text-[12px] dark:bg-white-1 bg-black-1 px-2 py-[2px]">
                 create
               </button>
               <p className="text-[12px] uppercase dark:text-white-1 font-normal text-black-1">
@@ -295,8 +295,11 @@ const Navibar: React.FC = () => {
               </p>
             </div>
             {/* smal wallet */}
-            <div className="w-full text-[12px] font-normal dark:text-white-1 my-8 px-2 py-2 uppercase rounded-[2px] border-[1px] border-blue-1">
-              Smart wallet
+            <div className="w-full  flex justify-start gap-3 items-center font-normal  my-8 px-2 py-2 rounded-[2px] border-[1px] border-blue-1">
+              <Image src="/assets/wallet.svg" alt="" width={28} height={28} />
+              <p className="text-[12px] dark:text-white-1 uppercase">
+                Smart wallet
+              </p>
             </div>
             {/*  */}
             <button
@@ -304,7 +307,7 @@ const Navibar: React.FC = () => {
                 createClose();
                 connectOpen();
               }}
-              className="text-black-1 dark:text-white-1 font-normal text-[12px] uppercase"
+              className="text-black-1 hover:text-black-1 hover:dark:text-yellow-1 dark:text-white-1 font-normal text-[12px] uppercase"
             >
               \ go back
             </button>
@@ -322,7 +325,7 @@ const Navibar: React.FC = () => {
         <div className="w-full flex py-8 px-3 flex-col justify-center items-center">
           {/* header  */}
           <div className="flex justify-start items-center gap-2">
-            <button className="text-white-1 uppercase hover:opacity-80 font-normal text-[12px] bg-black-1 px-2 py-[2px]">
+            <button className="text-white-1 dark:text-black-1 dark:bg-white-1 uppercase font-normal text-[12px] bg-black-1 px-2 py-[2px]">
               Connect
             </button>
             <p className="text-[12px] uppercase font-normal text-black-1 dark:text-white-1">
@@ -336,18 +339,21 @@ const Navibar: React.FC = () => {
                   key={index}
                   className="w-full flex justify-start px-3 items-center gap-3 bg-white-1 hover:bg-transparent dark:bg-[#1D252C] py-[10px] uppercase rounded-[2px] border-[1px] hover:dark:bg-black-1 hover:dark:border-yellow-1 dark:border-white-1 border-blue-1"
                 >
-                   <Image src={item.img} width={28} height={28} alt=""/>
-                  <p className="text-[12px] dark:text-white-1 text-black-1 font-normal"> {item.name}</p>
+                  <Image src={item.img} width={28} height={28} alt="" />
+                  <p className="text-[12px] dark:text-white-1 text-black-1 font-normal">
+                    {" "}
+                    {item.name}
+                  </p>
                 </button>
               );
             })}
             {/* button */}
             <button
-              onClick={()=>{
+              onClick={() => {
                 connect2Close();
                 connectOpen();
               }}
-              className="px-4 w-full flex justify-center items-center hover:opacity-80 py-[6px] text-[10px] font-normal text-black-1 dark:text-white-1 rounded-[5px] bg-transparent dark:bg-black-1"
+              className="px-4 w-full flex justify-center hover:dark:text-yellow-1 hover:text-black-1 items-center hover:opacity-80 py-[6px] text-[10px] font-normal text-black-1 dark:text-white-1 rounded-[5px] bg-transparent dark:bg-black-1"
             >
               / Go Back
             </button>

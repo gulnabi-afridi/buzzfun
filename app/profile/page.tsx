@@ -275,7 +275,7 @@ const ProfilePage = () => {
               >
                 \ Close
               </button>
-              <button className="px-3 hover:opacity-80 text-[12px] font-normal text-white-1 py-2 dark:bg-blue-1 bg-white-1 rounded-[2px]">
+              <button className="px-3 hover:opacity-80 hover:bg-yellow-1 hover:text-black-1 hover:dark:text-black-1 text-[12px] hover:dark:bg-yellow-1 font-normal text-white-1 py-2 dark:bg-blue-1 bg-blue-1 rounded-[2px]">
                 \ Save
               </button>
             </div>
