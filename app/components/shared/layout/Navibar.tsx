@@ -332,21 +332,24 @@ const Navibar: React.FC = () => {
           <div className="w-full mt-8 max-w-[230px] flex flex-col gap-5">
             {connectWallet.map((item, index) => {
               return (
-                <div
+                <button
                   key={index}
-                  className="w-full flex justify-start px-3 items-center gap-3 py-[10px] uppercase rounded-[2px] border-[1px] dark:border-white-1 border-blue-1"
+                  className="w-full flex justify-start px-3 items-center gap-3 bg-white-1 hover:bg-transparent dark:bg-[#1D252C] py-[10px] uppercase rounded-[2px] border-[1px] hover:dark:bg-black-1 hover:dark:border-yellow-1 dark:border-white-1 border-blue-1"
                 >
-                  <img src={item.img} className="w-[28px] h-[28px]" alt="" />
+                   <Image src={item.img} width={28} height={28} alt=""/>
                   <p className="text-[12px] dark:text-white-1 text-black-1 font-normal"> {item.name}</p>
-                </div>
+                </button>
               );
             })}
             {/* button */}
             <button
-              onClick={connect2Close}
-              className="px-4 w-fit hover:opacity-80 py-[6px] text-[10px] font-normal text-white-1 rounded-[5px] bg-black-1"
+              onClick={()=>{
+                connect2Close();
+                connectOpen();
+              }}
+              className="px-4 w-full flex justify-center items-center hover:opacity-80 py-[6px] text-[10px] font-normal text-black-1 dark:text-white-1 rounded-[5px] bg-transparent dark:bg-black-1"
             >
-              /close
+              / Go Back
             </button>
           </div>
         </div>
