@@ -108,7 +108,7 @@ const RetardPage: NextPage = () => {
                 <input
                   type="text"
                   placeholder="Insert ticker here"
-                  className="placeholder:text-[#6D6D6D] text-black-1 border-[1px] h-[40px] text-[12px] focus:outline-0 px-3 dark:border-white-1/20 rounded-[2px] border-black-1  w-full font-normal"
+                  className="placeholder:text-[#6D6D6D] dark:text-white-1 text-black-1 border-[1px] h-[40px] text-[12px] focus:outline-0 px-3 dark:border-white-1/20 rounded-[2px] border-black-1  w-full font-normal"
                 />
               </div>
               {/* image   */}
@@ -127,7 +127,7 @@ const RetardPage: NextPage = () => {
                   className={`text-[12px] ${
                     fileName === "no file chosen"
                       ? "text-[#6D6D6D]"
-                      : "text-black-1"
+                      : "text-white-1"
                   } font-normal pl-3`}
                 >
                   {fileName}
@@ -143,7 +143,7 @@ const RetardPage: NextPage = () => {
                 </label>
                 <textarea
                   placeholder="write something interesting here or people will probably still buy. "
-                  className="placeholder:text-[#6D6D6D] dark:border-white-1/20 rounded-[2px] text-black-1 border-[1px] min-h-[60px] text-[12px] focus:outline-0 px-3 py-2 border-black-1  w-full font-normal"
+                  className="placeholder:text-[#6D6D6D] dark:text-white-1 dark:border-white-1/20 rounded-[2px] text-black-1 border-[1px] min-h-[60px] text-[12px] focus:outline-0 px-3 py-2 border-black-1  w-full font-normal"
                 />
               </div>
               {/* show more options button */}
@@ -173,7 +173,7 @@ const RetardPage: NextPage = () => {
                     <input
                       type="text"
                       placeholder="(optional)"
-                      className="placeholder:text-[#6D6D6D] dark:border-white-1/20 rounded-[2px] text-black-1 border-[1px] h-[40px] text-[12px] focus:outline-0 px-3 border-black-1  w-full font-normal"
+                      className="placeholder:text-[#6D6D6D] dark:text-white-1 dark:border-white-1/20 rounded-[2px] text-black-1 border-[1px] h-[40px] text-[12px] focus:outline-0 px-3 border-black-1  w-full font-normal"
                     />
                   </div>
                   {/* telegram link  */}
@@ -187,7 +187,7 @@ const RetardPage: NextPage = () => {
                     <input
                       type="text"
                       placeholder="(optional)"
-                      className="placeholder:text-[#6D6D6D] dark:border-white-1/20 rounded-[2px] text-black-1 border-[1px] h-[40px] text-[12px] focus:outline-0 px-3 border-black-1  w-full font-normal"
+                      className="placeholder:text-[#6D6D6D] dark:text-white-1 dark:border-white-1/20 rounded-[2px] text-black-1 border-[1px] h-[40px] text-[12px] focus:outline-0 px-3 border-black-1  w-full font-normal"
                     />
                   </div>
                   {/* website link  */}
@@ -201,7 +201,7 @@ const RetardPage: NextPage = () => {
                     <input
                       type="text"
                       placeholder="(optional)"
-                      className="placeholder:text-[#6D6D6D] dark:border-white-1/20 rounded-[2px] text-black-1 border-[1px] h-[40px] text-[12px] focus:outline-0 px-3 border-black-1  w-full font-normal"
+                      className="placeholder:text-[#6D6D6D] dark:text-white-1 dark:border-white-1/20 rounded-[2px] text-black-1 border-[1px] h-[40px] text-[12px] focus:outline-0 px-3 border-black-1  w-full font-normal"
                     />
                   </div>
                 </div>
