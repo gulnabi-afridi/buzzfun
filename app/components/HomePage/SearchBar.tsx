@@ -9,6 +9,7 @@ import { LuFlame } from "react-icons/lu";
 import { LuBaby } from "react-icons/lu";
 import { LuCloudLightning } from "react-icons/lu";
 import { FaFilter } from "react-icons/fa6";
+import CustomMenu from "../shared/CustomMenu";
 
 const SearchBar = () => {
   const [filter, setFilter] = useState("trending");
@@ -21,46 +22,20 @@ const SearchBar = () => {
         <div className="flex justify-center items-center gap-5">
           {/* select time  */}
           <div className="flex min-h-[30px] justify-center items-center">
-            <Menu
-              classNames={{
-                dropdown:
-                  "dark:!bg-[#336FFE] !bg-white-2 dark:!border-[.2px] dark:!border-white-1/20 min-w-[160px]",
-                item: "!text-black-1 dark:text-white-1 text-[14px] font-normal hover:!bg-blue-1/20",
-                arrow: "!border-t-white-1/20 !border-l-white-1/20",
-              }}
-              withArrow
-            >
-              <Menu.Target>
+            <CustomMenu
+              targetComponent={
                 <button className="flex gap-1 min-h-[30px] rounded-l-[2px] px-1 justify-center items-center bg-black-1">
                   <p className="text-[14px] font-normal text-white-1">Time</p>
                   <RiArrowDownSLine className="text-[16px] text-white-1" />
                 </button>
-              </Menu.Target>
-              {/* Menu dropdown */}
-              <Menu.Dropdown>
-                <div className="flex flex-col">
-                  {time2Options.map((item) => (
-                    <Menu.Item
-                      className={`relative ${
-                        time === item ? "bg-white-1/30 !bg-[#1957EA]" : ""
-                      }`}
-                      key={time}
-                      onClick={() => setTime(item)}
-                    >
-                      <div className="relative py-[2px] px-4">
-                        {item}
-                        {time === item && (
-                          <>
-                            <div className="absolute inset-y-0 left-0 w-[4px] bg-black-1  pointer-events-none"></div>
-                            <div className="absolute inset-y-0 right-0 w-[4px] bg-black-1 pointer-events-none"></div>
-                          </>
-                        )}
-                      </div>
-                    </Menu.Item>
-                  ))}
-                </div>
-              </Menu.Dropdown>
-            </Menu>
+              }
+              trigger="click"
+              value={time}
+              setValue={setTime}
+              size="!min-w-[150px]"
+              options={time2Options}
+            />
+
             <p className="text-black-1 rounded-r-[2px] min-h-[30px] flex justify-center items-center px-1 bg-[#FEF652]">
               {time}
             </p>
@@ -144,9 +119,7 @@ const SearchBar = () => {
             <FaFilter className="text-[14px] text-white-1" />
             <p className="text-[12px] font-normal text-white-1">Filter</p>
             <div className="px-1 flex justify-center items-center py-[2px] bg-[#0F171D] rounded-[2px]">
-              <p className="text-[8px] font-normal text-white-1">
-                2
-              </p>
+              <p className="text-[8px] font-normal text-white-1">2</p>
             </div>
           </div>
         </div>
