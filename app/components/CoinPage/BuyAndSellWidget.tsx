@@ -126,22 +126,22 @@ const BuyAndSellWidget: React.FC = () => {
         <div className="w-full flex gap-5 flex-col">
           <div className="w-full flex justify-start items-center gap-2">
             <Image src="/assets/comment.svg" alt="" width={30} height={30} />
-            <p className="text-[18px] font-normal text-white-1">
+            <p className="text-[18px] font-normal text-black-1 dark:text-white-1">
               Add a comment
             </p>
           </div>
           <textarea
             name="comment"
             id="comment"
-            className="w-full bg-[#1D252C] text-[14px] font-normal text-white-1 p-2 focus:outline-none min-h-[120px] border-[1px] border-yellow-1 rounded-[2px]"
+            className="w-full bg-[#1D252C] text-[14px] font-normal text-white-1 p-2 focus:outline-none min-h-[120px] border-[1px] border-blue-1 dark:border-yellow-1 rounded-[2px]"
           ></textarea>
           {/* upload an image  */}
           <div className="w-full flex flex-col gap-1">
-            <p className="text-[14px] font-normal text-white-1">
+            <p className="text-[14px] font-normal text-black-1 dark:text-white-1">
               Image<span className="text-[10px]"> (optional)</span>
             </p>
             <div className="w-full flex-col bg-black-1 flex justify-center items-start px-3 py-4 gap-2">
-              {fileDetails.imageUrl ==='' && (
+              {fileDetails.imageUrl === "" && (
                 <div className="w-full justify-start items-center gap-2 flex">
                   <input
                     type="file"
@@ -184,11 +184,16 @@ const BuyAndSellWidget: React.FC = () => {
               </div>
             </div>
           </div>
-          <button className="w-full h-[42px] text-[20px] rounded-[2px] font-normal text-[#FEF652] border-[1px] border-yellow-1">
-          Send
+          <button className="w-full h-[42px] text-[20px] rounded-[3px] hover:dark:text-black-1 hover:dark:bg-yellow-1 font-normal text-black-1 dark:text-[#FEF652] border-[1px] border-black-1 dark:border-yellow-1">
+            Send
           </button>
           <div className="w-full flex justify-start items-center">
-          <button className="text-[14px] font-normal text-[#FEF652]">/ cancel</button>
+            <button
+              onClick={closeCommentModal}
+              className="text-[14px] font-normal text-black-1 dark:text-[#FEF652]"
+            >
+              / cancel
+            </button>
           </div>
         </div>
       </CustomModal>
