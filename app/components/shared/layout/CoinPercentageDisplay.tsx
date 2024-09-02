@@ -5,7 +5,6 @@ import { RiArrowDownSLine } from "react-icons/ri";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
 import CustomMenu from "../CustomMenu";
-import { Menu } from "@mantine/core";
 
 const CoinPercentageDisplay: React.FC = () => {
   const [isHovering, setIsHovering] = useState(true);
@@ -13,7 +12,7 @@ const CoinPercentageDisplay: React.FC = () => {
   const [time, setTime] = useState("15 min");
 
   return (
-    <div className="w-full h-[40px] flex justify-start gap-4 items-center dark:bg-[#19171F] bg-white-1">
+    <div className="w-full h-[40px] flex justify-start gap-4 items-center dark:bg-[#19171F] bg-transparent">
       <div className="flex justify-center pl-3 items-center gap-2">
         <CustomMenu
           size="min-w-[160px]"

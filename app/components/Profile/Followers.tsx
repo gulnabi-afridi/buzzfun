@@ -2,7 +2,7 @@ import React from "react";
 
 const Followers: React.FC = () => {
   return (
-    <div className="w-full md:col-span-1 col-span-1 sm:col-span-2 md:mt-8 mt-0 sm:mt-5 flex justify-center items-center">
+    <div className="w-full xl:col-span-1 col-span-2 md:mt-8 mt-0 sm:mt-5 flex justify-center items-center">
       <div className="w-full max-w-[290px] flex flex-col gap-3">
         <p className="text-[14px] font-normal text-black-1 w-fit px-2 rounded-[2px] py-1 dark:bg-yellow-1 bg-transparent">Followers</p>
         <div className="w-full flex dark:bg-black-1 bg-transparent h-[600px] overflow-auto scrollSize bg-white-1 flex-col border-[1px] dark:border-[#317C85] border-blue-1 rounded-[2px] gap-3 px-2 py-1">

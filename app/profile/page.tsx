@@ -53,21 +53,21 @@ const ProfilePage = () => {
             className={`w-full grid gap-6 sm:gap-4 md:gap-6 justify-center items-start 
             ${
               selectedName === "Replies" &&
-              "max-w-[950px] grid-cols-1 sm:grid-cols-2 md:grid-cols-[1fr,1fr,2fr]"
+              "max-w-[950px] grid-cols-1 sm:grid-cols-2 xl:grid-cols-[1fr,1fr,2fr]"
             }
             ${
               selectedName === "Coins Launched" &&
-              "max-w-[950px] grid-cols-1 sm:grid-cols-2 md:grid-cols-[1fr,1fr,2fr]"
+              "max-w-[950px] grid-cols-1 sm:grid-cols-2 xl:grid-cols-[1fr,1fr,2fr]"
             }
                 ${
                   selectedName === "Buzz engage" &&
-                  "max-w-[900px] grid-cols-1 sm:grid-cols-2 md:grid-cols-[1fr,1fr,1.8fr]"
+                  "max-w-[900px] grid-cols-1 sm:grid-cols-2 xl:grid-cols-[1fr,1fr,1.8fr]"
                 }
             ${
               !["Replies", "Coins Launched", "Buzz engage"].includes(
                 selectedName
               ) &&
-              "max-w-[860px] grid-cols-1 sm:grid-cols-2 md:grid-cols-[1fr,1fr,1.5fr]"
+              "max-w-[860px] grid-cols-1 sm:grid-cols-2 xl:grid-cols-[1fr,1fr,1.5fr]"
             }
           `}
           >
@@ -113,8 +113,8 @@ const ProfilePage = () => {
                   <button className="px-2 py-1 text-[10px] font-normal text-white-1 bg-[#404040]">
                     Generate
                   </button>
-                  <button className="w-[18px] h-[18px] bg-white-1 flex justify-center items-center">
-                    <FiCopy className="text-black-1 text-[12px]" />
+                  <button className="w-[18px] h-[18px] bg-black-1 flex justify-center items-center">
+                    <FiCopy className="text-white-1 text-[12px]" />
                   </button>
                 </div>
                 {/* reactions to profile */}
@@ -134,7 +134,7 @@ const ProfilePage = () => {
                 </div>
                 {/* follow button */}
                 <button className="bg-yellow-1 p-1 w-fit">
-                  <div className="text-[10px] font-normal text-white-1 bg-black-1 w-fit px-1 py-[2px]">
+                  <div className="text-[10px] font-normal text-black-1 dark:text-white-1 bg-white-1 dark:bg-black-1 w-fit px-1 py-[2px]">
                     Follow
                   </div>
                 </button>

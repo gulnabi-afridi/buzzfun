@@ -11,13 +11,13 @@ const BuzzEngage: React.FC = () => {
   const [sortOption, setSortOption] = useState("All");
 
   return (
-    <div className="w-full md:mt-0 mt-0 sm:mt-5 md:col-span-1 col-span-1 sm:col-span-2  flex justify-center items-center">
+    <div className="w-full md:mt-0 mt-0 sm:mt-5 xl:col-span-1 col-span-2  flex justify-center items-center">
       <div className="w-full max-w-[450px] flex flex-col gap-3">
         <p className="text-[14px] w-fit font-normal dark:bg-yellow-1 bg-transparent px-2 py-[2px] rounded-[2px] text-black-1 ">
           Buzz Engage
         </p>
         <div className="flex justify-start items-center gap-3">
-          <p className="text-[16px] font-normal text-white-1">Sort by</p>
+          <p className="text-[16px] font-normal text-black-1 dark:text-white-1">Sort by</p>
           <CustomMenu
             size="!w-[150px]"
             options={sortOptions}
@@ -33,22 +33,22 @@ const BuzzEngage: React.FC = () => {
           />
         </div>
         {/* cards ---> */}
-        <div className="w-full border-[1px] h-[700px] overflow-auto rounded-[2px] p-2 border-[#317C85] flex flex-col">
+        <div className="w-full border-[1px] h-[700px] overflow-auto rounded-[2px] p-2 border-blue-1 dark:border-[#317C85] flex flex-col">
           {[0, 1, 2, 3, 4, 5].map((item, index) => {
             return (
               <div key={index} className="w-full flex flex-col">
-                <div className="w-full bg-black-1 p-3 rounded-[2px] border-white-1/20 border-[1px] flex justify-between items-center">
+                <div className="w-full bg-white-1 dark:bg-black-1 p-3 rounded-[2px] border-white-1/20 border-[1px] flex justify-between items-center">
                   {/* 1st col  */}
                   <div className="w-full flex flex-col items-start gap-3">
-                    <p className="text-[12px] font-normal text-yellow-1">
+                    <p className="text-[12px] font-normal text-blue-1 dark:text-yellow-1">
                       Like and Retweet
                     </p>
-                    <p className="text-[12px] font-normal text-white-1">
+                    <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
                       Status: Active
                     </p>
                     <div className="flex justify-center items-center gap-2">
-                      <LuClock4 className="text-[14px] text-white-1" />
-                      <p className="text-[12px] font-normal text-white-1">
+                      <LuClock4 className="text-[14px] text-black-1 dark:text-white-1" />
+                      <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
                         2D:12HRS:54min
                       </p>
                     </div>

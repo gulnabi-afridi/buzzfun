@@ -4,7 +4,7 @@ import Pagination from "../shared/Pagination";
 
 const CoinsHeld: React.FC = () => {
   return (
-    <div className="w-full md:mt-0 mt-0 sm:mt-5 md:col-span-1 col-span-1 sm:col-span-2 flex justify-center items-center">
+    <div className="w-full md:mt-0 mt-0 sm:mt-5 xl:col-span-1 col-span-2 flex justify-center items-center">
       <div className="w-full max-w-[400px] flex flex-col gap-3">
         <p className="text-[14px] w-fit rounded-[2px] font-normal dark:bg-yellow-1 px-2 py-[2px] text-black-1 ">
           Coins Held
@@ -13,7 +13,7 @@ const CoinsHeld: React.FC = () => {
           {[0, 1, 2, 3, 4].map((item, index) => {
             return (
               <div key={index} className="w-full flex flex-col">
-                <div className="flex bg-black-1 border-[1px] rounded-[2px] border-white-1/20 p-2 w-full justify-between items-center">
+                <div className="flex bg-white-1 dark:bg-black-1 border-[1px] rounded-[2px] border-white-1/20 p-2 w-full justify-between items-center">
                   <div className="flex justify-center items-center gap-4">
                     <div className="w-[43px] h-[43px] relative">
                       <Image
@@ -49,7 +49,7 @@ const CoinsHeld: React.FC = () => {
                     </p>
                   </div>
                 </div>
-                <div className="w-full border-b-[1px] my-4 border-dashed border-[#FEF652]"></div>
+                <div className="w-full border-b-[1px] my-4 border-dashed bg-blue-1 dark:border-[#FEF652]"></div>
               </div>
             );
           })}

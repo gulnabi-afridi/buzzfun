@@ -38,7 +38,7 @@ const TokenCards: React.FC = () => {
   return (
     <React.Fragment>
       {!showCoinDetails ? (
-        <div className="w-full grid grid-cols-1 cmd:grid-cols-2 3xl:grid-cols-3 gap-3">
+        <div className="w-full grid grid-cols-1 xl:grid-cols-2 3xl:grid-cols-3 gap-3">
           {/* 1st col ----> */}
           <div className="w-full flex justify-center items-center">
             <div className="w-full max-w-[470px] h-full flex justify-center items-center">
@@ -239,7 +239,7 @@ const TokenCards: React.FC = () => {
           </div>
           {/* 3rd col --------> */}
           <div className="w-full flex justify-center items-center">
-            <div className="w-full max-w-[450px] h-full flex justify-center items-center">
+            <div className="w-full max-w-[470px] h-full flex justify-center items-center">
               <div className="w-full h-full border-[1px] border-[#535353] max-w-[500px] dark:bg-black-1 bg-transparent rounded-[5px] py-4 px-3 flex flex-col gap-4">
                 {/* top header ---> */}
                 <div className="w-full flex justify-between items-center gap-2">

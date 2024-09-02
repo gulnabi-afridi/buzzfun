@@ -49,10 +49,10 @@ const Hero = () => {
         {/* open chat  */}
         <OpenChartBtn />
         <div
-          className={`w-full flex flex-col max-w-[1400px] mt-4 px-4 py-3 dark:bg-transparent dark:border-transparent bg-white-1 border-[2px] border-black-1 rounded-[5px]`}
+          className={`w-full flex flex-col max-w-[1400px] mt-4 px-4 py-3 dark:bg-transparent dark:border-transparent bg-transparent border-[2px] border-black-1 rounded-[5px]`}
         >
           <div
-            className={`w-full grid gap-y-8 gap-x-4 grid-cols-2 3xl:grid-cols-[1fr,.9fr,1fr]`}
+            className={`w-full grid gap-y-8 gap-x-4 grid-cols-1 xl:grid-cols-2 3xl:grid-cols-[1fr,.9fr,1fr]`}
           >
             {/* 1st col ----------------------------------> */}
             <div className="w-full h-full flex justify-center items-center">

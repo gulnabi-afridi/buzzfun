@@ -13,6 +13,8 @@ import { MdOutlineStarOutline } from "react-icons/md";
 import { MdPerson } from "react-icons/md";
 import { useDisclosure } from "@mantine/hooks";
 import FilterDrawer from "../shared/Drawers/FilterDrawer";
+import { CiUser } from "react-icons/ci";
+
 
 const CoinStatsCards: React.FC = () => {
   const [filterDrawer, { open: openFilterDrawer, close: closeFilterDrawer }] =
@@ -21,7 +23,7 @@ const CoinStatsCards: React.FC = () => {
   return (
     <React.Fragment>
       <div className="w-full flex gap-6 flex-col mt-3 bg-transparent dark:bg-[#0E161C] rounded-[5px] border-[1px] border-[#38394A] py-4 px-2">
-        <div className="w-full grid grid-cols-2 3xl:grid-cols-3 gap-3">
+        <div className="w-full grid grid-cols-1 xl:grid-cols-2 3xl:grid-cols-3 gap-3">
           {coinsStatsCards.map((item, index) => {
             return (
               <div
@@ -135,12 +137,7 @@ const CoinStatsCards: React.FC = () => {
                                   </p>
                                   <hr className=" h-[14px] border-r-[1px] border-[#B746F0]" />
                                   <div className="flex gap-1 justify-center items-center">
-                                    <Image
-                                      src="/assets/user.svg"
-                                      alt=""
-                                      width={10}
-                                      height={12}
-                                    />
+                                   <CiUser className="text-[16px] text-black-1 dark:text-white-1"/>
                                     <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
                                       7%
                                     </p>
@@ -161,7 +158,7 @@ const CoinStatsCards: React.FC = () => {
                                   <hr className=" h-[14px] border-r-[1px] border-[#B746F0]" />
 
                                   <div className="flex justify-center items-center gap-1">
-                                    <GoGraph className="text-[16px] text-white-1" />
+                                    <GoGraph className="text-[16px] text-black-1 dark:text-white-1" />
                                     <p className="text-[14px] w-full flex justify-start font-normal dark:text-[#00C673] text-black-1">
                                       1%
                                     </p>

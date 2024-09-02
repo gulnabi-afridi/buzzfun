@@ -26,7 +26,7 @@ const FilterDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
       overlayProps={{ backgroundOpacity: 0, blur: 0 }}
       classNames={{
         content:
-          "!bg-[#1D252C] border-[1px] border-[#2B2C39] !h-[calc(100vh-106px)] !mt-[106px] !overflow-auto",
+          "!bg-white-1 dark:!bg-[#1D252C] border-[1px] border-[#2B2C39] !h-[calc(100vh-106px)] !mt-[106px] !overflow-auto",
       }}
     >
       <div className="w-full justify-between h-[calc(100vh-146px)]  gap-3 flex flex-col">
@@ -59,7 +59,7 @@ const FilterDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
                       classNames={{
                         body: "!flex !w-full !justify-between",
                         root: "!w-full",
-                        label: "text-[12px] font-normal !text-white-1",
+                        label: "text-[12px] font-normal !text-black-1 dark:!text-white-1",
                         input: "!bg-black-1 !border-transparent",
                       }}
                       label={item}
@@ -85,7 +85,7 @@ const FilterDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
                   key={index}
                   className="w-full flex justify-between items-center"
                 >
-                  <p className="text-[12px] font-normal text-white-1">
+                  <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
                     {item.label}
                   </p>
                   <div className="flex justify-center items-center gap-2">

@@ -10,15 +10,17 @@ import { GoGraph } from "react-icons/go";
 import { MdPerson } from "react-icons/md";
 import { FiArrowUp } from "react-icons/fi";
 import { IoCopy } from "react-icons/io5";
+import { FaUser } from "react-icons/fa6";
+
 
 const CoinsLaunched: React.FC = () => {
   return (
-    <div className="w-full md:mt-0 mt-0 sm:mt-5 md:col-span-1 col-span-1 sm:col-span-2  flex justify-center items-center">
+    <div className="w-full md:mt-0 mt-0 sm:mt-5 xl:col-span-1 col-span-2  flex justify-center items-center">
       <div className="w-full max-w-[450px] flex flex-col gap-3">
         <p className="text-[14px] w-fit font-normal dark:bg-yellow-1 bg-transparent px-2 py-[2px] rounded-[2px] text-black-1 ">
           Coin launched
         </p>
-        <p className="text-[14px] font-normal text-white-1">
+        <p className="text-[14px] font-normal text-black-1 dark:text-white-1">
           [Coins you have created]
         </p>
         {/* launched coins */}
@@ -28,7 +30,7 @@ const CoinsLaunched: React.FC = () => {
             return (
               <div
                 key={index}
-                className="w-full grid border-[1px] border-white-1/20 rounded-[2px] py-[6px] relative gap-2 bg-transparent dark:bg-black-1 grid-cols-[65px,1fr] px-[8px]"
+                className="w-full grid border-[1px] border-white-1/20 rounded-[2px] py-[6px] relative gap-2 bg-white-1 dark:bg-black-1 grid-cols-[65px,1fr] px-[8px]"
               >
                 {/* coin image */}
                 <div className="w-full border-[1px] border-[#FEF652] rounded-[5px] h-[65px] relative">
@@ -73,12 +75,7 @@ const CoinsLaunched: React.FC = () => {
                       </p>
                       <hr className=" h-[14px] border-r-[1px] border-[#B746F0]" />
                       <div className="flex gap-1 justify-center items-center">
-                        <Image
-                          src="/assets/user.svg"
-                          alt=""
-                          width={10}
-                          height={12}
-                        />
+                      <FaUser className="text-[14px] text-black-1 dark:text-white-1"/>
                         <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
                           7%
                         </p>
@@ -120,7 +117,7 @@ const CoinsLaunched: React.FC = () => {
 
                       <div className="flex justify-center items-center gap-1">
                         <MdPerson className="text-[14px] text-black-1 dark:text-white-1" />
-                        <p className="text-[12px] font-normal text-white-1">
+                        <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
                           3
                         </p>
                       </div>
@@ -130,7 +127,7 @@ const CoinsLaunched: React.FC = () => {
                         <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
                           V
                         </p>
-                        <p className="text-[12px] font-normal text-white-1">
+                        <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
                           $3204
                         </p>
                       </div>
@@ -140,7 +137,7 @@ const CoinsLaunched: React.FC = () => {
                         <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
                           MC
                         </p>
-                        <p className="text-[12px] font-normal text-white-1">
+                        <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
                           $4k
                         </p>
                       </div>

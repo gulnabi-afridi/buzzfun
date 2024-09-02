@@ -4,7 +4,7 @@ import Pagination from "../shared/Pagination";
 
 const Replies: React.FC = () => {
   return (
-    <div className="w-full md:mt-0 mt-0 sm:mt-5 md:col-span-1 col-span-1 sm:col-span-2 flex justify-center items-center">
+    <div className="w-full md:mt-0 mt-0 sm:mt-5 xl:col-span-1 col-span-2 flex justify-center items-center">
       <div className="w-full bg-transparent max-w-[500px] overflow-auto flex gap-3 flex-col rounded-[2px] px-3 py-3">
         <p className="text-[14px] font-normal bg-yellow-1 w-fit px-2 py-[2px] rounded-[2px] text-black-1 ">Replies</p>
         <p className="text-[14px] font-normal dark:text-white-1 text-black-1">
@@ -16,7 +16,7 @@ const Replies: React.FC = () => {
             return (
               <div
                 key={index}
-                className="w-full bg-black-1 p-2 flex flex-col gap-2"
+                className="w-full bg-white-1 dark:bg-black-1 p-2 flex flex-col gap-2"
               >
                 {/* replyer details ---- */}
                 <div className="flex justify-start items-center gap-2">
