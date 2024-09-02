@@ -19,7 +19,7 @@ interface Props {
 }
 
 const ChatDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
-  const [isNewUser, setNewUser] = useState(false);
+  const [isNewUser, setNewUser] = useState(true);
   const [showSetting, setSetting] = useState(false);
   const [showChatInformation, setChatInformation] = useState(false);
   const [settingOption, setSettingOption] = useState("Chat permissions");
@@ -90,13 +90,13 @@ const ChatDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
               <div
                 className={`w-full ${
                   showChatInformation ? "hidden" : "flex"
-                } bg-transparent dark:bg-[#1B2A35] px-4 h-[50px] justify-between items-center`}
+                } bg-[#1B2A35] px-4 h-[50px] justify-between items-center`}
               >
                 <div className="flex px-2 py-[4px] bg-white-1 dark:bg-black-1 justify-center items-center gap-2">
-                  <p className="text-[14px] font-bold text-white-1 dark:text-white-1">
+                  <p className="text-[14px] font-bold text-black-1 dark:text-white-1">
                     News
                   </p>
-                  <p className="bg-[#FF0000] px-[8px] py-[0px] text-white-1">
+                  <p className="bg-[#FF0000] px-[8px] py-[0px] text-black-1 dark:text-white-1">
                     2
                   </p>
                 </div>

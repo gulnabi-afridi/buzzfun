@@ -26,7 +26,7 @@ const ChatInformation: React.FC = () => {
           return (
             <div
               key={index}
-              className="w-full grid px-6 grid-cols-[100px,1fr] gap-8 justify-center items-center py-3 border-b-[1px] border-white-1/10"
+              className="w-full grid px-6 grid-cols-[100px,1fr] gap-8 justify-center items-center py-3 border-b-[1px] border-blue-1/20 dark:border-white-1/10"
             >
               <p className="w-full flex justify-start text-[14px] font-normal text-blue-1 items-center">
                 {item.type}
@@ -39,14 +39,14 @@ const ChatInformation: React.FC = () => {
                   return (
                     <p
                       key={index}
-                      className="text-[14px] font-normal text-white-1 underline"
+                      className="text-[14px] font-normal text-black-1 dark:text-white-1 underline"
                     >
                       {ls}
                     </p>
                   );
                 })}
                 {item.des && (
-                  <p className="text-[14px] font-normal text-white-1">
+                  <p className="text-[14px] font-normal text-black-1 dark:text-white-1">
                     {item.des}
                   </p>
                 )}
@@ -60,9 +60,6 @@ const ChatInformation: React.FC = () => {
 };
 
 export default ChatInformation;
-
-
-
 
 const chatInformation = [
   {

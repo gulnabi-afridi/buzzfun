@@ -19,10 +19,10 @@ const SettingSidebar: React.FC<Props> = ({
         <div className="w-full flex p-4 items-start flex-col gap-3">
           <button
             onClick={() => setSettingShow(false)}
-            className="text-[14px] font-normal text-white-1"
+            className="text-[14px] font-normal text-black-1 dark:text-white-1"
           >{`<< Go Back`}</button>
-          <button className="text-[14px] font-semibold text-[#FEF652]">{`<Settings>`}</button>
-          <button className="text-[14px] font-normal text-[#FEF652]">{`----------------`}</button>
+          <button className="text-[14px] font-semibold text-blue-1 dark:text-[#FEF652]">{`<Settings>`}</button>
+          <button className="text-[14px] font-normal text-blue-1 dark:text-[#FEF652]">{`----------------`}</button>
         </div>
         <div className="w-full flex flex-col items-start gap-1 px-2">
           {settings.map((item, index) => {
@@ -30,7 +30,7 @@ const SettingSidebar: React.FC<Props> = ({
               <button
                 key={index}
                 onClick={() => setSelectedSetting(item)}
-                className={`w-full h-[34px] text-left pl-4 text-[14px] font-bold text-white-1 ${
+                className={`w-full h-[34px] text-left pl-4 text-[14px] font-bold text-black-1 dark:text-white-1 ${
                   selectedSetting === item &&
                   "relative after:absolute after:w-[5px] after:h-full after:right-0 after:top-0 after:bg-[#004BFE] before:absolute before:w-[5px] before:h-full before:bg-[#004BFE] before:left-0 before:top-0"
                 } `}

@@ -44,7 +44,7 @@ const RightSideBar: React.FC = () => {
             onClick={() => setSearch(!showSearch)}
             className="w-full flex justify-end items-center"
           >
-            <LuSearch className="text-[20px] text-white-1" />
+            <LuSearch className="text-[20px] text-black-1 dark:text-white-1" />
           </button>
         </div>
 

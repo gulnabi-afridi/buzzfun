@@ -31,11 +31,11 @@ const ConfirmationModal: React.FC<Props> = ({
       centered
       withCloseButton={false}
       size={size}
-      classNames={{ content: "!bg-black-1 !p-0" }}
+      classNames={{ content: "!bg-white-2 dark:!bg-black-1 !p-0" }}
     >
-      <div className="w-full flex flex-col gap-3 p-5 bg-black-1 border-[1px] border-white-1">
-        <p className="text-[14px] font-normal text-[#FEF652]">{title}</p>
-        <p className="text-[14px] font-normal text-white-1">{des1}</p>
+      <div className="w-full flex flex-col gap-3 p-1 dark:p-5 bg-white-2 dark:bg-black-1 border-[1px] border-transparent dark:border-white-1">
+        <p className="text-[14px] font-normal text-blue-1 dark:text-[#FEF652]">{title}</p>
+        <p className="text-[14px] font-normal text-black-1 dark:text-white-1">{des1}</p>
         {des2 && (
           <p className="text-[11px] font-normal text-[#6D6D6D] mt-3">
             You will no longer be the owner of this group chat.
@@ -53,7 +53,7 @@ const ConfirmationModal: React.FC<Props> = ({
           </button>
           <button
             onClick={btn2Event}
-            className="w-full hover:bg-[#FEF652] hover:text-black-1 text-white-1 bg-transparent h-full flex justify-center items-center relative after:w-[5px] after:h-full after:bg-[#336FFE] after:absolute after:top-0 after:right-0"
+            className="w-full hover:bg-[#FEF652] hover:text-black-1 text-black-1 dark:text-white-1 bg-transparent h-full flex justify-center items-center relative after:w-[5px] after:h-full after:bg-[#336FFE] after:absolute after:top-0 after:right-0"
           >
             {btn2}
           </button>

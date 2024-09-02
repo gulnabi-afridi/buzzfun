@@ -128,33 +128,33 @@ const Mods: React.FC = () => {
                     {/* ist col */}
                     <div className="w-full flex justify-center items-start gap-[2px] flex-col">
                       <p className="text-[14px] font-normal text-blue-1">{`<Username>`}</p>
-                      <p className="text-[14px] text-center font-normal text-white-1">
+                      <p className="text-[14px] text-center font-normal text-black-1 dark:text-white-1">
                         [Role]
                       </p>
                     </div>
                     {/* 2nd col */}
                     <div className="w-full flex gap-7 justify-start items-center">
                       <button>
-                        <IoCopySharp className="text-white-1 text-[16px]" />
+                        <IoCopySharp className="text-black-1 dark:text-white-1 text-[16px]" />
                       </button>
                       <button className="flex justify-center items-center gap-2">
-                        <FiMessageCircle className="text-white-1 text-[18px]" />
-                        <p className="text-[14px] font-normal text-white-1">
+                        <FiMessageCircle className="text-black-1 dark:text-white-1 text-[18px]" />
+                        <p className="text-[14px] font-normal text-black-1 dark:text-white-1">
                           1,234
                         </p>
                       </button>
                       <button className="flex justify-center items-center gap-2">
-                        <FaRegCalendarCheck className="text-white-1 text-[20px]" />
-                        <p className="text-[14px] font-normal text-white-1">
+                        <FaRegCalendarCheck className="text-black-1 dark:text-white-1 text-[20px]" />
+                        <p className="text-[14px] font-normal text-black-1 dark:text-white-1">
                           12days
                         </p>
                       </button>
                     </div>
                     {/* 3rd col  */}
                     <div className="w-full flex justify-center gap-6 items-center">
-                      <LuCrown className="text-[22px] cursor-pointer text-white-1" />
-                      <RiPushpin2Line className="text-[22px] cursor-pointer text-white-1" />
-                      <FaFilter className="text-[20px] cursor-pointer text-white-1" />
+                      <LuCrown className="text-[22px] cursor-pointer text-black-1 dark:text-white-1" />
+                      <RiPushpin2Line className="text-[22px] cursor-pointer text-black-1 dark:text-white-1" />
+                      <FaFilter className="text-[20px] cursor-pointer text-black-1 dark:text-white-1" />
                     </div>
                     {/* 4rth col  */}
                     <div className="w-full flex justify-end items-center">
@@ -167,7 +167,7 @@ const Mods: React.FC = () => {
                         size="!w-[160px]"
                         targetComponent={
                           <button className="w-full flex justify-end items-center">
-                            <HiOutlineDotsHorizontal className="text-[20px] text-white-1" />
+                            <HiOutlineDotsHorizontal className="text-[20px] text-black-1 dark:text-white-1" />
                           </button>
                         }
                       />

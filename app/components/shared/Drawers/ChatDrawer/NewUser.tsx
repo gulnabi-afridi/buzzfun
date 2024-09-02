@@ -41,7 +41,7 @@ const NewUser: React.FC = () => {
               <p className="text-[14px] font-normal text-[#004BFE]">
                 Subheading
               </p>
-              <p className="text-[12px] font-normal text-white-1">{`<MAIN TEXT GOES HERE> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem.`}</p>
+              <p className="text-[12px] font-normal text-black-1 dark:text-white-1">{`<MAIN TEXT GOES HERE> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem.`}</p>
             </div>
             {/* links  */}
             <div className="w-full flex justify-center items-center gap-2 flex-col">
@@ -51,7 +51,7 @@ const NewUser: React.FC = () => {
                   return (
                     <p
                       key={index}
-                      className="text-white-1 font-normal text-[14px]"
+                      className="text-black-1 dark:text-white-1 font-normal text-[14px]"
                     >
                       {link}
                     </p>

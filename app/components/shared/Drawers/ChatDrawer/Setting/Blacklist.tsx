@@ -102,29 +102,29 @@ const Blacklist: React.FC = () => {
             return (
               <div
                 key={index}
-                className="w-full grid border-b-[1px] border-white-1/10 py-2 px-6 grid-cols-[1fr,2fr,1fr]"
+                className="w-full grid border-b-[1px] border-blue-1/20 dark:border-white-1/10 py-2 px-6 grid-cols-[1fr,2fr,1fr]"
               >
                 {/* ist col */}
                 <div className="w-full flex justify-center items-start gap-[2px] flex-col">
                   <p className="text-[14px] font-normal text-blue-1">{`<Username>`}</p>
-                  <p className="text-[14px] text-center font-normal text-white-1">
+                  <p className="text-[14px] text-center font-normal text-black-1 dark:text-white-1">
                     [Role]
                   </p>
                 </div>
                 {/* 2nd col */}
                 <div className="w-full flex gap-7 justify-start items-center">
                   <button>
-                    <IoCopySharp className="text-white-1 text-[16px]" />
+                    <IoCopySharp className="text-black-1 dark:text-white-1 text-[16px]" />
                   </button>
                   <button className="flex justify-center items-center gap-2">
-                    <FiMessageCircle className="text-white-1 text-[18px]" />
-                    <p className="text-[14px] font-normal text-white-1">
+                    <FiMessageCircle className="text-black-1 dark:text-white-1 text-[18px]" />
+                    <p className="text-[14px] font-normal text-black-1 dark:text-white-1">
                       1,234
                     </p>
                   </button>
                   <button className="flex justify-center items-center gap-2">
-                    <FaRegCalendarCheck className="text-white-1 text-[20px]" />
-                    <p className="text-[14px] font-normal text-white-1">
+                    <FaRegCalendarCheck className="text-black-1 dark:text-white-1 text-[20px]" />
+                    <p className="text-[14px] font-normal text-black-1 dark:text-white-1">
                       12days
                     </p>
                   </button>
@@ -140,23 +140,23 @@ const Blacklist: React.FC = () => {
                   {userDetail.isMute ? (
                     <BsVolumeMuteFill
                       onClick={openMuteModal}
-                      className="text-[22px] cursor-pointer text-white-1"
+                      className="text-[22px] cursor-pointer text-black-1 dark:text-white-1"
                     />
                   ) : (
                     <GoUnmute
                       onClick={openMuteModal}
-                      className="text-[22px] cursor-pointer text-white-1"
+                      className="text-[22px] cursor-pointer text-black-1 dark:text-white-1"
                     />
                   )}
                   {userDetail.timeout === "" ? (
                     <FiClock
                       onClick={openTimeOutModal}
-                      className="text-[22px] cursor-pointer text-white-1"
+                      className="text-[22px] cursor-pointer text-black-1 dark:text-white-1"
                     />
                   ) : (
                     <LuTimerOff
                       onClick={openTimeOutModal}
-                      className="text-[22px] cursor-pointer text-white-1"
+                      className="text-[22px] cursor-pointer text-black-1 dark:text-white-1"
                     />
                   )}
                 </div>
@@ -221,7 +221,7 @@ const Blacklist: React.FC = () => {
                   className={`text-[10px] ${
                     timeOut === item &&
                     "border-[1px] p-1 rounded-[2px] border-blue-1"
-                  } font-normal text-white-1`}
+                  } font-normal text-black-1 dark:text-white-1`}
                 >
                   {item}
                 </button>

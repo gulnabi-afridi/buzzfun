@@ -257,7 +257,7 @@ const Chat: React.FC<Props> = ({ setSetting, setChatInformation }: Props) => {
               industry.Lorem Ipsum passages, and more recently with desktop
               publishing software like{" "}
             </p>
-            <button className="bg-[#D4DDE6] dark:bg-[#1D252C] p-2 flex flex-col justify-center items-center w-full">
+            <button className="bg-[#D4DDE6] dark:bg-[#1D252C] p-2 gap-1 flex flex-col justify-center items-center w-full">
               <p className="text-[14px] font-normal text-black-1 bg-yellow-1 px-[4px]">
                 /SEND
               </p>
@@ -323,7 +323,7 @@ const Chat: React.FC<Props> = ({ setSetting, setChatInformation }: Props) => {
                 className={`text-[10px] ${
                   timeOut === item &&
                   "border-[1px] p-1 rounded-[2px] border-blue-1"
-                } font-normal text-white-1`}
+                } font-normal text-black-1 dark:text-white-1`}
               >
                 {item}
               </button>
