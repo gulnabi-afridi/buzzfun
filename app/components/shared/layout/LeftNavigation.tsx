@@ -185,8 +185,8 @@ const menuLinks = [
     icon: <Icons.Profile className="w-[21px] h-[21px]" />,
   },
   {
-    path: "#",
-    name: "/create-a-coin",
+    path: "/create-a-coin",
+    name: "Watchlist",
     icon: <Icons.Watchlist className="w-[22px] h-[21px]" />,
   },
   {
