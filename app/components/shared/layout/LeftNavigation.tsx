@@ -186,7 +186,7 @@ const menuLinks = [
   },
   {
     path: "#",
-    name: "Watchlist",
+    name: "/create-a-coin",
     icon: <Icons.Watchlist className="w-[22px] h-[21px]" />,
   },
   {

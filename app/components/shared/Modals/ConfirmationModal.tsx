@@ -53,7 +53,7 @@ const ConfirmationModal: React.FC<Props> = ({
           </button>
           <button
             onClick={btn2Event}
-            className="w-full hover:bg-[#FEF652] hover:text-black-1 text-black-1 dark:text-white-1 bg-transparent h-full flex justify-center items-center relative after:w-[5px] after:h-full after:bg-[#336FFE] after:absolute after:top-0 after:right-0"
+            className="w-full hover:bg-[#FEF652] hover:dark:text-black-1 text-black-1 dark:text-white-1 bg-transparent h-full flex justify-center items-center relative after:w-[5px] after:h-full after:bg-[#336FFE] after:absolute after:top-0 after:right-0"
           >
             {btn2}
           </button>

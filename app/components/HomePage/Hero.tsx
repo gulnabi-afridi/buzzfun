@@ -402,9 +402,9 @@ const Hero = () => {
 
       <ChatDrawer open={opened} closeDrawer={close} />
       {/* <ProcessModal open={activeModal} onClose={closeProcessModal} /> */}
-      {/* <TransactionModal open={activeModal} onClose={closeProcessModal} /> */}
+      <TransactionModal open={activeModal} onClose={closeProcessModal} />
       {/* <SuccessModal open={activeModal} onClose={closeProcessModal} /> */}
-      <FailedModal open={activeModal} onClose={closeProcessModal} />
+      {/* <FailedModal open={activeModal} onClose={closeProcessModal} /> */}
     </React.Fragment>
   );
 };
