@@ -67,6 +67,8 @@ const CreatCoin: React.FC = () => {
   );
 };
 
+
+
 const list = [
   "Create a Token",
   "Take care of community",
