@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const CoinLabel: React.FC = () => {
   return (
-    <div className="bg-white-1  flex justify-center items-center px-2 py-1 navibarCardSh rounded-[2px] gap-2">
+    <div className="bg-white-1  flex justify-center items-center px-2 py-2 navibarCardSh rounded-[2px] gap-2">
       <Image
         src="/assets/green.svg"
         className="object-fill"

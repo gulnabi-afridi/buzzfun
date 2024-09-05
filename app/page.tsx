@@ -10,6 +10,7 @@ import Breadcrumb from "./components/shared/layout/Breadcrumb";
 import CoinStatsCards from "./components/HomePage/CoinStatsCards";
 import CoinLabel from "./components/ForSmallScreen/CoinLabel";
 import { Select } from "@mantine/core";
+import CreatCoin from "./components/ForSmallScreen/CreateToken";
 
 export default function Home() {
   return (
@@ -21,11 +22,8 @@ export default function Home() {
         <div className="csm:hidden block pt-4">
           <CoinLabel />
         </div>
-        <Select
-         classNames={{input:'!h-[45px] !bg-black-1 !border-blue-1'}}
-          placeholder="Pick value"
-          data={["React", "Angular", "Vue", "Svelte"]}
-        />
+        <CreatCoin/>
+      
         <div className="flex min-h-screen flex-col">
           {/* Hero Section */}
           <Hero />
