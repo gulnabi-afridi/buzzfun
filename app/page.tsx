@@ -12,6 +12,7 @@ import CoinLabel from "./components/ForSmallScreen/CoinLabel";
 import { Select } from "@mantine/core";
 import CreatCoin from "./components/ForSmallScreen/CreateToken";
 import Image from "next/image";
+import StatsSmallScreen from "./components/ForSmallScreen/StatsSmallScreen";
 
 export default function Home() {
   return (
@@ -28,7 +29,12 @@ export default function Home() {
         </div>
 
         <div className="w-full mt-4 csm:hidden block h-[215px] relative">
-          <Image src="/assets/buzzFun.png" alt="" fill className="border-[1px] object-cover border-[#555555] rounded-[6px]"/>
+          <Image
+            src="/assets/buzzFun.png"
+            alt=""
+            fill
+            className="border-[1px] object-cover border-[#555555] rounded-[6px]"
+          />
         </div>
 
         <div className="flex min-h-screen flex-col">
@@ -42,6 +48,9 @@ export default function Home() {
             <SearchBar />
             {/* Coin Table */}
             <CoinTable />
+          </div>
+          <div className="w-full csm:hidden block">
+            <StatsSmallScreen />
           </div>
           {/* Stats */}
           {/* <Stats /> */}
