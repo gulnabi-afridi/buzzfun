@@ -12,6 +12,7 @@ import { MdOutlineStarBorder } from "react-icons/md";
 import { BsChatLeftText } from "react-icons/bs";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import CustomModal from "../Modals/CustomModal";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 const Navibar: React.FC = () => {
   const [connectWalletOpened, { open: connectOpen, close: connectClose }] =
@@ -26,7 +27,8 @@ const Navibar: React.FC = () => {
       <div className="w-full  dark:bg-[#201e26] bg-white-2 px-5 flex justify-between items-center h-[65px]">
         {/* left portion */}
         <div className="flex justify-center items-center gap-6">
-          <div className="justify-center md:flex hidden items-center gap-3">
+          {/* for large screen */}
+          <div className="justify-center xl:flex hidden items-center gap-3">
             {socialLinks.map((item, index) => {
               return (
                 <Link
@@ -38,6 +40,10 @@ const Navibar: React.FC = () => {
                 </Link>
               );
             })}
+          </div>
+          {/* logo for small screen */}
+          <div className="w-[177px] xl:hidden block h-[40px] relative">
+            <Image src="/assets/logo2.png" alt="" fill />
           </div>
           <div className="bg-white-1 2xl:flex hidden justify-center items-center px-2 py-1 navibarCardSh rounded-[2px] gap-2">
             <Image
@@ -69,7 +75,7 @@ const Navibar: React.FC = () => {
         </div>
 
         {/* middle portion  */}
-        <div className="relative w-[250px] 3xl:w-[460px] h-[35px]">
+        <div className="relative md:block hidden w-[250px] 3xl:w-[460px] h-[35px]">
           <div className="absolute inset-0 before:right-[0px] before:rounded-[6px] before:bottom-[-0.65px] gradient-border"></div>
           <div className="relative z-10 w-full h-full rounded-[6px] bg-[#1A1721] grid grid-cols-[30px,1fr,30px]">
             <div className="flex justify-center items-center w-full">
@@ -111,7 +117,7 @@ const Navibar: React.FC = () => {
             </div>
           </div>
           {/* postions  */}
-          <div className="relative flex">
+          <div className="relative hidden md:flex">
             <div className="absolute inset-0 before:left-[-.8px] before:right-[-.7px] before:rounded-[6px] before:bottom-[-1.5px] gradient-border"></div>
             <div className="flex !z-10 px-1 py-1 bg-[#1A1721] rounded-[6px] justify-center items-center gap-1">
               <p className="px-[5px] text-[10px] font-normal text-white-1 rounded-[4px] bg-[#449C6E] py-[1px]">
@@ -201,6 +207,10 @@ const Navibar: React.FC = () => {
               </div>
             </Menu.Dropdown>
           </Menu>
+          {/* hamburger  */}
+          <button className="w-[35px] lg:hidden h-[35px] bg-[#EF7216] rounded-[2px] flex justify-center items-center">
+            <RxHamburgerMenu className="text-[22px] text-black-1" />
+          </button>
         </div>
       </div>
       {/* MDOAL FOR CONNECT WALLET -------------->  */}
@@ -235,7 +245,9 @@ const Navibar: React.FC = () => {
                 <div
                   className={`w-[12px] bg-black-1 dark:bg-white-1 flex justify-center items-center h-[12px] `}
                 >
-                  <GoArrowUpRight className={`text-white-1 dark:text-black-1 text-[11px] `} />
+                  <GoArrowUpRight
+                    className={`text-white-1 dark:text-black-1 text-[11px] `}
+                  />
                 </div>
               </div>
               <p className="text-[12px] mt-5 font-normal dark:text-white-1 text-black-1 uppercase">

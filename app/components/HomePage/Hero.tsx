@@ -304,7 +304,7 @@ const Hero = () => {
 
             {/* 3rd col ---------------------------------------> */}
             <div className="w-full h-full flex justify-center items-center">
-              <div className="w-full h-full max-w-[480px] flex flex-col gap-4 justify-between items-center">
+              <div className="w-full h-full max-w-[450px] xl:max-w-[480px] flex flex-col gap-4 justify-between items-center">
                 {/* top bar ---->  */}
                 <div className="w-full py-2 flex justify-center items-center bg-[#EF7216] rounded-[5px]">
                   <p className="text-[13px] font-normal text-black-1">
@@ -399,8 +399,9 @@ const Hero = () => {
         </div>
       </button>
       {/* chat drawer ------------------>  */}
-
-      <ChatDrawer open={opened} closeDrawer={close} />
+      <div className="w-full lg:block hidden">
+        <ChatDrawer open={opened} closeDrawer={close} />
+      </div>
       {/* <ProcessModal open={activeModal} onClose={closeProcessModal} /> */}
       <TransactionModal open={activeModal} onClose={closeProcessModal} />
       {/* <SuccessModal open={activeModal} onClose={closeProcessModal} /> */}

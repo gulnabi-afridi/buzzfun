@@ -29,9 +29,11 @@ export default function RootLayout({
           <div className="w-full">
             {/* left navigation  */}
             <LeftNavigation />
-            <div className="w-full pl-[210px]">
+            <div className="w-full pl-0 xl:pl-[210px]">
               <Navibar />
-              <CoinPercentageDisplay />
+              <div className="csm:block hidden">
+                <CoinPercentageDisplay />
+              </div>
               {children}
             </div>
             <Footer />

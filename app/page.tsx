@@ -8,14 +8,24 @@ import Trusted from "./components/HomePage/Trusted";
 import ImportUrl from "./components/HomePage/ImportUrl";
 import Breadcrumb from "./components/shared/layout/Breadcrumb";
 import CoinStatsCards from "./components/HomePage/CoinStatsCards";
+import CoinLabel from "./components/ForSmallScreen/CoinLabel";
+import { Select } from "@mantine/core";
 
 export default function Home() {
   return (
     <main className="bg-white-2 dark:bg-[#201e26] pb-16 w-full">
       <ComponentWrapper style="">
-        <div className="pt-6">
+        <div className="pt-6 csm:block hidden">
           <Breadcrumb />
         </div>
+        <div className="csm:hidden block pt-4">
+          <CoinLabel />
+        </div>
+        <Select
+         classNames={{input:'!h-[45px] !bg-black-1 !border-blue-1'}}
+          placeholder="Pick value"
+          data={["React", "Angular", "Vue", "Svelte"]}
+        />
         <div className="flex min-h-screen flex-col">
           {/* Hero Section */}
           <Hero />
@@ -24,9 +34,9 @@ export default function Home() {
           <TokenCards />
           {/* Search Bar   */}
           <div className="w-full flex flex-col my-4">
-          <SearchBar />
-          {/* Coin Table */}
-          <CoinTable />
+            <SearchBar />
+            {/* Coin Table */}
+            <CoinTable />
           </div>
           {/* Stats */}
           {/* <Stats /> */}

@@ -18,6 +18,7 @@ import { useDisclosure } from "@mantine/hooks";
 import { FiMinus } from "react-icons/fi";
 import { AiOutlinePlus } from "react-icons/ai";
 
+
 const CoinTable = () => {
   // states --------------->
   const { setTheme, resolvedTheme } = useTheme();
@@ -404,7 +405,10 @@ const CoinTable = () => {
                   </button>
                 </div>
                 {/* save and return button */}
-                <button onClick={handleFlip} className="w-full mt-2 min-h-[51px] bg-yellow-1 text-[20px] font-normal text-black-1 flex justify-center items-center">
+                <button
+                  onClick={handleFlip}
+                  className="w-full mt-2 min-h-[51px] bg-yellow-1 text-[20px] font-normal text-black-1 flex justify-center items-center"
+                >
                   Save & Return
                 </button>
               </div>
