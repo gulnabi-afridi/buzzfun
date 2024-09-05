@@ -18,7 +18,6 @@ import { useDisclosure } from "@mantine/hooks";
 import { FiMinus } from "react-icons/fi";
 import { AiOutlinePlus } from "react-icons/ai";
 
-
 const CoinTable = () => {
   // states --------------->
   const { setTheme, resolvedTheme } = useTheme();
@@ -220,11 +219,11 @@ const CoinTable = () => {
           })}
         </div>
         {/* Pagination */}
-        <div className="w-full grid grid-cols-2 pt-8 pb-6">
-          <div className="w-full flex justify-end items-center">
+        <div className="w-full grid grid-cols-1 csm:grid-cols-2 pt-8 pb-4 csm:pb-6">
+          <div className="w-full flex justify-center csm:justify-end items-center">
             <Pagination />
           </div>
-          <div className="w-full flex justify-end items-center">
+          <div className="w-full hidden csm:flex justify-end items-center">
             <Select
               size="xs"
               classNames={{

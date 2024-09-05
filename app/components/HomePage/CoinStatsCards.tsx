@@ -15,7 +15,6 @@ import { useDisclosure } from "@mantine/hooks";
 import FilterDrawer from "../shared/Drawers/FilterDrawer";
 import { CiUser } from "react-icons/ci";
 
-
 const CoinStatsCards: React.FC = () => {
   const [filterDrawer, { open: openFilterDrawer, close: closeFilterDrawer }] =
     useDisclosure(false);
@@ -42,8 +41,8 @@ const CoinStatsCards: React.FC = () => {
                         onClick={openFilterDrawer}
                         className="px-2 h-[28px] bg-[#1E2025] rounded-[2px] flex justify-center items-center gap-1"
                       >
-                        <FaFilter className="text-[14px] text-white-1" />
-                        <p className="text-[12px] font-normal text-white-1">
+                        <FaFilter className="text-[12px] csm:text-[14px] text-white-1" />
+                        <p className="text-[10px] csm:text-[12px] font-normal text-white-1">
                           Filter
                         </p>
                         <div className="px-1 flex justify-center items-center py-[2px] bg-[#0F171D] rounded-[2px]">
@@ -54,13 +53,13 @@ const CoinStatsCards: React.FC = () => {
                       </button>
                       <div className="px-[6px] py-[3px] gap-1 bg-[#282828] text-white-1 flex justify-center items-center rounded-[2px]">
                         <MdOutlineElectricBolt className="text-[12px] text-[#B746F0]" />
-                        <p className="text-[12px] font-normal text-white-1">
+                        <p className="text-[10px] csm:text-[12px] font-normal text-white-1">
                           Buy:
                         </p>
-                        <p className="text-[12px] font-normal text-white-1">
+                        <p className="text-[10px] csm:text-[12px] font-normal text-white-1">
                           $
                         </p>
-                        <p className="text-[12px] font-normal text-white-1">
+                        <p className="text-[10px] csm:text-[12px] font-normal text-white-1">
                           10
                         </p>
                       </div>
@@ -71,10 +70,10 @@ const CoinStatsCards: React.FC = () => {
                         return (
                           <div
                             key={index}
-                            className="w-full grid py-[6px] relative gap-2 bg-transparent dark:bg-black-1 grid-cols-[65px,1fr] px-[8px]"
+                            className="w-full grid py-[6px] relative gap-2 bg-transparent dark:bg-black-1 grid-cols-[47px,1fr] csm:grid-cols-[65px,1fr] px-[8px]"
                           >
                             {/* coin image */}
-                            <div className="w-full border-[1px] border-[#FEF652] rounded-[5px] h-[65px] relative">
+                            <div className="w-full border-[1px] border-[#FEF652] rounded-[5px] h-[47px] csm:h-[65px] relative">
                               <Image
                                 src="/assets/coin4.png"
                                 alt=""
@@ -87,16 +86,16 @@ const CoinStatsCards: React.FC = () => {
                               {/* coin stats */}
                               <div className="w-full flex flex-col">
                                 {/* top portion */}
-                                <div className="w-full flex justify-between items-center gap-2">
+                                <div className="w-full flex justify-between items-center gap-0 csm:gap-2">
                                   <div className="flex flex-col gap-1">
                                     <div className="flex justify-center items-center gap-2">
-                                      <p className="text-black-1 dark:text-white-1 font-normal text-[12px]">
+                                      <p className="text-black-1 dark:text-white-1 font-normal text-[9px] csm:text-[12px]">
                                         Ticker
                                       </p>
-                                      <p className="text-black-1 dark:text-white-1 font-normal text-[12px]">
+                                      <p className="text-black-1 dark:text-white-1 font-normal text-[9px] csm:text-[12px]">
                                         /
                                       </p>
-                                      <p className="text-black-1 dark:text-white-1 font-normal text-[12px]">
+                                      <p className="text-black-1 dark:text-white-1 font-normal text-[9px] csm:text-[12px]">
                                         Token name
                                       </p>
                                       <Image
@@ -105,17 +104,17 @@ const CoinStatsCards: React.FC = () => {
                                         width={12}
                                         height={12}
                                       />
-                                      <IoCopy className="text-[14px] cursor-pointer text-black-1 dark:text-[#D9D9D9]" />
+                                      <IoCopy className="text-[12px] csm:text-[14px] cursor-pointer text-black-1 dark:text-[#D9D9D9]" />
                                     </div>
                                   </div>
                                   {/*  */}
                                   <div className="flex justify-center items-center">
-                                    <FiArrowUp className="text-[20px] text-[#00C673]" />
+                                    <FiArrowUp className="text-[14px] csm:text-[20px] text-[#00C673]" />
                                     <div className="flex flex-col">
-                                      <p className="text-[10px] font-normal text-[#00C673]">
+                                      <p className="text-[8px] csm:text-[10px] font-normal text-[#00C673]">
                                         BUY
                                       </p>
-                                      <p className="text-[10px] font-normal text-[#00C673]">
+                                      <p className="text-[8px] csm:text-[10px] font-normal text-[#00C673]">
                                         [1]
                                       </p>
                                     </div>
@@ -132,13 +131,13 @@ const CoinStatsCards: React.FC = () => {
                                 </div>
                                 {/* down section */}
                                 <div className="flex justify-start items-center gap-4">
-                                  <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
+                                  <p className="text-[9px] csm:text-[12px] font-normal text-black-1 dark:text-white-1">
                                     3s
                                   </p>
                                   <hr className=" h-[14px] border-r-[1px] border-[#B746F0]" />
                                   <div className="flex gap-1 justify-center items-center">
-                                   <CiUser className="text-[16px] text-black-1 dark:text-white-1"/>
-                                    <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
+                                    <CiUser className="text-[12px] csm:text-[16px] text-black-1 dark:text-white-1" />
+                                    <p className="text-[9px] csm:text-[12px] font-normal text-black-1 dark:text-white-1">
                                       7%
                                     </p>
                                   </div>
@@ -151,15 +150,15 @@ const CoinStatsCards: React.FC = () => {
                                       width={12}
                                       height={12}
                                     />
-                                    <p className="text-[14px] w-full flex justify-start font-normal dark:text-white-1 text-black-1">
+                                    <p className="text-[9px] csm:text-[14px] w-full flex justify-start font-normal dark:text-white-1 text-black-1">
                                       1%
                                     </p>
                                   </div>
                                   <hr className=" h-[14px] border-r-[1px] border-[#B746F0]" />
 
                                   <div className="flex justify-center items-center gap-1">
-                                    <GoGraph className="text-[16px] text-black-1 dark:text-white-1" />
-                                    <p className="text-[14px] w-full flex justify-start font-normal dark:text-[#00C673] text-black-1">
+                                    <GoGraph className="text-[14px] csm:text-[16px] text-black-1 dark:text-white-1" />
+                                    <p className="text-[9px] csm:text-[14px] w-full flex justify-start font-normal dark:text-[#00C673] text-black-1">
                                       1%
                                     </p>
                                   </div>
@@ -168,10 +167,10 @@ const CoinStatsCards: React.FC = () => {
                               {/* coin channel + followers */}
                               <div className="w-full flex justify-between items-center gap-2">
                                 <div className="flex justify-center items-center gap-2">
-                                  <BsChat className="text-[14px] text-black-1 dark:text-white-1" />
-                                  <RiTwitterXFill className="text-[14px] text-black-1 dark:text-white-1" />
-                                  <FaTelegramPlane className="text-[14px] text-black-1 dark:text-white-1" />
-                                  <GrLanguage className="text-[14px] text-black-1 dark:text-white-1" />
+                                  <BsChat className="text-[12px] csm:text-[14px] text-black-1 dark:text-white-1" />
+                                  <RiTwitterXFill className="text-[12px] csm:text-[14px] text-black-1 dark:text-white-1" />
+                                  <FaTelegramPlane className="text-[12px] csm:text-[14px] text-black-1 dark:text-white-1" />
+                                  <GrLanguage className="text-[12px] csm:text-[14px] text-black-1 dark:text-white-1" />
                                 </div>
                                 <div className="flex justify-center items-center gap-2">
                                   <MdOutlineStarOutline className="text-[14px] text-black-1 dark:text-[#EBFF00E8]" />
@@ -179,27 +178,27 @@ const CoinStatsCards: React.FC = () => {
 
                                   <div className="flex justify-center items-center gap-1">
                                     <MdPerson className="text-[14px] text-black-1 dark:text-white-1" />
-                                    <p className="text-[12px] font-normal text-[#00C673]">
+                                    <p className="text-[9px] csm:text-[12px] font-normal text-[#00C673]">
                                       3
                                     </p>
                                   </div>
                                   <hr className=" h-[14px] border-r-[1px] border-[#B746F0]" />
 
                                   <div className="flex justify-center items-center gap-1">
-                                    <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
+                                    <p className="text-[9px] csm:text-[12px]  font-normal text-black-1 dark:text-white-1">
                                       V
                                     </p>
-                                    <p className="text-[12px] font-normal text-[#00C673]">
+                                    <p className="text-[9px] csm:text-[12px]  font-normal text-[#00C673]">
                                       $3204
                                     </p>
                                   </div>
                                   <hr className=" h-[14px] border-r-[1px] border-[#B746F0]" />
 
                                   <div className="flex justify-center items-center gap-1">
-                                    <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
+                                    <p className="text-[9px] csm:text-[12px]  font-normal text-black-1 dark:text-white-1">
                                       MC
                                     </p>
-                                    <p className="text-[12px] font-normal text-[#00C673]">
+                                    <p className="text-[9px] csm:text-[12px]  font-normal text-[#00C673]">
                                       $4k
                                     </p>
                                   </div>
@@ -216,7 +215,7 @@ const CoinStatsCards: React.FC = () => {
             );
           })}
         </div>
-        <p className="text-[10px] font-normal px-2 text-white-1">
+        <p className="text-[10px] csm:block hidden font-normal px-2 text-white-1">
           <span className="text-[#EBFF00]">{`//`}</span>{" "}
           <span className="text-[#B746F0]">{`ô¿ô `}</span>{" "}
           <span className="text-[#EBFF00]">{`+`}</span>{" "}
