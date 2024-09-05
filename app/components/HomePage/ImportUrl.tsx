@@ -13,7 +13,7 @@ const ImportUrl: React.FC = () => {
   if (!mounted) return <div></div>;
 
   return (
-    <div className="w-full my-5 flex justify-center items-center">
+    <div className="w-full my-5 hidden csm:flex justify-center items-center">
       <div className="w-full z-20 max-w-[1350px] relative">
         {/* gradient border */}
         <div className="absolute inset-0 -z-10 before:left-[-1px] before:right-[-1px] before:rounded-[5px] before:bottom-[-1px] gradient-border"></div>

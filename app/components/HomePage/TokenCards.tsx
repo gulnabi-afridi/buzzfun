@@ -18,6 +18,12 @@ import { IoEyeOutline } from "react-icons/io5";
 import { IoIosStarOutline } from "react-icons/io";
 import { Menu } from "@mantine/core";
 import * as Icons from "../shared/SVGs/Icons";
+import { LuBaby } from "react-icons/lu";
+import { RiGraduationCapLine } from "react-icons/ri";
+import { LuChefHat } from "react-icons/lu";
+import { LuCoins } from "react-icons/lu";
+import { MdOutlineEmojiEmotions } from "react-icons/md";
+
 
 const TokenCards: React.FC = () => {
   const [showCoinDetails, setShowCoinDetails] = useState(false);
@@ -38,22 +44,35 @@ const TokenCards: React.FC = () => {
   return (
     <React.Fragment>
       {!showCoinDetails ? (
-        <div className="w-full grid grid-cols-1 xl:grid-cols-2 3xl:grid-cols-3 gap-3">
+        <div className="w-full csm:pt-0 pt-5 grid grid-cols-1 xl:grid-cols-2 3xl:grid-cols-3 gap-3">
           {/* 1st col ----> */}
-          <div className="w-full flex justify-center items-center">
+          <div className="w-full csm:order-1 order-2 flex justify-center items-center">
             <div className="w-full max-w-[470px] h-full flex justify-center items-center">
               <div className="w-full h-full border-[1px] border-[#535353] max-w-[500px] dark:bg-black-1 bg-transparent rounded-[5px] py-4 px-3 flex flex-col gap-4">
                 {/* top header ---> */}
                 <div className="w-full flex justify-between items-center gap-2">
                   {/* left */}
                   <div className="rounded-[3px] bg-[#0F171D] flex gap-3 px-2 py-2">
-                    <p className="text-white-1 text-[10px] font-normal">
+                    <p className="csm:block hidden text-white-1 text-[10px] font-normal">
                       Top Creators
                     </p>
-                    <p className="text-white-1 text-[10px] font-normal">
+                    <p className="csm:hidden block text-yellow-1 text-[10px] font-normal">
+                      Top:
+                    </p>
+                    <div className="bg-[#282828] px-[2px] py-[2px]  csm:hidden block rounded-[3px]">
+                      <LuChefHat className="text-[14px] text-white-1"/>
+                    </div>
+                    <div className="bg-[#282828] px-[2px] py-[2px]  csm:hidden block rounded-[3px]">
+                      <LuCoins className="text-[14px] text-white-1"/>
+                    </div>
+                    <div className="bg-blue-1 px-[2px] py-[2px] csm:hidden block rounded-[3px]">
+                      <MdOutlineEmojiEmotions className="text-[14px] text-white-1"/>
+                    </div>
+                    
+                    <p className="text-white-1 csm:block hidden text-[10px] font-normal">
                       Top XP Tokens
                     </p>
-                    <p className="text-white-1 bg-[#044FFE] px-2 py-[2px] rounded-[2px] text-[10px] font-normal">
+                    <p className="text-white-1 csm:block hidden bg-[#044FFE] px-2 py-[2px] rounded-[2px] text-[10px] font-normal">
                       Top Live Chats
                     </p>
                   </div>
@@ -111,24 +130,38 @@ const TokenCards: React.FC = () => {
             </div>
           </div>
           {/* 2nd col --------> */}
-          <div className="w-full flex justify-center items-center">
+          <div className="w-full overflow-auto flex csm:order-2 order-1 justify-center items-center">
             <div className="w-full max-w-[470px] h-full flex justify-center items-center">
               {/* table ---> */}
-              <div className="w-full h-full flex flex-col gap-4 bg-transparent dark:bg-black-1 border-[1px] border-black-1 dark:border-[#FEF652] rounded-[5px] py-4 px-3">
+              <div className="w-full h-full flex flex-col gap-4 bg-transparent dark:bg-black-1 border-[1px] border-black-1 dark:border-[#535353] csm:dark:border-[#FEF652] rounded-[5px] py-3 csm:py-4 px-2 csm:px-3">
                 {/* table filter -->  */}
                 <div className="flex justify-center items-center gap-2">
                   <div className="flex w-full justify-between items-center">
-                    <div className="flex justify-center items-center gap-2">
-                      <div className="flex px-2 py-2 bg-[#0F171D] rounded-[4px] justify-center items-center gap-3">
-                        <p className="px-[6px] py-[3px] bg-blue-1 text-white-1 font-normal text-[12px] rounded-[2px]">
+                    <div className="flex csm:w-fit w-full justify-center items-center gap-2">
+                      <div className="flex px-2 py-2 bg-[#0F171D] csm:w-fit w-full rounded-[4px] justify-between csm:justify-center items-center gap-3">
+                        <p className="px-[6px] csm:block hidden py-[3px] bg-blue-1 text-white-1 font-normal text-[12px] rounded-[2px]">
                           New Tokens
                         </p>
-                        <p className=" text-white-1 font-normal text-[12px] rounded-[2px]">
+                        <button className="p-[3px] csm:hidden block rounded-[4px] bg-blue-1">
+                          <LuBaby className="text-[13px] text-white-1" />
+                        </button>
+                        <p className=" text-white-1 csm:block hidden font-normal text-[12px] rounded-[2px]">
                           Almost There
                         </p>
-                        <p className=" text-white-1 font-normal text-[12px] rounded-[2px]">
+                        <p className="text-[12px] csm:hidden block bg-[#282828] font-normal text-white-1">{`>69%`}</p>
+                        <p className=" text-white-1 csm:block hidden font-normal text-[12px] rounded-[2px]">
                           Migrating Now
                         </p>
+                        <button className="p-[3px] csm:hidden block rounded-[4px] bg-[#282828]">
+                          <RiGraduationCapLine className="text-[13px] text-white-1" />
+                        </button>
+                        <p className="csm:hidden block text-[9px] font-normal text-black-1 bg-[#EBFF00C4] px-[2px]">{`Expert view>>`}</p>
+                        <button
+                          onClick={() => setShowCoinDetails(!showCoinDetails)}
+                          className="w-[24px] flex csm:hidden justify-center items-center h-[24px] rounded-[3px] bg-[#EBFF00C4]"
+                        >
+                          <LuExpand className="text-[20px] text-black-1" />
+                        </button>
                       </div>
                       <div className="px-[6px] border-[1px] border-[#B746F0] rounded-[2px] py-[3px] bg-[#282828] text-white-1 flex justify-center items-center">
                         <MdOutlineElectricBolt className="text-[12px] text-[#B746F0]" />
@@ -145,7 +178,7 @@ const TokenCards: React.FC = () => {
                     </div>
                     <button
                       onClick={() => setShowCoinDetails(!showCoinDetails)}
-                      className="w-[24px] flex justify-center items-center h-[24px] rounded-[3px] bg-[#EBFF00C4]"
+                      className="w-[24px] hidden csm:flex justify-center items-center h-[24px] rounded-[3px] bg-[#EBFF00C4]"
                     >
                       <LuExpand className="text-[20px] text-black-1" />
                     </button>
@@ -157,11 +190,11 @@ const TokenCards: React.FC = () => {
                     return (
                       <div
                         key={index}
-                        className="w-full py-[3px] grid grid-cols-[.5fr,2fr,1fr,1fr,1fr,1fr,.5fr,.5fr]"
+                        className="w-full py-[3px] grid grid-cols-[2fr,1fr,1fr,1fr,1fr,.5fr,.5fr] csm:grid-cols-[.5fr,2fr,1fr,1fr,1fr,1fr,.5fr,.5fr]"
                       >
                         {/* ser no */}
                         <p
-                          className={`w-full whitespace-nowrap flex justify-center items-center ${
+                          className={`w-full csm:flex hidden whitespace-nowrap justify-center items-center ${
                             index === 0 ? "bg-[#00C673] " : "bg-transparent"
                           }rounded-[3px] px-1 text-black-1 dark:text-white-1 text-[12px] font-normal`}
                         >
@@ -169,8 +202,8 @@ const TokenCards: React.FC = () => {
                         </p>
                         {/* name  */}
                         <div className="flex border-r-[1px] border-[#B746F0] justify-center items-center gap-1">
-                          <div className="w-[20px] h-[20px] rounded-full bg-[#EF7216]"></div>
-                          <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
+                          <div className="min-w-[16px] csm:min-w-[20px] min-h-[16px] csm:min-h-[20px] rounded-full bg-[#EF7216]"></div>
+                          <p className="text-[9px] csm:text-[12px] font-normal text-black-1 dark:text-white-1">
                             TICKER
                           </p>
                           <Image
@@ -183,35 +216,35 @@ const TokenCards: React.FC = () => {
                         {/* value  */}
                         <button
                           onClick={openBuyAndSellModal}
-                          className="w-full border-r-[1px] border-[#B746F0]  flex gap-1 justify-center items-center "
+                          className="w-full border-r-[1px] border-[#B746F0] flex gap-1 justify-center items-center "
                         >
                           <GoGraph className="text-[14px] text-black-1 dark:text-white-1" />
-                          <p className="text-[10px] font-normal text-[#00C673]">
+                          <p className="text-[8px] csm:text-[10px] font-normal text-[#00C673]">
                             78%
                           </p>
                         </button>
                         {/* users  */}
                         <div className="w-full border-r-[1px] border-[#B746F0]  flex gap-1 justify-center items-center ">
                           <TbUsers className="text-black-1 dark:text-white-1 text-[13px]" />
-                          <p className="text-[10px] font-normal text-[#00C673]">
+                          <p className="text-[8px] csm:text-[10px]font-normal text-[#00C673]">
                             1.2k
                           </p>
                         </div>
                         {/* MC  */}
                         <div className="w-full border-r-[1px] border-[#B746F0]  flex gap-1 justify-center items-center ">
-                          <p className="text-[10px] font-normal text-black-1 dark:text-white-1">
+                          <p className="text-[8px] csm:text-[10px] font-normal text-black-1 dark:text-white-1">
                             MC
                           </p>
-                          <p className="text-[10px] font-normal text-[#00C673]">
+                          <p className="text-[8px] csm:text-[10px] font-normal text-[#00C673]">
                             $400k
                           </p>
                         </div>
                         {/* volume  */}
                         <div className="w-full border-r-[1px] border-[#B746F0]  flex gap-1 justify-center items-center ">
-                          <p className="text-[10px] font-normal text-white-1">
+                          <p className="text-[8px] csm:text-[10px] font-normal text-white-1">
                             V
                           </p>
-                          <p className="text-[10px] font-normal text-[#00C673]">
+                          <p className="text-[8px] csm:text-[10px] font-normal text-[#00C673]">
                             $900k
                           </p>
                         </div>
@@ -238,7 +271,7 @@ const TokenCards: React.FC = () => {
             </div>
           </div>
           {/* 3rd col --------> */}
-          <div className="w-full flex justify-center items-center">
+          <div className="w-full flex csm:order-3 order-3 justify-center items-center">
             <div className="w-full max-w-[470px] h-full flex justify-center items-center">
               <div className="w-full h-full border-[1px] border-[#535353] max-w-[500px] dark:bg-black-1 bg-transparent rounded-[5px] py-4 px-3 flex flex-col gap-4">
                 {/* top header ---> */}

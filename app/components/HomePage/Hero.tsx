@@ -49,20 +49,20 @@ const Hero = () => {
         {/* open chat  */}
         <OpenChartBtn />
         <div
-          className={`w-full flex flex-col max-w-[1400px] mt-4 px-4 py-3 dark:bg-transparent dark:border-transparent bg-transparent border-[2px] border-black-1 rounded-[5px]`}
+          className={`w-full flex flex-col max-w-[1400px] mt-4 px-0 csm:px-4 py-0 csm:py-3 dark:bg-transparent dark:border-transparent bg-transparent border-[2px] border-black-1 rounded-[5px]`}
         >
           <div
-            className={`w-full grid gap-y-8 gap-x-4 grid-cols-1 xl:grid-cols-2 3xl:grid-cols-[1fr,.9fr,1fr]`}
+            className={`w-full grid gap-y-6 csm:gap-y-8 gap-x-4 grid-cols-1 xl:grid-cols-2 3xl:grid-cols-[1fr,.9fr,1fr]`}
           >
             {/* 1st col ----------------------------------> */}
-            <div className="w-full h-full flex justify-center items-center">
+            <div className="w-full csm:order-1 h-full order-2 flex justify-center items-center">
               <div className="w-full h-full max-w-[450px] justify-between items-center gap-4 flex flex-col">
                 {/* top bar ---->  */}
                 <div
                   onClick={openProcessModal}
                   className="w-full cursor-pointer py-2 flex justify-center items-center bg-[#4F40FF] rounded-[5px]"
                 >
-                  <p className="text-[13px] font-normal text-white-1">
+                  <p className="text-[10px] csm:text-[13px] font-normal text-white-1">
                     {pattern1}
                   </p>
                 </div>
@@ -173,15 +173,16 @@ const Hero = () => {
                   </div>
                 </div>
                 {/* down bar ---->  */}
-                <div className="w-full py-2 flex justify-center items-center bg-[#787B99] rounded-[5px]">
+                <div className="w-full csm:flex hidden py-2 justify-center items-center bg-[#787B99] rounded-[5px]">
                   <p className="text-[13px] font-normal text-white-1">
                     {pattern2}
                   </p>
                 </div>
               </div>
             </div>
+
             {/* 2nd col -------------------------------------->  */}
-            <div className="w-full h-full flex justify-center items-center">
+            <div className="w-full h-full csm:order-2 order-1 flex justify-center items-center">
               <div className="w-full h-full max-w-[450px] dark:bg-orange-1 bg-yellow-1 navibarCardSh rounded-[5px] flex flex-col p-3">
                 {/* 1st portiom */}
                 <div className="flex mt-1 justify-center gap-1 items-center px-1 bg-black-1">
@@ -216,35 +217,33 @@ const Hero = () => {
                 </div>
                 {/* 3rd portion */}
                 <div
-                  className={`w-full ${
-                    isMinimize ? "hidden" : "block"
-                  } h-[40px] sm:h-[50px] relative`}
+                  className={`w-full h-[40px] csm:block hidden sm:h-[50px] relative`}
                 >
                   <Image src="/assets/downArrows.svg" alt="" fill />
                 </div>
                 {/* 4rth portion  */}
-                <div className="w-full mt-3 sm:mt-4 flex gap-2 rounded-[5px] flex-col bg-yellow-1 p-2 shadow3">
+                <div className="w-full mt-2 csm:mt-4 flex gap-2 rounded-[5px] flex-col bg-yellow-1 p-2 shadow3">
                   <div className="w-full flex flex-col">
                     <div className="w-full bg-transparent grid gap-3 grid-cols-[150px,1fr]">
                       <div className="w-full h-full relative">
                         <Image src="/assets/token3.svg" alt="" fill />
                       </div>
-                      <div className="w-full flex flex-col gap-2">
+                      <div className="w-full flex flex-col gap-1 csm:gap-2">
                         {/* name  */}
                         <div className="w-full gap-1 px-1 bg-black-1 flex justify-start items-center py-1">
-                          <p className="text-[12px] text-white-1 font-normal">
+                          <p className="text-[10px] csm:text-[12px] text-white-1 font-normal">
                             Name:: Pink Hood Fro...
                           </p>
                         </div>
                         {/* ticker */}
                         <div className="w-full gap-1 bg-transparent px-1 flex justify-start items-center py-1">
                           <p className="text-[12px] text-black-1 font-normal">
-                            Ticker: Froglic
+                            Ticker: <span className="bg-purple-1 text-white-1"> Froglic</span>
                           </p>
                         </div>
                         {/* created by */}
                         <div className="w-full gap-1 px-1 bg-transparent flex justify-start items-center py-1">
-                          <p className="text-[12px] text-black-1 font-normal">
+                          <p className="text-[10px] csm:text-[12px] text-black-1 font-normal">
                             Creator by:
                           </p>
                           <Image
@@ -253,41 +252,39 @@ const Hero = () => {
                             width={18}
                             height={18}
                           />
-                          <p className="text-[12px] text-black-1 uppercase font-normal">
+                          <p className="text-[10px] csm:text-[12px] text-black-1 uppercase font-normal">
                             user name
                           </p>
                         </div>
                         {/* market cap */}
                         <div className="w-full gap-1 bg-orange-1 flex justify-start px-1 items-center py-1">
-                          <p className="text-[12px] text-white-1 font-normal">
+                          <p className="text-[10px] csm:text-[12px] text-white-1 font-normal">
                             Market cap: 45.3K [rank:2]
                           </p>
                         </div>
                         {/* Bonding curve  */}
                         <div className="w-full gap-1 px-1 bg-blue-2 flex justify-start items-center py-1">
-                          <p className="text-[12px] text-white-1 font-normal">
+                          <p className="text-[10px] csm:text-[12px] text-white-1 font-normal">
                             Bonding curve: 89%
                           </p>
                         </div>
                       </div>
                     </div>
                     {/* price + trades + volume  */}
-                    <div className="grid px-3 grid-cols-3 gap-6 pt-2">
-                      <p className="px-[2px] whitespace-nowrap text-[12px] font-normal text-black-1 bg-[#04D200]">
+                    <div className="grid px-3 grid-cols-3 gap-3 csm:gap-6 pt-2">
+                      <p className="px-[2px] whitespace-nowrap text-[10px] csm:text-[12px] font-normal text-black-1 bg-[#04D200]">
                         Price: +2000%
                       </p>
-                      <p className="px-[2px] whitespace-nowrap text-[12px] font-normal text-black-1 bg-[#FF2CEA]">
+                      <p className="px-[2px] whitespace-nowrap text-[10px] csm:text-[12px] font-normal text-black-1 bg-[#FF2CEA]">
                         Trades: 1,245
                       </p>
-                      <p className="px-[2px] whitespace-nowrap text-[12px] font-normal text-black-1 bg-[#A09191]">
+                      <p className="px-[2px] whitespace-nowrap text-[10px] csm:text-[12px] font-normal text-black-1 bg-[#A09191]">
                         Vol: 500k
                       </p>
                     </div>
                   </div>
                   <p
-                    className={`bg-[#194348] ${
-                      isMinimize ? "hidden" : "block"
-                    }  text-[12px] font-normal text-white-1 p-2 rounded-[5px]`}
+                    className={`bg-[#194348] text-[12px] csm:block hidden font-normal text-white-1 p-2 rounded-[5px]`}
                   >
                     Description: lorem ipsum talkem sumit here making it cool
                     and reassruing and no rugginess for sure makin it based,
@@ -303,10 +300,10 @@ const Hero = () => {
             </div>
 
             {/* 3rd col ---------------------------------------> */}
-            <div className="w-full h-full flex justify-center items-center">
+            <div className="w-full h-full csm:order-3 order-3 flex justify-center items-center">
               <div className="w-full h-full max-w-[450px] xl:max-w-[480px] flex flex-col gap-4 justify-between items-center">
                 {/* top bar ---->  */}
-                <div className="w-full py-2 flex justify-center items-center bg-[#EF7216] rounded-[5px]">
+                <div className="w-full csm:flex hidden py-2 justify-center items-center bg-[#EF7216] rounded-[5px]">
                   <p className="text-[13px] font-normal text-black-1">
                     {pattern4}
                   </p>
@@ -333,7 +330,7 @@ const Hero = () => {
                       return (
                         <div
                           key={index}
-                          className="w-full flex justify-between items-center py-4"
+                          className="w-full flex justify-between items-center py-3 csm:py-4"
                         >
                           <div className="flex justify-center items-center gap-2">
                             <p className="text-black-1 dark:text-[#FEF652]">{`//`}</p>
@@ -355,27 +352,27 @@ const Hero = () => {
                   <div className="w- gap-1 flex justify-between items-center py-3">
                     <div className="flex justify-center items-center gap-2">
                       <p className="text-[#FEF652]">{`//`}</p>
-                      <p className="text-[13px] font-normal text-[#A85419]">
+                      <p className="text-[10px] csm:text-[13px] font-normal text-[#A85419]">
                         📃 📃 Read The White paper
                       </p>
                       <p className="text-[#FEF652]">{`//`}</p>
                     </div>
-                    <button className="flex whitespace-nowrap text-[13px] font-normal text-white-1 bg-[#4F40FF] rounded-[4px] justify-center items-center px-2 py-[5px]">
+                    <button className="flex whitespace-nowrap text-[10px] csm:text-[13px] font-normal text-white-1 bg-[#4F40FF] rounded-[4px] justify-center items-center px-2 py-[5px]">
                       🏆 View Leaderboard
                     </button>
                   </div>
                 </div>
                 {/* down bar -----> */}
                 <div className="w-full py-2 flex justify-center items-center bg-[#BA0000] rounded-[5px]">
-                  <p className="text-[13px] font-normal text-white-1">
+                  <p className="text-[10px] csm:text-[13px] font-normal text-white-1">
                     {`//Daily Engage Tasks!¯\_(ツ)_/¯_click to Earn!`}
                   </p>
                 </div>
                 <div className="w-full grid grid-cols-2 gap-4 border-[1px] border-[#BA0000] rounded-[5px] p-[6px]">
-                  <button className="w-full px-1 py-2 text-[12px] rounded-[5px] text-white-1 bg-[#BA0000]">
+                  <button className="w-full px-1 py-2 text-[9px] csm:text-[12px] rounded-[5px] text-white-1 bg-[#BA0000]">
                     Follow BUzz on X [100xp]
                   </button>
-                  <button className="w-full px-1 py-2 text-[12px] rounded-[5px] text-[#FEF652] bg-[#BA0000] opacity-30">
+                  <button className="w-full px-1 py-2 text-[9px] csm:text-[12px] rounded-[5px] text-[#FEF652] bg-[#BA0000] opacity-30">
                     Like & RT for [100xp]
                   </button>
                 </div>
