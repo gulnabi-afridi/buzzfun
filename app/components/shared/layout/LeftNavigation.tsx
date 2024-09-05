@@ -10,7 +10,6 @@ import { Menu } from "@mantine/core";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { LuLogOut } from "react-icons/lu";
 
-
 const LeftNavigation: React.FC = () => {
   const [selectedItem, setSelectedItem] = useState("Home");
 
@@ -157,7 +156,7 @@ const LeftNavigation: React.FC = () => {
       <div className="w-full flex flex-col gap-5">
         {/* Disconnect button ---->  */}
         <button className="flex justify-start gap-1 items-center">
-          <LuLogOut className="text-white-1 text-[20px]"/>
+          <LuLogOut className="text-white-1 text-[20px]" />
           <p className="text-white-1 text-[14px] font-normal">Disconnect</p>
         </button>
         <div className="relative w-full min-h-[44px] flex justify-center items-center rounded-[11px]">

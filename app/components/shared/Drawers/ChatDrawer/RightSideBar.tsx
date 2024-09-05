@@ -10,7 +10,7 @@ const RightSideBar: React.FC = () => {
   // platform-admin
   // chat-owner
   // normal-user
-  const [useType, setUserType] = useState("normal-user");
+  const [useType, setUserType] = useState("platform-admin");
   const [showSearch, setSearch] = useState(true);
   const [userNameMenuOption, setUserMenuOption] = useState("View Profile");
 
