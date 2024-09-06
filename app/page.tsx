@@ -17,48 +17,49 @@ import Footer from "./components/shared/layout/Footer";
 
 export default function Home() {
   return (
-    <main className="bg-white-2 dark:bg-[#151D23] csm:dark:bg-[#201e26] pb-4 csm:pb-16 w-full">
-      <ComponentWrapper style="">
-        <div className="pt-6 csm:block hidden">
-          <Breadcrumb />
-        </div>
-        <div className="csm:hidden block pt-4">
-          <CoinLabel />
-        </div>
-        <div className="csm:hidden block">
-          <CreatCoin />
-        </div>
-
-        <div className="w-full mt-4 csm:hidden block h-[215px] relative">
-          <Image
-            src="/assets/buzzFun.png"
-            alt=""
-            fill
-            className="border-[1px] object-cover border-[#555555] rounded-[6px]"
-          />
-        </div>
-
-        <div className="flex min-h-screen flex-col">
-          {/* Hero Section */}
-          <Hero />
-          <ImportUrl />
-          {/* Token Cards --------> */}
-          <TokenCards />
-          {/* Search Bar   */}
-          <div className="w-full flex flex-col my-4">
-            <SearchBar />
-            {/* Coin Table */}
-            <CoinTable />
+    <main className="bg-white-2 dark:bg-[#151D23] csm:dark:bg-[#201e26]">
+      <div className="w-full pb-4 csm:pb-16">
+        <ComponentWrapper style="">
+          <div className="pt-6 csm:block hidden">
+            <Breadcrumb />
           </div>
-          <div className="w-full csm:hidden block">
-            <StatsSmallScreen />
+          <div className="csm:hidden block pt-4">
+            <CoinLabel />
           </div>
-          {/* Stats */}
-          {/* <Stats /> */}
-          {/* Trusted */}
-          <Trusted />
-          {/* Down Section */}
-          {/* <div className="w-full mt-16 flex justify-center items-center">
+          <div className="csm:hidden block">
+            <CreatCoin />
+          </div>
+
+          <div className="w-full mt-4 csm:hidden block h-[215px] relative">
+            <Image
+              src="/assets/buzzFun.png"
+              alt=""
+              fill
+              className="border-[1px] object-cover border-[#555555] rounded-[6px]"
+            />
+          </div>
+
+          <div className="flex min-h-screen flex-col">
+            {/* Hero Section */}
+            <Hero />
+            <ImportUrl />
+            {/* Token Cards --------> */}
+            <TokenCards />
+            {/* Search Bar   */}
+            <div className="w-full flex flex-col my-4">
+              <SearchBar />
+              {/* Coin Table */}
+              <CoinTable />
+            </div>
+            <div className="w-full csm:hidden block">
+              <StatsSmallScreen />
+            </div>
+            {/* Stats */}
+            {/* <Stats /> */}
+            {/* Trusted */}
+            <Trusted />
+            {/* Down Section */}
+            {/* <div className="w-full mt-16 flex justify-center items-center">
             <div className="w-full dark:bg-[#25303A] border-[1px] border-transparent dark:border-white-1 bg-white-1 p-5 max-w-[1200px] flex justify-between items-center">
               <p className="text-[12px] font-normal uppercase bg-black-1 px-4 py-2 text-white-1">
                 Buzz.Fun 2024
@@ -72,8 +73,9 @@ export default function Home() {
               </p>
             </div>
           </div> */}
-        </div>
-      </ComponentWrapper>
+          </div>
+        </ComponentWrapper>
+      </div>
       <Footer />
     </main>
   );

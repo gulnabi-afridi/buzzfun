@@ -20,6 +20,7 @@ import { FaRegUser } from "react-icons/fa6";
 import { IoRocketOutline } from "react-icons/io5";
 import { LuCoins } from "react-icons/lu";
 import { BsEmojiSmileFill } from "react-icons/bs";
+import Footer from "../components/shared/layout/Footer";
 
 const ProfilePage = () => {
   // states ----------->
@@ -339,9 +340,15 @@ const ProfilePage = () => {
               {selectedName === "Replies" && (
                 <Replies setSelectedItem={setSelectedName} />
               )}
-              {selectedName === "Coins Launched" && <CoinsLaunched setSelectedItem={setSelectedName}/>}
-              {selectedName === "Coins held" && <CoinsHeld setSelectedItem={setSelectedName}/>}
-              {selectedName === "Buzz engage" && <BuzzEngage setSelectedItem={setSelectedName}/>}
+              {selectedName === "Coins Launched" && (
+                <CoinsLaunched setSelectedItem={setSelectedName} />
+              )}
+              {selectedName === "Coins held" && (
+                <CoinsHeld setSelectedItem={setSelectedName} />
+              )}
+              {selectedName === "Buzz engage" && (
+                <BuzzEngage setSelectedItem={setSelectedName} />
+              )}
             </div>
           </div>
         </ComponentWrapper>
@@ -369,7 +376,9 @@ const ProfilePage = () => {
           >
             <IoRocketOutline
               className={`text-[30px] ${
-                selectedName === "Coins Launched" ? "text-white-1" : "text-[#6C6C6C]"
+                selectedName === "Coins Launched"
+                  ? "text-white-1"
+                  : "text-[#6C6C6C]"
               }`}
             />
           </button>
@@ -381,7 +390,9 @@ const ProfilePage = () => {
           >
             <LuCoins
               className={`text-[30px] ${
-                selectedName === "Coins held" ? "text-white-1" : "text-[#6C6C6C]"
+                selectedName === "Coins held"
+                  ? "text-white-1"
+                  : "text-[#6C6C6C]"
               }`}
             />
           </button>
@@ -393,7 +404,9 @@ const ProfilePage = () => {
           >
             <BsEmojiSmileFill
               className={`text-[30px] ${
-                selectedName === "Buzz engage" ? "text-white-1" : "text-[#6C6C6C]"
+                selectedName === "Buzz engage"
+                  ? "text-white-1"
+                  : "text-[#6C6C6C]"
               } text-[#6C6C6C]`}
             />
           </button>
@@ -471,6 +484,7 @@ const ProfilePage = () => {
           </div>
         </div>
       </CustomModal>
+      <Footer/>
     </React.Fragment>
   );
 };

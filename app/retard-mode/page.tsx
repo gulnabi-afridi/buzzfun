@@ -9,6 +9,7 @@ import Image from "next/image";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { Menu } from "@mantine/core";
 import * as Icons from "../components/shared/SVGs/Icons";
+import Link from "next/link";
 
 const RetardPage: NextPage = () => {
   const [fileName, setFileName] = useState<string>("no file chosen");
@@ -26,13 +27,20 @@ const RetardPage: NextPage = () => {
 
   return (
     <ComponentWrapper style="bg-white-2 dark:bg-[#201e26]">
-      <Breadcrumb />
+      <div className="w-full csm:block hidden">
+        <Breadcrumb />
+      </div>
+
       <div className="w-full py-10 flex justify-center items-center">
-        <div className="w-full min-h-[calc(100vh-250px)] max-w-[650px] flex gap-6 flex-col justify-center items-start">
+        <div className="w-full min-h-[calc(100vh-250px)] max-w-[650px] flex gap-4 csm:gap-6 flex-col justify-center items-start">
           <p className="text-[45px] font-normal dark:text-white-1 text-black-1 leading-[45px] uppercase">
             <span className="bg-yellow-1 px-1 text-black-1"> RETARD </span>{" "}
             <br /> MODE
           </p>
+          <Link
+            href="/create-a-coin"
+            className="w-full justify-end csm:hidden flex items-center text-[12px] font-normal text-white-1"
+          >{`<< Back`}</Link>
           <div className="flex dark:bg-[#0E161C] bg-white-1 border-[1px] textShadow border-white-1 rounded-[2px] md:px-0 px-4 justify-center py-8 items-center w-full">
             <div className="w-full max-w-[500px] gap-6 sm:gap-7 flex flex-col">
               {/* select chain -----> */}

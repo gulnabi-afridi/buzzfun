@@ -32,7 +32,9 @@ const BeastMode = () => {
 
   return (
     <ComponentWrapper style="bg-white-2 dark:bg-[#201e26]">
-      <Breadcrumb />
+      <div className="w-full csm:block hidden">
+        <Breadcrumb />
+      </div>
       <div className="w-full py-10 flex justify-center items-center">
         <div className="w-full min-h-[calc(100vh-250px)] max-w-[650px] flex gap-6 flex-col justify-center items-start">
           <p className="text-[45px] font-normal dark:text-white-1 text-black-1 leading-[45px] uppercase">
@@ -507,7 +509,7 @@ const BeastMode = () => {
                 {/* Max buy pre listing ----> */}
                 <div className="w-full gap-2 flex flex-col p-3 border-[1px] border-blue-1 rounded-[2px]">
                   <p className="uppercase text-[18px] dark:text-white-1 font-normal text-black-1">
-                  Max Buy - Per wallet 
+                    Max Buy - Per wallet
                   </p>
                   <div className="flex flex-col gap-4">
                     {/* option 1 */}
@@ -526,7 +528,8 @@ const BeastMode = () => {
                         </p>
                         <ul className="pl-6 list-disc">
                           <li className="text-[14px] text-left dark:text-white-1 font-normal text-black-1">
-                          No max buy during bonding curve or on DEX listing [on buzz(dot)fun].
+                            No max buy during bonding curve or on DEX listing
+                            [on buzz(dot)fun].
                           </li>
                         </ul>
                       </div>
@@ -547,18 +550,18 @@ const BeastMode = () => {
                         </p>
                         <ul className="pl-6 list-disc">
                           <li className="text-[14px] text-left font-normal dark:text-white-1 text-black-1">
-                          1% Max buy per wallet during pre-listing [on buzz(dot)fun][Dev Exception].
+                            1% Max buy per wallet during pre-listing [on
+                            buzz(dot)fun][Dev Exception].
                           </li>
                           <li className="text-[14px] text-left font-normal dark:text-white-1 text-black-1">
-                          1% Max buy per wallet during Uniswap listing for 15 mins.
+                            1% Max buy per wallet during Uniswap listing for 15
+                            mins.
                           </li>
                         </ul>
                       </div>
                     </button>
                   </div>
                 </div>
-
-            
               </div>
               {/* create a coin button */}
               <div className="w-full flex justify-center items-center">
