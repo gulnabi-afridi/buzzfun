@@ -13,6 +13,7 @@ import { Select } from "@mantine/core";
 import CreatCoin from "./components/ForSmallScreen/CreateToken";
 import Image from "next/image";
 import StatsSmallScreen from "./components/ForSmallScreen/StatsSmallScreen";
+import Footer from "./components/shared/layout/Footer";
 
 export default function Home() {
   return (
@@ -73,6 +74,7 @@ export default function Home() {
           </div> */}
         </div>
       </ComponentWrapper>
+      <Footer />
     </main>
   );
 }
