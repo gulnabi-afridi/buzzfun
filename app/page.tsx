@@ -55,7 +55,7 @@ export default function Home() {
           {/* Stats */}
           {/* <Stats /> */}
           {/* Trusted */}
-          {/* <Trusted /> */}
+          <Trusted />
           {/* Down Section */}
           {/* <div className="w-full mt-16 flex justify-center items-center">
             <div className="w-full dark:bg-[#25303A] border-[1px] border-transparent dark:border-white-1 bg-white-1 p-5 max-w-[1200px] flex justify-between items-center">
