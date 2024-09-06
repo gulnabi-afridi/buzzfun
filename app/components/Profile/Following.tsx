@@ -7,9 +7,9 @@ interface Props {
 
 const Following: React.FC<Props> = ({setSelectedItem}:Props) => {
   return (
-    <div className="w-full xl:col-span-1 md:mt-8 mt-0 sm:mt-5 col-span-2 flex justify-center items-center">
+    <div className="w-full xl:col-span-1 md:mt-8 mt-0 csm:mt-5 col-span-2 flex justify-center items-center">
       <div className="w-full max-w-full csm:max-w-[290px] flex flex-col gap-3">
-        <div className="w-full flex csm:h-auto h-[70px] justify-between items-center">
+        <div className="w-full flex csm:h-auto h-[60px] justify-between items-center">
           <p className="text-[14px] w-fit font-normal rounded-[2px] dark:bg-yellow-1 px-2 py-1 bg-transparent text-black-1 ">
             Following
           </p>

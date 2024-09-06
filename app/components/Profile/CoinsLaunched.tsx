@@ -12,21 +12,30 @@ import { FiArrowUp } from "react-icons/fi";
 import { IoCopy } from "react-icons/io5";
 import { FaUser } from "react-icons/fa6";
 
+interface Props {
+  setSelectedItem: (value: string) => void;
+}
 
-const CoinsLaunched: React.FC = () => {
+const CoinsLaunched: React.FC<Props> = ({ setSelectedItem }: Props) => {
   return (
-    <div className="w-full md:mt-0 mt-0 sm:mt-5 xl:col-span-1 col-span-2  flex justify-center items-center">
-      <div className="w-full max-w-[450px] flex flex-col gap-3">
-        <p className="text-[14px] w-fit font-normal dark:bg-yellow-1 bg-transparent px-2 py-[2px] rounded-[2px] text-black-1 ">
-          Coin launched
-        </p>
+    <div className="w-full md:mt-0 mt-0 csm:mt-5 xl:col-span-1 col-span-2  flex justify-center items-center">
+      <div className="w-full max-w-[450px] flex flex-col gap-2 csm:gap-3">
+        <div className="w-full flex csm:h-auto h-[60px] justify-between items-center">
+          <p className="text-[14px] w-fit font-normal dark:bg-yellow-1 bg-transparent px-2 py-[2px] rounded-[2px] text-black-1 ">
+            Coin launched
+          </p>
+          <button
+            onClick={() => setSelectedItem("")}
+            className="text-[14px] csm:hidden block font-normal text-white-1"
+          >{`<< Go Back`}</button>
+        </div>
         <p className="text-[14px] font-normal text-black-1 dark:text-white-1">
           [Coins you have created]
         </p>
         {/* launched coins */}
         <div className="w-full flex flex-col gap-2">
           {/* cards */}
-          {[0, 1, 2, 3, 4, 5, 6].map((item, index) => {
+          {[0, 1, 2, 3, 4].map((item, index) => {
             return (
               <div
                 key={index}
@@ -75,7 +84,7 @@ const CoinsLaunched: React.FC = () => {
                       </p>
                       <hr className=" h-[14px] border-r-[1px] border-[#B746F0]" />
                       <div className="flex gap-1 justify-center items-center">
-                      <FaUser className="text-[14px] text-black-1 dark:text-white-1"/>
+                        <FaUser className="text-[14px] text-black-1 dark:text-white-1" />
                         <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
                           7%
                         </p>

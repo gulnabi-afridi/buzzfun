@@ -8,7 +8,7 @@ const Followers: React.FC<Props> = ({ setSelectedItem }: Props) => {
   return (
     <div className="w-full xl:col-span-1 col-span-2 md:mt-8 mt-0 csm:mt-5 flex justify-center items-center">
       <div className="w-full max-w-full csm:max-w-[290px] flex flex-col gap-0 csm:gap-3">
-        <div className="w-full flex csm:h-auto h-[70px] justify-between items-center">
+        <div className="w-full flex csm:h-auto h-[60px] justify-between items-center">
           <p className="text-[14px] font-normal text-black-1 w-fit px-2 rounded-[2px] py-1 dark:bg-yellow-1 bg-transparent">
             Followers
           </p>

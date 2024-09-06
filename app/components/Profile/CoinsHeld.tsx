@@ -2,13 +2,23 @@ import React from "react";
 import Image from "next/image";
 import Pagination from "../shared/Pagination";
 
-const CoinsHeld: React.FC = () => {
+interface Props {
+  setSelectedItem: (value: string) => void;
+}
+
+const CoinsHeld: React.FC<Props> = ({ setSelectedItem }: Props) => {
   return (
-    <div className="w-full md:mt-0 mt-0 sm:mt-5 xl:col-span-1 col-span-2 flex justify-center items-center">
-      <div className="w-full max-w-[400px] flex flex-col gap-3">
-        <p className="text-[14px] w-fit rounded-[2px] font-normal dark:bg-yellow-1 px-2 py-[2px] text-black-1 ">
-          Coins Held
-        </p>
+    <div className="w-full md:mt-0 mt-0 csm:mt-5 xl:col-span-1 col-span-2 flex justify-center items-center">
+      <div className="w-full max-w-[400px] flex flex-col gap-1 csm:gap-3">
+        <div className="w-full flex csm:h-auto h-[60px] justify-between items-center">
+          <p className="text-[14px] w-fit rounded-[2px] font-normal dark:bg-yellow-1 px-2 py-[2px] text-black-1 ">
+            Coins Held
+          </p>
+          <button
+            onClick={() => setSelectedItem("")}
+            className="text-[14px] csm:hidden block font-normal text-white-1"
+          >{`<< Go Back`}</button>
+        </div>
         <div className="w-full flex flex-col bg-transparent">
           {[0, 1, 2, 3, 4].map((item, index) => {
             return (

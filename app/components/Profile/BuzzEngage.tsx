@@ -7,17 +7,30 @@ import { LuClock4 } from "react-icons/lu";
 import { GoArrowUpRight } from "react-icons/go";
 import Image from "next/image";
 
-const BuzzEngage: React.FC = () => {
+
+interface Props {
+  setSelectedItem: (value: string) => void;
+}
+
+const BuzzEngage: React.FC<Props> = ({setSelectedItem}:Props) => {
   const [sortOption, setSortOption] = useState("All");
 
   return (
-    <div className="w-full md:mt-0 mt-0 sm:mt-5 xl:col-span-1 col-span-2  flex justify-center items-center">
-      <div className="w-full max-w-[450px] flex flex-col gap-3">
-        <p className="text-[14px] w-fit font-normal dark:bg-yellow-1 bg-transparent px-2 py-[2px] rounded-[2px] text-black-1 ">
-          Buzz Engage
-        </p>
+    <div className="w-full md:mt-0 mt-0 csm:mt-5 xl:col-span-1 col-span-2  flex justify-center items-center">
+      <div className="w-full max-w-[450px] flex flex-col gap-1 csm:gap-3">
+        <div className="w-full flex csm:h-auto h-[60px] justify-between items-center">
+          <p className="text-[14px] w-fit font-normal dark:bg-yellow-1 bg-transparent px-2 py-[2px] rounded-[2px] text-black-1 ">
+            Buzz Engage
+          </p>
+          <button
+            onClick={() => setSelectedItem("")}
+            className="text-[14px] csm:hidden block font-normal text-white-1"
+          >{`<< Go Back`}</button>
+        </div>
         <div className="flex justify-start items-center gap-3">
-          <p className="text-[16px] font-normal text-black-1 dark:text-white-1">Sort by</p>
+          <p className="text-[16px] font-normal text-black-1 dark:text-white-1">
+            Sort by
+          </p>
           <CustomMenu
             size="!w-[150px]"
             options={sortOptions}
@@ -33,7 +46,7 @@ const BuzzEngage: React.FC = () => {
           />
         </div>
         {/* cards ---> */}
-        <div className="w-full border-[1px] h-[700px] overflow-auto rounded-[2px] p-2 border-blue-1 dark:border-[#317C85] flex flex-col">
+        <div className="w-full border-[1px] h-[calc(100vh-280px)] csm:h-[700px] overflow-auto rounded-[2px] p-2 border-blue-1 dark:border-[#317C85] flex flex-col">
           {[0, 1, 2, 3, 4, 5].map((item, index) => {
             return (
               <div key={index} className="w-full flex flex-col">
@@ -87,6 +100,6 @@ const BuzzEngage: React.FC = () => {
   );
 };
 
-const sortOptions = ["All", "Active", "Expired", "Complete","Incomplete"];
+const sortOptions = ["All", "Active", "Expired", "Complete", "Incomplete"];
 
 export default BuzzEngage;

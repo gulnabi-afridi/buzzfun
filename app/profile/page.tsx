@@ -24,7 +24,7 @@ import { BsEmojiSmileFill } from "react-icons/bs";
 const ProfilePage = () => {
   // states ----------->
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [selectedName, setSelectedName] = useState("");
+  const [selectedName, setSelectedName] = useState("Followers");
   const [opened, { open, close }] = useDisclosure(false);
 
   //   functions --------->
@@ -131,7 +131,7 @@ const ProfilePage = () => {
                     </button>
                   </div>
                   {/* reactions to profile */}
-                  <div className="w-full flex justify-between items-center csm:flex-col flex-row">
+                  <div className="w-full flex justify-between items-center csm:gap-3 gap-0 csm:items-start csm:flex-col flex-row">
                     <div className="bg-white-1 dark:bg-black-1 rounded-sm w-fit py-[6px] px-3 flex justify-center items-center gap-3">
                       <div className="flex justify-center items-center gap-1">
                         <p>❤️</p>
@@ -336,26 +336,66 @@ const ProfilePage = () => {
               {selectedName === "Following" && (
                 <Following setSelectedItem={setSelectedName} />
               )}
-              {selectedName === "Replies" && <Replies setSelectedItem={setSelectedName}/>}
-              {selectedName === "Coins Launched" && <CoinsLaunched />}
-              {selectedName === "Coins held" && <CoinsHeld />}
-              {selectedName === "Buzz engage" && <BuzzEngage />}
+              {selectedName === "Replies" && (
+                <Replies setSelectedItem={setSelectedName} />
+              )}
+              {selectedName === "Coins Launched" && <CoinsLaunched setSelectedItem={setSelectedName}/>}
+              {selectedName === "Coins held" && <CoinsHeld setSelectedItem={setSelectedName}/>}
+              {selectedName === "Buzz engage" && <BuzzEngage setSelectedItem={setSelectedName}/>}
             </div>
           </div>
         </ComponentWrapper>
         {/* down navigation bar for small screen -------->  */}
         <div className="w-full h-[55px] justify-center items-center bg-[#262934] csm:hidden grid grid-cols-4">
-          <button className="w-full boxShadow3 h-full flex justify-center items-center">
-            <FaRegUser className="text-[30px] text-[#6C6C6C]" />
+          <button
+            onClick={() => setSelectedName("")}
+            className={`w-full boxShadow3 ${
+              selectedName === "" ? "bg-purple-1" : "bg-transparent"
+            }  h-full flex justify-center items-center`}
+          >
+            <FaRegUser
+              className={`text-[30px] ${
+                selectedName === "" ? "text-white-1" : "text-[#6C6C6C]"
+              } `}
+            />
           </button>
-          <button className="w-full boxShadow3 h-full flex justify-center items-center">
-            <IoRocketOutline className="text-[30px] text-[#6C6C6C]" />
+          <button
+            onClick={() => setSelectedName("Coins Launched")}
+            className={`w-full ${
+              selectedName === "Coins Launched"
+                ? "bg-purple-1"
+                : "bg-transparent"
+            } boxShadow3 h-full flex justify-center items-center`}
+          >
+            <IoRocketOutline
+              className={`text-[30px] ${
+                selectedName === "Coins Launched" ? "text-white-1" : "text-[#6C6C6C]"
+              }`}
+            />
           </button>
-          <button className="w-full boxShadow3 h-full flex justify-center items-center">
-            <LuCoins className="text-[30px] text-[#6C6C6C]" />
+          <button
+            onClick={() => setSelectedName("Coins held")}
+            className={`w-full ${
+              selectedName === "Coins held" ? "bg-purple-1" : "bg-transparent"
+            } boxShadow3 h-full flex justify-center items-center`}
+          >
+            <LuCoins
+              className={`text-[30px] ${
+                selectedName === "Coins held" ? "text-white-1" : "text-[#6C6C6C]"
+              }`}
+            />
           </button>
-          <button className="w-full boxShadow3 h-full flex justify-center items-center">
-            <BsEmojiSmileFill className="text-[30px] text-[#6C6C6C]" />
+          <button
+            onClick={() => setSelectedName("Buzz engage")}
+            className={`w-full ${
+              selectedName === "Buzz engage" ? "bg-purple-1" : "bg-transparent"
+            } boxShadow3 h-full flex justify-center items-center`}
+          >
+            <BsEmojiSmileFill
+              className={`text-[30px] ${
+                selectedName === "Buzz engage" ? "text-white-1" : "text-[#6C6C6C]"
+              } text-[#6C6C6C]`}
+            />
           </button>
         </div>
       </div>
