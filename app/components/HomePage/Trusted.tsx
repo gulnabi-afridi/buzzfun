@@ -29,7 +29,7 @@ const Trusted: React.FC = () => {
   return (
     <div className="w-full block csm:hidden justify-center items-center">
       <div
-        className={`w-full max-w-[1200px] flex mt-8 flex-col border-[1px] border-none csm:border-transparent dark:border-none csm:dark:border-white-1 gap-4 sm:gap-7 dark:bg-transparent bg-white-1 p-3 csm:p-5 `}
+        className={`w-full max-w-[1200px] flex mt-5 csm:mt-8 flex-col border-[1px] border-none csm:border-transparent dark:border-none csm:dark:border-white-1 gap-4 sm:gap-7 dark:bg-transparent bg-white-1 p-3 csm:p-5 `}
       >
         {/* top section */}
         <div className="flex w-full py-2 dark:bg-[#253039] px-2 bg-black-1 gap-4 justify-center items-center">
