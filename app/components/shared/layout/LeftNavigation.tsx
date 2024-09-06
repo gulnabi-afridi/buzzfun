@@ -14,7 +14,7 @@ const LeftNavigation: React.FC = () => {
   const [selectedItem, setSelectedItem] = useState("Home");
 
   return (
-    <div className="w-[210px] xl:flex hidden z-10 fixed overflow-auto flex-col h-screen gap-4 justify-between bg-[#1D252C] border-r-[1px] border-[#2B2C39] p-4 left-0 top-0">
+    <div className="w-[210px] z-50 xl:flex hidden fixed overflow-auto flex-col h-screen gap-4 justify-between bg-[#1D252C] border-r-[1px] border-[#2B2C39] p-4 left-0 top-0">
       <div className="gap-4 flex flex-col justify-start items-start ">
         <div className="w-[177px] h-[40px] relative">
           <Image src="/assets/logo2.png" alt="" fill />

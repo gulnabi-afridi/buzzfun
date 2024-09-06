@@ -16,7 +16,7 @@ import StatsSmallScreen from "./components/ForSmallScreen/StatsSmallScreen";
 
 export default function Home() {
   return (
-    <main className="bg-white-2 dark:bg-[#201e26] pb-16 w-full">
+    <main className="bg-white-2 dark:bg-[#151D23] csm:dark:bg-[#201e26] pb-4 csm:pb-16 w-full">
       <ComponentWrapper style="">
         <div className="pt-6 csm:block hidden">
           <Breadcrumb />
