@@ -20,7 +20,7 @@ const SocialLinks: React.FC = () => {
           </button>
         </div>
       </div>
-      <button className="text-[20px] font-normal text-black-1 bg-yellow-1 px-2 py-1 yellowSha">
+      <button className="text-[14px] sm:text-[18px] csm:text-[20px] font-normal text-black-1 bg-yellow-1 px-2 py-1 yellowSha">
         [LIVE <span className="underline"> CHAT</span> AVAILABLE]
       </button>
     </div>

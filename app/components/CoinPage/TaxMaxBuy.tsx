@@ -4,7 +4,7 @@ import { GoInfo } from "react-icons/go";
 
 const TaxMaxBuy:React.FC = () => {
   return (
-    <div className="w-full flex justify-center items-center gap-7">
+    <div className="w-full sm:flex-row flex-col flex justify-center items-start sm:items-center gap-2 sm:gap-7">
       <div className="flex justify-center items-center gap-2">
         <button className="w-[25px] flex justify-center items-center h-[25px] border-[1px] border-black-1 dark:border-white-1">
           <div className="w-[18px] h-[18px] bg-red-1"></div>
