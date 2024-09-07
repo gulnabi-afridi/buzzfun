@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import CustomModal from "../shared/Modals/CustomModal";
 import { useDisclosure } from "@mantine/hooks";
+import { GoGraph } from "react-icons/go";
 
 const BuyAndSellWidget: React.FC = () => {
   const [commentModal, { open: openCommentModal, close: closeCommentModal }] =
@@ -41,85 +42,113 @@ const BuyAndSellWidget: React.FC = () => {
 
   return (
     <React.Fragment>
-      <div className="w-full flex flex-col gap-6 p-3 border-[1px] dark:bg-black-1 textShadow bg-white-1 border-black-1 rounded-[3px]">
-        {/* buttons */}
-        <div className="w-full grid h-[50px] grid-cols-2 gap-2">
-          <button className="text-[22px] font-normal text-black-1 w-full h-full bg-green-1">
-            Buy
-          </button>
-          <button className="text-[22px] font-normal text-black-1/40 w-full h-full bg-[#EA000054]">
-            Sell
-          </button>
-        </div>
-        {/* switch to coin --> */}
-        <div className="w-full flex justify-between items-center">
-          <p className="text-[15px] font-normal text-white-1 bg-black-1 px-[6px] rounded-[3px]">
-            Switch to [insert Ticker]
-          </p>
-          <p className="text-[15px] font-normal text-white-1 bg-blue-1 px-[6px] rounded-[3px]">
-            Slippage
-          </p>
-        </div>
-        {/* ticker input --->  */}
-        <div className="w-full border-[1px] px-2 dark:border-white-1 border-black-1 h-[50px] grid grid-cols-[1fr,110px]">
-          <input
-            placeholder="0.0"
-            type="text"
-            className="w-full dark:placeholder:text-white-1 placeholder:text-black-1 dark:text-white-1 border-r-[1px] dark:border-r-white-1 focus:outline-none border-black-1 h-full bg-transparent text-[22px] font-normal text-black-1"
-            name="ticker"
-            id=""
-          />
-          <div className="flex justify-center items-center gap-2">
-            <p className="text-[15px] font-normal dark:text-white-1 text-black-1">
-              Ticker
+      <div className="w-full flex flex-col">
+        <div className="w-full flex flex-col gap-6 p-3 border-[1px] dark:bg-black-1 textShadow bg-white-1 border-black-1 rounded-[3px]">
+          {/* buttons */}
+          <div className="w-full grid h-[50px] grid-cols-2 gap-2">
+            <button className="text-[22px] font-normal text-black-1 w-full h-full bg-green-1">
+              Buy
+            </button>
+            <button className="text-[22px] font-normal text-black-1/40 w-full h-full bg-[#EA000054]">
+              Sell
+            </button>
+          </div>
+          {/* switch to coin --> */}
+          <div className="w-full flex justify-between items-center">
+            <p className="text-[15px] font-normal text-white-1 bg-black-1 px-[6px] rounded-[3px]">
+              Switch to [insert Ticker]
             </p>
-            <div className="w-[32px] h-[32px] flex justify-center items-center">
-              <Image src="/assets/emoji2.png" alt="" width={30} height={30} />
+            <p className="text-[15px] font-normal text-white-1 bg-blue-1 px-[6px] rounded-[3px]">
+              Slippage
+            </p>
+          </div>
+          {/* ticker input --->  */}
+          <div className="w-full border-[1px] px-2 dark:border-white-1 border-black-1 h-[50px] grid grid-cols-[1fr,110px]">
+            <input
+              placeholder="0.0"
+              type="text"
+              className="w-full dark:placeholder:text-white-1 placeholder:text-black-1 dark:text-white-1 border-r-[1px] dark:border-r-white-1 focus:outline-none border-black-1 h-full bg-transparent text-[22px] font-normal text-black-1"
+              name="ticker"
+              id=""
+            />
+            <div className="flex justify-center items-center gap-2">
+              <p className="text-[15px] font-normal dark:text-white-1 text-black-1">
+                Ticker
+              </p>
+              <div className="w-[32px] h-[32px] flex justify-center items-center">
+                <Image src="/assets/emoji2.png" alt="" width={30} height={30} />
+              </div>
             </div>
           </div>
-        </div>
-        {/* max ---------> */}
-        <div className="w-full flex justify-center items-center gap-4">
-          {max.map((item, index) => {
-            return (
-              <p
-                key={index}
-                className="text-[16px] font-normal text-[#FEF652] bg-[#19171F] px-[4px] py-[2px] rounded-[2px]"
-              >
-                {item}
-              </p>
-            );
-          })}
+          {/* max ---------> */}
+          <div className="w-full flex justify-center items-center gap-4">
+            {max.map((item, index) => {
+              return (
+                <p
+                  key={index}
+                  className="text-[16px] font-normal text-[#FEF652] bg-[#19171F] px-[4px] py-[2px] rounded-[2px]"
+                >
+                  {item}
+                </p>
+              );
+            })}
 
-          <p className="px-[4px] py-[2px] text-[16px] font-normal text-[#EF5960] rounded-[2px] bg-[#19171F]">
-            MAX
-          </p>
+            <p className="px-[4px] py-[2px] text-[16px] font-normal text-[#EF5960] rounded-[2px] bg-[#19171F]">
+              MAX
+            </p>
+          </div>
+          {/* you recieve -----> */}
+          <div className="w-full flex justify-between items-center">
+            <p className="text-[14px] font-normal text-black-1 dark:text-white-1">
+              You recieve:
+            </p>
+            <p className="text-[14px] font-normal text-black-1 dark:text-white-1">
+              10000000000000 Ticker
+            </p>
+          </div>
+          {/* system messages ---> */}
+          <div className="w-full flex flex-col gap-1">
+            <p className="text-[15px] font-normal dark:text-white-1 text-black-1">
+              System messages{" "}
+            </p>
+            <p className="text-black-1 dark:text-white-1 rounded-[4px] font-normal text-[14px] w-full py-[4px] px-2 border-[1px] dark:border-white-1 border-dotted border-black-1">
+              Insufficient balance.{" "}
+            </p>
+          </div>
+          {/* place trade button ---->  */}
+          <button
+            onClick={openCommentModal}
+            className="w-full h-[51px] bg-yellow-1 text-[20px] font-normal text-black-1 flex justify-center items-center"
+          >
+            Place trade
+          </button>
         </div>
-        {/* you recieve -----> */}
-        <div className="w-full flex justify-between items-center">
-          <p className="text-[14px] font-normal text-black-1 dark:text-white-1">
-            You recieve:
-          </p>
-          <p className="text-[14px] font-normal text-black-1 dark:text-white-1">
-            10000000000000 Ticker
-          </p>
+        {/* for small screen  */}
+        <div className="w-full csm:hidden block">
+          <div className="flex flex-col gap-3">
+            <div className="flex justify-start items-center gap-2">
+              <GoGraph className="text-black-1 dark:text-white-1 text-[14px]" />
+              <p className="text-[14px] font-normal dark:text-white-1 text-black-1">
+                [Bonding curve progress]{" "}
+                <span className="text-[#01C171]"> [69%] </span>
+              </p>
+            </div>
+            <div className="w-full relative rounded-full h-[19px] bg-black-1">
+              <div className="w-[70%] absolute left-0 top-0 h-full rounded-full bg-yellow-1"></div>
+            </div>
+          </div>
+          <div className="flex flex-col gap-2">
+            <p className="text-[14px] font-normal dark:text-white-1 text-black-1">
+              When the market cap reaches $66,000 all the liquidity from the
+              bonding curve will be deposited into a Uniswap v2 Pool and burned.
+              Progression increases as the price goes up.
+            </p>
+            <p className="text-[14px] font-normal dark:text-white-1 text-black-1">
+              There are 479,108,240 tokens still available for sale in the
+              bonding curve and there is 12.411 SOL in the bonding curve.
+            </p>
+          </div>
         </div>
-        {/* system messages ---> */}
-        <div className="w-full flex flex-col gap-1">
-          <p className="text-[15px] font-normal dark:text-white-1 text-black-1">
-            System messages{" "}
-          </p>
-          <p className="text-black-1 dark:text-white-1 rounded-[4px] font-normal text-[14px] w-full py-[4px] px-2 border-[1px] dark:border-white-1 border-dotted border-black-1">
-            Insufficient balance.{" "}
-          </p>
-        </div>
-        {/* place trade button ---->  */}
-        <button
-          onClick={openCommentModal}
-          className="w-full h-[51px] bg-yellow-1 text-[20px] font-normal text-black-1 flex justify-center items-center"
-        >
-          Place trade
-        </button>
       </div>
       {/*  */}
       <CustomModal size="28rem" onClose={closeCommentModal} open={commentModal}>

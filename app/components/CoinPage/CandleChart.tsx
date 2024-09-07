@@ -43,6 +43,10 @@ function TradingViewWidget() {
   }, [resolvedTheme]);
 
   return (
+    <div className="w-full flex flex-col">
+      {/* for small screen  */}
+
+      
     <div
       className="tradingview-widget-container"
       ref={container}
@@ -52,6 +56,7 @@ function TradingViewWidget() {
         className="tradingview-widget-container__widget"
         style={{ height: "calc(100% - 32px)", width: "100%" }}
       ></div>
+    </div>
     </div>
   );
 }
