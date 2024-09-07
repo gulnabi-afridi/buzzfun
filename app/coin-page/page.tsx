@@ -19,6 +19,8 @@ import { BsChat } from "react-icons/bs";
 import { BsListCheck } from "react-icons/bs";
 import StatsHeader from "../components/CoinPage/StatsHeader";
 import SocialLinks from "../components/CoinPage/SocialLinks";
+import TaxMaxBuy from "../components/CoinPage/TaxMaxBuy";
+import ProjectDes from "../components/CoinPage/ProjectDes";
 
 const CoinPage = () => {
   const [isThread, setIsTread] = useState(false);
@@ -39,22 +41,7 @@ const CoinPage = () => {
                 <TradingViewWidget />
               </div>
               {/* project description --> */}
-              <div className="w-full flex justify-center items-center">
-                <div className="flex max-w-[700px] 2xl:max-w-full flex-col gap-4">
-                  <p className="text-[18px] dark:text-white-1 font-semibold text-black-1">
-                    Project Description:
-                  </p>
-                  <p className="text-[14px] dark:text-white-1 font-normal text-black-1">
-                    orem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the
-                    industry&lsquo;s standard dummy text ever since the 1500s,
-                    when an unknown printer took a galley of type and scrambled
-                    it to make a type specimen book. It has survived not only
-                    five centuries, but also the leap into electronic
-                    typesetting, remaining essentially.
-                  </p>
-                </div>
-              </div>
+              <ProjectDes />
               {/* Thread + Trades -------------> */}
               <div className="w-full flex justify-center items-center">
                 <div className="w-full max-w-[700px] 2xl:max-w-full mt-3 border-[1px] border-purple-1 p-3 flex flex-col justify-center items-center gap-4">
@@ -101,76 +88,7 @@ const CoinPage = () => {
                 <BuyAndSellWidget />
 
                 {/* tax option + max buy ------------>  */}
-                <div className="w-full flex justify-center items-center gap-7">
-                  <div className="flex justify-center items-center gap-2">
-                    <button className="w-[25px] flex justify-center items-center h-[25px] border-[1px] border-black-1 dark:border-white-1">
-                      <div className="w-[18px] h-[18px] bg-red-1"></div>
-                    </button>
-                    <div className="flex flex-col">
-                      <p className="text-[14px] font-normal text-black-1 dark:text-white-1">
-                        Tax option 1
-                      </p>
-                      <p className="text-[14px] font-normal text-black-1 dark:text-white-1">
-                        {`(5:15>2.5:45>0:∞)`}
-                      </p>
-                    </div>
-                    <Tooltip
-                      withArrow
-                      multiline
-                      classNames={{ tooltip: "!w-[230px] !py-2" }}
-                      color="#004BFE"
-                      label={
-                        <div className="flex flex-col gap-2">
-                          <p className="text-[8px] font-normal text-black-1">
-                            CONTRACT WILL HAVE BUY AND SELL TAX ON DEX LISTING.
-                            TAX FREE DURING BONDING CURVE.
-                          </p>
-                          <p className="text-[8px] font-normal text-black-1">
-                            {`TAX OPTION 1: 5% TAX FIRST 15 MINS > 2.5% TAX FOR 45MINS > TAX ZEROED INDEFINITELY.  `}
-                          </p>
-                        </div>
-                      }
-                    >
-                      <button className="bg-red-1 p-[2px]">
-                        <GoInfo className="text-black-1 text-[22px]" />
-                      </button>
-                    </Tooltip>
-                  </div>
-                  <div className="flex justify-center items-center gap-2">
-                    <button className="w-[25px] flex justify-center items-center h-[25px] border-[1px] border-black-1 dark:border-white-1">
-                      <div className="w-[18px] h-[18px] bg-blue-1"></div>
-                    </button>
-                    <div className="flex flex-col">
-                      <p className="text-[14px] font-normal text-black-1 dark:text-white-1">
-                        Max buy 1%
-                      </p>
-                      <p className="text-[14px] font-normal text-black-1 dark:text-white-1">
-                        {`BC+DEX-15`}
-                      </p>
-                    </div>
-                    <Tooltip
-                      withArrow
-                      multiline
-                      classNames={{ tooltip: "!w-[230px] !py-2" }}
-                      color="#004BFE"
-                      label={
-                        <div className="flex flex-col gap-2">
-                          <p className="text-[8px] font-normal text-black-1">
-                            CONTRACT WILL HAVE BUY AND SELL TAX ON DEX LISTING.
-                            TAX FREE DURING BONDING CURVE.
-                          </p>
-                          <p className="text-[8px] font-normal text-black-1">
-                            {`TAX OPTION 1: 5% TAX FIRST 15 MINS > 2.5% TAX FOR 45MINS > TAX ZEROED INDEFINITELY.  `}
-                          </p>
-                        </div>
-                      }
-                    >
-                      <button className="bg-blue-1 p-[2px]">
-                        <GoInfo className="text-black-1 text-[22px]" />
-                      </button>
-                    </Tooltip>
-                  </div>
-                </div>
+                <TaxMaxBuy />
 
                 {/* Bonding curve progress -----> */}
                 <div className="flex flex-col gap-3">
