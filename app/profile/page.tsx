@@ -484,7 +484,9 @@ const ProfilePage = () => {
           </div>
         </div>
       </CustomModal>
-      <Footer/>
+      <div className="w-full csm:block hidden">
+        <Footer />
+      </div>
     </React.Fragment>
   );
 };

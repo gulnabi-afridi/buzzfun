@@ -216,7 +216,7 @@ const Navibar: React.FC = () => {
       {/* MDOAL FOR CONNECT WALLET -------------->  */}
       {/* 1 Connect Wallet Modal  */}
       <CustomModal open={connectWalletOpened} onClose={connectClose} size="md">
-        <div className="w-full flex p-3 flex-col justify-center items-center">
+        <div className="w-full flex p-0 csm:p-3 flex-col justify-center items-center">
           {/* header  */}
           <div className="flex justify-start items-center gap-2">
             <button className="text-white-1 dark:bg-blue-1 uppercase hover:opacity-80 font-normal text-[12px] bg-black-1 px-2 py-[2px]">

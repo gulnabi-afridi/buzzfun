@@ -252,9 +252,9 @@ const CoinTable = () => {
           <div className="relative w-full h-auto">
             <div className={`flip-card-inner ${isFlipped ? "is-flipped" : ""}`}>
               {/* Front of the card */}
-              <div className="flip-card-front flex flex-col gap-[20px]">
+              <div className="flip-card-front flex flex-col gap-[20px] csm:gap-[20px]">
                 {/* buttons */}
-                <div className="w-full grid min-h-[50px] grid-cols-2 gap-2">
+                <div className="w-full grid min-h-[42px] csm:min-h-[50px] grid-cols-2 gap-2">
                   <button className="text-[22px] font-normal text-black-1 w-full h-full bg-green-1">
                     Buy
                   </button>
@@ -277,7 +277,7 @@ const CoinTable = () => {
                 </div>
 
                 {/* Ticker input */}
-                <div className="w-full border-[1px] px-2 dark:border-white-1 border-black-1 min-h-[50px] grid grid-cols-[1fr,110px]">
+                <div className="w-full border-[1px] px-2 dark:border-white-1 border-black-1 min-h-[42px] csm:min-h-[50px] grid grid-cols-[1fr,110px]">
                   <input
                     placeholder="0.0"
                     type="text"
@@ -306,14 +306,14 @@ const CoinTable = () => {
                     return (
                       <p
                         key={index}
-                        className="text-[16px] font-normal text-[#FEF652] bg-[#19171F] px-[4px] py-[2px] rounded-[2px]"
+                        className="text-[12px] csm:text-[16px] font-normal text-[#FEF652] bg-[#19171F] px-[4px] py-[2px] rounded-[2px]"
                       >
                         {item}
                       </p>
                     );
                   })}
 
-                  <p className="px-[4px] py-[2px] text-[16px] font-normal text-[#EF5960] rounded-[2px] bg-[#19171F]">
+                  <p className="px-[4px] py-[2px] text-[12px] csm:text-[16px] font-normal text-[#EF5960] rounded-[2px] bg-[#19171F]">
                     MAX
                   </p>
                 </div>
@@ -338,18 +338,18 @@ const CoinTable = () => {
                   </p>
                 </div>
                 {/* Place trade button */}
-                <button className="w-full min-h-[51px] bg-yellow-1 text-[20px] font-normal text-black-1 flex justify-center items-center">
+                <button className="w-full min-h-[42px] csm:min-h-[51px] bg-yellow-1 text-[20px] font-normal text-black-1 flex justify-center items-center">
                   Place trade
                 </button>
               </div>
 
               {/* Back of the card */}
-              <div className="flip-card-back flex flex-col gap-[24px]">
+              <div className="flip-card-back flex flex-col gap-[20px] csm:gap-[24px]">
                 <p className="text-[12px] font-normal dark:text-white-1 text-black-1">
                   Set max. slippage (%)
                 </p>
                 {/* input ------>  */}
-                <div className="w-full border-[1px] px-2 dark:border-white-1 border-black-1 min-h-[50px] grid grid-cols-[1fr,110px]">
+                <div className="w-full border-[1px] px-2 dark:border-white-1 border-black-1 min-h-[46px] csm:min-h-[50px] grid grid-cols-[1fr,110px]">
                   <input
                     placeholder="1"
                     type="text"
@@ -406,7 +406,7 @@ const CoinTable = () => {
                 {/* save and return button */}
                 <button
                   onClick={handleFlip}
-                  className="w-full mt-2 min-h-[51px] bg-yellow-1 text-[20px] font-normal text-black-1 flex justify-center items-center"
+                  className="w-full mt-2 min-h-[42px] csm:min-h-[51px] bg-yellow-1 text-[20px] font-normal text-black-1 flex justify-center items-center"
                 >
                   Save & Return
                 </button>
