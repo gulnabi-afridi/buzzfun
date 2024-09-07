@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, memo } from "react";
 import { useTheme } from "next-themes";
+import Trades from "./Trades";
+import StatsHeader from "./StatsHeader";
 
 function TradingViewWidget() {
   const container = useRef<HTMLDivElement | null>(null);
@@ -45,18 +47,24 @@ function TradingViewWidget() {
   return (
     <div className="w-full flex flex-col">
       {/* for small screen  */}
+      <div className="w-full csm:hidden block">
+        <StatsHeader />
+      </div>
 
-      
-    <div
-      className="tradingview-widget-container"
-      ref={container}
-      style={{ height: "100%", width: "100%" }}
-    >
       <div
-        className="tradingview-widget-container__widget"
-        style={{ height: "calc(100% - 32px)", width: "100%" }}
-      ></div>
-    </div>
+        className="tradingview-widget-container"
+        ref={container}
+        style={{ height: "100%", width: "100%" }}
+      >
+        <div
+          className="tradingview-widget-container__widget"
+          style={{ height: "calc(100% - 32px)", width: "100%" }}
+        ></div>
+      </div>
+      {/* trades for small screen ---> */}
+      <div className="w-full csm:hidden block">
+        <Trades />
+      </div>
     </div>
   );
 }

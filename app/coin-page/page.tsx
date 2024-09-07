@@ -18,6 +18,7 @@ import { BiGitCompare } from "react-icons/bi";
 import { BsChat } from "react-icons/bs";
 import { BsListCheck } from "react-icons/bs";
 import StatsHeader from "../components/CoinPage/StatsHeader";
+import SocialLinks from "../components/CoinPage/SocialLinks";
 
 const CoinPage = () => {
   const [isThread, setIsTread] = useState(false);
@@ -39,7 +40,7 @@ const CoinPage = () => {
               </div>
               {/* project description --> */}
               <div className="w-full flex justify-center items-center">
-                <div className="flex max-w-[700px] 2xl:max-w-auto flex-col gap-4">
+                <div className="flex max-w-[700px] 2xl:max-w-full flex-col gap-4">
                   <p className="text-[18px] dark:text-white-1 font-semibold text-black-1">
                     Project Description:
                   </p>
@@ -56,7 +57,7 @@ const CoinPage = () => {
               </div>
               {/* Thread + Trades -------------> */}
               <div className="w-full flex justify-center items-center">
-                <div className="w-full max-w-[700px] 2xl:max-w-auto mt-3 border-[1px] border-purple-1 p-3 flex flex-col justify-center items-center gap-4">
+                <div className="w-full max-w-[700px] 2xl:max-w-full mt-3 border-[1px] border-purple-1 p-3 flex flex-col justify-center items-center gap-4">
                   <div className="flex w-full justify-between items-center gap-3">
                     <div className="flex justify-center items-center gap-2">
                       <button
@@ -92,44 +93,9 @@ const CoinPage = () => {
             </div>
             {/* right portion */}
             <div className="w-full flex justify-center items-center">
-              <div className="w-full max-w-[700px] 2xl:max-w-auto h-full gap-5 flex flex-col">
+              <div className="w-full max-w-[700px] 2xl:max-w-full h-full gap-5 flex flex-col">
                 {/* top header  */}
-                <div className="w-full flex gap-2 justify-between items-center">
-                  <div className="flex flex-col gap-2">
-                    <p className="text-[14px] dark:text-white-1 font-normal text-black-1">
-                      [Socials]
-                    </p>
-                    <div className="flex justify-center items-center gap-2">
-                      <button className="w-[28px] dark:bg-blue-1 bg-black-1 h-[28px] flex justify-center items-center rounded-[1px]">
-                        <Image
-                          src="/assets/twitter.svg"
-                          alt=""
-                          width={16}
-                          height={16}
-                        />
-                      </button>
-                      <button className="w-[28px] dark:bg-blue-1 bg-black-1 h-[28px] flex justify-center items-center rounded-[1px]">
-                        <Image
-                          src="/assets/tellegram.svg"
-                          alt=""
-                          width={16}
-                          height={16}
-                        />
-                      </button>
-                      <button className="w-[28px] dark:bg-blue-1 bg-black-1 h-[28px] flex justify-center items-center rounded-[1px]">
-                        <Image
-                          src="/assets/globe.svg"
-                          alt=""
-                          width={18}
-                          height={18}
-                        />
-                      </button>
-                    </div>
-                  </div>
-                  <button className="text-[20px] font-normal text-black-1 bg-yellow-1 px-2 py-1 yellowSha">
-                    [LIVE <span className="underline"> CHAT</span> AVAILABLE]
-                  </button>
-                </div>
+                <SocialLinks />
                 {/* Buy And Sell widget ----------> */}
 
                 <BuyAndSellWidget />
