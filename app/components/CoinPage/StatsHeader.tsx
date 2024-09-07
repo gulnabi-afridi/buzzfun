@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const StatsHeader: React.FC = () => {
   return (
-    <div className="w-full flex sm:flex-row flex-col justify-start items-start sm:items-end gap-2 sm:gap-4">
+    <div className="w-full flex  flex-wrap justify-start items-start sm:items-end gap-3 sm:gap-4">
       <div className="flex justify-center items-center gap-2 sm:gap-4">
         <div className="w-[60px] h-[60px] bg-black-1 flex justify-center items-center">
           <Image src="/assets/emoji2.png" alt="" width={45} height={45} />
@@ -21,22 +21,24 @@ const StatsHeader: React.FC = () => {
           </button>
         </div>
       </div>
-      <p className="text-[14px] dark:text-white-1 font-normal text-black-1">
-        / View on Basescan
-      </p>
-      {/* reaction */}
-      <div className="px-2 py-[6px] rounded-[2px] dark:bg-black-1 bg-white-1 flex justify-center items-center gap-3">
-        <div className="flex justify-center items-center gap-2">
-          <Image src="/assets/like.png" alt="" width={18} height={18} />
-          <p className="text-[8px] font-normal dark:text-white-1 text-black-1">
-            12
-          </p>
-        </div>
-        <div className="flex justify-center items-center gap-2">
-          <Image src="/assets/dislike.png" alt="" width={18} height={18} />
-          <p className="text-[8px] font-normal dark:text-white-1 text-black-1">
-            2
-          </p>
+      <div className="flex csm:gap-4 gap-2 csm:flex-row flex-col justify-center items-center ">
+        <p className="text-[10px] csm:text-[14px] dark:text-white-1 font-normal text-black-1">
+          / View on Basescan
+        </p>
+        {/* reaction */}
+        <div className="px-2 py-[6px] rounded-[2px] dark:bg-black-1 bg-white-1 flex justify-center items-center gap-3">
+          <div className="flex justify-center items-center gap-2">
+            <Image src="/assets/like.png" alt="" width={18} height={18} />
+            <p className="text-[8px] font-normal dark:text-white-1 text-black-1">
+              12
+            </p>
+          </div>
+          <div className="flex justify-center items-center gap-2">
+            <Image src="/assets/dislike.png" alt="" width={18} height={18} />
+            <p className="text-[8px] font-normal dark:text-white-1 text-black-1">
+              2
+            </p>
+          </div>
         </div>
       </div>
     </div>

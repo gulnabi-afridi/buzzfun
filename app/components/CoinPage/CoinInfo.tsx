@@ -6,7 +6,7 @@ import ProjectDes from './ProjectDes'
 
 const CoinInfo:React.FC = () => {
   return (
-    <div className='w-full flex flex-col'>
+    <div className='w-full flex gap-8 flex-col'>
         <StatsHeader/>
         <SocialLinks/>
         <TaxMaxBuy/>

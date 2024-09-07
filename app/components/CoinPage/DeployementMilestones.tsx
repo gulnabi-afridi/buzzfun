@@ -5,10 +5,10 @@ import { RxCrossCircled } from "react-icons/rx";
 const DeployementMilestones:React.FC = () => {
   return (
     <div className="w-full flex flex-col gap-3">
-    <p className="text-[18px] dark:text-white-1 font-semibold text-black-1">
+    <p className="text-[16px] csm:text-[18px] dark:text-white-1 font-normal csm:font-semibold text-black-1">
       Deployment milestones:
     </p>
-    <div className="w-full p-3 border-[1px] border-blue-1">
+    <div className="w-full csm:h-auto h-[calc(100vh-300px)] overflow-auto p-3 border-[1px] border-blue-1">
       <div className="w-full flex flex-col gap-2">
         {deploymentMilestones.map((item, index) => {
           return (
