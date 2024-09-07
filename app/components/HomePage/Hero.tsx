@@ -304,14 +304,14 @@ const Hero = () => {
               <div className="w-full h-full max-w-[450px] xl:max-w-[480px] flex flex-col gap-4 justify-between items-center">
                 {/* top bar ---->  */}
                 <div className="w-full csm:flex hidden py-2 justify-center items-center bg-[#EF7216] rounded-[5px]">
-                  <p className="text-[13px] font-normal text-black-1">
+                  <p className="text-[12px] px-1 csm:text-[13px] font-normal text-black-1">
                     {pattern4}
                   </p>
                 </div>
                 {/* middle section ---> */}
                 <div className="w-full bg-transparent dark:bg-black-1 border-[1px] border-black-1 dark:border-[#FEF652] rounded-[5px] p-2">
-                  <div className="w-full py-2 flex justify-center items-center bg-[#FEF652] rounded-[5px]">
-                    <p className="text-[13px] font-normal text-black-1 dark:text-black-1">
+                  <div className="w-full py-2 px-1 flex justify-center items-center bg-[#FEF652] rounded-[5px]">
+                    <p className="text-[10px] csm:text-[13px] font-normal text-black-1 dark:text-black-1">
                       {pattern5}
                     </p>
                   </div>

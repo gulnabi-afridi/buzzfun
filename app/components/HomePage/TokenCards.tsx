@@ -24,13 +24,9 @@ import { LuChefHat } from "react-icons/lu";
 import { LuCoins } from "react-icons/lu";
 import { MdOutlineEmojiEmotions } from "react-icons/md";
 
-
 const TokenCards: React.FC = () => {
   const [showCoinDetails, setShowCoinDetails] = useState(false);
-  const [
-    buyAndSellModal,
-    { open: openBuyAndSellModal, close: closeBuyAndSellModal },
-  ] = useDisclosure(false);
+
   const [filter, setFilter] = useState("");
 
   const [activeModal, { open: openActiveModal, close: closeActiveModal }] =
@@ -60,15 +56,15 @@ const TokenCards: React.FC = () => {
                       Top:
                     </p>
                     <div className="bg-[#282828] px-[2px] py-[2px]  csm:hidden block rounded-[3px]">
-                      <LuChefHat className="text-[14px] text-white-1"/>
+                      <LuChefHat className="text-[14px] text-white-1" />
                     </div>
                     <div className="bg-[#282828] px-[2px] py-[2px]  csm:hidden block rounded-[3px]">
-                      <LuCoins className="text-[14px] text-white-1"/>
+                      <LuCoins className="text-[14px] text-white-1" />
                     </div>
                     <div className="bg-blue-1 px-[2px] py-[2px] csm:hidden block rounded-[3px]">
-                      <MdOutlineEmojiEmotions className="text-[14px] text-white-1"/>
+                      <MdOutlineEmojiEmotions className="text-[14px] text-white-1" />
                     </div>
-                    
+
                     <p className="text-white-1 csm:block hidden text-[10px] font-normal">
                       Top XP Tokens
                     </p>
@@ -214,10 +210,7 @@ const TokenCards: React.FC = () => {
                           />
                         </div>
                         {/* value  */}
-                        <button
-                          onClick={openBuyAndSellModal}
-                          className="w-full border-r-[1px] border-[#B746F0] flex gap-1 justify-center items-center "
-                        >
+                        <button className="w-full border-r-[1px] border-[#B746F0] flex gap-1 justify-center items-center ">
                           <GoGraph className="text-[14px] text-black-1 dark:text-white-1" />
                           <p className="text-[8px] csm:text-[10px] font-normal text-[#00C673]">
                             78%
@@ -330,194 +323,139 @@ const TokenCards: React.FC = () => {
         <CoinStatsCards />
       )}
 
-      {/* buy and sell modal ------------> */}
-      <CustomModal
-        size="24rem"
-        open={buyAndSellModal}
-        onClose={closeBuyAndSellModal}
-      >
-        <div className="w-full bg-black-1 flex flex-col gap-6">
-          {/* buttons */}
-          <div className="w-full grid h-[40px] grid-cols-2 gap-2">
-            <button className="text-[22px] font-normal text-black-1 w-full h-full bg-green-1">
-              Buy
-            </button>
-            <button className="text-[22px] font-normal text-black-1/40 w-full h-full bg-[#EA000054]">
-              Sell
-            </button>
-          </div>
-          {/* switch to coin --> */}
-          <div className="w-full flex justify-between items-center">
-            <p className="text-[15px] font-normal text-white-1 bg-black-1 px-[6px] rounded-[3px]">
-              Switch to ETH
-            </p>
-            <p className="text-[15px] font-normal text-white-1 bg-blue-1 px-[6px] rounded-[3px]">
-              Slippage
-            </p>
-          </div>
-          {/* ticker input --->  */}
-          <div className="w-full border-[1px] px-2 dark:border-white-1 border-black-1 h-[50px] grid grid-cols-[1fr,105px]">
-            <input
-              placeholder="0.0"
-              type="text"
-              className="w-full focus:outline-none border-r-[1px] border-white-1 placeholder:text-black-1 h-full bg-transparent dark:placeholder:text-white-1 text-[22px] dark:text-white-1 font-normal text-black-1"
-              name="ticker"
-              id=""
-            />
-            <div className="flex justify-end items-center gap-2">
-              <p className="text-[15px] font-normal dark:text-white-1 text-black-1">
-                Ticker
-              </p>
-              <div className="w-[32px] h-[32px] bg-black-1 flex justify-center items-center">
-                <Image src="/assets/emoji2.png" alt="" width={30} height={30} />
-              </div>
-            </div>
-          </div>
-          {/* you spend ---> */}
-          <div className="w-full flex px-4 justify-between items-center">
-            <p className="text-[15px] pl-20 dark:text-white-1 font-normal text-black-1">
-              You spend:
-            </p>
-            <p className="text-[15px] font-normal dark:text-white-1 text-black-1">
-              0.1 ETH
-            </p>
-          </div>
-          {/* system messages ---> */}
-          <div className="w-full flex gap-[2px] flex-col">
-            <p className="text-[8px] font-normal text-white-1">
-              System messages{" "}
-            </p>
-            <p className="text-[12px] font-normal px-1 py-[2px] text-white-1 border-[1px] border-white-1 border-dotted">
-              Insufficient balance.{" "}
-            </p>
-          </div>
-          {/* place trade button ---->  */}
-          <button className="w-full h-[42px] rounded-[2px] bg-yellow-1 text-[16px] font-normal text-black-1 flex justify-center items-center">
-            Place trade
-          </button>
-        </div>
-      </CustomModal>
       {/* active modal -------------> */}
       <CustomModal size="40rem" open={activeModal} onClose={closeActiveModal}>
-        <div className="w-full flex flex-col bg-black-1 px-3">
-          {/* modal header ---> */}
-          <div className="w-full border-b-[1px] border-white-1/20 pb-3 flex justify-between items-center">
-            <div className="flex justify-center items-center gap-2">
-              <PiBagSimple className="text-[#808080] text-[14px]" />
-              <p className="text-[12px] font-normal text-yellow-1">Active</p>
-              <p className="text-[12px] font-normal text-[#808080]">
-                Active Degenerations
-              </p>
-            </div>
-            <button
-              onClick={closeActiveModal}
-              className="w-[24px] h-[24px] flex justify-center items-center border-[1px] border-white-1/10 rounded-[2px]"
-            >
-              <RxCross2 className="text-[16px] cursor-pointer text-blue-1" />
-            </button>
-          </div>
-          {/* table header  */}
-          <div className="w-full border-b-[1px] border-white-1/20 py-3 grid grid-cols-[1.2fr,1fr,1fr,1fr]">
-            {/* token name */}
-            <div className="w-full flex justify-between items-center">
-              <p className="text-[12px] font-normal text-white-1">Token</p>
-              <Menu
-                classNames={{
-                  dropdown: `dark:!bg-[#336FFE] !z-50 !p-2 !bg-white-2 dark:!border-[.2px] dark:!border-white-1/20`,
-                  item: "!text-black-1 dark:text-white-1 text-[14px] font-normal hover:!bg-transparent",
-                  arrow: "!border-t-white-1/20 !border-l-white-1/20",
-                }}
-                trigger="click"
-                withArrow
+        <div className="w-full overflow-auto flex flex-col bg-black-1 px-1 csm:px-3">
+          <div className="w-full min-w-[420px] csm:min-w-auto flex flex-col">
+            {/* modal header ---> */}
+            <div className="w-full border-b-[1px] border-white-1/20 pb-3 flex justify-between items-center">
+              <div className="flex justify-center items-center gap-2">
+                <PiBagSimple className="text-[#808080] text-[14px]" />
+                <p className="text-[12px] font-normal text-yellow-1">Active</p>
+                <p className="text-[12px] font-normal text-[#808080]">
+                  Active Degenerations
+                </p>
+              </div>
+              <button
+                onClick={closeActiveModal}
+                className="w-[24px] h-[24px] flex justify-center items-center border-[1px] border-white-1/10 rounded-[2px]"
               >
-                <Menu.Target>
-                  <FaFilter className="text-white-1 cursor-pointer text-[16px]" />
-                </Menu.Target>
+                <RxCross2 className="text-[16px] cursor-pointer text-blue-1" />
+              </button>
+            </div>
+            {/* table header  */}
+            <div className="w-full border-b-[1px] border-white-1/20 py-3 grid grid-cols-[1.2fr,1fr,1fr,1fr]">
+              {/* token name */}
+              <div className="w-full flex justify-between items-center">
+                <p className="text-[12px] font-normal text-white-1">Token</p>
+                <Menu
+                  classNames={{
+                    dropdown: `dark:!bg-[#336FFE] !z-50 !p-2 !bg-white-2 dark:!border-[.2px] dark:!border-white-1/20`,
+                    item: "!text-black-1 dark:text-white-1 text-[14px] font-normal hover:!bg-transparent",
+                    arrow: "!border-t-white-1/20 !border-l-white-1/20",
+                  }}
+                  trigger="click"
+                  withArrow
+                >
+                  <Menu.Target>
+                    <FaFilter className="text-white-1 cursor-pointer text-[16px]" />
+                  </Menu.Target>
 
-                <Menu.Dropdown>
-                  <div className="w-full !z-50 flex flex-col">
-                    {filterOptions.map((option: any) => (
-                      <Menu.Item
-                        className={`relative w-full transition-colors duration-200 ${
-                          filter === option
-                            ? "!bg-[#1957EA] font-semibold before:absolute before:h-full before:inset-y-0 before:left-0 before:w-[5px] before:bg-black-1 after:absolute after:h-full after:inset-y-0 after:right-0 after:w-[5px] after:bg-black-1"
-                            : "hover:!bg-blue-1/20"
-                        }`}
-                        key={option}
-                        onClick={() => setFilter(option)}
-                      >
-                        <div className="py-[2px] w-full gap-2 px-4 flex justify-between items-center">
-                          <p>{option.name}</p>
-                          {option.icon}
-                        </div>
-                      </Menu.Item>
-                    ))}
+                  <Menu.Dropdown>
+                    <div className="w-full !z-50 flex flex-col">
+                      {filterOptions.map((option: any) => (
+                        <Menu.Item
+                          className={`relative w-full transition-colors duration-200 ${
+                            filter === option
+                              ? "!bg-[#1957EA] font-semibold before:absolute before:h-full before:inset-y-0 before:left-0 before:w-[5px] before:bg-black-1 after:absolute after:h-full after:inset-y-0 after:right-0 after:w-[5px] after:bg-black-1"
+                              : "hover:!bg-blue-1/20"
+                          }`}
+                          key={option}
+                          onClick={() => setFilter(option)}
+                        >
+                          <div className="py-[2px] w-full gap-2 px-4 flex justify-between items-center">
+                            <p>{option.name}</p>
+                            {option.icon}
+                          </div>
+                        </Menu.Item>
+                      ))}
+                    </div>
+                  </Menu.Dropdown>
+                </Menu>
+              </div>
+              {/* amount  */}
+              <div className="w-full flex justify-end items-center gap-1">
+                <p className="text-[12px] font-normal text-white-1">
+                  Amount USD
+                </p>
+                <div className="flex flex-col">
+                  <IoCaretUp className="text-purple-1 cursor-pointer text-[12px]" />
+                  <IoCaretUp className="text-purple-1 cursor-pointer rotate-180 text-[12px]" />
+                </div>
+              </div>
+              {/* Liquidity  */}
+              <div className="w-full flex justify-end items-center gap-1">
+                <p className="text-[12px] font-normal text-white-1">
+                  Liquidity
+                </p>
+                <div className="flex flex-col">
+                  <IoCaretUp className="text-purple-1 cursor-pointer text-[12px]" />
+                  <IoCaretUp className="text-purple-1 cursor-pointer rotate-180 text-[12px]" />
+                </div>
+              </div>
+              {/* PnL  */}
+              <div className="w-full flex justify-end items-center gap-1">
+                <p className="text-[12px] font-normal text-white-1">PnL</p>
+                <div className="flex flex-col">
+                  <IoCaretUp className="text-purple-1 cursor-pointer text-[12px]" />
+                  <IoCaretUp className="text-purple-1 cursor-pointer rotate-180 text-[12px]" />
+                </div>
+              </div>
+            </div>
+            {/* rows ----> */}
+            {[0, 1, 2, 3, 4, 5].map((item, index) => {
+              return (
+                <div
+                  key={index}
+                  className="w-full py-3 border-b-[1px] border-white-1/20 grid grid-cols-[1.2fr,1fr,1fr,1fr]"
+                >
+                  {/* token name */}
+                  <div className="w-full flex justify-between items-center">
+                    <div className="flex justify-center items-center gap-2">
+                      <Image
+                        src="/assets/active.svg"
+                        alt=""
+                        width={29}
+                        height={26}
+                      />
+                      <p className="text-[12px] font-normal text-white-1">
+                        Mog
+                      </p>
+                    </div>
+                    <IoEyeOutline className="text-white-1 text-[16px]" />
                   </div>
-                </Menu.Dropdown>
-              </Menu>
-            </div>
-            {/* amount  */}
-            <div className="w-full flex justify-end items-center gap-1">
-              <p className="text-[12px] font-normal text-white-1">Amount USD</p>
-              <div className="flex flex-col">
-                <IoCaretUp className="text-purple-1 cursor-pointer text-[12px]" />
-                <IoCaretUp className="text-purple-1 cursor-pointer rotate-180 text-[12px]" />
-              </div>
-            </div>
-            {/* Liquidity  */}
-            <div className="w-full flex justify-end items-center gap-1">
-              <p className="text-[12px] font-normal text-white-1">Liquidity</p>
-              <div className="flex flex-col">
-                <IoCaretUp className="text-purple-1 cursor-pointer text-[12px]" />
-                <IoCaretUp className="text-purple-1 cursor-pointer rotate-180 text-[12px]" />
-              </div>
-            </div>
-            {/* PnL  */}
-            <div className="w-full flex justify-end items-center gap-1">
-              <p className="text-[12px] font-normal text-white-1">PnL</p>
-              <div className="flex flex-col">
-                <IoCaretUp className="text-purple-1 cursor-pointer text-[12px]" />
-                <IoCaretUp className="text-purple-1 cursor-pointer rotate-180 text-[12px]" />
-              </div>
-            </div>
+                  {/* amount  */}
+                  <div className="w-full flex justify-end items-center gap-1">
+                    <p className="text-[12px] font-normal text-white-1">
+                      $3.4k
+                    </p>
+                  </div>
+                  {/* Liquidity  */}
+                  <div className="w-full flex justify-end items-center gap-1">
+                    <p className="text-[12px] font-normal text-white-1">
+                      $3.4k
+                    </p>
+                  </div>
+                  {/* PnL  */}
+                  <div className="w-full flex justify-end items-center gap-1">
+                    <p className="text-[12px] font-normal text-[#57C78D]">
+                      +$ 769,57
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
-          {/* rows ----> */}
-          {[0, 1, 2, 3, 4, 5].map((item, index) => {
-            return (
-              <div
-                key={index}
-                className="w-full py-3 border-b-[1px] border-white-1/20 grid grid-cols-[1.2fr,1fr,1fr,1fr]"
-              >
-                {/* token name */}
-                <div className="w-full flex justify-between items-center">
-                  <div className="flex justify-center items-center gap-2">
-                    <Image
-                      src="/assets/active.svg"
-                      alt=""
-                      width={29}
-                      height={26}
-                    />
-                    <p className="text-[12px] font-normal text-white-1">Mog</p>
-                  </div>
-                  <IoEyeOutline className="text-white-1 text-[16px]" />
-                </div>
-                {/* amount  */}
-                <div className="w-full flex justify-end items-center gap-1">
-                  <p className="text-[12px] font-normal text-white-1">$3.4k</p>
-                </div>
-                {/* Liquidity  */}
-                <div className="w-full flex justify-end items-center gap-1">
-                  <p className="text-[12px] font-normal text-white-1">$3.4k</p>
-                </div>
-                {/* PnL  */}
-                <div className="w-full flex justify-end items-center gap-1">
-                  <p className="text-[12px] font-normal text-[#57C78D]">
-                    +$ 769,57
-                  </p>
-                </div>
-              </div>
-            );
-          })}
         </div>
       </CustomModal>
 
@@ -528,87 +466,93 @@ const TokenCards: React.FC = () => {
         open={watchListModal}
         onClose={closeWatchListModal}
       >
-        <div className="w-full flex flex-col bg-black-1 px-3">
-          {/* modal header ---> */}
-          <div className="w-full border-b-[1px] border-white-1/20 pb-3 flex justify-between items-center">
-            <div className="flex justify-center items-center gap-2">
-              <IoIosStarOutline className="text-yellow-1 text-[14px]" />
-              <p className="text-[12px] font-normal text-yellow-1">
-                Watchlist{" "}
-              </p>
-            </div>
-            <button
-              onClick={closeWatchListModal}
-              className="w-[24px] h-[24px] flex justify-center items-center border-[1px] border-white-1/10 rounded-[2px]"
-            >
-              <RxCross2 className="text-[16px] text-blue-1" />
-            </button>
-          </div>
-          {/* table header  */}
-          <div className="w-full border-b-[1px] border-white-1/20 py-3 grid grid-cols-[1.2fr,1fr,1fr,1fr]">
-            {/* token name */}
-            <div className="w-full flex justify-start items-center">
-              <p className="text-[12px] font-normal text-white-1">Token</p>
-            </div>
-            {/* mcap  */}
-            <div className="w-full flex justify-end items-center gap-1">
-              <p className="text-[12px] font-normal text-white-1">MCAP</p>
-              <div className="flex flex-col">
-                <IoCaretUp className="text-purple-1 cursor-pointer text-[12px]" />
-                <IoCaretUp className="text-purple-1 cursor-pointer rotate-180 text-[12px]" />
+        <div className="w-full flex overflow-auto flex-col bg-black-1 px-3">
+          <div className="w-full min-w-[400px] csm:min-w-auto flex flex-col">
+            {/* modal header ---> */}
+            <div className="w-full border-b-[1px] border-white-1/20 pb-3 flex justify-between items-center">
+              <div className="flex justify-center items-center gap-2">
+                <IoIosStarOutline className="text-yellow-1 text-[14px]" />
+                <p className="text-[12px] font-normal text-yellow-1">
+                  Watchlist{" "}
+                </p>
               </div>
-            </div>
-            {/* volume  */}
-            <div className="w-full flex justify-end items-center gap-1">
-              <p className="text-[12px] font-normal text-white-1">Volume</p>
-              <div className="flex flex-col">
-                <IoCaretUp className="text-purple-1 cursor-pointer text-[12px]" />
-                <IoCaretUp className="text-purple-1 cursor-pointer rotate-180 text-[12px]" />
-              </div>
-            </div>
-            {/* 24H  */}
-            <div className="w-full flex justify-end items-center gap-1">
-              <p className="text-[12px] font-normal text-white-1">24H%</p>
-              <div className="flex flex-col">
-                <IoCaretUp className="text-purple-1 cursor-pointer text-[12px]" />
-                <IoCaretUp className="text-purple-1 cursor-pointer rotate-180 text-[12px]" />
-              </div>
-            </div>
-          </div>
-          {/* rows ----> */}
-          {[0, 1, 2, 3, 4].map((item, index) => {
-            return (
-              <div
-                key={index}
-                className="w-full py-3 border-b-[1px] border-white-1/20 grid grid-cols-[1.2fr,1fr,1fr,1fr]"
+              <button
+                onClick={closeWatchListModal}
+                className="w-[24px] h-[24px] flex justify-center items-center border-[1px] border-white-1/10 rounded-[2px]"
               >
-                {/* token name */}
-                <div className="flex justify-start items-center gap-2">
-                  <Image
-                    src="/assets/active.svg"
-                    alt=""
-                    width={29}
-                    height={26}
-                  />
-                  <p className="text-[12px] font-normal text-white-1">Mog</p>
-                </div>
-                {/* amount  */}
-                <div className="w-full flex justify-end items-center gap-1">
-                  <p className="text-[12px] font-normal text-white-1">$3.4k</p>
-                </div>
-                {/* Liquidity  */}
-                <div className="w-full flex justify-end items-center gap-1">
-                  <p className="text-[12px] font-normal text-white-1">$3.4k</p>
-                </div>
-                {/* PnL  */}
-                <div className="w-full flex justify-end items-center gap-1">
-                  <p className="text-[12px] font-normal text-[#57C78D]">
-                    +$ 769,57
-                  </p>
+                <RxCross2 className="text-[16px] text-blue-1" />
+              </button>
+            </div>
+            {/* table header  */}
+            <div className="w-full border-b-[1px] border-white-1/20 py-3 grid grid-cols-[1.2fr,1fr,1fr,1fr]">
+              {/* token name */}
+              <div className="w-full flex justify-start items-center">
+                <p className="text-[12px] font-normal text-white-1">Token</p>
+              </div>
+              {/* mcap  */}
+              <div className="w-full flex justify-end items-center gap-1">
+                <p className="text-[12px] font-normal text-white-1">MCAP</p>
+                <div className="flex flex-col">
+                  <IoCaretUp className="text-purple-1 cursor-pointer text-[12px]" />
+                  <IoCaretUp className="text-purple-1 cursor-pointer rotate-180 text-[12px]" />
                 </div>
               </div>
-            );
-          })}
+              {/* volume  */}
+              <div className="w-full flex justify-end items-center gap-1">
+                <p className="text-[12px] font-normal text-white-1">Volume</p>
+                <div className="flex flex-col">
+                  <IoCaretUp className="text-purple-1 cursor-pointer text-[12px]" />
+                  <IoCaretUp className="text-purple-1 cursor-pointer rotate-180 text-[12px]" />
+                </div>
+              </div>
+              {/* 24H  */}
+              <div className="w-full flex justify-end items-center gap-1">
+                <p className="text-[12px] font-normal text-white-1">24H%</p>
+                <div className="flex flex-col">
+                  <IoCaretUp className="text-purple-1 cursor-pointer text-[12px]" />
+                  <IoCaretUp className="text-purple-1 cursor-pointer rotate-180 text-[12px]" />
+                </div>
+              </div>
+            </div>
+            {/* rows ----> */}
+            {[0, 1, 2, 3, 4].map((item, index) => {
+              return (
+                <div
+                  key={index}
+                  className="w-full py-3 border-b-[1px] border-white-1/20 grid grid-cols-[1.2fr,1fr,1fr,1fr]"
+                >
+                  {/* token name */}
+                  <div className="flex justify-start items-center gap-2">
+                    <Image
+                      src="/assets/active.svg"
+                      alt=""
+                      width={29}
+                      height={26}
+                    />
+                    <p className="text-[12px] font-normal text-white-1">Mog</p>
+                  </div>
+                  {/* amount  */}
+                  <div className="w-full flex justify-end items-center gap-1">
+                    <p className="text-[12px] font-normal text-white-1">
+                      $3.4k
+                    </p>
+                  </div>
+                  {/* Liquidity  */}
+                  <div className="w-full flex justify-end items-center gap-1">
+                    <p className="text-[12px] font-normal text-white-1">
+                      $3.4k
+                    </p>
+                  </div>
+                  {/* PnL  */}
+                  <div className="w-full flex justify-end items-center gap-1">
+                    <p className="text-[12px] font-normal text-[#57C78D]">
+                      +$ 769,57
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </CustomModal>
     </React.Fragment>
