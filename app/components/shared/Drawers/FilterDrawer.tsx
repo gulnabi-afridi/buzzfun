@@ -26,7 +26,7 @@ const FilterDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
       overlayProps={{ backgroundOpacity: 0, blur: 0 }}
       classNames={{
         content:
-          "!bg-white-1 dark:!bg-[#1D252C] border-[1px] border-[#2B2C39] !h-[calc(100vh-106px)] !mt-[106px] !overflow-auto",
+          "!bg-white-1 dark:!bg-[#1D252C] border-[1px] border-[#2B2C39] !h-[calc(100vh-80px)] csm:!h-[calc(100vh-106px)] !mt-[80px] csm:!mt-[106px] !overflow-auto",
       }}
     >
       <div className="w-full justify-between h-[calc(100vh-146px)]  gap-3 flex flex-col">
@@ -41,7 +41,10 @@ const FilterDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
                   New Tokens
                 </p>
               </div>
-              <button className="w-[18px] h-[18px] bg-[#1C2126] flex justify-center items-center ">
+              <button
+                onClick={closeDrawer}
+                className="w-[18px] h-[18px] bg-[#1C2126] flex justify-center items-center "
+              >
                 <RxCross2 className="text-[#004BFE] text-[14px]" />
               </button>
             </div>
@@ -59,7 +62,8 @@ const FilterDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
                       classNames={{
                         body: "!flex !w-full !justify-between",
                         root: "!w-full",
-                        label: "text-[12px] font-normal !text-black-1 dark:!text-white-1",
+                        label:
+                          "text-[12px] font-normal !text-black-1 dark:!text-white-1",
                         input: "!bg-black-1 !border-transparent",
                       }}
                       label={item}
@@ -112,7 +116,7 @@ const FilterDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
         </div>
 
         {/* buttons ----> */}
-        <div className="w-full flex justify-between gap-2 items-center">
+        <div className="w-full flex justify-between csm:mt-0 mt-2 gap-2 items-center">
           <button className="flex justify-center items-center gap-1">
             <RiArrowGoBackLine className="text-[14px] text-[#6E6E6E]" />
             <p className="text-[10px] font-normal text-[#6E6E6E]">Reset</p>
