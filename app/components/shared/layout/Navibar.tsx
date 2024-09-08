@@ -14,11 +14,12 @@ import CustomModal from "../Modals/CustomModal";
 import { RxHamburgerMenu } from "react-icons/rx";
 import * as Icons from "../SVGs/Icons";
 import LeftNavigation from "../../ForSmallScreen/LeftNavigation";
-
+import ChatDrawer from "../Drawers/ChatDrawer/ChatDrawer";
 
 const Navibar: React.FC = () => {
   // states ------------------------>
-
+  const [chatDrawer, { open: openChatDrawer, close: closeChatDrawer }] =
+    useDisclosure(false);
   const [connectWalletOpened, { open: connectOpen, close: connectClose }] =
     useDisclosure(false);
   const [createWalletOpened, { open: createOpen, close: createClose }] =
@@ -144,7 +145,7 @@ const Navibar: React.FC = () => {
           {/* chat -----> */}
           <div className="w-[35px] h-[35px] flex relative">
             <div className="absolute inset-0 before:left-[-.8px] before:right-[-.8px] before:rounded-[6px] before:bottom-[-1.5px] gradient-border"></div>
-            <button className="bg-[#1A1721] z-10 rounded-[6px] w-full h-full flex justify-center items-center">
+            <button onClick={openChatDrawer} className="bg-[#1A1721] z-10 rounded-[6px] w-full h-full flex justify-center items-center">
               <BsChatLeftText className="text-[#787B99] text-[20px]" />
             </button>
           </div>
@@ -386,6 +387,10 @@ const Navibar: React.FC = () => {
 
       {/* drawer for small screen ---------------->  */}
       <LeftNavigation open={navigationDrawer} close={closeNavigationDrawer} />
+      {/* chat drawer ----------------> */}
+      <div className="w-full lg:hidden block">
+        <ChatDrawer open={chatDrawer} closeDrawer={closeChatDrawer} />
+      </div>
     </React.Fragment>
   );
 };

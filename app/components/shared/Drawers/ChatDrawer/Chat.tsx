@@ -80,10 +80,10 @@ const Chat: React.FC<Props> = ({ setSetting, setChatInformation }: Props) => {
     <React.Fragment>
       <div className="w-full">
         {/* token name ---> */}
-        <div className="w-full bg-[#D4DDE6] relative h-[40px] px-4 flex justify-between items-center ">
+        <div className="w-full bg-[#D4DDE6] relative h-[43px] csm:h-[40px] px-3 csm:px-4 flex justify-between items-center ">
           <div className="flex justify-center items-center gap-3">
             <Image src="/assets/token3.svg" alt="" width={26} height={26} />
-            <p className="text-[14px] font-semibold text-black-1">
+            <p className="text-[12px] csm:text-[14px] font-semibold text-black-1">
               Pink Hood Froglicker | $Froglic [chat]
             </p>
           </div>
@@ -91,7 +91,7 @@ const Chat: React.FC<Props> = ({ setSetting, setChatInformation }: Props) => {
             <CustomMenu
               targetComponent={
                 <button>
-                  <HiOutlineDotsHorizontal className="text-[20px] cursor-pointer text-black-1" />
+                  <HiOutlineDotsHorizontal className="text-[22px] csm:text-[20px] cursor-pointer text-black-1" />
                 </button>
               }
               trigger="click"
@@ -104,7 +104,7 @@ const Chat: React.FC<Props> = ({ setSetting, setChatInformation }: Props) => {
           }
         </div>
         {/* update bar ---> */}
-        <div className="w-full mt-[2px] bg-black-1 px-4 h-[40px] flex justify-between items-center ">
+        <div className="w-full mt-[2px] bg-black-1 px-0 csm:px-4 h-[40px] flex justify-between items-center ">
           <p className="text-[14px] font-bold text-yellow-1">
             #9 Update: Bot development
           </p>
@@ -113,7 +113,7 @@ const Chat: React.FC<Props> = ({ setSetting, setChatInformation }: Props) => {
             <FaRegFlag className="text-[16px] cursor-pointer text-black-1" />
           </button>
         </div>
-        <div className="w-full h-[calc(100vh-300px)] flex flex-col">
+        <div className="w-full h-[calc(100vh-260px)] csm:h-[calc(100vh-300px)] flex flex-col">
           {/* messages ---> */}
           <div className="w-full overflow-y-auto flex-grow flex flex-col">
             {messageData.map((item, index) => {
@@ -123,10 +123,10 @@ const Chat: React.FC<Props> = ({ setSetting, setChatInformation }: Props) => {
                   className="w-full px-4 py-2 grid items-start grid-cols-[80px,110px,1fr]"
                 >
                   <div className="w-full flex items-start flex-col justify-center">
-                    <p className=" text-[14px] font-normal dark:text-white-1/80 text-black-1">
+                    <p className="text-[12px] csm:text-[14px] font-normal dark:text-white-1/80 text-black-1">
                       {item.date.date}
                     </p>
-                    <p className=" text-[14px] font-normal dark:text-white-1/80 text-black-1">
+                    <p className="text-[12px] csm:text-[14px] font-normal dark:text-white-1/80 text-black-1">
                       {item.date.time}
                     </p>
                   </div>
@@ -139,20 +139,20 @@ const Chat: React.FC<Props> = ({ setSetting, setChatInformation }: Props) => {
                         value={userNameMenuOption}
                         setValue={setUserMenuOption}
                         targetComponent={
-                          <p className="text-[14px] cursor-pointer font-semibold text-[#004BFE]">
+                          <p className="text-[12px] csm:text-[14px] cursor-pointer font-semibold text-[#004BFE]">
                             {item.userName}
                           </p>
                         }
                       />
                     }
 
-                    <p className="text-[14px] font-normal dark:text-white-1/80 text-black-1">
+                    <p className="text-[12px] csm:text-[14px] font-normal dark:text-white-1/80 text-black-1">
                       {item.roloe}
                     </p>
                   </div>
                   <div className="w-full pl-3 items-start gap-2 flex flex-col">
                     <div className="w-full relative">
-                      <p className="text-[12px] font-normal dark:text-white-1/80 text-black-1">
+                      <p className="text-[11px] csm:text-[12px] font-normal dark:text-white-1/80 text-black-1">
                         {item.message}
                       </p>
                       {/* chat + back icon ---> */}
@@ -251,13 +251,13 @@ const Chat: React.FC<Props> = ({ setSetting, setChatInformation }: Props) => {
             })}
           </div>
           {/* send message ui ---> */}
-          <div className="w-full grid grid-cols-[1fr,80px] rounded-[2px] h-[100px] gap-3 border-[1px] border-blue-1">
-            <p className="text-[14px] p-2 font-normal dark:text-white-1/80 text-black-1">
+          <div className="w-full grid csm:rounded-bl-0 rounded-bl-[30px] csm:rounded-br-[0px] rounded-br-[15px] grid-cols-[1fr,80px] rounded-[2px] min-h-[110px] csm:min-h-[100px] gap-3 border-[1px] border-blue-1">
+            <p className="text-[12px] csm:text-[14px] csm:rounded-bl-0 rounded-bl-[30px] overflow-auto p-2 font-normal dark:text-white-1/80 text-black-1">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry.Lorem Ipsum passages, and more recently with desktop
               publishing software like{" "}
             </p>
-            <button className="bg-[#D4DDE6] dark:bg-[#1D252C] p-2 gap-1 flex flex-col justify-center items-center w-full">
+            <button className="bg-[#D4DDE6] dark:bg-[#1D252C] csm:rounded-br-[0px] rounded-br-[15px] p-2 gap-1 flex flex-col justify-center items-center w-full">
               <p className="text-[14px] font-normal text-black-1 bg-yellow-1 px-[4px]">
                 /SEND
               </p>
