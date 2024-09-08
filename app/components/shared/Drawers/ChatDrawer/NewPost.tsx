@@ -45,7 +45,10 @@ const NewPost: React.FC = () => {
 
   return (
     <div className="w-full gap-1 flex flex-col">
-      <div className="w-full bg-[#D4DDE6] h-[40px] px-4 flex justify-between items-center ">
+      <div className="w-full bg-[#D4DDE6] h-[40px] px-4 flex justify-start gap-3 items-center ">
+      <div className="min-h-[28px] csm:hidden flex bg-purple-1 rounded-[2px] justify-center items-center min-w-[28px]">
+                <Image src='/assets/emoji2.png' alt="" width={24} height={24}/>
+              </div>
         <p className="text-[14px] font-semibold text-black-1/80">
           Admin Create a News Post
         </p>
@@ -53,12 +56,12 @@ const NewPost: React.FC = () => {
       <p className="w-full py-3 bg-black-1 px-4 text-[14px] font-semibold text-[#FEF652]">
         Create a News Post.
       </p>
-      <form className="w-full mt-2 flex flex-col gap-3">
+      <form className="w-full h-[calc(100vh-250px)] overflow-auto mt-2 flex flex-col gap-3">
         {/* title */}
         <div className="w-full flex flex-col gap-1">
           <label
             htmlFor="title"
-            className="text-[14px] font-normal text-blue-1/80"
+            className="text-[12px] csm:text-[14px] font-normal text-blue-1/80"
           >
             Title <span className="text-[10px]"> (mandatory)</span>
           </label>
@@ -73,7 +76,7 @@ const NewPost: React.FC = () => {
         <div className="w-full flex flex-col gap-1">
           <label
             htmlFor="subHeading"
-            className="text-[14px] font-normal text-blue-1/80"
+            className="text-[12px] csm:text-[14px] font-normal text-blue-1/80"
           >
             Subheading<span className="text-[10px]"> (mandatory)</span>
           </label>
@@ -88,7 +91,7 @@ const NewPost: React.FC = () => {
         <div className="w-full flex flex-col gap-1">
           <label
             htmlFor="mainText"
-            className="text-[14px] font-normal text-blue-1/80"
+            className="text-[12px] csm:text-[14px] font-normal text-blue-1/80"
           >
             Subheading<span className="text-[10px]"> (mandatory)</span>
           </label>
@@ -100,7 +103,7 @@ const NewPost: React.FC = () => {
         </div>
         {/* upload an image  */}
         <div className="w-full flex flex-col gap-1">
-          <p className="text-[14px] font-normal text-blue-1/80">
+          <p className="text-[12px] csm:text-[14px] font-normal text-blue-1/80">
             Upload an Image<span className="text-[10px]"> (optional)</span>
           </p>
           <div className="w-full flex-col bg-black-1 flex justify-center items-start px-6 py-6 gap-2">
@@ -131,7 +134,7 @@ const NewPost: React.FC = () => {
             {/* uploaded image  */}
             <div className="w-full flex justify-start items-center gap-2">
               {fileDetails.imageUrl && (
-                <div className="w-[300px] h-[100px] relative">
+                <div className="w-[250px] csm:w-[300px] h-[80px] csm:h-[100px] relative">
                   <Image src={fileDetails.imageUrl} alt="" fill />
                 </div>
               )}
@@ -148,7 +151,7 @@ const NewPost: React.FC = () => {
         {/* links  */}
         <div className="w-full flex flex-col gap-1">
           {" "}
-          <p className="text-[14px] font-normal text-blue-1/80">
+          <p className="text-[12px] csm:text-[14px] font-normal text-blue-1/80">
             Links (Optional)- [max 6]
           </p>
           <div className="w-full overflow-auto flex justify-start bg-black-1 p-5">
@@ -187,16 +190,16 @@ const NewPost: React.FC = () => {
           </div>
         </div>
         {/* buttons ---> */}
-        <div className="w-full h-[69px] px-5 bg-black-1 flex justify-end items-center gap-2">
+        <div className="w-full min-h-[70px] csm:min-h-[69px] px-5 bg-black-1 flex justify-end items-center gap-2">
           <button
             type="button"
-            className="px-2 py-1 rounded-[5px] bg-white-1 text-[12px] font-normal text-black-1"
+            className="px-2 py-[6px] csm:py-1 rounded-[5px] bg-white-1 text-[12px] font-normal text-black-1"
           >
             Cancel
           </button>
           <button
             type="button"
-            className="px-2 py-1 rounded-[5px] bg-[#FEF652] text-[12px] font-normal text-black-1"
+            className="px-2 py-[6px] csm:py-1 rounded-[5px] bg-[#FEF652] text-[12px] font-normal text-black-1"
           >
             Save and Publish
           </button>

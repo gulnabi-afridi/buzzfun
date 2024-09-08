@@ -61,9 +61,9 @@ const ChatDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
         {/* close drawer for small screen  */}
         <button
           onClick={closeDrawer}
-          className="w-full flex justify-start px-2"
+          className="w-full px-2"
         >
-          <div className="w-full bg-[#D4DDE6] px-3 py-1 rounded-t-[4px]">
+          <div className="w-full flex justify-start bg-[#D4DDE6] px-3 py-1 rounded-t-[4px]">
             <p className="text-[10px] underline font-normal text-black-1">
               / Close <span className="bg-yellow-1"> Chat </span>
             </p>

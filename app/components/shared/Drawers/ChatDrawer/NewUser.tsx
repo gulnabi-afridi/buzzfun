@@ -17,7 +17,7 @@ const NewUser: React.FC = () => {
           {/* New post ---> */}
           <div className="w-full bg-[#D4DDE6] h-[40px] px-4 flex justify-between items-center ">
             <div className="flex justify-center items-center gap-3">
-              <div className="min-h-[28px] bg-purple-1 rounded-[2px] flex justify-center items-center min-w-[28px]">
+              <div className="min-h-[28px] csm:hidden block bg-purple-1 rounded-[2px] flex justify-center items-center min-w-[28px]">
                 <Image src='/assets/emoji2.png' alt="" width={24} height={24}/>
               </div>
               <p className="text-[14px] font-semibold text-black-1">
