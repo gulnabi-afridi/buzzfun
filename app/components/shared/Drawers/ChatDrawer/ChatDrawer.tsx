@@ -12,6 +12,8 @@ import Blacklist from "./Setting/Blacklist";
 import Mods from "./Setting/Mods";
 import Stickers from "./Setting/Stickers";
 import ChatInformation from "./Setting/ChatInformation";
+import ChatHeader from "./ChatHeader";
+import SettingTopHeader from "./Setting/SettingTopHeader";
 
 interface Props {
   open: boolean;
@@ -19,10 +21,10 @@ interface Props {
 }
 
 const ChatDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
-  const [isNewUser, setNewUser] = useState(true);
-  const [showSetting, setSetting] = useState(false);
+  const [isNewUser, setNewUser] = useState(false);
+  const [showSetting, setSetting] = useState(true);
   const [showChatInformation, setChatInformation] = useState(false);
-  const [settingOption, setSettingOption] = useState("Chat permissions");
+  const [settingOption, setSettingOption] = useState("");
 
   return (
     <Drawer
@@ -59,10 +61,7 @@ const ChatDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
           </div>
         </div>
         {/* close drawer for small screen  */}
-        <button
-          onClick={closeDrawer}
-          className="w-full px-2"
-        >
+        <button onClick={closeDrawer} className="w-full csm:hidden block px-2">
           <div className="w-full flex justify-start bg-[#D4DDE6] px-3 py-1 rounded-t-[4px]">
             <p className="text-[10px] underline font-normal text-black-1">
               / Close <span className="bg-yellow-1"> Chat </span>
@@ -70,7 +69,7 @@ const ChatDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
           </div>
         </button>
         {/* content */}
-        <div className="w-full p-2 dark:bg-[#0E161C] gap-3 bg-white-1 grid grid-cols-1 cmd:grid-cols-[1fr,3.5fr,1fr]">
+        <div className="w-full px-2 py-0 csm:px-2 csm:py-2 dark:bg-[#0E161C] gap-0 csm:gap-3 bg-white-1 grid grid-cols-1 cmd:grid-cols-[1fr,3.5fr,1fr]">
           {/* 1st col */}
           {showSetting ? (
             <SettingSidebar
@@ -87,11 +86,18 @@ const ChatDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
           {/* 2nd col ----->  */}
           {showSetting ? (
             <>
-              {settingOption === "Chat permissions" && <ChatPermission />}
-              {settingOption === "Members" && <Members />}
-              {settingOption === "Blacklist" && <Blacklist />}
-              {settingOption === "Mods" && <Mods />}
-              {settingOption === "Stickers" && <Stickers />}
+              <div className="w-full csm:hidden block">
+                <ChatHeader />
+              </div>
+              <div className="w-full ">
+                <SettingTopHeader goBack={setSetting} />
+
+                {settingOption === "Chat permissions" && <ChatPermission />}
+                {settingOption === "Members" && <Members />}
+                {settingOption === "Blacklist" && <Blacklist />}
+                {settingOption === "Mods" && <Mods />}
+                {settingOption === "Stickers" && <Stickers />}
+              </div>
             </>
           ) : (
             <div
@@ -100,29 +106,7 @@ const ChatDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
               }  flex flex-col`}
             >
               {/* top header  */}
-              <div
-                className={`w-full ${
-                  showChatInformation ? "hidden" : "flex"
-                } bg-white-1 csm:bg-[#1B2A35] px-4 h-[50px] justify-between items-center`}
-              >
-                <div className="flex px-2 py-[4px] bg-white-1 dark:bg-black-1 justify-center items-center gap-2">
-                  <p className="text-[14px] font-bold text-black-1 dark:text-white-1">
-                    News
-                  </p>
-                  <p className="bg-[#FF0000] px-[8px] py-[0px] text-black-1 dark:text-white-1">
-                    2
-                  </p>
-                </div>
-                <p className="text-[14px] font-semibold text-black-1 csm:hidden block">
-                  General [Chet]
-                </p>
-                <p className="text-[14px] csm:block hidden font-bold text-white-1 dark:text-black-1 csm:dark:text-white-1">
-                  General [Chat]
-                </p>
-                <p className="text-[14px] csm:hidden block font-bold text-white-1 dark:text-black-1 csm:dark:text-white-1">
-                  [My Chats]
-                </p>
-              </div>
+              <ChatHeader />
               {isNewUser ? (
                 <NewUser />
               ) : showChatInformation ? (

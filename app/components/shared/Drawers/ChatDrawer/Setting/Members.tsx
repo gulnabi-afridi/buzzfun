@@ -13,8 +13,7 @@ import { useDisclosure } from "@mantine/hooks";
 import ConfirmationModal from "../../../Modals/ConfirmationModal";
 import { GoUnmute } from "react-icons/go";
 import { FiClock } from "react-icons/fi";
-
-
+import { IoMdSkipBackward } from "react-icons/io";
 
 const Members: React.FC = () => {
   const [sortOption, setSortOption] = useState("");
@@ -65,42 +64,30 @@ const Members: React.FC = () => {
 
   return (
     <React.Fragment>
-      <div className="w-full border-[1px] border-blue-1 rounded-[2px] flex flex-col">
+      <div className="w-full border-[1px] border-none csm:border-blue-1 rounded-[2px] flex flex-col">
         {/* top header */}
-        <div className="w-full flex flex-col p-3 gap-2">
-          <div className="w-full bg-[#D4DDE6] relative h-[43px] px-4 flex justify-between items-center">
-            <div className="flex justify-center items-center gap-3">
-              <Image src="/assets/token3.svg" alt="" width={26} height={26} />
-              <p className="text-[14px] font-semibold text-black-1">
-                {`$Froglic: Settings > Members [Total 1200]`}
-              </p>
-            </div>
-          </div>
+        <div className="w-full flex flex-col p-0 csm:p-3 gap-0 csm:gap-2">
+         
           {/* filter ---> */}
           <div className="w-full flex justify-between items-center px-4 bg-[#D4DDE6] h-[43px]">
             {/* sort by  */}
             <div className="flex justify-center items-center gap-3">
-              <p className="text-[16px] font-normal text-black-1">Sort by</p>
-              <CustomMenu
-                size="!w-[150px]"
-                options={sortOptions}
-                value={sortOption}
-                trigger="click"
-                setValue={setSortOption}
-                targetComponent={
-                  <button className="px-2 bg-black-1 py-[2px] flex justify-center items-center gap-1">
-                    <p className="text-[16px] font-normal text-white-1">A-Z</p>
-                    <MdKeyboardArrowDown className="text-blue-1 text-[14px]" />
-                  </button>
-                }
-              />
+              <p className="text-[14px] csm:text-[16px] font-normal text-black-1">
+                Sort by
+              </p>
+              <button className="px-2 bg-black-1 py-[2px] flex justify-center items-center gap-1">
+                <p className="text-[14px] csm:text-[16px] font-normal text-white-1">
+                  A-Z
+                </p>
+                <MdKeyboardArrowDown className="text-blue-1 text-[14px]" />
+              </button>
             </div>
             {/* search  */}
             <div className="flex justify-center items-center gap-3">
               <input
                 type="text"
                 placeholder="insert username or wallet address"
-                className="text-[10px] pl-2 focus:outline-none placeholder:text-black-1/35 bg-[#A1A1A1] w-[230px] h-[27px] rounded-[2px] font-normal text-black-1/35"
+                className="text-[10px] pl-2 focus:outline-none placeholder:text-black-1/35 bg-[#A1A1A1] w-[130px] csm:w-[230px] h-[27px] rounded-[2px] font-normal text-black-1/35"
               />
               <button className="bg-black-1 py-[3px] px-[3px]">
                 <LuSearch className="text-[16px] text-white-1" />
@@ -114,7 +101,7 @@ const Members: React.FC = () => {
             return (
               <div
                 key={index}
-                className="w-full grid border-b-[1px] border-blue-1/20 dark:border-white-1/10 py-2 px-6 grid-cols-[1fr,2fr,1fr]"
+                className="w-full grid border-b-[1px] border-blue-1/20 dark:border-white-1/10 py-2 px-2 csm:px-6 grid-cols-[1fr,2fr,1fr]"
               >
                 {/* ist col */}
                 <div className="w-full flex justify-center items-start gap-[2px] flex-col">
@@ -124,17 +111,17 @@ const Members: React.FC = () => {
                   </p>
                 </div>
                 {/* 2nd col */}
-                <div className="w-full flex gap-7 justify-start items-center">
+                <div className="w-full flex gap-5 csm:gap-7 justify-start items-center">
                   <button>
                     <IoCopySharp className="text-black-1 dark:text-white-1 text-[16px]" />
                   </button>
-                  <button className="flex justify-center items-center gap-2">
-                    <FiMessageCircle className="text-black-1 dark:text-white-1text-[18px]" />
+                  <button className="flex csm:flex-row flex-col justify-center items-center gap-2">
+                    <FiMessageCircle className="text-black-1 dark:text-white-1 text-[18px]" />
                     <p className="text-[14px] font-normal text-black-1 dark:text-white-1">
                       1,234
                     </p>
                   </button>
-                  <button className="flex justify-center items-center gap-2">
+                  <button className="flex csm:flex-row flex-col  justify-center items-center gap-2">
                     <FaRegCalendarCheck className="text-black-1 dark:text-white-1 text-[20px]" />
                     <p className="text-[14px] font-normal text-black-1 dark:text-white-1">
                       12days
@@ -142,7 +129,7 @@ const Members: React.FC = () => {
                   </button>
                 </div>
                 {/* 3rd col  */}
-                <div className="w-full flex justify-end gap-6 items-center">
+                <div className="w-full flex justify-end gap-4 csm:gap-6 items-center">
                   <LuSkull
                     onClick={openBlackListEnableModal}
                     className="text-[22px] cursor-pointer text-black-1 dark:text-white-1"

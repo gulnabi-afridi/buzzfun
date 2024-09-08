@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Image from "next/image";
+import { IoMdSkipBackward } from "react-icons/io";
 
-//  A union type for the possible keys in SelectedPermissions =================> 
+//  A union type for the possible keys in SelectedPermissions =================>
 type PermissionType =
   | "send messages"
   | "Send Images"
@@ -59,16 +60,8 @@ const ChatPermission: React.FC = () => {
   };
 
   return (
-    <div className="w-full border-[1px] border-blue-1 rounded-[2px] p-3 flex flex-col">
-      {/* top header */}
-      <div className="w-full bg-[#D4DDE6] relative h-[40px] px-4 flex justify-between items-center">
-        <div className="flex justify-center items-center gap-3">
-          <Image src="/assets/token3.svg" alt="" width={26} height={26} />
-          <p className="text-[14px] font-semibold text-black-1">
-          {`$Froglic: Settings > [Chat permissions]`}
-          </p>
-        </div>
-      </div>
+    <div className="w-full border-[1px] border-none csm:border-blue-1 rounded-[2px] p-0 csm:p-3 flex flex-col">
+   
       {/* permissions */}
       <div className="w-full flex mt-2 flex-col gap-2">
         {chatPermission.map((item, index) => {
@@ -81,7 +74,7 @@ const ChatPermission: React.FC = () => {
                   : "grid-cols-[2fr,1fr] gap-2"
               } grid items-center px-3`}
             >
-              <p className="w-full flex justify-start text-white-1 font-normal text-[14px] items-center">
+              <p className="w-full flex justify-start text-white-1 font-normal text-[12px] csm:text-[14px] items-center">
                 {item.type}
               </p>
               {/* checkbox */}
@@ -91,7 +84,9 @@ const ChatPermission: React.FC = () => {
                     className={`flex justify-center items-center gap-2`}
                     onClick={() => handleSelect(item.type, "ON")}
                   >
-                    <p className="text-[14px] font-normal text-white-1">ON</p>
+                    <p className="text-[12px] csm:text-[14px] font-normal text-white-1">
+                      ON
+                    </p>
                     <div className="min-w-[20px] min-h-[20px] flex justify-center items-center border-[1px] border-white-1 rounded-[2px]">
                       {selectedPermissions[item.type] === "ON" && (
                         <div className="min-w-[10px] min-h-[10px] bg-white-1 rounded-[1px]"></div>
@@ -102,7 +97,9 @@ const ChatPermission: React.FC = () => {
                     className={`flex justify-center items-center gap-2 `}
                     onClick={() => handleSelect(item.type, "OFF")}
                   >
-                    <p className="text-[14px] font-normal text-white-1">OFF</p>
+                    <p className="text-[12px] csm:text-[14px] font-normal text-white-1">
+                      OFF
+                    </p>
                     <div className="min-w-[20px] min-h-[20px] flex justify-center items-center border-[1px] border-white-1 rounded-[2px]">
                       {selectedPermissions[item.type] === "OFF" && (
                         <div className="min-w-[10px] min-h-[10px] bg-white-1 rounded-[1px]"></div>
@@ -111,7 +108,7 @@ const ChatPermission: React.FC = () => {
                   </button>
                 </div>
               ) : (
-                <div className="w-full flex justify-between items-center gap-2">
+                <div className="w-full flex-wrap flex justify-between items-center gap-x-2 gap-y-4">
                   {item.durations?.map((dur, index) => {
                     return (
                       <button
@@ -119,7 +116,7 @@ const ChatPermission: React.FC = () => {
                         className={`flex justify-center items-center gap-2`}
                         onClick={() => handleSelect(item.type, dur)}
                       >
-                        <p className="text-[14px] font-normal text-white-1">
+                        <p className="text-[12px] csm:text-[14px] font-normal text-white-1">
                           {dur}
                         </p>
                         <div className="min-w-[20px] min-h-[20px] flex justify-center items-center border-[1px] border-white-1 rounded-[2px]">

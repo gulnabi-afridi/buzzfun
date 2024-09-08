@@ -4,13 +4,13 @@ import { FaRegSquarePlus } from "react-icons/fa6";
 
 const ChatInformation: React.FC = () => {
   return (
-    <div className="w-full border-[1px] border-blue-1 rounded-[2px] flex flex-col">
+    <div className="w-full border-[1px] border-none csm:border-blue-1 rounded-[2px] flex flex-col">
       {/* top header ----->  */}
-      <div className="w-full flex flex-col p-3">
+      <div className="w-full flex flex-col p-0 csm:p-3">
         <div className="w-full bg-[#D4DDE6] relative h-[43px] flex justify-between items-center">
           <div className="flex pl-4 justify-center items-center gap-3">
             <Image src="/assets/token3.svg" alt="" width={26} height={26} />
-            <p className="text-[14px] font-semibold text-black-1">
+            <p className="text-[12px] csm:text-[14px] font-semibold text-black-1">
               Pink Hood Froglicker | $Froglic [chat]
             </p>
           </div>
@@ -28,10 +28,10 @@ const ChatInformation: React.FC = () => {
               key={index}
               className="w-full grid px-6 grid-cols-[100px,1fr] gap-8 justify-center items-center py-3 border-b-[1px] border-blue-1/20 dark:border-white-1/10"
             >
-              <p className="w-full flex justify-start text-[14px] font-normal text-blue-1 items-center">
+              <p className="w-full flex justify-start text-[12px] csm:text-[14px] font-normal text-blue-1 items-center">
                 {item.type}
               </p>
-              <div className="w-full flex justify-start items-center gap-7">
+              <div className="w-full flex-wrap flex justify-start items-center gap-7">
                 {item.img && (
                   <Image src={item.img} alt="" width={25} height={25} />
                 )}
@@ -39,14 +39,14 @@ const ChatInformation: React.FC = () => {
                   return (
                     <p
                       key={index}
-                      className="text-[14px] font-normal text-black-1 dark:text-white-1 underline"
+                      className="text-[12px] csm:text-[14px] font-normal text-black-1 dark:text-white-1 underline"
                     >
                       {ls}
                     </p>
                   );
                 })}
                 {item.des && (
-                  <p className="text-[14px] font-normal text-black-1 dark:text-white-1">
+                  <p className="text-[12px] csm:text-[14px] font-normal text-black-1 dark:text-white-1">
                     {item.des}
                   </p>
                 )}

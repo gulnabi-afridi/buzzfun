@@ -18,6 +18,7 @@ import AddAdmin from "./AddAdmin";
 import { useDisclosure } from "@mantine/hooks";
 import { Modal } from "@mantine/core";
 import ConfirmationModal from "../../../Modals/ConfirmationModal";
+import { IoMdSkipBackward } from "react-icons/io";
 
 const Mods: React.FC = () => {
   const [modsMenu, setModsMenu] = useState("");
@@ -63,40 +64,17 @@ const Mods: React.FC = () => {
 
   return (
     <React.Fragment>
-      <div className="w-full border-[1px] border-blue-1 rounded-[2px] flex flex-col">
+      <div className="w-full border-[1px] border-none csm:border-blue-1 rounded-[2px] flex flex-col">
         {/* top header */}
-        <div className="w-full flex flex-col p-3 gap-2">
-          <div className="w-full bg-[#D4DDE6] relative h-[43px] flex justify-between items-center">
-            <div className="flex pl-4 justify-center items-center gap-3">
-              <Image src="/assets/token3.svg" alt="" width={26} height={26} />
-              <p className="text-[14px] font-semibold text-black-1">
-                {addAdmin
-                  ? `$Froglic: Settings > [MODS] > Add Mod`
-                  : `$Froglic: Settings > [MODS][Total 15]`}
-              </p>
-            </div>
-            {/* add mods button --------->  */}
-            <div className="w-[50px] h-full bg-white-1 flex justify-center items-center">
-              {addAdmin ? (
-                <FiSkipBack
-                  onClick={() => setAddAdmin(!addAdmin)}
-                  className="text-[23px] cursor-pointer text-black-1"
-                />
-              ) : (
-                <FaRegSquarePlus
-                  onClick={() => setAddAdmin(!addAdmin)}
-                  className="text-[23px] cursor-pointer text-black-1"
-                />
-              )}
-            </div>
-          </div>
+        <div className="w-full flex flex-col p-0 csm:p-3 gap-0 csm:gap-2">
+        
           {/* filter ---> */}
           <div className="w-full flex justify-between items-center px-4 bg-[#D4DDE6] h-[43px]">
             {/* sort by  */}
             <div className="flex justify-center items-center gap-3">
-              <p className="text-[16px] font-normal text-black-1">Sort by</p>
+              <p className="text-[14px] csm:text-[16px] font-normal text-black-1">Sort by</p>
               <button className="px-2 bg-black-1 py-[2px] flex justify-center items-center gap-1">
-                <p className="text-[16px] font-normal text-white-1">A-Z</p>
+                <p className="text-[14px] csm:text-[16px] font-normal text-white-1">A-Z</p>
                 <MdKeyboardArrowDown className="text-blue-1 text-[14px]" />
               </button>
             </div>
@@ -105,7 +83,7 @@ const Mods: React.FC = () => {
               <input
                 type="text"
                 placeholder="insert username or wallet address"
-                className="text-[10px] pl-2 focus:outline-none placeholder:text-black-1/35 bg-[#A1A1A1] w-[230px] h-[27px] rounded-[2px] font-normal text-black-1/35"
+                className="text-[10px] pl-2 focus:outline-none placeholder:text-black-1/35 bg-[#A1A1A1] w-[130px] csm:w-[230px] h-[27px] rounded-[2px] font-normal text-black-1/35"
               />
               <button className="bg-black-1 py-[3px] px-[3px]">
                 <LuSearch className="text-[16px] text-white-1" />
@@ -123,7 +101,7 @@ const Mods: React.FC = () => {
                 return (
                   <div
                     key={index}
-                    className="w-full grid border-b-[1px] border-white-1/10 py-2 px-6 grid-cols-[1fr,2fr,1fr,50px]"
+                    className="w-full grid border-b-[1px] border-white-1/10 py-2 px-2 csm:px-6 grid-cols-[1fr,2fr,1fr,50px]"
                   >
                     {/* ist col */}
                     <div className="w-full flex justify-center items-start gap-[2px] flex-col">
