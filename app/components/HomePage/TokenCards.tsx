@@ -23,13 +23,17 @@ import { RiGraduationCapLine } from "react-icons/ri";
 import { LuChefHat } from "react-icons/lu";
 import { LuCoins } from "react-icons/lu";
 import { MdOutlineEmojiEmotions } from "react-icons/md";
+import CoinStatsCard from "../shared/Cards/CoinStatsCard";
+import FilterDrawer from "../shared/Drawers/FilterDrawer";
 
 const TokenCards: React.FC = () => {
   const [showCoinDetails, setShowCoinDetails] = useState(false);
-
+  const [selectedCard, setSelectedCard] = useState(1);
   const [filter, setFilter] = useState("");
 
   const [activeModal, { open: openActiveModal, close: closeActiveModal }] =
+    useDisclosure(false);
+  const [filterDrawer, { open: openFilterDrawer, close: closeFilterDrawer }] =
     useDisclosure(false);
 
   const [
@@ -320,8 +324,84 @@ const TokenCards: React.FC = () => {
           </div>
         </div>
       ) : (
-        <CoinStatsCards />
+        <div className="w-full flex justify-center items-center csm:gap-0 gap-3 flex-col">
+          <div className="w-full max-w-[700px] xl:max-w-full hidden csm:flex gap-6 flex-col mt-3 bg-transparent dark:bg-[#0E161C] rounded-[5px] border-[1px] border-[#38394A] py-4 px-2">
+            <div className="w-full grid grid-cols-1 xl:grid-cols-2 3xl:grid-cols-3 gap-3">
+              {coinsStatsCards.map((item, index) => {
+                return (
+                  <CoinStatsCard
+                    key={index}
+                    openFilter={openFilterDrawer}
+                    borderColor={item.cardBorderColor}
+                    title={item.title}
+                  />
+                );
+              })}
+            </div>
+
+            <p className="text-[10px] csm:block hidden font-normal px-2 text-white-1">
+              <span className="text-[#EBFF00]">{`//`}</span>{" "}
+              <span className="text-[#B746F0]">{`ô¿ô `}</span>{" "}
+              <span className="text-[#EBFF00]">{`+`}</span>{" "}
+              <span className="text-[#EBFF00]">{`( .  Y . ) > (@_@)....<*_*> / (♥️_♥️)][L][F][G][][][0]******_______¯\_(ツ)_/¯_________8=======D`}</span>{" "}
+              <span className="text-[#336FFE]">{`ฅ^•ﻌ•^ฅ`}</span>{" "}
+            </p>
+          </div>
+          {/* for small screen  */}
+          <div className="w-full csm:hidden csm:pt-0 pt-4 block">
+            {selectedCard === 1 && (
+              <CoinStatsCard
+                title={coinsStatsCards[0].title}
+                openFilter={openFilterDrawer}
+                borderColor={coinsStatsCards[0].cardBorderColor}
+              />
+            )}
+            {selectedCard === 2 && (
+              <CoinStatsCard
+                title={coinsStatsCards[1].title}
+                openFilter={openFilterDrawer}
+                borderColor={coinsStatsCards[1].cardBorderColor}
+              />
+            )}
+            {selectedCard === 3 && (
+              <CoinStatsCard
+                title={coinsStatsCards[2].title}
+                openFilter={openFilterDrawer}
+                borderColor={coinsStatsCards[2].cardBorderColor}
+              />
+            )}
+          </div>
+        </div>
       )}
+
+      {/* for small screen  */}
+      <div className="w-full px-1 py-1 mt-2 bg-black-1 flex csm:hidden justify-between items-center">
+        <div></div>
+        <div className="flex justify-center items-center gap-2 pl-10">
+          <button
+            onClick={() => setSelectedCard(1)}
+            className={`w-[13px] ${
+              selectedCard === 1 ? "bg-yellow-1" : "bg-purple-1"
+            } h-[13px] rounded-full`}
+          ></button>
+          <button
+            onClick={() => setSelectedCard(2)}
+            className={`w-[13px] h-[13px]
+              ${selectedCard === 2 ? "bg-yellow-1" : "bg-purple-1"} 
+              rounded-full`}
+          ></button>
+          <button
+            onClick={() => setSelectedCard(3)}
+            className={`w-[13px] h-[13px]
+              ${selectedCard === 3 ? "bg-yellow-1" : "bg-purple-1"} 
+              
+              rounded-full`}
+          ></button>
+        </div>
+        <button className="text-[10px] text-white-1 px-2 py-1 font-semibold bg-black-1 rounded-[2px] yellowSha">
+          Minimize
+        </button>
+      </div>
 
       {/* active modal -------------> */}
       <CustomModal size="40rem" open={activeModal} onClose={closeActiveModal}>
@@ -555,6 +635,9 @@ const TokenCards: React.FC = () => {
           </div>
         </div>
       </CustomModal>
+
+      {/* Filter drawer -------------------> */}
+      <FilterDrawer open={filterDrawer} closeDrawer={closeFilterDrawer} />
     </React.Fragment>
   );
 };
@@ -569,5 +652,20 @@ const filterOptions = [
   {
     name: "Base",
     icon: <Icons.subtract />,
+  },
+];
+
+const coinsStatsCards = [
+  {
+    title: "// Tokens recently created \\ ",
+    cardBorderColor: "border-[#FEF652]",
+  },
+  {
+    title: "// Bonding almost complete \\ ",
+    cardBorderColor: "border-[#A03ED2]",
+  },
+  {
+    title: "// LFG to Uniswap \\ ",
+    cardBorderColor: "border-[#61D937]",
   },
 ];
