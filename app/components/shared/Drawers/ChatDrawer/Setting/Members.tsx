@@ -66,7 +66,7 @@ const Members: React.FC = () => {
     <React.Fragment>
       <div className="w-full border-[1px] border-none csm:border-blue-1 rounded-[2px] flex flex-col">
         {/* top header */}
-        <div className="w-full flex flex-col p-0 csm:p-3 gap-0 csm:gap-2">
+        <div className="w-full flex flex-col py-1 px-0 cmd:px-3 cmd:py-3 gap-0 cmd:gap-2">
          
           {/* filter ---> */}
           <div className="w-full flex justify-between items-center px-4 bg-[#D4DDE6] h-[43px]">

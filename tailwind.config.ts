@@ -23,7 +23,7 @@ const config: Config = {
         sm: '480px',
         csm: '540px',
         md: '768px',
-        cmd: '850px',
+        cmd: '890px',
         lg: '976px',
         clg: '1080px',
         cxl:'1200px',

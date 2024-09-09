@@ -69,7 +69,7 @@ const ChatDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
           </div>
         </button>
         {/* content */}
-        <div className="w-full px-2 py-0 csm:px-2 csm:py-2 dark:bg-[#0E161C] gap-0 csm:gap-3 bg-white-1 grid grid-cols-1 cmd:grid-cols-[1fr,3.5fr,1fr]">
+        <div className="w-full px-2 py-0 csm:px-2 csm:py-2 dark:bg-[#0E161C] gap-0 cmd:gap-3 bg-white-1 grid grid-cols-1 cmd:grid-cols-[1fr,3.5fr,1fr]">
           {/* 1st col */}
           {showSetting ? (
             <SettingSidebar
@@ -86,10 +86,10 @@ const ChatDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
           {/* 2nd col ----->  */}
           {showSetting ? (
             <>
-              <div className="w-full csm:hidden block">
+              <div className="w-full cmd:hidden block">
                 <ChatHeader />
               </div>
-              <div className="w-full ">
+              <div className="w-full">
                 <SettingTopHeader goBack={setSetting} />
 
                 {settingOption === "Chat permissions" && <ChatPermission />}

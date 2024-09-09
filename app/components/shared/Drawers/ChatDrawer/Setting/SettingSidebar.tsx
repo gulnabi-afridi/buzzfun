@@ -19,7 +19,7 @@ const SettingSidebar: React.FC<Props> = ({
 }: Props) => {
   return (
     <div className="w-full flex flex-col">
-      <div className="w-full csm:flex hidden bg-transparent dark:bg-black-1 flex-col gap-2">
+      <div className="w-full cmd:flex hidden bg-transparent dark:bg-black-1 flex-col gap-2">
         <div className="w-full flex items-start border-[1px] border-blue-1 flex-col h-[calc(100vh-156px)]">
           <div className="w-full flex p-4 items-start flex-col gap-3">
             <button
@@ -48,7 +48,7 @@ const SettingSidebar: React.FC<Props> = ({
         </div>
       </div>
       {/* for small screen ------>  */}
-      <div className="w-full h-[55px] csm:hidden grid absolute bottom-0 left-0 grid-cols-4">
+      <div className="w-full h-[55px] cmd:hidden grid absolute bottom-0 left-0 grid-cols-4">
         <button
           onClick={() => setSelectedSetting("Chat permissions")}
           className={`w-full ${
