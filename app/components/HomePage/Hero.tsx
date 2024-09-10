@@ -50,8 +50,7 @@ const Hero = () => {
   return (
     <React.Fragment>
       <div className="w-full relative flex flex-col justify-center items-center">
-        {/* open chat  */}
-        <OpenChartBtn />
+    
         <div
           className={`w-full flex flex-col max-w-[1400px] mt-4 px-0 csm:px-4 py-0 csm:py-3 dark:bg-transparent dark:border-transparent bg-transparent border-[2px] border-black-1 rounded-[5px]`}
         >

@@ -28,8 +28,7 @@ const TokenCards: React.FC = () => {
   const [showCoinDetails, setShowCoinDetails] = useState(false);
   const [selectedCard, setSelectedCard] = useState(1);
 
-  const [filterDrawer, { open: openFilterDrawer, close: closeFilterDrawer }] =
-    useDisclosure(false);
+
 
   return (
     <React.Fragment>
@@ -315,7 +314,6 @@ const TokenCards: React.FC = () => {
                 return (
                   <CoinStatsCard
                     key={index}
-                    openFilter={openFilterDrawer}
                     borderColor={item.cardBorderColor}
                     title={item.title}
                   />
@@ -336,21 +334,18 @@ const TokenCards: React.FC = () => {
             {selectedCard === 1 && (
               <CoinStatsCard
                 title={coinsStatsCards[0].title}
-                openFilter={openFilterDrawer}
                 borderColor={coinsStatsCards[0].cardBorderColor}
               />
             )}
             {selectedCard === 2 && (
               <CoinStatsCard
                 title={coinsStatsCards[1].title}
-                openFilter={openFilterDrawer}
                 borderColor={coinsStatsCards[1].cardBorderColor}
               />
             )}
             {selectedCard === 3 && (
               <CoinStatsCard
                 title={coinsStatsCards[2].title}
-                openFilter={openFilterDrawer}
                 borderColor={coinsStatsCards[2].cardBorderColor}
               />
             )}
@@ -387,8 +382,7 @@ const TokenCards: React.FC = () => {
         </button>
       </div>
 
-      {/* Filter drawer -------------------> */}
-      <FilterDrawer open={filterDrawer} closeDrawer={closeFilterDrawer} />
+     
     </React.Fragment>
   );
 };

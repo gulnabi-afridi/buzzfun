@@ -251,7 +251,7 @@ const Chat: React.FC<Props> = ({ setSetting, setChatInformation }: Props) => {
             })}
           </div>
           {/* send message ui ---> */}
-          <div className="w-full grid csm:rounded-bl-0 rounded-bl-[30px] csm:rounded-br-[0px] rounded-br-[15px] grid-cols-[1fr,80px] rounded-[2px] min-h-[110px] csm:min-h-[100px] gap-3 border-[1px] border-blue-1">
+          <div className="w-full grid csm:rounded-bl-[0px] rounded-[2px] rounded-bl-[30px] csm:rounded-br-[0px] rounded-br-[15px] grid-cols-[1fr,80px] min-h-[110px] csm:min-h-[100px] gap-3 border-[1px] border-blue-1">
             <p className="text-[12px] csm:text-[14px] csm:rounded-bl-0 rounded-bl-[30px] overflow-auto p-2 font-normal dark:text-white-1/80 text-black-1">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry.Lorem Ipsum passages, and more recently with desktop

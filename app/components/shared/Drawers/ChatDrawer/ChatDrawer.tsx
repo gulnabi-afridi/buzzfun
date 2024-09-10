@@ -24,7 +24,7 @@ const ChatDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
   const [isNewUser, setNewUser] = useState(false);
   const [showSetting, setSetting] = useState(true);
   const [showChatInformation, setChatInformation] = useState(false);
-  const [settingOption, setSettingOption] = useState("");
+  const [settingOption, setSettingOption] = useState("Chat permissions");
 
   return (
     <Drawer

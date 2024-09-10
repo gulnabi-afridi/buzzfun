@@ -15,11 +15,10 @@ import { CiUser } from "react-icons/ci";
 
 interface Props {
     borderColor:string;
-    openFilter:any;
     title:string
 }
 
-const CoinStatsCard: React.FC<Props> = ({borderColor,openFilter,title}:Props) => {
+const CoinStatsCard: React.FC<Props> = ({borderColor,title}:Props) => {
   return (
     <div className={`w-full flex justify-center items-center`}>
       <div className="w-full max-w-[500px] flex flex-col gap-3">
@@ -31,7 +30,6 @@ const CoinStatsCard: React.FC<Props> = ({borderColor,openFilter,title}:Props) =>
           {/* table filter  */}
           <div className="w-full flex justify-between items-center">
             <button
-              onClick={openFilter}
               className="px-2 h-[28px] bg-[#1E2025] rounded-[2px] flex justify-center items-center gap-1"
             >
               <FaFilter className="text-[12px] csm:text-[14px] text-white-1" />

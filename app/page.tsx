@@ -7,7 +7,6 @@ import TokenCards from "./components/HomePage/TokenCards";
 import Trusted from "./components/HomePage/Trusted";
 import ImportUrl from "./components/HomePage/ImportUrl";
 import Breadcrumb from "./components/shared/layout/Breadcrumb";
-import CoinStatsCards from "./components/HomePage/CoinStatsCards";
 import CoinLabel from "./components/ForSmallScreen/CoinLabel";
 import { Select } from "@mantine/core";
 import CreatCoin from "./components/ForSmallScreen/CreateToken";
