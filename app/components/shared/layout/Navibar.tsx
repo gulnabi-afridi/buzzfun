@@ -154,7 +154,15 @@ const Navibar: React.FC = () => {
             </div>
           </button>
           {/* chat -----> */}
-          <div className="w-[35px] h-[35px] flex relative">
+          <div className="w-[35px] h-[35px] hidden lg:flex relative">
+            <div className="absolute inset-0 before:left-[-.8px] before:right-[-.8px] before:rounded-[6px] before:bottom-[-1.5px] gradient-border"></div>
+            <button
+              className="bg-[#1A1721] z-10 rounded-[6px] w-full h-full flex justify-center items-center"
+            >
+              <BsChatLeftText className="text-[#787B99] text-[20px]" />
+            </button>
+          </div>
+          <div className="w-[35px] h-[35px] flex lg:hidden relative">
             <div className="absolute inset-0 before:left-[-.8px] before:right-[-.8px] before:rounded-[6px] before:bottom-[-1.5px] gradient-border"></div>
             <button
               onClick={openChatDrawer}

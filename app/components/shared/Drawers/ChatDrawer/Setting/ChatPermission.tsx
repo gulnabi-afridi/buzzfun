@@ -61,7 +61,6 @@ const ChatPermission: React.FC = () => {
 
   return (
     <div className="w-full border-[1px] border-none csm:border-blue-1 rounded-[2px] p-0 csm:p-3 flex flex-col">
-   
       {/* permissions */}
       <div className="w-full flex mt-2 flex-col gap-2">
         {chatPermission.map((item, index) => {
