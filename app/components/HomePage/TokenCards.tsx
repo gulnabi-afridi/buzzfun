@@ -14,7 +14,6 @@ import { RxCross2 } from "react-icons/rx";
 import { FaFilter } from "react-icons/fa6";
 import { IoCaretUp } from "react-icons/io5";
 import { IoEyeOutline } from "react-icons/io5";
-import { IoIosStarOutline } from "react-icons/io";
 import { Menu } from "@mantine/core";
 import * as Icons from "../shared/SVGs/Icons";
 import { LuBaby } from "react-icons/lu";
@@ -28,17 +27,9 @@ import FilterDrawer from "../shared/Drawers/FilterDrawer";
 const TokenCards: React.FC = () => {
   const [showCoinDetails, setShowCoinDetails] = useState(false);
   const [selectedCard, setSelectedCard] = useState(1);
-  const [filter, setFilter] = useState("");
 
-  const [activeModal, { open: openActiveModal, close: closeActiveModal }] =
-    useDisclosure(false);
   const [filterDrawer, { open: openFilterDrawer, close: closeFilterDrawer }] =
     useDisclosure(false);
-
-  const [
-    watchListModal,
-    { open: openWatchListModal, close: closeWatchListModal },
-  ] = useDisclosure(false);
 
   return (
     <React.Fragment>
@@ -76,10 +67,7 @@ const TokenCards: React.FC = () => {
                     </p>
                   </div>
                   {/* right  */}
-                  <button
-                    onClick={openActiveModal}
-                    className="px-2 py-2 bg-[#4F40FF] text-[10px] font-normal rounded-[4px] text-black-1 dark:text-white-1"
-                  >
+                  <button className="px-2 py-2 bg-[#4F40FF] text-[10px] font-normal rounded-[4px] text-black-1 dark:text-white-1">
                     View All
                   </button>
                 </div>
@@ -279,10 +267,7 @@ const TokenCards: React.FC = () => {
                     </p>
                   </div>
                   {/* right  */}
-                  <button
-                    onClick={openWatchListModal}
-                    className="px-2 py-2 bg-[#4F40FF] text-[10px] font-normal rounded-[4px] text-white-1"
-                  >
+                  <button className="px-2 py-2 bg-[#4F40FF] text-[10px] font-normal rounded-[4px] text-white-1">
                     View All
                   </button>
                 </div>
@@ -401,239 +386,6 @@ const TokenCards: React.FC = () => {
           Minimize
         </button>
       </div>
-
-      {/* active modal -------------> */}
-      <CustomModal size="40rem" open={activeModal} onClose={closeActiveModal}>
-        <div className="w-full overflow-auto flex flex-col bg-black-1 px-1 csm:px-3">
-          <div className="w-full min-w-[420px] csm:min-w-auto flex flex-col">
-            {/* modal header ---> */}
-            <div className="w-full border-b-[1px] border-white-1/20 pb-3 flex justify-between items-center">
-              <div className="flex justify-center items-center gap-2">
-                <PiBagSimple className="text-[#808080] text-[14px]" />
-                <p className="text-[12px] font-normal text-yellow-1">Active</p>
-                <p className="text-[12px] font-normal text-[#808080]">
-                  Active Degenerations
-                </p>
-              </div>
-              <button
-                onClick={closeActiveModal}
-                className="w-[24px] h-[24px] flex justify-center items-center border-[1px] border-white-1/10 rounded-[2px]"
-              >
-                <RxCross2 className="text-[16px] cursor-pointer text-blue-1" />
-              </button>
-            </div>
-            {/* table header  */}
-            <div className="w-full border-b-[1px] border-white-1/20 py-3 grid grid-cols-[1.2fr,1fr,1fr,1fr]">
-              {/* token name */}
-              <div className="w-full flex justify-between items-center">
-                <p className="text-[12px] font-normal text-white-1">Token</p>
-                <Menu
-                  classNames={{
-                    dropdown: `dark:!bg-[#336FFE] !z-50 !p-2 !bg-white-2 dark:!border-[.2px] dark:!border-white-1/20`,
-                    item: "!text-black-1 dark:text-white-1 text-[14px] font-normal hover:!bg-transparent",
-                    arrow: "!border-t-white-1/20 !border-l-white-1/20",
-                  }}
-                  trigger="click"
-                  withArrow
-                >
-                  <Menu.Target>
-                    <FaFilter className="text-white-1 cursor-pointer text-[16px]" />
-                  </Menu.Target>
-
-                  <Menu.Dropdown>
-                    <div className="w-full !z-50 flex flex-col">
-                      {filterOptions.map((option: any) => (
-                        <Menu.Item
-                          className={`relative w-full transition-colors duration-200 ${
-                            filter === option
-                              ? "!bg-[#1957EA] font-semibold before:absolute before:h-full before:inset-y-0 before:left-0 before:w-[5px] before:bg-black-1 after:absolute after:h-full after:inset-y-0 after:right-0 after:w-[5px] after:bg-black-1"
-                              : "hover:!bg-blue-1/20"
-                          }`}
-                          key={option}
-                          onClick={() => setFilter(option)}
-                        >
-                          <div className="py-[2px] w-full gap-2 px-4 flex justify-between items-center">
-                            <p>{option.name}</p>
-                            {option.icon}
-                          </div>
-                        </Menu.Item>
-                      ))}
-                    </div>
-                  </Menu.Dropdown>
-                </Menu>
-              </div>
-              {/* amount  */}
-              <div className="w-full flex justify-end items-center gap-1">
-                <p className="text-[12px] font-normal text-white-1">
-                  Amount USD
-                </p>
-                <div className="flex flex-col">
-                  <IoCaretUp className="text-purple-1 cursor-pointer text-[12px]" />
-                  <IoCaretUp className="text-purple-1 cursor-pointer rotate-180 text-[12px]" />
-                </div>
-              </div>
-              {/* Liquidity  */}
-              <div className="w-full flex justify-end items-center gap-1">
-                <p className="text-[12px] font-normal text-white-1">
-                  Liquidity
-                </p>
-                <div className="flex flex-col">
-                  <IoCaretUp className="text-purple-1 cursor-pointer text-[12px]" />
-                  <IoCaretUp className="text-purple-1 cursor-pointer rotate-180 text-[12px]" />
-                </div>
-              </div>
-              {/* PnL  */}
-              <div className="w-full flex justify-end items-center gap-1">
-                <p className="text-[12px] font-normal text-white-1">PnL</p>
-                <div className="flex flex-col">
-                  <IoCaretUp className="text-purple-1 cursor-pointer text-[12px]" />
-                  <IoCaretUp className="text-purple-1 cursor-pointer rotate-180 text-[12px]" />
-                </div>
-              </div>
-            </div>
-            {/* rows ----> */}
-            {[0, 1, 2, 3, 4, 5].map((item, index) => {
-              return (
-                <div
-                  key={index}
-                  className="w-full py-3 border-b-[1px] border-white-1/20 grid grid-cols-[1.2fr,1fr,1fr,1fr]"
-                >
-                  {/* token name */}
-                  <div className="w-full flex justify-between items-center">
-                    <div className="flex justify-center items-center gap-2">
-                      <Image
-                        src="/assets/active.svg"
-                        alt=""
-                        width={29}
-                        height={26}
-                      />
-                      <p className="text-[12px] font-normal text-white-1">
-                        Mog
-                      </p>
-                    </div>
-                    <IoEyeOutline className="text-white-1 text-[16px]" />
-                  </div>
-                  {/* amount  */}
-                  <div className="w-full flex justify-end items-center gap-1">
-                    <p className="text-[12px] font-normal text-white-1">
-                      $3.4k
-                    </p>
-                  </div>
-                  {/* Liquidity  */}
-                  <div className="w-full flex justify-end items-center gap-1">
-                    <p className="text-[12px] font-normal text-white-1">
-                      $3.4k
-                    </p>
-                  </div>
-                  {/* PnL  */}
-                  <div className="w-full flex justify-end items-center gap-1">
-                    <p className="text-[12px] font-normal text-[#57C78D]">
-                      +$ 769,57
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </CustomModal>
-
-      {/* Watchlist modal ------------>  */}
-
-      <CustomModal
-        size="40rem"
-        open={watchListModal}
-        onClose={closeWatchListModal}
-      >
-        <div className="w-full flex overflow-auto flex-col bg-black-1 px-3">
-          <div className="w-full min-w-[400px] csm:min-w-auto flex flex-col">
-            {/* modal header ---> */}
-            <div className="w-full border-b-[1px] border-white-1/20 pb-3 flex justify-between items-center">
-              <div className="flex justify-center items-center gap-2">
-                <IoIosStarOutline className="text-yellow-1 text-[14px]" />
-                <p className="text-[12px] font-normal text-yellow-1">
-                  Watchlist{" "}
-                </p>
-              </div>
-              <button
-                onClick={closeWatchListModal}
-                className="w-[24px] h-[24px] flex justify-center items-center border-[1px] border-white-1/10 rounded-[2px]"
-              >
-                <RxCross2 className="text-[16px] text-blue-1" />
-              </button>
-            </div>
-            {/* table header  */}
-            <div className="w-full border-b-[1px] border-white-1/20 py-3 grid grid-cols-[1.2fr,1fr,1fr,1fr]">
-              {/* token name */}
-              <div className="w-full flex justify-start items-center">
-                <p className="text-[12px] font-normal text-white-1">Token</p>
-              </div>
-              {/* mcap  */}
-              <div className="w-full flex justify-end items-center gap-1">
-                <p className="text-[12px] font-normal text-white-1">MCAP</p>
-                <div className="flex flex-col">
-                  <IoCaretUp className="text-purple-1 cursor-pointer text-[12px]" />
-                  <IoCaretUp className="text-purple-1 cursor-pointer rotate-180 text-[12px]" />
-                </div>
-              </div>
-              {/* volume  */}
-              <div className="w-full flex justify-end items-center gap-1">
-                <p className="text-[12px] font-normal text-white-1">Volume</p>
-                <div className="flex flex-col">
-                  <IoCaretUp className="text-purple-1 cursor-pointer text-[12px]" />
-                  <IoCaretUp className="text-purple-1 cursor-pointer rotate-180 text-[12px]" />
-                </div>
-              </div>
-              {/* 24H  */}
-              <div className="w-full flex justify-end items-center gap-1">
-                <p className="text-[12px] font-normal text-white-1">24H%</p>
-                <div className="flex flex-col">
-                  <IoCaretUp className="text-purple-1 cursor-pointer text-[12px]" />
-                  <IoCaretUp className="text-purple-1 cursor-pointer rotate-180 text-[12px]" />
-                </div>
-              </div>
-            </div>
-            {/* rows ----> */}
-            {[0, 1, 2, 3, 4].map((item, index) => {
-              return (
-                <div
-                  key={index}
-                  className="w-full py-3 border-b-[1px] border-white-1/20 grid grid-cols-[1.2fr,1fr,1fr,1fr]"
-                >
-                  {/* token name */}
-                  <div className="flex justify-start items-center gap-2">
-                    <Image
-                      src="/assets/active.svg"
-                      alt=""
-                      width={29}
-                      height={26}
-                    />
-                    <p className="text-[12px] font-normal text-white-1">Mog</p>
-                  </div>
-                  {/* amount  */}
-                  <div className="w-full flex justify-end items-center gap-1">
-                    <p className="text-[12px] font-normal text-white-1">
-                      $3.4k
-                    </p>
-                  </div>
-                  {/* Liquidity  */}
-                  <div className="w-full flex justify-end items-center gap-1">
-                    <p className="text-[12px] font-normal text-white-1">
-                      $3.4k
-                    </p>
-                  </div>
-                  {/* PnL  */}
-                  <div className="w-full flex justify-end items-center gap-1">
-                    <p className="text-[12px] font-normal text-[#57C78D]">
-                      +$ 769,57
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </CustomModal>
 
       {/* Filter drawer -------------------> */}
       <FilterDrawer open={filterDrawer} closeDrawer={closeFilterDrawer} />
