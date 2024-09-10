@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ComponentWrapper from "../components/shared/layout/ComponentWrapper";
 import Image from "next/image";
 import { FiCopy } from "react-icons/fi";
@@ -33,6 +33,25 @@ const ProfilePage = () => {
     setSelectedIndex(index);
     setSelectedName(name);
   };
+
+  // useEffect -------------------------------> 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 540) {
+        setSelectedName("");
+      } else {
+        setSelectedName("Followers");
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <React.Fragment>
@@ -155,7 +174,7 @@ const ProfilePage = () => {
                     </button>
                   </div>
                   {/* bio for small screen ----> */}
-                  <div className="w-full flex flex-col gap-1">
+                  <div className="w-full csm:hidden flex flex-col gap-1">
                     <p className="w-full py-2 p-2 text-[10px] font-normal text-yellow-1 rounded-[4px] border-[1px] border-yellow-1">
                       Bio:
                     </p>

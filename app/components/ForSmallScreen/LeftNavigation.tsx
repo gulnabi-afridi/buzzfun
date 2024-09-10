@@ -100,7 +100,10 @@ const LeftNavigation: React.FC<Props> = ({ open, close }: Props) => {
                     className={`w-full h-[40px] px-2 rounded-[4px] flex justify-start items-center gap-2 ${
                       isSelected ? "bg-purple-1" : "bg-transparent"
                     }`}
-                    onClick={() => setSelectedItem(item.name)}
+                    onClick={() => {
+                      setSelectedItem(item.name);
+                      close();
+                    }}
                   >
                     {React.cloneElement(item.icon, {
                       stroke: isSelected ? "#FEF652" : "#ffffff",
