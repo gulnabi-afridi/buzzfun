@@ -24,7 +24,7 @@ const TransactionModal:React.FC<Props> = ({open,size,onClose}:Props) => {
       blur: 3,
     }}
     classNames={{
-      content: "!bg-black-1 !p-0 !border-[1px] textShadow !border-white-1",
+      content: "!bg-white-2 dark:!bg-black-1 !p-0 !border-[1px] textShadow !border-white-1",
     }}
   >
     <div className="w-full justify-center items-center flex flex-col">
@@ -42,12 +42,12 @@ const TransactionModal:React.FC<Props> = ({open,size,onClose}:Props) => {
         </div>
         <button
           onClick={onClose}
-          className="w-[24px] h-[24px] border-[1px] rounded-[2px] border-white-1/20 flex justify-center items-center"
+          className="w-[24px] h-[24px] border-[1px] rounded-[2px] border-blue-1 dark:border-white-1/20 flex justify-center items-center"
         >
-          <RxCross2 className="text-yellow-1 text-[14px]" />
+          <RxCross2 className="text-blue-1 dark:text-yellow-1 text-[14px]" />
         </button>
       </div>
-      <p className="text-[10px] w-full text-left mt-5 font-normal text-white-1">
+      <p className="text-[10px] w-full text-left mt-5 font-normal text-black-1 dark:text-white-1">
       Your transaction is currently in progress.
       </p>
       <div className="w-full h-[1px] my-4 bg-white-1/10"></div>
@@ -57,18 +57,18 @@ const TransactionModal:React.FC<Props> = ({open,size,onClose}:Props) => {
       <div className="w-[80px] my-4 rounded-[60px] h-[2px] bg-[#303030] relative">
         <div className="w-1/2 rounded-[60px] h-1/2 bg-[#FEF652] absolute left-0 top-0"></div>
       </div>
-      <p className="text-[10px] font-normal text-[#747474]">
+      <p className="text-[10px] font-normal text-black-1 dark:text-[#747474]">
       Please wait for the transaction to confirm.
       </p>
       <div className="w-full h-[1px] my-4 bg-white-1/10"></div>
-      <button className="w-full h-[28px] text-[12px] font-normal text-[#FEF652] border-[1px] border-[#FEF652] rounded-[2px]">
+      <button className="w-full h-[28px] text-[12px] font-normal text-blue-1 dark:text-[#FEF652] border-[1px] border-blue-1 dark:border-[#FEF652] rounded-[2px]">
         Continue
       </button>
       <div className="flex mt-4 justify-end w-full items-center gap-1">
-        <p className="text-[8px] uppercase font-normal text-[#EBFF00]">
+        <p className="text-[8px] uppercase font-normal text-blue-1 dark:text-[#EBFF00]">
           Powered by
         </p>
-        <p className="text-[10px] text-[#EBFF00] uppercase font-bold">BUZZ</p>
+        <p className="text-[10px] text-blue-1 dark:text-[#EBFF00] uppercase font-bold">BUZZ</p>
       </div>
     </div>
   </Modal>

@@ -239,14 +239,14 @@ const Navibar: React.FC = () => {
 
       {/* active user modal -------------> */}
       <CustomModal size="40rem" open={activeModal} onClose={closeActiveModal}>
-        <div className="w-full relative overflow-auto flex flex-col bg-black-1 px-1 csm:px-3">
+        <div className="w-full relative overflow-auto flex flex-col bg-transparent dark:bg-black-1 px-1 csm:px-3">
           <div className="w-full min-w-[420px] csm:min-w-auto flex flex-col">
             {/* modal header ---> */}
-            <div className="w-full border-b-[1px] border-white-1/20 pb-3 flex justify-between items-center">
+            <div className="w-full border-b-[1px] border-black-1/10 dark:border-white-1/20  pb-3 flex justify-between items-center">
               <div className="flex justify-center items-center gap-2">
-                <PiBagSimple className="text-[#808080] text-[14px]" />
-                <p className="text-[12px] font-normal text-yellow-1">Active</p>
-                <p className="text-[12px] font-normal text-[#808080]">
+                <PiBagSimple className="text-blue-1 dark:text-[#808080] text-[14px]" />
+                <p className="text-[12px] font-normal text-blue-1 dark:text-yellow-1">Active</p>
+                <p className="text-[12px] font-normal text-black-1 dark:text-[#808080]">
                   Active Degenerations
                 </p>
               </div>
@@ -258,11 +258,11 @@ const Navibar: React.FC = () => {
               </button>
             </div>
             {/* table header  */}
-            <div className="w-full border-b-[1px] border-white-1/20 py-3 grid grid-cols-[1.2fr,1fr,1fr,1fr]">
+            <div className="w-full border-b-[1px] border-black-1/10 dark:border-white-1/20  py-3 grid grid-cols-[1.2fr,1fr,1fr,1fr]">
               {/* token name */}
               <div className="w-full flex justify-between items-center">
-                <p className="text-[12px] font-normal text-white-1">Token</p>
-                <FaFilter className="text-white-1 cursor-pointer text-[16px]" />
+                <p className="text-[12px] font-normal text-black-1 dark:text-white-1">Token</p>
+                <FaFilter className="text-black-1 dark:text-white-1 cursor-pointer text-[16px]" />
 
                 {/* <Menu
                   classNames={{
@@ -301,7 +301,7 @@ const Navibar: React.FC = () => {
               </div>
               {/* amount  */}
               <div className="w-full flex justify-end items-center gap-1">
-                <p className="text-[12px] font-normal text-white-1">
+                <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
                   Amount USD
                 </p>
                 <div className="flex flex-col">
@@ -311,7 +311,7 @@ const Navibar: React.FC = () => {
               </div>
               {/* Liquidity  */}
               <div className="w-full flex justify-end items-center gap-1">
-                <p className="text-[12px] font-normal text-white-1">
+                <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
                   Liquidity
                 </p>
                 <div className="flex flex-col">
@@ -321,7 +321,7 @@ const Navibar: React.FC = () => {
               </div>
               {/* PnL  */}
               <div className="w-full flex justify-end items-center gap-1">
-                <p className="text-[12px] font-normal text-white-1">PnL</p>
+                <p className="text-[12px] font-normal text-black-1 dark:text-white-1">PnL</p>
                 <div className="flex flex-col">
                   <IoCaretUp className="text-purple-1 cursor-pointer text-[12px]" />
                   <IoCaretUp className="text-purple-1 cursor-pointer rotate-180 text-[12px]" />
@@ -333,7 +333,7 @@ const Navibar: React.FC = () => {
               return (
                 <div
                   key={index}
-                  className="w-full py-3 border-b-[1px] border-white-1/20 grid grid-cols-[1.2fr,1fr,1fr,1fr]"
+                  className="w-full py-3 border-b-[1px] border-black-1/10 dark:border-white-1/20 grid grid-cols-[1.2fr,1fr,1fr,1fr]"
                 >
                   {/* token name */}
                   <div className="w-full flex justify-between items-center">
@@ -344,21 +344,21 @@ const Navibar: React.FC = () => {
                         width={29}
                         height={26}
                       />
-                      <p className="text-[12px] font-normal text-white-1">
+                      <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
                         Mog
                       </p>
                     </div>
-                    <IoEyeOutline className="text-white-1 text-[16px]" />
+                    <IoEyeOutline className="text-black-1 dark:text-white-1 text-[16px]" />
                   </div>
                   {/* amount  */}
                   <div className="w-full flex justify-end items-center gap-1">
-                    <p className="text-[12px] font-normal text-white-1">
+                    <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
                       $3.4k
                     </p>
                   </div>
                   {/* Liquidity  */}
                   <div className="w-full flex justify-end items-center gap-1">
-                    <p className="text-[12px] font-normal text-white-1">
+                    <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
                       $3.4k
                     </p>
                   </div>
@@ -382,13 +382,13 @@ const Navibar: React.FC = () => {
         open={watchListModal}
         onClose={closeWatchListModal}
       >
-        <div className="w-full flex overflow-auto flex-col bg-black-1 px-3">
+        <div className="w-full flex overflow-auto flex-col bg-transparent dark:bg-black-1 px-3">
           <div className="w-full min-w-[400px] csm:min-w-auto flex flex-col">
             {/* modal header ---> */}
-            <div className="w-full border-b-[1px] border-white-1/20 pb-3 flex justify-between items-center">
+            <div className="w-full border-b-[1px] border-black-1/10 dark:border-white-1/20  pb-3 flex justify-between items-center">
               <div className="flex justify-center items-center gap-2">
-                <IoIosStarOutline className="text-yellow-1 text-[14px]" />
-                <p className="text-[12px] font-normal text-yellow-1">
+                <IoIosStarOutline className="text-blue-1 dark:text-yellow-1 text-[14px]" />
+                <p className="text-[12px] font-normal text-blue-1 dark:text-yellow-1">
                   Watchlist{" "}
                 </p>
               </div>
@@ -400,14 +400,14 @@ const Navibar: React.FC = () => {
               </button>
             </div>
             {/* table header  */}
-            <div className="w-full border-b-[1px] border-white-1/20 py-3 grid grid-cols-[1.2fr,1fr,1fr,1fr]">
+            <div className="w-full border-b-[1px] border-black-1/10 dark:border-white-1/20  py-3 grid grid-cols-[1.2fr,1fr,1fr,1fr]">
               {/* token name */}
               <div className="w-full flex justify-start items-center">
-                <p className="text-[12px] font-normal text-white-1">Token</p>
+                <p className="text-[12px] font-normal text-black-1 dark:text-white-1">Token</p>
               </div>
               {/* mcap  */}
               <div className="w-full flex justify-end items-center gap-1">
-                <p className="text-[12px] font-normal text-white-1">MCAP</p>
+                <p className="text-[12px] font-normal text-black-1 dark:text-white-1">MCAP</p>
                 <div className="flex flex-col">
                   <IoCaretUp className="text-purple-1 cursor-pointer text-[12px]" />
                   <IoCaretUp className="text-purple-1 cursor-pointer rotate-180 text-[12px]" />
@@ -415,7 +415,7 @@ const Navibar: React.FC = () => {
               </div>
               {/* volume  */}
               <div className="w-full flex justify-end items-center gap-1">
-                <p className="text-[12px] font-normal text-white-1">Volume</p>
+                <p className="text-[12px] font-normal text-black-1 dark:text-white-1">Volume</p>
                 <div className="flex flex-col">
                   <IoCaretUp className="text-purple-1 cursor-pointer text-[12px]" />
                   <IoCaretUp className="text-purple-1 cursor-pointer rotate-180 text-[12px]" />
@@ -423,7 +423,7 @@ const Navibar: React.FC = () => {
               </div>
               {/* 24H  */}
               <div className="w-full flex justify-end items-center gap-1">
-                <p className="text-[12px] font-normal text-white-1">24H%</p>
+                <p className="text-[12px] font-normal text-black-1 dark:text-white-1">24H%</p>
                 <div className="flex flex-col">
                   <IoCaretUp className="text-purple-1 cursor-pointer text-[12px]" />
                   <IoCaretUp className="text-purple-1 cursor-pointer rotate-180 text-[12px]" />
@@ -435,7 +435,7 @@ const Navibar: React.FC = () => {
               return (
                 <div
                   key={index}
-                  className="w-full py-3 border-b-[1px] border-white-1/20 grid grid-cols-[1.2fr,1fr,1fr,1fr]"
+                  className="w-full py-3 border-b-[1px] border-black-1/10 dark:border-white-1/20 grid grid-cols-[1.2fr,1fr,1fr,1fr]"
                 >
                   {/* token name */}
                   <div className="flex justify-start items-center gap-2">
@@ -445,17 +445,17 @@ const Navibar: React.FC = () => {
                       width={29}
                       height={26}
                     />
-                    <p className="text-[12px] font-normal text-white-1">Mog</p>
+                    <p className="text-[12px] font-normal text-black-1 dark:text-white-1">Mog</p>
                   </div>
                   {/* amount  */}
                   <div className="w-full flex justify-end items-center gap-1">
-                    <p className="text-[12px] font-normal text-white-1">
+                    <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
                       $3.4k
                     </p>
                   </div>
                   {/* Liquidity  */}
                   <div className="w-full flex justify-end items-center gap-1">
-                    <p className="text-[12px] font-normal text-white-1">
+                    <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
                       $3.4k
                     </p>
                   </div>

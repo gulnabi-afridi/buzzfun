@@ -68,13 +68,13 @@ const ChatPermission: React.FC = () => {
           return (
             <div
               key={index}
-              className={`w-full h-[34px] bg-black-1 ${
+              className={`w-full h-[34px] bg-black-1/20 dark:bg-black-1 ${
                 item.type === "Set Cooldown"
                   ? "grid-cols-[auto,1fr] gap-14"
                   : "grid-cols-[2fr,1fr] gap-2"
               } grid items-center px-3`}
             >
-              <p className="w-full flex justify-start text-white-1 font-normal text-[12px] csm:text-[14px] items-center">
+              <p className="w-full flex justify-start text-black-1 dark:text-white-1 font-normal text-[12px] csm:text-[14px] items-center">
                 {item.type}
               </p>
               {/* checkbox */}
@@ -84,7 +84,7 @@ const ChatPermission: React.FC = () => {
                     className={`flex justify-center items-center gap-2`}
                     onClick={() => handleSelect(item.type, "ON")}
                   >
-                    <p className="text-[12px] csm:text-[14px] font-normal text-white-1">
+                    <p className="text-[12px] csm:text-[14px] font-normal text-black-1 dark:text-white-1">
                       ON
                     </p>
                     <div className="min-w-[20px] min-h-[20px] flex justify-center items-center border-[1px] border-white-1 rounded-[2px]">
@@ -97,12 +97,12 @@ const ChatPermission: React.FC = () => {
                     className={`flex justify-center items-center gap-2 `}
                     onClick={() => handleSelect(item.type, "OFF")}
                   >
-                    <p className="text-[12px] csm:text-[14px] font-normal text-white-1">
+                    <p className="text-[12px] csm:text-[14px] font-normal text-black-1 dark:text-white-1">
                       OFF
                     </p>
-                    <div className="min-w-[20px] min-h-[20px] flex justify-center items-center border-[1px] border-white-1 rounded-[2px]">
+                    <div className="min-w-[20px] min-h-[20px] flex justify-center items-center border-[1px] border-black-1 dark:border-white-1 rounded-[2px]">
                       {selectedPermissions[item.type] === "OFF" && (
-                        <div className="min-w-[10px] min-h-[10px] bg-white-1 rounded-[1px]"></div>
+                        <div className="min-w-[10px] min-h-[10px] bg-black-1 dark:bg-white-1 rounded-[1px]"></div>
                       )}
                     </div>
                   </button>
@@ -116,12 +116,12 @@ const ChatPermission: React.FC = () => {
                         className={`flex justify-center items-center gap-2`}
                         onClick={() => handleSelect(item.type, dur)}
                       >
-                        <p className="text-[12px] csm:text-[14px] font-normal text-white-1">
+                        <p className="text-[12px] csm:text-[14px] font-normal text-black-1 dark:text-white-1">
                           {dur}
                         </p>
-                        <div className="min-w-[20px] min-h-[20px] flex justify-center items-center border-[1px] border-white-1 rounded-[2px]">
+                        <div className="min-w-[20px] min-h-[20px] flex justify-center items-center border-[1px] border-black-1 dark:border-white-1 rounded-[2px]">
                           {selectedPermissions[item.type] === dur && (
-                            <div className="min-w-[10px] min-h-[10px] bg-white-1 rounded-[1px]"></div>
+                            <div className="min-w-[10px] min-h-[10px] bg-black-1 dark:bg-white-1 rounded-[1px]"></div>
                           )}
                         </div>
                       </button>
