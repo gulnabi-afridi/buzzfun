@@ -15,6 +15,8 @@ import ProcessModal from "../shared/Modals/ProcessModal";
 import TransactionModal from "../shared/Modals/TransactionModal";
 import SuccessModal from "../shared/Modals/SuccessModal";
 import FailedModal from "../shared/Modals/FailedModal";
+import BuyAndSellWidget from "../CoinPage/BuyAndSellWidget";
+import CustomModal from "../shared/Modals/CustomModal";
 
 const Hero = () => {
   // states
@@ -26,6 +28,8 @@ const Hero = () => {
   );
 
   const [activeModal, { open: openProcessModal, close: closeProcessModal }] =
+    useDisclosure(false);
+  const [buyAndSell, { open: openBuyAndSell, close: closeBuyAndSell }] =
     useDisclosure(false);
 
   // Function to handle scroll events
@@ -238,7 +242,11 @@ const Hero = () => {
                         {/* ticker */}
                         <div className="w-full gap-1 bg-transparent px-1 flex justify-start items-center py-1">
                           <p className="text-[12px] text-black-1 font-normal">
-                            Ticker: <span className="bg-purple-1 text-white-1"> Froglic</span>
+                            Ticker:{" "}
+                            <span className="bg-purple-1 text-white-1">
+                              {" "}
+                              Froglic
+                            </span>
                           </p>
                         </div>
                         {/* created by */}
@@ -292,7 +300,10 @@ const Hero = () => {
                     reassruing and no rugginess for sure makin it based, yeah.
                     innt.
                   </p>
-                  <button className="w-full font-courier hover:opacity-80 bg-black-1 rounded-[5px] text-[12px] h-[35px] text-white-1 font-semibold">
+                  <button
+                    onClick={openBuyAndSell}
+                    className="w-full font-courier hover:opacity-80 bg-black-1 rounded-[5px] text-[12px] h-[35px] text-white-1 font-semibold"
+                  >
                     Ape Now
                   </button>
                 </div>
@@ -403,6 +414,73 @@ const Hero = () => {
       <TransactionModal open={activeModal} onClose={closeProcessModal} />
       {/* <SuccessModal open={activeModal} onClose={closeProcessModal} /> */}
       {/* <FailedModal open={activeModal} onClose={closeProcessModal} /> */}
+
+      {/* Buy and sell modal -------------------> */}
+      <CustomModal size="23rem" open={buyAndSell} onClose={closeBuyAndSell}>
+        <div className="w-full gap-4 flex flex-col">
+          {/* buttons */}
+          <div className="w-full grid h-[42px] csm:h-[44px] grid-cols-2 gap-2">
+            <button className="text-[22px] font-normal text-black-1 w-full h-full bg-green-1">
+              Buy
+            </button>
+            <button className="text-[22px] font-normal text-black-1/40 w-full h-full bg-[#EA000054]">
+              Sell
+            </button>
+          </div>
+          {/* switch to coin --> */}
+          <div className="w-full flex justify-between items-center">
+            <p className="text-[12px] csm:text-[12px] font-normal text-white-1 bg-black-1 px-[6px] rounded-[3px]">
+              Switch to [insert Ticker]
+            </p>
+            <p className="text-[12px] csm:text-[12px] font-normal text-white-1 bg-blue-1 px-[6px] rounded-[3px]">
+              Slippage
+            </p>
+          </div>
+          {/* ticker input --->  */}
+          <div className="w-full border-[1px] px-2 dark:border-white-1 border-black-1 h-[41px] csm:h-[44px] grid grid-cols-[1fr,110px]">
+            <input
+              placeholder="0.0"
+              type="text"
+              className="w-full dark:placeholder:text-white-1 placeholder:text-black-1 dark:text-white-1 border-r-[1px] dark:border-r-white-1 focus:outline-none border-black-1 h-full bg-transparent text-[22px] font-normal text-black-1"
+              name="ticker"
+              id=""
+            />
+            <div className="flex justify-center items-center gap-2">
+              <p className="text-[12px] font-normal dark:text-white-1 text-black-1">
+                Ticker
+              </p>
+              <div className="w-[32px] h-[32px] flex justify-center items-center">
+                <Image src="/assets/emoji2.png" alt="" width={30} height={30} />
+              </div>
+            </div>
+          </div>
+          {/* you spend -----> */}
+          <div className="w-full flex justify-between items-center">
+            <p className="text-[12px] pl-24 csm:text-[12px] font-normal text-black-1 dark:text-white-1">
+              You spend:
+            </p>
+            <p className="text-[12px] csm:text-[12px] font-normal text-black-1 dark:text-white-1">
+              0.1 ETH
+            </p>
+          </div>
+          {/* system messages ---> */}
+          <div className="w-full flex flex-col gap-1">
+            <p className="text-[10px] csm:text-[12px] font-normal dark:text-white-1 text-black-1">
+              System messages{" "}
+            </p>
+            <p className="text-black-1 dark:text-white-1 rounded-[4px] font-normal text-[11px] csm:text-[12px] w-full py-[4px] px-2 border-[1px] dark:border-white-1 border-dotted border-black-1">
+              Insufficient balance.{" "}
+            </p>
+          </div>
+          {/* place trade button ---->  */}
+          <button
+            onClick={closeBuyAndSell}
+            className="w-full h-[44px] hover:opacity-80 csm:h-[44px] bg-yellow-1 text-[16px] font-normal text-black-1 flex justify-center items-center"
+          >
+            Place trade
+          </button>
+        </div>
+      </CustomModal>
     </React.Fragment>
   );
 };

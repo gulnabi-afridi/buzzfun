@@ -5,7 +5,6 @@ import Image from "next/image";
 import { MdOutlineElectricBolt } from "react-icons/md";
 import { MdOutlineStarBorder } from "react-icons/md";
 import { LuExpand } from "react-icons/lu";
-import CoinStatsCards from "./CoinStatsCards";
 import { GoGraph } from "react-icons/go";
 import { TbUsers } from "react-icons/tb";
 import CustomModal from "../shared/Modals/CustomModal";
