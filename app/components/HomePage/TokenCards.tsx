@@ -28,8 +28,6 @@ const TokenCards: React.FC = () => {
   const [showCoinDetails, setShowCoinDetails] = useState(false);
   const [selectedCard, setSelectedCard] = useState(1);
 
-
-
   return (
     <React.Fragment>
       {!showCoinDetails ? (
@@ -157,9 +155,13 @@ const TokenCards: React.FC = () => {
                         <p className="text-[12px] font-normal text-white-1">
                           $
                         </p>
-                        <p className="text-[12px] font-normal text-white-1">
-                          10
-                        </p>
+                        {"   "}
+
+                        <input
+                          type="text"
+                          placeholder="10"
+                          className="text-[12px] text-white-1 placeholder:text-white-1 !w-[20px] bg-transparent placeholder:text-[12px] focus:outline-none focus:!border-none"
+                        />
                       </div>
                     </div>
                     <button
@@ -381,8 +383,6 @@ const TokenCards: React.FC = () => {
           Minimize
         </button>
       </div>
-
-     
     </React.Fragment>
   );
 };

@@ -22,6 +22,7 @@ import CustomMenu from "../shared/CustomMenu";
 const Hero = () => {
   // states
   const { setTheme, resolvedTheme } = useTheme();
+  const [selectedRow, setSelectedRow] = useState<number | null>(null);
   const [isMinimize, setIsMinimize] = useState<boolean>(false);
   const [time, setTime] = useState("15 min");
   const [opened, { open, close }] = useDisclosure(false);
@@ -101,7 +102,12 @@ const Hero = () => {
                         Buy:
                       </p>
                       <p className="text-[12px] font-normal text-white-1">$</p>
-                      <p className="text-[12px] font-normal text-white-1">10</p>
+                      {"  "}
+                      <input
+                        type="text"
+                        placeholder="10"
+                        className="text-[12px] text-white-1 placeholder:text-white-1 !w-[20px] bg-transparent placeholder:text-[12px] focus:outline-none focus:!border-none"
+                      />
                     </div>
                   </div>
                   {/* rows ---->  */}
@@ -110,20 +116,38 @@ const Hero = () => {
                       return (
                         <div
                           key={index}
-                          className="w-full py-1 grid grid-cols-[.5fr,2fr,1fr,1fr,1fr,1fr,.5fr,.5fr]"
+                          className={`w-full py-1 grid grid-cols-[.5fr,2fr,1fr,1fr,1fr,1fr,.5fr,.5fr] cursor-pointer
+              ${
+                selectedRow === index
+                  ? "bg-yellow-1"
+                  : " hover:bg-gradient-to-b hover:from-[#141414] hover:from-27.17% hover:to-[rgba(255,255,255,0.18)] hover:to-100%"
+              }`}
+                          onClick={() => setSelectedRow(index)}
                         >
                           {/* ser no */}
                           <p
                             className={`w-full whitespace-nowrap flex justify-center items-center ${
                               index === 0 ? "bg-[#00C673] " : "bg-transparent"
-                            }rounded-[3px] px-1 text-black-1 dark:text-white-1 text-[12px] font-normal`}
+                            } ${
+                              selectedRow === index
+                                ? "text-black-1"
+                                : "text-black-1 dark:text-white-1 "
+                            } rounded-[3px] px-1 text-[12px] font-normal`}
                           >
                             #{index + 1}
                           </p>
                           {/* name  */}
                           <div className="flex border-r-[1px] border-[#B746F0] justify-center items-center gap-1">
                             <div className="w-[20px] h-[20px] rounded-full bg-[#EF7216]"></div>
-                            <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
+                            <p
+                              className={`text-[12px] font-normal 
+                              ${
+                                selectedRow === index
+                                  ? "text-black-1"
+                                  : "text-black-1 dark:text-white-1 "
+                              } 
+                              `}
+                            >
                               TICKER
                             </p>
                             <Image
@@ -135,21 +159,41 @@ const Hero = () => {
                           </div>
                           {/* value  */}
                           <div className="w-full border-r-[1px] border-[#B746F0]  flex gap-1 justify-center items-center ">
-                            <GoGraph className="text-[14px] text-black-1 dark:text-white-1" />
+                            <GoGraph
+                              className={`text-[14px] 
+                              ${
+                                selectedRow === index
+                                  ? "text-black-1"
+                                  : "text-black-1 dark:text-white-1 "
+                              } 
+                              `}
+                            />
                             <p className="text-[10px] font-normal text-[#00C673]">
                               78%
                             </p>
                           </div>
                           {/* users  */}
                           <div className="w-full border-r-[1px] border-[#B746F0] flex gap-1 justify-center items-center ">
-                            <TbUsers className="text-black-1 dark:text-white-1 text-[13px]" />
+                            <TbUsers
+                              className={`${
+                                selectedRow === index
+                                  ? "text-black-1"
+                                  : "text-black-1 dark:text-white-1 "
+                              }  text-[13px]`}
+                            />
                             <p className="text-[10px] font-normal text-[#00C673]">
                               1.2k
                             </p>
                           </div>
                           {/* MC  */}
                           <div className="w-full border-r-[1px] border-[#B746F0]  flex gap-1 justify-center items-center ">
-                            <p className="text-[10px] font-normal text-black-1 dark:text-white-1">
+                            <p
+                              className={`text-[10px] font-normal ${
+                                selectedRow === index
+                                  ? "text-black-1"
+                                  : "text-black-1 dark:text-white-1 "
+                              } `}
+                            >
                               MC
                             </p>
                             <p className="text-[10px] font-normal text-[#00C673]">
@@ -158,7 +202,13 @@ const Hero = () => {
                           </div>
                           {/* volume  */}
                           <div className="w-full border-r-[1px] border-[#B746F0]  flex gap-1 justify-center items-center ">
-                            <p className="text-[10px] font-normal text-black-1 dark:text-white-1">
+                            <p
+                              className={`text-[10px] font-normal ${
+                                selectedRow === index
+                                  ? "text-black-1"
+                                  : "text-black-1 dark:text-white-1 "
+                              } `}
+                            >
                               V
                             </p>
                             <p className="text-[10px] font-normal text-[#00C673]">
@@ -167,7 +217,13 @@ const Hero = () => {
                           </div>
                           {/* favorite */}
                           <div className="w-full flex justify-center items-center">
-                            <MdOutlineStarBorder className="text-black-1 dark:text-[#EBFF00C4] text-[12px]" />
+                            <MdOutlineStarBorder
+                              className={`${
+                                selectedRow === index
+                                  ? "text-black-1"
+                                  : "text-black-1 dark:text-[#EBFF00C4] "
+                              }  text-[12px]`}
+                            />
                           </div>
                           {/*  */}
                           <div className="flex justify-center items-center">
