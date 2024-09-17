@@ -23,10 +23,16 @@ import { LuCoins } from "react-icons/lu";
 import { MdOutlineEmojiEmotions } from "react-icons/md";
 import CoinStatsCard from "../shared/Cards/CoinStatsCard";
 import FilterDrawer from "../shared/Drawers/FilterDrawer";
+import BuyAndSellFlip from "../shared/Modals/BuyAndSellFlip";
 
 const TokenCards: React.FC = () => {
   const [showCoinDetails, setShowCoinDetails] = useState(false);
   const [selectedCard, setSelectedCard] = useState(1);
+  const [selectedRow, setSelectedRow] = useState<number | null>(null);
+  const [selectedRow2, setSelectedRow2] = useState<number | null>(null);
+  const [selectedRow3, setSelectedRow3] = useState<number | null>(null);
+  const [buyAndSellModal, { open: buyOpen, close: buyClose }] =
+    useDisclosure(false);
 
   return (
     <React.Fragment>
@@ -73,14 +79,25 @@ const TokenCards: React.FC = () => {
                 {[0, 1, 2, 3, 4].map((item, index) => {
                   return (
                     <div
+                      onClick={() => setSelectedRow(index)}
                       key={index}
-                      className="w-full grid py-[3px] grid-cols-[40px,1.4fr,1fr,1fr]"
+                      className={`w-full ${
+                        selectedRow === index
+                          ? "bg-yellow-1 rounded-[4px] px-2"
+                          : "hover:bg-gradient-to-b hover:from-[#141414] hover:from-27.17% hover:to-[rgba(255,255,255,0.18)] hover:to-100%"
+                      } grid py-[3px] grid-cols-[40px,1.4fr,1fr,1fr]`}
                     >
                       <div className="w-full flex justify-center items-center">
                         <p
                           className={`w-fit whitespace-nowrap flex justify-center items-center ${
                             index === 0 && "bg-[#00C673] "
-                          } rounded-[3px] px-1 text-black-1 dark:text-white-1 text-[12px] font-normal`}
+                          } 
+                          ${
+                            selectedRow === index
+                              ? "text-black-1"
+                              : "text-black-1 dark:text-white-1"
+                          }
+                          rounded-[3px] px-1  text-[12px] font-normal`}
                         >
                           #{index + 1}
                         </p>
@@ -88,7 +105,17 @@ const TokenCards: React.FC = () => {
                       {/* token name  */}
                       <div className="flex justify-start pl-2 items-center gap-1">
                         <div className="w-[20px] h-[20px] rounded-full bg-[#EF7216]"></div>
-                        <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
+                        <p
+                          className={`text-[12px]
+                          
+                              ${
+                                selectedRow === index
+                                  ? "text-black-1"
+                                  : "text-black-1 dark:text-white-1"
+                              }
+                          
+                          font-normal `}
+                        >
                           TICKER
                         </p>
                         <Image
@@ -100,11 +127,27 @@ const TokenCards: React.FC = () => {
                       </div>
                       {/* msgs  */}
 
-                      <p className="text-[12px] w-full flex justify-start items-center font-normal text-black-1 dark:text-white-1">
+                      <p
+                        className={`text-[12px] w-full flex justify-start items-center font-normal 
+                           ${
+                             selectedRow === index
+                               ? "text-black-1"
+                               : "text-black-1 dark:text-white-1"
+                           }
+                        `}
+                      >
                         5600 msgs
                       </p>
                       {/* users  */}
-                      <p className="text-[12px] w-full flex justify-end items-center font-normal text-black-1 dark:text-white-1">
+                      <p
+                        className={`text-[12px] w-full flex justify-end items-center font-normal 
+                           ${
+                             selectedRow === index
+                               ? "text-black-1"
+                               : "text-black-1 dark:text-white-1"
+                           }
+                        `}
+                      >
                         5600 users
                       </p>
                     </div>
@@ -178,20 +221,39 @@ const TokenCards: React.FC = () => {
                     return (
                       <div
                         key={index}
-                        className="w-full py-[3px] grid grid-cols-[2fr,1fr,1fr,1fr,1fr,.5fr,.5fr] csm:grid-cols-[.5fr,2fr,1fr,1fr,1fr,1fr,.5fr,.5fr]"
+                        onClick={() => setSelectedRow3(index)}
+                        className={`w-full ${
+                          selectedRow3 === index
+                            ? "bg-yellow-1 rounded-[4px] px-2"
+                            : "hover:bg-gradient-to-b hover:from-[#141414] hover:from-27.17% hover:to-[rgba(255,255,255,0.18)] hover:to-100%"
+                        } py-[3px] grid grid-cols-[2fr,1fr,1fr,1fr,1fr,.5fr,.5fr] csm:grid-cols-[.5fr,2fr,1fr,1fr,1fr,1fr,.5fr,.5fr]`}
                       >
                         {/* ser no */}
                         <p
                           className={`w-full csm:flex hidden whitespace-nowrap justify-center items-center ${
                             index === 0 ? "bg-[#00C673] " : "bg-transparent"
-                          }rounded-[3px] px-1 text-black-1 dark:text-white-1 text-[12px] font-normal`}
+                          }
+                               ${
+                                 selectedRow3 === index
+                                   ? "text-black-1"
+                                   : "text-black-1 dark:text-white-1"
+                               }
+                          rounded-[3px] px-1 text-[12px] font-normal`}
                         >
                           #{index + 1}
                         </p>
                         {/* name  */}
                         <div className="flex border-r-[1px] border-[#B746F0] justify-center items-center gap-1">
                           <div className="min-w-[16px] csm:min-w-[20px] min-h-[16px] csm:min-h-[20px] rounded-full bg-[#EF7216]"></div>
-                          <p className="text-[9px] csm:text-[12px] font-normal text-black-1 dark:text-white-1">
+                          <p
+                            className={`text-[9px] csm:text-[12px]
+                               ${
+                                 selectedRow3 === index
+                                   ? "text-black-1"
+                                   : "text-black-1 dark:text-white-1"
+                               }
+                            font-normal`}
+                          >
                             TICKER
                           </p>
                           <Image
@@ -203,21 +265,43 @@ const TokenCards: React.FC = () => {
                         </div>
                         {/* value  */}
                         <button className="w-full border-r-[1px] border-[#B746F0] flex gap-1 justify-center items-center ">
-                          <GoGraph className="text-[14px] text-black-1 dark:text-white-1" />
-                          <p className="text-[8px] csm:text-[10px] font-normal text-[#00C673]">
+                          <GoGraph
+                            className={`text-[14px]    ${
+                              selectedRow3 === index
+                                ? "text-black-1"
+                                : "text-black-1 dark:text-white-1"
+                            }`}
+                          />
+                          <p
+                            className={`text-[8px]
+                            
+                            csm:text-[10px] font-normal text-[#00C673]`}
+                          >
                             78%
                           </p>
                         </button>
                         {/* users  */}
                         <div className="w-full border-r-[1px] border-[#B746F0]  flex gap-1 justify-center items-center ">
-                          <TbUsers className="text-black-1 dark:text-white-1 text-[13px]" />
+                          <TbUsers
+                            className={`   ${
+                              selectedRow3 === index
+                                ? "text-black-1"
+                                : "text-black-1 dark:text-white-1"
+                            } text-[13px]`}
+                          />
                           <p className="text-[8px] csm:text-[10px]font-normal text-[#00C673]">
                             1.2k
                           </p>
                         </div>
                         {/* MC  */}
                         <div className="w-full border-r-[1px] border-[#B746F0]  flex gap-1 justify-center items-center ">
-                          <p className="text-[8px] csm:text-[10px] font-normal text-black-1 dark:text-white-1">
+                          <p
+                            className={`text-[8px] csm:text-[10px] font-normal    ${
+                              selectedRow3 === index
+                                ? "text-black-1"
+                                : "text-black-1 dark:text-white-1"
+                            }`}
+                          >
                             MC
                           </p>
                           <p className="text-[8px] csm:text-[10px] font-normal text-[#00C673]">
@@ -226,7 +310,13 @@ const TokenCards: React.FC = () => {
                         </div>
                         {/* volume  */}
                         <div className="w-full border-r-[1px] border-[#B746F0]  flex gap-1 justify-center items-center ">
-                          <p className="text-[8px] csm:text-[10px] font-normal text-white-1">
+                          <p
+                            className={`text-[8px] csm:text-[10px] font-normal    ${
+                              selectedRow3 === index
+                                ? "text-black-1"
+                                : "text-black-1 dark:text-white-1"
+                            }`}
+                          >
                             V
                           </p>
                           <p className="text-[8px] csm:text-[10px] font-normal text-[#00C673]">
@@ -235,10 +325,19 @@ const TokenCards: React.FC = () => {
                         </div>
                         {/* favorite */}
                         <div className="w-full flex justify-center items-center">
-                          <MdOutlineStarBorder className="text-black-1 dark:text-[#EBFF00C4] text-[12px]" />
+                          <MdOutlineStarBorder
+                            className={`text-black-1    ${
+                              selectedRow3 === index
+                                ? "text-black-1"
+                                : "text-black-1 dark:text-[#EBFF00C4]"
+                            }  text-[12px]`}
+                          />
                         </div>
                         {/*  */}
-                        <div className="flex justify-center items-center">
+                        <div
+                          onClick={buyOpen}
+                          className="flex justify-center items-center"
+                        >
                           <div className="w-[24px] h-[19px] flex justify-center items-center rounded-[5px] border-[1px] border-[#B746F0]">
                             <Image
                               src="/assets/light.svg"
@@ -278,13 +377,26 @@ const TokenCards: React.FC = () => {
                   return (
                     <div
                       key={index}
-                      className="w-full grid py-[3px] px-2 grid-cols-[40px,2fr,1fr]"
+                      onClick={() => setSelectedRow2(index)}
+                      className={`w-full grid
+                        ${
+                          selectedRow2 === index
+                            ? "bg-yellow-1 rounded-[4px] px-2"
+                            : "hover:bg-gradient-to-b hover:from-[#141414] hover:from-27.17% hover:to-[rgba(255,255,255,0.18)] hover:to-100%"
+                        } 
+                        py-[3px] px-2 grid-cols-[40px,2fr,1fr]`}
                     >
                       <div className="w-full flex justify-start items-center">
                         <p
                           className={`w-fit whitespace-nowrap flex justify-center items-center ${
                             index === 0 && "bg-[#00C673] "
-                          } rounded-[3px] px-1 text-black-1 dark:text-white-1 text-[12px] font-normal`}
+                          } 
+                             ${
+                               selectedRow2 === index
+                                 ? "text-black-1"
+                                 : "text-black-1 dark:text-white-1"
+                             }
+                          rounded-[3px] px-1 text-[12px] font-normal`}
                         >
                           #{index + 1}
                         </p>
@@ -292,13 +404,25 @@ const TokenCards: React.FC = () => {
                       {/* token name  */}
                       <div className="flex justify-start items-center gap-2">
                         <div className="w-[20px] h-[20px] rounded-full bg-[#EF7216]"></div>
-                        <p className="text-[12px] font-normal text-black-1 dark:text-white-1">
+                        <p
+                          className={`text-[12px] font-normal    ${
+                            selectedRow2 === index
+                              ? "text-black-1"
+                              : "text-black-1 dark:text-white-1"
+                          }`}
+                        >
                           Username
                         </p>
                       </div>
                       {/* msgs  */}
 
-                      <p className="text-[12px] w-full flex justify-end items-center font-normal text-black-1 dark:text-white-1">
+                      <p
+                        className={`text-[12px] w-full flex justify-end items-center font-normal    ${
+                          selectedRow2 === index
+                            ? "text-black-1"
+                            : "text-black-1 dark:text-white-1"
+                        }`}
+                      >
                         5600 msgs
                       </p>
                     </div>
@@ -383,6 +507,9 @@ const TokenCards: React.FC = () => {
           Minimize
         </button>
       </div>
+
+      {/* -----------------> Buy and sell widget + Slippage Settings  */}
+      <BuyAndSellFlip openModal={buyAndSellModal} closeModal={buyClose} />
     </React.Fragment>
   );
 };

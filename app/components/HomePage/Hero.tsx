@@ -18,6 +18,7 @@ import FailedModal from "../shared/Modals/FailedModal";
 import BuyAndSellWidget from "../CoinPage/BuyAndSellWidget";
 import CustomModal from "../shared/Modals/CustomModal";
 import CustomMenu from "../shared/CustomMenu";
+import BuyAndSellFlip from "../shared/Modals/BuyAndSellFlip";
 
 const Hero = () => {
   // states
@@ -26,6 +27,8 @@ const Hero = () => {
   const [isMinimize, setIsMinimize] = useState<boolean>(false);
   const [time, setTime] = useState("15 min");
   const [opened, { open, close }] = useDisclosure(false);
+  const [buyAndSellModal, { open: buyOpen, close: buyClose }] =
+    useDisclosure(false);
   const [drawerButtonHeight, setDrawerButtonHeight] = useState(
     "h-[calc(100%-107px)]"
   );
@@ -119,8 +122,8 @@ const Hero = () => {
                           className={`w-full py-1 grid grid-cols-[.5fr,2fr,1fr,1fr,1fr,1fr,.5fr,.5fr] cursor-pointer
               ${
                 selectedRow === index
-                  ? "bg-yellow-1"
-                  : " hover:bg-gradient-to-b hover:from-[#141414] hover:from-27.17% hover:to-[rgba(255,255,255,0.18)] hover:to-100%"
+                  ? "bg-yellow-1 rounded-[4px] px-2"
+                  : "hover:bg-gradient-to-b hover:from-[#141414] hover:from-27.17% hover:to-[rgba(255,255,255,0.18)] hover:to-100%"
               }`}
                           onClick={() => setSelectedRow(index)}
                         >
@@ -226,7 +229,10 @@ const Hero = () => {
                             />
                           </div>
                           {/*  */}
-                          <div className="flex justify-center items-center">
+                          <div
+                            onClick={buyOpen}
+                            className="flex justify-center items-center"
+                          >
                             <div className="w-[24px] h-[19px] flex justify-center items-center rounded-[5px] border-[1px] border-[#B746F0]">
                               <Image
                                 src="/assets/light.svg"
@@ -546,6 +552,8 @@ const Hero = () => {
           </button>
         </div>
       </CustomModal>
+      {/* -----------------> Buy and sell widget + Slippage Settings  */}
+      <BuyAndSellFlip openModal={buyAndSellModal} closeModal={buyClose} />
     </React.Fragment>
   );
 };
