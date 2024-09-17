@@ -17,11 +17,13 @@ import SuccessModal from "../shared/Modals/SuccessModal";
 import FailedModal from "../shared/Modals/FailedModal";
 import BuyAndSellWidget from "../CoinPage/BuyAndSellWidget";
 import CustomModal from "../shared/Modals/CustomModal";
+import CustomMenu from "../shared/CustomMenu";
 
 const Hero = () => {
   // states
   const { setTheme, resolvedTheme } = useTheme();
   const [isMinimize, setIsMinimize] = useState<boolean>(false);
+  const [time, setTime] = useState("15 min");
   const [opened, { open, close }] = useDisclosure(false);
   const [drawerButtonHeight, setDrawerButtonHeight] = useState(
     "h-[calc(100%-107px)]"
@@ -50,7 +52,6 @@ const Hero = () => {
   return (
     <React.Fragment>
       <div className="w-full relative flex flex-col justify-center items-center">
-    
         <div
           className={`w-full flex flex-col max-w-[1400px] mt-4 px-0 csm:px-4 py-0 csm:py-3 dark:bg-transparent dark:border-transparent bg-transparent border-[2px] border-black-1 rounded-[5px]`}
         >
@@ -77,13 +78,22 @@ const Hero = () => {
                       <p className="px-[6px] py-[3px] bg-blue-1 text-white-1 font-normal text-[12px] rounded-[2px]">
                         Top 10
                       </p>
-                      <button className="flex bg-[#0E161C] justify-center items-center px-[6px] py-[3px] rounded-[2px]">
-                        <LuTimerReset className="text-[12px] text-white-1" />
-                        <p className="text-[10px] text-white-1 font-normal">
-                          15m
-                        </p>
-                        <MdKeyboardArrowDown className="text-[12px] text-[#94A3B8]" />
-                      </button>
+                      <CustomMenu
+                        trigger="click"
+                        options={timeOptions}
+                        setValue={setTime}
+                        size="min-w-[100px]"
+                        value={time}
+                        targetComponent={
+                          <button className="flex bg-[#0E161C] justify-center items-center px-[6px] py-[3px] rounded-[2px]">
+                            <LuTimerReset className="text-[12px] text-white-1" />
+                            <p className="text-[10px] text-white-1 font-normal">
+                              15m
+                            </p>
+                            <MdKeyboardArrowDown className="text-[12px] text-[#94A3B8]" />
+                          </button>
+                        }
+                      />
                     </div>
                     <div className="px-[6px] py-[3px] bg-[#282828] text-white-1 flex justify-center items-center rounded-[2px]">
                       <MdOutlineElectricBolt className="text-[12px] text-[#B746F0]" />
@@ -505,3 +515,5 @@ const options = [
     icon: "/assets/twitter2.svg",
   },
 ];
+
+const timeOptions = ["15 min", "30 min", "1 hour", "4 hours", "1 day"];
