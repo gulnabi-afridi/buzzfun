@@ -11,6 +11,9 @@ interface Props {
 }
 
 const FilterDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
+
+
+
   return (
     <Drawer
       opened={open}
@@ -26,10 +29,10 @@ const FilterDrawer: React.FC<Props> = ({ open, closeDrawer }: Props) => {
       overlayProps={{ backgroundOpacity: 0, blur: 0 }}
       classNames={{
         content:
-          "!bg-white-1 dark:!bg-[#1D252C] border-[1px] border-[#2B2C39] !h-[calc(100vh-50px)] csm:!h-[calc(100vh-60px)] 2xl:!h-[calc(100vh-106px)] !mt-[50px] csm:!mt-[60px] 2xl:!mt-[106px] !overflow-auto",
+          `!bg-white-1 dark:!bg-[#1D252C] border-[1px] border-[#2B2C39] !h-screen !bottom-0 !overflow-auto`,
       }}
     >
-      <div className="w-full justify-between h-[calc(100vh-100px)] 2xl:h-[calc(100vh-146px)] gap-3 flex flex-col">
+      <div className="w-full justify-between h-[calc(100vh-30px)] gap-3 flex flex-col">
         <div className="w-full flex flex-col gap-3">
           {/* close drawer */}
           <div className="w-full flex justify-start">
