@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NextPage } from "next";
 import ComponentWrapper from "../components/shared/layout/ComponentWrapper";
 import Image from "next/image";
@@ -12,6 +12,9 @@ import Footer from "../components/shared/layout/Footer";
 
 const Page: NextPage = () => {
   const { setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   return (
     <div>
@@ -41,25 +44,27 @@ const Page: NextPage = () => {
                   <p className="text-[15px] dark:text-white-1 max-w-[230px] font-normal leading-[30px] text-black-1">
                     Pick name, upload image & add a description, then send it.
                   </p>
-                  <div className="w-full flex justify-end items-center">
-                    {resolvedTheme === "dark" ? (
-                      <Image
-                        src="/assets/dretardMode.png"
-                        alt=""
-                        width={172}
-                        className="absolute right-0 bottom-0"
-                        height={100}
-                      />
-                    ) : (
-                      <Image
-                        src="/assets/retardMode.svg"
-                        alt=""
-                        width={172}
-                        className="absolute right-0 bottom-0"
-                        height={100}
-                      />
-                    )}
-                  </div>
+                  {mounted && (
+                    <div className="w-full flex justify-end items-center">
+                      {resolvedTheme === "dark" ? (
+                        <Image
+                          src="/assets/dretardMode.png"
+                          alt=""
+                          width={172}
+                          className="absolute right-0 bottom-0"
+                          height={100}
+                        />
+                      ) : (
+                        <Image
+                          src="/assets/retardMode.svg"
+                          alt=""
+                          width={172}
+                          className="absolute right-0 bottom-0"
+                          height={100}
+                        />
+                      )}
+                    </div>
+                  )}
                   {/* arrow */}
                   <button className="w-[40px] duration-300 group-hover:bg-blue-1 absolute dark:bg-white-1 right-[4px] top-[4px] h-[40px] hover:opacity-80 bg-black-1 flex justify-center items-center">
                     <GoArrowUpRight className="text-[34px]  group-hover:text-white-1 dark:text-black-1 text-white-1" />
@@ -78,25 +83,27 @@ const Page: NextPage = () => {
                   <p className="text-[15px] dark:text-white-1 max-w-[230px] font-normal leading-[30px] text-black-1">
                     Same as Retard, but some tax options and other stuff
                   </p>
-                  <div className="w-full flex justify-end items-center">
-                    {resolvedTheme === "dark" ? (
-                      <Image
-                        src="/assets/dDretardMode.svg"
-                        alt=""
-                        className="absolute bottom-0 right-0"
-                        width={215}
-                        height={113}
-                      />
-                    ) : (
-                      <Image
-                        src="/assets/beastMode.svg"
-                        alt=""
-                        className="absolute bottom-0 right-0"
-                        width={215}
-                        height={113}
-                      />
-                    )}
-                  </div>
+                  {mounted && (
+                    <div className="w-full flex justify-end items-center">
+                      {resolvedTheme === "dark" ? (
+                        <Image
+                          src="/assets/dDretardMode.svg"
+                          alt=""
+                          className="absolute bottom-0 right-0"
+                          width={215}
+                          height={113}
+                        />
+                      ) : (
+                        <Image
+                          src="/assets/beastMode.svg"
+                          alt=""
+                          className="absolute bottom-0 right-0"
+                          width={215}
+                          height={113}
+                        />
+                      )}
+                    </div>
+                  )}
                   {/* arrow */}
                   <button className="w-[40px] duration-300 group-hover:bg-blue-1 absolute right-[4px] top-[4px] h-[40px] hover:opacity-80 dark:bg-white-1 bg-black-1 flex justify-center items-center">
                     <GoArrowUpRight className="text-[34px] group-hover:text-white-1 dark:text-black-1 text-white-1" />
