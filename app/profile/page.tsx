@@ -34,7 +34,7 @@ const ProfilePage = () => {
     setSelectedName(name);
   };
 
-  // useEffect -------------------------------> 
+  // useEffect ------------------------------->
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 540) {
@@ -77,6 +77,22 @@ const ProfilePage = () => {
               </div>
             </div>
           )}
+          {/* for large screen */}
+          <div className="w-full hidden csm:flex justify-center items-center pt-4 csm:pt-8">
+            <div className="flex w-fit px-4 md:px-8 lg:px-6 py-2 dark:bg-black-1 bg-black-1 gap-4 justify-center items-center">
+              <p className=" text-center text-[20px] md:text-[30px] xl:text-[40px] uppercase leading-[48px] font-normal text-orange-1">
+                {`//////`}
+              </p>
+              <p className="uppercase text-[20px] md:text-[35px] xl:text-[40px] leading-[48px] dark:bg-black-1 bg-yellow-1 dark:text-yellow-1 text-black-1 font-normal">
+                Profile
+              </p>
+              <p className="text-[20px] md:text-[30px] text-center xl:text-[40px] uppercase leading-[48px] font-normal text-orange-1">
+                {`////////////////////.\\\\\\\\`}
+              </p>
+
+           
+            </div>
+          </div>
           <div className="w-full pt-4 csm:pt-10 min-h-screen pb-0 csm:pb-10 flex justify-center items-start">
             <div
               className={`w-full grid gap-4 sm:gap-4 md:gap-6 justify-center items-start 
