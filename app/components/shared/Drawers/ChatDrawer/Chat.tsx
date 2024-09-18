@@ -151,33 +151,32 @@ const Chat: React.FC<Props> = ({ setSetting, setChatInformation }: Props) => {
                     </p>
                   </div>
                   <div className="w-full pl-3 items-start gap-2 flex flex-col">
-                    <div className="w-full relative">
+                    <div className="w-full group relative">
                       <p className="text-[11px] csm:text-[12px] font-normal dark:text-white-1/80 text-black-1">
                         {item.message}
                       </p>
                       {/* chat + back icon ---> */}
-                      {item.icIcons && (
-                        <div className="px-1 py-[2px] bg-[#FEF652] absolute right-0 -top-6 rounded-[5px] flex justify-center items-center gap-1">
-                          <button className="w-[20px] h-[17px] bg-black-1 rounded-[3px] flex justify-center items-center">
-                            <TbArrowBackUp className="text-white-1 text-[16px]" />
-                          </button>
-                          {
-                            <CustomMenu
-                              size="!w-[150px]"
-                              trigger="click"
-                              options={chatOptions}
-                              value={chatOption}
-                              position="left"
-                              setValue={setChatOption}
-                              targetComponent={
-                                <button className="w-[20px] h-[17px] bg-black-1 rounded-[3px] flex justify-center items-center">
-                                  <BsThreeDotsVertical className="text-white-1 rotate-90 text-[16px]" />
-                                </button>
-                              }
-                            />
-                          }
-                        </div>
-                      )}
+
+                      <div className="px-1 py-[2px] group-hover:flex bg-[#FEF652] absolute right-0 -top-6 rounded-[5px] hidden justify-center items-center gap-1">
+                        <button className="w-[20px] h-[17px] bg-black-1 rounded-[3px] flex justify-center items-center">
+                          <TbArrowBackUp className="text-white-1 text-[16px]" />
+                        </button>
+                        {
+                          <CustomMenu
+                            size="!w-[150px]"
+                            trigger="click"
+                            options={chatOptions}
+                            value={chatOption}
+                            position="left"
+                            setValue={setChatOption}
+                            targetComponent={
+                              <button className="w-[20px] h-[17px] bg-black-1 rounded-[3px] flex justify-center items-center">
+                                <BsThreeDotsVertical className="text-white-1 rotate-90 text-[16px]" />
+                              </button>
+                            }
+                          />
+                        }
+                      </div>
                     </div>
                     {/* image ---> */}
                     {item.isImage && (
@@ -348,7 +347,6 @@ const messageData = [
     message:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem.",
     isDate: true,
-    icIcons: false,
   },
   {
     date: {
@@ -357,7 +355,6 @@ const messageData = [
     },
     userName: "<Username>",
     roloe: "[Role]",
-    icIcons: false,
     message:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
   },
@@ -369,7 +366,6 @@ const messageData = [
     userName: "<Username>",
     roloe: "[Role]",
     isReactions: true,
-    icIcons: false,
 
     isDate: true,
 
