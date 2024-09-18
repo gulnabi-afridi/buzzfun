@@ -29,10 +29,10 @@ const Trusted: React.FC = () => {
   return (
     <div className="w-full flex justify-center items-center">
       <div
-        className={`w-full max-w-[1200px] border-[1px] rounded-[5px] border-yellow-1/50 flex mt-5 csm:mt-8 flex-col tableShadow dark:forDarkShadow gap-4 sm:gap-7 dark:bg-[#0E161C] bg-white-1 p-3 csm:p-5 `}
+        className={`w-full max-w-[1200px] border-[1px] rounded-[5px] border-none csm:border-yellow-1/50 flex mt-5 csm:mt-8 flex-col tableShadow dark:forDarkShadow gap-4 sm:gap-7 dark:bg-[#0E161C] bg-white-1 p-0 csm:p-5 `}
       >
         {/* top section */}
-        <div className="flex w-full py-2 dark:bg-black-1 px-2 bg-black-1 gap-4 justify-center items-center">
+        <div className="flex w-full py-2 dark:bg-[#253039] rounded-[5px] border-[1px] border-[#8D97AE] csm:dark:bg-black-1 px-2 bg-black-1 gap-4 justify-center items-center">
           <p className="text-[40px] uppercase text-white-1">
             <span className="text-orange-1  ">{`//// `}</span>
             thrusted and <span className="text-yellow-1"> backed</span> by{" "}

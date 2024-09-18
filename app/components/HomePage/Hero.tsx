@@ -65,7 +65,7 @@ const Hero = () => {
     <React.Fragment>
       <div className="w-full relative flex flex-col justify-center items-center">
         {/* hero top section ----------------------> */}
-        <div className="w-full relative max-w-[1400px] bg-[url('/assets/topHeroBg.png')] border-[1px] border-[#505050] rounded-[6px] mt-8 px-10 bg-cover bg-no-repeat flex justify-between items-center">
+        <div className="w-full relative max-w-[1400px] bg-[url('/assets/topHeroBg.png')] border-[1px] border-[#505050] rounded-[6px] mt-8 px-10 bg-cover bg-no-repeat hidden 2xl:flex justify-between items-center">
           {/* left portion ----> */}
           <div className="flex z-50 flex-col relative gap-3 ">
             <div className="w-[550px] h-[450px] relative">
@@ -484,63 +484,63 @@ const Hero = () => {
                 <div className="w-full h-[215px] relative">
                   <Image src="/assets/hero3rdcol.png" alt="" fill />
                 </div>
-                <p className="text-[13px] leading-[24px] text-black-1 dark:text-white-1 font-normal">
-                  <span className="text-[24px] font-normal text-black-1 dark:text-white-1">
+                <p className="text-[10px] csm:text-[13px] leading-[24px] text-black-1 dark:text-white-1 font-normal">
+                  <span className="text-[18px] csm:text-[24px] font-normal text-black-1 dark:text-white-1">
                     Create coins
                   </span>{" "}
                   <span className="text-[13px] font-normal text-black-1 dark:text-white-1">
                     {" "}
                     with{" "}
                   </span>{" "}
-                  <span className="text-black-1 bg-yellow-1 text-[16px]">
+                  <span className="text-black-1 bg-yellow-1 text-[14px] csm:text-[16px]">
                     {" "}
                     custom contracts,
                   </span>{" "}
-                  <span className="text-[16px] bg-blue-1 text-black-1">
+                  <span className="text-[14px] csm:text-[16px] bg-blue-1 text-black-1">
                     {" "}
                     tax options
                   </span>{" "}
                   and{" "}
-                  <span className="bg-[#00663B] text-[16px]">
+                  <span className="bg-[#00663B] text-[14px] csm:text-[16px]">
                     {" "}
                     max buy options
                   </span>{" "}
                   [chads only] with bonding curve sales (improved balance -
                   optimised) {` >>>`} wen fully bonded, coins migrate to
                   uniswap,{" "}
-                  <span className="bg-red-1 text-[16px]"> RUG PROOF</span>{" "}
+                  <span className="bg-red-1 text-[14px] csm:text-[16px]"> RUG PROOF</span>{" "}
                   deployment, CA renounced on Dex listing // all{" "}
-                  <span className="text-blue-1 text-[16px]">
+                  <span className="text-blue-1 text-[14px] csm:text-[16px]">
                     functions automated //
                   </span>{" "}
                   (block-timestamps). Add live chats with advanced chat
                   features.{" "}
-                  <span className="bg-yellow-1 text-[16px] text-blue-1">
+                  <span className="bg-yellow-1 text-[14px] csm:text-[16px] text-blue-1">
                     Data-centric trading
                   </span>{" "}
                   with{" "}
-                  <span className="bg-red-1 text-[16px]">custom XP algo</span>{" "}
+                  <span className="bg-red-1 text-[14px] csm:text-[16px]">custom XP algo</span>{" "}
                   that{" "}
-                  <span className="bg-[#130061] text-[16px] text-[#14FF00]">
+                  <span className="bg-[#130061] text-[14px] csm:text-[16px] text-[#14FF00]">
                     rewards: traders,
                   </span>{" "}
-                  <span className="bg-[#130061] text-[16px] text-blue-1">
+                  <span className="bg-[#130061] text-[14px] csm:text-[16px] text-blue-1">
                     {" "}
                     based devs
                   </span>{" "}
                   &{" "}
-                  <span className="bg-[#130061] text-[16px] text-red-1">
+                  <span className="bg-[#130061] text-[14px] csm:text-[16px] text-red-1">
                     {" "}
                     engagoors
                   </span>
                   .
                 </p>
-                <p className="bg-[#00C673] text-center py-[3px] text-[13px] font-normal text-black-1">
+                <p className="bg-[#00C673] text-center py-[3px] text-[12px] csm:text-[13px] font-normal text-black-1">
                   Seasonal Airdrops{" "}
                   <span className="text-yellow-1"> - $BUZZ - </span> rewarding
                   the great.
                 </p>
-                <p className="text-[14px] font-normal text-purple-1 dark:text-yellow-1">{`////////////////////////////////////>> Get Buzzed.`}</p>
+                <p className="text-[12px] text-center csm:text-[14px] font-normal text-purple-1 dark:text-yellow-1">{`////////////////////////////////////>> Get Buzzed.`}</p>
               </div>
             </div>
           </div>

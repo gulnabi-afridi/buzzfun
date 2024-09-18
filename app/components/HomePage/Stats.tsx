@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Stats = () => {
   return (
-    <div className="w-full mt-6 flex justify-center items-center">
+    <div className="w-full mt-6 hidden csm:flex justify-center items-center">
       <div className="w-full hideScroll overflow-auto max-w-[1000px] justify-center items-center">
         <div className="min-w-[930px] w-full flex gap-4">
           <Image src="/assets/stats.svg" width={47} height={79} alt="" />
