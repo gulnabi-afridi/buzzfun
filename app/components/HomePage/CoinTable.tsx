@@ -48,9 +48,7 @@ const CoinTable = () => {
     }));
   };
 
-
-
-  const toggleFavorite = (index:number) => {
+  const toggleFavorite = (index: number) => {
     const newFavorites = [...favorites];
     newFavorites[index] = !newFavorites[index];
     setFavorites(newFavorites);
@@ -206,12 +204,12 @@ const CoinTable = () => {
                 <div className="w-full flex justify-start items-center">
                   {isFavorited ? (
                     <IoMdStar
-                      className="text-[16px] text-yellow-500"
+                      className="text-[16px] text-yellow-1"
                       onClick={() => toggleFavorite(index)}
                     /> // Filled star
                   ) : (
                     <IoMdStarOutline
-                      className="text-[16px] text-black-1 dark:text-[#EBFF00]"
+                      className="text-[16px] text-black-1 dark:text-yellow-1"
                       onClick={() => toggleFavorite(index)}
                     /> // Outline star
                   )}

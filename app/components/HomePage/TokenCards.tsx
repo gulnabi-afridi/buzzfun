@@ -24,15 +24,25 @@ import { MdOutlineEmojiEmotions } from "react-icons/md";
 import CoinStatsCard from "../shared/Cards/CoinStatsCard";
 import FilterDrawer from "../shared/Drawers/FilterDrawer";
 import BuyAndSellFlip from "../shared/Modals/BuyAndSellFlip";
+import { IoMdStar } from "react-icons/io";
 
 const TokenCards: React.FC = () => {
+  // states
   const [showCoinDetails, setShowCoinDetails] = useState(false);
   const [selectedCard, setSelectedCard] = useState(1);
   const [selectedRow, setSelectedRow] = useState<number | null>(null);
   const [selectedRow2, setSelectedRow2] = useState<number | null>(null);
   const [selectedRow3, setSelectedRow3] = useState<number | null>(null);
+  const [favorites, setFavorites] = useState(Array(5).fill(false));
   const [buyAndSellModal, { open: buyOpen, close: buyClose }] =
     useDisclosure(false);
+
+  // functions --------------------->
+  const toggleFavorite = (index: number) => {
+    const newFavorites = [...favorites];
+    newFavorites[index] = !newFavorites[index];
+    setFavorites(newFavorites);
+  };
 
   return (
     <React.Fragment>
@@ -83,7 +93,7 @@ const TokenCards: React.FC = () => {
                       key={index}
                       className={`w-full ${
                         selectedRow === index
-                          ? "bg-yellow-1 rounded-[4px] px-2"
+                          ? "bg-yellow-1 rounded-[4px] px-[2px]"
                           : "hover:bg-gradient-to-b hover:from-[#141414] hover:from-27.17% hover:to-[rgba(255,255,255,0.18)] hover:to-100%"
                       } grid py-[3px] grid-cols-[40px,1.4fr,1fr,1fr]`}
                     >
@@ -224,7 +234,7 @@ const TokenCards: React.FC = () => {
                         onClick={() => setSelectedRow3(index)}
                         className={`w-full ${
                           selectedRow3 === index
-                            ? "bg-yellow-1 rounded-[4px] px-2"
+                            ? "bg-yellow-1 rounded-[4px] px-[2px]"
                             : "hover:bg-gradient-to-b hover:from-[#141414] hover:from-27.17% hover:to-[rgba(255,255,255,0.18)] hover:to-100%"
                         } py-[3px] grid grid-cols-[2fr,1fr,1fr,1fr,1fr,.5fr,.5fr] csm:grid-cols-[.5fr,2fr,1fr,1fr,1fr,1fr,.5fr,.5fr]`}
                       >
@@ -324,14 +334,27 @@ const TokenCards: React.FC = () => {
                           </p>
                         </div>
                         {/* favorite */}
-                        <div className="w-full flex justify-center items-center">
-                          <MdOutlineStarBorder
-                            className={`text-black-1    ${
-                              selectedRow3 === index
-                                ? "text-black-1"
-                                : "text-black-1 dark:text-[#EBFF00C4]"
-                            }  text-[12px]`}
-                          />
+                        <div
+                          onClick={() => toggleFavorite(index)}
+                          className="w-full flex justify-center items-center"
+                        >
+                          {favorites[index] ? (
+                            <IoMdStar
+                              className={` ${
+                                selectedRow3 === index
+                                  ? "dark:text-black-1 text-black-1"
+                                  : "text-yellow-1"
+                              }  text-[12px]`}
+                            />
+                          ) : (
+                            <MdOutlineStarBorder
+                              className={`${
+                                selectedRow3 === index
+                                  ? "dark:text-black-1 text-white-1 "
+                                  : "text-white-1"
+                              } text-[12px]`}
+                            />
+                          )}
                         </div>
                         {/*  */}
                         <div

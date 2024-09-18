@@ -19,6 +19,7 @@ import BuyAndSellWidget from "../CoinPage/BuyAndSellWidget";
 import CustomModal from "../shared/Modals/CustomModal";
 import CustomMenu from "../shared/CustomMenu";
 import BuyAndSellFlip from "../shared/Modals/BuyAndSellFlip";
+import { IoMdStar } from "react-icons/io";
 
 const Hero = () => {
   // states
@@ -37,6 +38,7 @@ const Hero = () => {
     useDisclosure(false);
   const [buyAndSell, { open: openBuyAndSell, close: closeBuyAndSell }] =
     useDisclosure(false);
+  const [favorites, setFavorites] = useState(Array(10).fill(false));
 
   // Function to handle scroll events
   const handleScroll = () => {
@@ -46,6 +48,12 @@ const Hero = () => {
     } else {
       setDrawerButtonHeight("h-[calc(100%-107px)]");
     }
+  };
+
+  const toggleFavorite = (index: number) => {
+    const newFavorites = [...favorites];
+    newFavorites[index] = !newFavorites[index];
+    setFavorites(newFavorites);
   };
 
   useEffect(() => {
@@ -122,7 +130,7 @@ const Hero = () => {
                           className={`w-full py-1 grid grid-cols-[.5fr,2fr,1fr,1fr,1fr,1fr,.5fr,.5fr] cursor-pointer
               ${
                 selectedRow === index
-                  ? "bg-yellow-1 rounded-[4px] px-2"
+                  ? "bg-yellow-1 rounded-[4px] px-[2px]"
                   : "hover:bg-gradient-to-b hover:from-[#141414] hover:from-27.17% hover:to-[rgba(255,255,255,0.18)] hover:to-100%"
               }`}
                           onClick={() => setSelectedRow(index)}
@@ -219,14 +227,27 @@ const Hero = () => {
                             </p>
                           </div>
                           {/* favorite */}
-                          <div className="w-full flex justify-center items-center">
-                            <MdOutlineStarBorder
-                              className={`${
-                                selectedRow === index
-                                  ? "text-black-1"
-                                  : "text-black-1 dark:text-[#EBFF00C4] "
-                              }  text-[12px]`}
-                            />
+                          <div
+                            onClick={() => toggleFavorite(index)}
+                            className="w-full flex justify-center items-center"
+                          >
+                            {favorites[index] ? (
+                              <IoMdStar
+                                className={` ${
+                                  selectedRow === index
+                                    ? "dark:text-black-1 text-black-1"
+                                    : "text-yellow-1"
+                                }  text-[12px]`}
+                              />
+                            ) : (
+                              <MdOutlineStarBorder
+                                className={`${
+                                  selectedRow === index
+                                    ? "dark:text-black-1 text-white-1 "
+                                    : "text-white-1"
+                                } text-[12px]`}
+                              />
+                            )}
                           </div>
                           {/*  */}
                           <div

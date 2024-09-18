@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import { FaFilter } from "react-icons/fa";
 import { MdOutlineElectricBolt } from "react-icons/md";
 import Image from "next/image";
@@ -15,6 +17,8 @@ import { CiUser } from "react-icons/ci";
 import BuyAndSellFlip from "../Modals/BuyAndSellFlip";
 import { useDisclosure } from "@mantine/hooks";
 import FilterDrawer from "../Drawers/FilterDrawer";
+import { MdOutlineStarBorder } from "react-icons/md";
+import { IoMdStar } from "react-icons/io";
 
 interface Props {
   borderColor: string;
@@ -22,11 +26,18 @@ interface Props {
 }
 
 const CoinStatsCard: React.FC<Props> = ({ borderColor, title }: Props) => {
+  const [favorites, setFavorites] = useState(Array(6).fill(false));
   const [buyAndSellModal, { open: buyOpen, close: buyClose }] =
     useDisclosure(false);
 
   const [filterDrawer, { open: openFilterDrawer, close: closeFilterDrawer }] =
     useDisclosure(false);
+
+  const toggleFavorite = (index: number) => {
+    const newFavorites = [...favorites];
+    newFavorites[index] = !newFavorites[index];
+    setFavorites(newFavorites);
+  };
 
   return (
     <React.Fragment>
@@ -181,7 +192,21 @@ const CoinStatsCard: React.FC<Props> = ({ borderColor, title }: Props) => {
                           <GrLanguage className="text-[12px] csm:text-[14px] text-black-1 dark:text-white-1" />
                         </div>
                         <div className="flex justify-center items-center gap-2">
-                          <MdOutlineStarOutline className="text-[14px] text-black-1 dark:text-[#EBFF00E8]" />
+                          {/* favorite */}
+                          <div
+                            onClick={() => toggleFavorite(index)}
+                            className=" flex justify-center items-center"
+                          >
+                            {favorites[index] ? (
+                              <IoMdStar
+                                className={` text-yellow-1  text-[12px]`}
+                              />
+                            ) : (
+                              <MdOutlineStarBorder
+                                className={`text-yellow-1 text-[12px]`}
+                              />
+                            )}
+                          </div>
                           <hr className=" h-[14px] border-r-[1px] border-[#B746F0]" />
 
                           <div className="flex justify-center items-center gap-1">
