@@ -65,7 +65,7 @@ const Hero = () => {
     <React.Fragment>
       <div className="w-full relative flex flex-col justify-center items-center">
         {/* hero top section ----------------------> */}
-        <div className="w-full relative max-w-[1400px] bg-[url('/assets/topHeroBg.png')] border-[1px] border-[#505050] rounded-[6px] mt-8 px-10 bg-cover bg-no-repeat hidden 2xl:flex justify-between items-center">
+        <div className="w-full relative max-w-[1400px] bg-[url('/assets/topHeroBg.png')] border-[1px] border-[#505050] rounded-[12px] mt-8 px-10 bg-cover bg-no-repeat hidden 2xl:flex justify-between items-center">
           {/* left portion ----> */}
           <div className="flex z-50 flex-col relative gap-3 ">
             <div className="w-[550px] h-[450px] relative">
@@ -508,7 +508,10 @@ const Hero = () => {
                   [chads only] with bonding curve sales (improved balance -
                   optimised) {` >>>`} wen fully bonded, coins migrate to
                   uniswap,{" "}
-                  <span className="bg-red-1 text-[14px] csm:text-[16px]"> RUG PROOF</span>{" "}
+                  <span className="bg-red-1 text-[14px] csm:text-[16px]">
+                    {" "}
+                    RUG PROOF
+                  </span>{" "}
                   deployment, CA renounced on Dex listing // all{" "}
                   <span className="text-blue-1 text-[14px] csm:text-[16px]">
                     functions automated //
@@ -519,7 +522,9 @@ const Hero = () => {
                     Data-centric trading
                   </span>{" "}
                   with{" "}
-                  <span className="bg-red-1 text-[14px] csm:text-[16px]">custom XP algo</span>{" "}
+                  <span className="bg-red-1 text-[14px] csm:text-[16px]">
+                    custom XP algo
+                  </span>{" "}
                   that{" "}
                   <span className="bg-[#130061] text-[14px] csm:text-[16px] text-[#14FF00]">
                     rewards: traders,
