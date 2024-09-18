@@ -7,14 +7,7 @@ import { MdOutlineStarBorder } from "react-icons/md";
 import { LuExpand } from "react-icons/lu";
 import { GoGraph } from "react-icons/go";
 import { TbUsers } from "react-icons/tb";
-import CustomModal from "../shared/Modals/CustomModal";
 import { useDisclosure } from "@mantine/hooks";
-import { PiBagSimple } from "react-icons/pi";
-import { RxCross2 } from "react-icons/rx";
-import { FaFilter } from "react-icons/fa6";
-import { IoCaretUp } from "react-icons/io5";
-import { IoEyeOutline } from "react-icons/io5";
-import { Menu } from "@mantine/core";
 import * as Icons from "../shared/SVGs/Icons";
 import { LuBaby } from "react-icons/lu";
 import { RiGraduationCapLine } from "react-icons/ri";
@@ -22,7 +15,6 @@ import { LuChefHat } from "react-icons/lu";
 import { LuCoins } from "react-icons/lu";
 import { MdOutlineEmojiEmotions } from "react-icons/md";
 import CoinStatsCard from "../shared/Cards/CoinStatsCard";
-import FilterDrawer from "../shared/Drawers/FilterDrawer";
 import BuyAndSellFlip from "../shared/Modals/BuyAndSellFlip";
 import { IoMdStar } from "react-icons/io";
 
@@ -36,6 +28,8 @@ const TokenCards: React.FC = () => {
   const [favorites, setFavorites] = useState(Array(5).fill(false));
   const [buyAndSellModal, { open: buyOpen, close: buyClose }] =
     useDisclosure(false);
+  const [card1Filter, setCard1Filter] = useState("Top Creators");
+  const [card2Filter, setCard2Filter] = useState("New Tokens");
 
   // functions --------------------->
   const toggleFavorite = (index: number) => {
@@ -56,9 +50,16 @@ const TokenCards: React.FC = () => {
                 <div className="w-full flex justify-between items-center gap-2">
                   {/* left */}
                   <div className="rounded-[3px] bg-[#0F171D] flex gap-3 px-2 py-2">
-                    <p className="csm:block hidden text-white-1 text-[10px] font-normal">
+                    <button
+                      onClick={() => setCard1Filter("Top Creators")}
+                      className={`csm:block rounded-[3px] px-1 ${
+                        card1Filter === "Top Creators"
+                          ? "bg-blue-1"
+                          : "bg-transparent"
+                      } hidden text-white-1 text-[10px] font-normal`}
+                    >
                       Top Creators
-                    </p>
+                    </button>
                     <p className="csm:hidden block text-yellow-1 text-[10px] font-normal">
                       Top:
                     </p>
@@ -72,12 +73,26 @@ const TokenCards: React.FC = () => {
                       <MdOutlineEmojiEmotions className="text-[14px] text-white-1" />
                     </div>
 
-                    <p className="text-white-1 csm:block hidden text-[10px] font-normal">
+                    <button
+                      onClick={() => setCard1Filter("Top XP Tokens")}
+                      className={`text-white-1 ${
+                        card1Filter === "Top XP Tokens"
+                          ? "bg-blue-1"
+                          : "bg-transparent"
+                      } csm:block hidden px-1 text-[10px] font-normal`}
+                    >
                       Top XP Tokens
-                    </p>
-                    <p className="text-white-1 csm:block hidden bg-[#044FFE] px-2 py-[2px] rounded-[2px] text-[10px] font-normal">
+                    </button>
+                    <button
+                      onClick={() => setCard1Filter("Top Live Chats")}
+                      className={`text-white-1 csm:block ${
+                        card1Filter === "Top Live Chats"
+                          ? "bg-blue-1"
+                          : "bg-transparent"
+                      } hidden px-1 py-[2px] rounded-[2px] text-[10px] font-normal`}
+                    >
                       Top Live Chats
-                    </p>
+                    </button>
                   </div>
                   {/* right  */}
                   <button className="px-2 py-2 bg-[#4F40FF] text-[10px] font-normal rounded-[4px] text-black-1 dark:text-white-1">
@@ -172,23 +187,46 @@ const TokenCards: React.FC = () => {
               {/* table ---> */}
               <div className="w-full h-full flex flex-col gap-4 bg-transparent dark:bg-black-1 border-[1px] border-black-1 dark:border-[#535353] csm:dark:border-[#FEF652] rounded-[5px] py-3 csm:py-4 px-2 csm:px-3">
                 {/* table filter -->  */}
-                <div className="flex justify-center items-center gap-2">
+                <div className="flex justify-center items-center gap-1">
                   <div className="flex w-full justify-between items-center">
                     <div className="flex csm:w-fit w-full justify-center items-center gap-2">
-                      <div className="flex px-2 py-2 bg-[#0F171D] csm:w-fit w-full rounded-[4px] justify-between csm:justify-center items-center gap-3">
-                        <p className="px-[6px] csm:block hidden py-[3px] bg-blue-1 text-white-1 font-normal text-[12px] rounded-[2px]">
+                      <div className="flex px-2 py-2 bg-[#0F171D] csm:w-fit w-full rounded-[4px] justify-between csm:justify-center items-center gap-2">
+                        <button
+                          onClick={() => setCard2Filter("New Tokens")}
+                          className={`px-[6px] csm:block ${
+                            card2Filter === "New Tokens"
+                              ? "bg-blue-1 px-1"
+                              : "bg-transparent px-1"
+                          } hidden py-[3px] text-white-1 font-normal text-[12px] rounded-[2px]`}
+                        >
                           New Tokens
-                        </p>
+                        </button>
                         <button className="p-[3px] csm:hidden block rounded-[4px] bg-blue-1">
                           <LuBaby className="text-[13px] text-white-1" />
                         </button>
-                        <p className=" text-white-1 csm:block hidden font-normal text-[12px] rounded-[2px]">
+                        <button
+                          onClick={() => setCard2Filter("Almost There")}
+                          className={`${
+                            card2Filter === "Almost There"
+                              ? "bg-blue-1 px-1"
+                              : "bg-transparent px-1"
+                          } text-white-1 csm:block hidden font-normal text-[12px] rounded-[2px]`}
+                        >
                           Almost There
-                        </p>
+                        </button>
                         <p className="text-[12px] csm:hidden block bg-[#282828] font-normal text-white-1">{`>69%`}</p>
-                        <p className=" text-white-1 csm:block hidden font-normal text-[12px] rounded-[2px]">
+                        <button
+                          onClick={() => setCard2Filter("Migrating Now")}
+                          className={`
+                            ${
+                              card2Filter === "Migrating Now"
+                                ? "bg-blue-1 px-1"
+                                : "bg-transparent px-1"
+                            }
+                            text-white-1 csm:block hidden font-normal text-[12px] rounded-[2px]`}
+                        >
                           Migrating Now
-                        </p>
+                        </button>
                         <button className="p-[3px] csm:hidden block rounded-[4px] bg-[#282828]">
                           <RiGraduationCapLine className="text-[13px] text-white-1" />
                         </button>
