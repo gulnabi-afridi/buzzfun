@@ -65,7 +65,7 @@ const Hero = () => {
     <React.Fragment>
       <div className="w-full relative flex flex-col justify-center items-center">
         {/* hero top section ----------------------> */}
-        <div className="w-full relative max-w-[1400px] bg-[url('/assets/topHeroBg.png')] border-[1px] border-[#505050] rounded-[6px] mt-8 px-10 object-cover bg-no-repeat flex justify-between items-center">
+        <div className="w-full relative max-w-[1400px] bg-[url('/assets/topHeroBg.png')] border-[1px] border-[#505050] rounded-[6px] mt-8 px-10 bg-cover bg-no-repeat flex justify-between items-center">
           {/* left portion ----> */}
           <div className="flex z-50 flex-col relative gap-3 ">
             <div className="w-[550px] h-[450px] relative">
@@ -179,8 +179,8 @@ const Hero = () => {
               </button>
             </div>
           </div>
-          <div className="w-full absolute bottom-[100px] -left-[3%] z-20">
-            <div className="w-[106%] h-[100px] relative">
+          <div className="w-full absolute bottom-[100px] left-0 3xl:-left-[3%] z-20">
+            <div className="w-[100%] 3xl:w-[106%] h-[100px] relative">
               <Image src="/assets/heroGradient.png" fill alt="" />
             </div>
           </div>
@@ -480,15 +480,15 @@ const Hero = () => {
 
             {/* 3rd col ---------------------------------------> */}
             <div className="w-full h-full csm:order-3 order-3 flex justify-center items-center">
-              <div className="w-full h-full max-w-[450px] xl:max-w-[480px] p-3 flex flex-col gap-4 bg-black-1 rounded-[5px] border-[1px] border-yellow-1">
+              <div className="w-full h-full max-w-[450px] xl:max-w-[480px] p-3 flex flex-col gap-4 bg-transparent dark:bg-black-1 rounded-[5px] border-[1px] border-yellow-1">
                 <div className="w-full h-[215px] relative">
                   <Image src="/assets/hero3rdcol.png" alt="" fill />
                 </div>
-                <p className="text-[13px] leading-[24px] text-white-1 font-normal">
-                  <span className="text-[24px] font-normal text-white-1">
+                <p className="text-[13px] leading-[24px] text-black-1 dark:text-white-1 font-normal">
+                  <span className="text-[24px] font-normal text-black-1 dark:text-white-1">
                     Create coins
                   </span>{" "}
-                  <span className="text-[13px] font-normal text-white-1">
+                  <span className="text-[13px] font-normal text-black-1 dark:text-white-1">
                     {" "}
                     with{" "}
                   </span>{" "}
@@ -540,7 +540,7 @@ const Hero = () => {
                   <span className="text-yellow-1"> - $BUZZ - </span> rewarding
                   the great.
                 </p>
-                <p className="text-[14px] font-normal text-yellow-1">{`////////////////////////////////////>> Get Buzzed.`}</p>
+                <p className="text-[14px] font-normal text-purple-1 dark:text-yellow-1">{`////////////////////////////////////>> Get Buzzed.`}</p>
               </div>
             </div>
           </div>

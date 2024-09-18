@@ -57,7 +57,7 @@ const CoinTable = () => {
   return (
     <React.Fragment>
       <div
-        className={`w-full dark:bg-[#0E161C] rounded-[5px] bg-transparent dark:border-[#D7E0E7] border-[1px] border-transparent ${
+        className={`w-full dark:bg-[#0E161C] rounded-[5px] bg-transparent dark:border-white-1/50 border-[1px] border-transparent ${
           resolvedTheme === "dark" ? "forDarkShadow" : "tableShadow"
         } px-4 py-5 overflow-auto flex flex-col`}
       >
@@ -204,7 +204,7 @@ const CoinTable = () => {
                 <div className="w-full flex justify-start items-center">
                   {isFavorited ? (
                     <IoMdStar
-                      className="text-[16px] text-yellow-1"
+                      className="text-[16px] text-black-1 dark:text-yellow-1"
                       onClick={() => toggleFavorite(index)}
                     /> // Filled star
                   ) : (

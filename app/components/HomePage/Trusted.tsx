@@ -29,24 +29,25 @@ const Trusted: React.FC = () => {
   return (
     <div className="w-full flex justify-center items-center">
       <div
-        className={`w-full max-w-[1200px] flex mt-5 csm:mt-8 flex-col border-[1px] border-none csm:border-transparent dark:border-none csm:dark:border-white-1 gap-4 sm:gap-7 dark:bg-transparent bg-white-1 p-3 csm:p-5 `}
+        className={`w-full max-w-[1200px] border-[1px] rounded-[5px] border-yellow-1/50 flex mt-5 csm:mt-8 flex-col tableShadow dark:forDarkShadow gap-4 sm:gap-7 dark:bg-[#0E161C] bg-white-1 p-3 csm:p-5 `}
       >
         {/* top section */}
-        <div className="flex w-full py-2 dark:bg-[#253039] px-2 bg-black-1 gap-4 justify-center items-center">
+        <div className="flex w-full py-2 dark:bg-black-1 px-2 bg-black-1 gap-4 justify-center items-center">
           <p className="text-[40px] uppercase text-white-1">
+            <span className="text-orange-1  ">{`//// `}</span>
             thrusted and <span className="text-yellow-1"> backed</span> by{" "}
             <span className="text-orange-1"> gegens</span> {`/////*`}
           </p>
         </div>
         {/* down section */}
         <div className="w-full flex justify-center items-center">
-          <div className="w-full max-w-[700px] cxl:max-w-full grid grid-cols-1 cxl:grid-cols-[.9fr,1fr] gap-4 csm:gap-6">
+          <div className="w-full max-w-[700px] cxl:max-w-full grid justify-center items-center grid-cols-1 cxl:grid-cols-[.9fr,1fr] gap-4 csm:gap-6">
             {/* 1st col  */}
-            <div className="w-full csm:order-1 order-2 grid gap-4 csm:gap-6 h-fit grid-cols-3 sm:grid-cols-4">
+            <div className="w-full csm:order-1 order-2 grid gap-4 csm:gap-6 h-fit grid-cols-3 sm:grid-cols-4 csm:grid-cols-3">
               {trustedData.map((item, index) => (
                 <button
                   key={index}
-                  className="w-full h-[90px] csm:h-[110px] relative"
+                  className="w-full h-[90px] csm:h-[150px] relative"
                   onClick={() => handleImageClick(item.img, item.content)}
                 >
                   <Image src={item.img} fill alt="" />
@@ -54,7 +55,7 @@ const Trusted: React.FC = () => {
               ))}
             </div>
             {/* 2nd col  */}
-            <div className="w-full bg-yellow-1 csm:order-2 order-1 boxShadow2 gap-3 justify-between flex flex-col p-2">
+            <div className="w-full bg-yellow-1 csm:bg-black-1 border-[1px] rounded-[5px] border-white-1/50 csm:order-2 order-1 boxShadow2 gap-3 justify-between flex flex-col p-2">
               <div className="grid grid-cols-[130px,calc(100%-130px)] csm:grid-cols-[250px,calc(100%-250px)] gap-2">
                 <div className="w-full max-w-[250px] h-[130px] csm:h-full relative">
                   {selectedImage && <Image src={selectedImage} fill alt="" />}
