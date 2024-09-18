@@ -64,6 +64,127 @@ const Hero = () => {
   return (
     <React.Fragment>
       <div className="w-full relative flex flex-col justify-center items-center">
+        {/* hero top section ----------------------> */}
+        <div className="w-full relative max-w-[1400px] bg-[url('/assets/topHeroBg.png')] border-[1px] border-[#505050] rounded-[6px] mt-8 px-10 object-cover bg-no-repeat flex justify-between items-center">
+          {/* left portion ----> */}
+          <div className="flex z-50 flex-col relative gap-3 ">
+            <div className="w-[550px] h-[450px] relative">
+              <Image src="/assets/logo3.png" alt="" fill />
+            </div>
+            <p
+              style={{
+                background:
+                  "linear-gradient(89.87deg, #D30C9C 41.04%, #D51F34 44.48%, #FF5400 48.37%, #E18600 51.81%, #689607 55.52%, #0DBAEC 59.15%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                fontSize: "13px", // Set the font size
+              }}
+              className="absolute bottom-[60px] left-[70px] font-normal"
+            >
+              {`//YOU ARE A WINNER!¯\\_(ツ)_/¯_YOU ARE A winner!\\`}
+            </p>
+          </div>
+          {/* right portion -------->  */}
+          <div className="w-full z-50 max-w-[450px] border-[1px] border-[#464646] dark:bg-black-1 bg-black-1 navibarCardSh rounded-[5px] flex flex-col p-3">
+            {/* 1st portiom */}
+            <div className="flex mt-1 justify-center gap-1 items-center px-1 bg-black-1">
+              <p className="text-orange-1">#1</p>
+              {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(
+                (item, index) => {
+                  return (
+                    <Image
+                      key={index}
+                      src="/assets/crown.svg"
+                      width={15}
+                      height={15}
+                      alt=""
+                    />
+                  );
+                }
+              )}
+            </div>
+
+            <div className="w-full mt-3 sm:mt-4 flex gap-2 rounded-[5px] flex-col p-2">
+              <div className="w-full flex flex-col">
+                <div className="w-full bg-transparent grid gap-3 grid-cols-[170px,1fr]">
+                  <div className="w-full h-full relative">
+                    <Image src="/assets/collector2.png" alt="" fill />
+                  </div>
+                  <div className="w-full flex flex-col gap-2">
+                    {/* name  */}
+                    <div className="w-full gap-1 px-1 bg-black-1 flex justify-start items-center py-1">
+                      <p className="text-[12px] text-white-1 font-normal">
+                        Name:: Pink Hood Fro...
+                      </p>
+                    </div>
+                    {/* ticker */}
+                    <div className="w-full gap-1 bg-transparent px-1 flex justify-start items-center py-1">
+                      <p className="text-[12px] text-white-1 font-normal">
+                        Ticker: Froglic
+                      </p>
+                    </div>
+                    {/* created by */}
+                    <div className="w-full gap-1 px-1 bg-transparent flex justify-start items-center py-1">
+                      <p className="text-[12px] text-white-1 font-normal">
+                        Creator by:
+                      </p>
+                      <Image
+                        src="/assets/collector.svg"
+                        alt=""
+                        width={18}
+                        height={18}
+                      />
+                      <p className="text-[12px] text-orange-1 uppercase font-normal">
+                        user name
+                      </p>
+                    </div>
+                    {/* market cap */}
+                    <div className="w-full gap-1 bg-orange-1 flex justify-start px-1 items-center py-1">
+                      <p className="text-[12px] text-white-1 font-normal">
+                        Market cap: 45.3K [rank:2]
+                      </p>
+                    </div>
+                    {/* Bonding curve  */}
+                    <div className="w-full gap-1 px-1 bg-blue-2 flex justify-start items-center py-1">
+                      <p className="text-[12px] text-white-1 font-normal">
+                        Bonding curve: 89%
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                {/* price + trades + volume  */}
+                <div className="grid px-3 grid-cols-3 gap-6 pt-2">
+                  <p className="px-[2px] whitespace-nowrap text-[12px] font-normal text-black-1 bg-[#04D200]">
+                    Price: +2000%
+                  </p>
+                  <p className="px-[2px] whitespace-nowrap text-[12px] font-normal text-black-1 bg-[#FF2CEA]">
+                    Trades: 1,245
+                  </p>
+                  <p className="px-[2px] whitespace-nowrap text-[12px] font-normal text-black-1 bg-[#A09191]">
+                    Vol: 500k
+                  </p>
+                </div>
+              </div>
+              <p
+                className={` ${
+                  isMinimize ? "hidden" : "block"
+                }  text-[12px] font-normal text-white-1 p-2 rounded-[5px]`}
+              >
+                <span className="uppercase"> Description:</span> lorem ipsum
+                talkem sumit here making it cool and reassruing and no rugginess
+                for sure makin it based, yeah. innt...
+              </p>
+              <button className="w-full bg-orange-1 font-courier hover:opacity-80 rounded-[5px] text-[12px] h-[35px] text-white-1 font-semibold">
+                Ape Now
+              </button>
+            </div>
+          </div>
+          <div className="w-full absolute bottom-[100px] -left-[3%] z-20">
+            <div className="w-[106%] h-[100px] relative">
+              <Image src="/assets/heroGradient.png" fill alt="" />
+            </div>
+          </div>
+        </div>
         <div
           className={`w-full flex flex-col max-w-[1400px] mt-4 px-0 csm:px-4 py-0 csm:py-3 dark:bg-transparent dark:border-transparent bg-transparent border-[2px] border-black-1 rounded-[5px]`}
         >
@@ -364,9 +485,61 @@ const Hero = () => {
                   <Image src="/assets/hero3rdcol.png" alt="" fill />
                 </div>
                 <p className="text-[13px] leading-[24px] text-white-1 font-normal">
-                  <span className='text-[24px] font-normal text-white-1'>Create coins</span> <span className="text-[13px] font-normal text-white-1"> with </span> <span className="text-black-1 bg-yellow-1 text-[16px]"> custom contracts,</span>  <span className="text-[16px] bg-blue-1 text-black-1"> tax options</span> and <span className="bg-[#00663B] text-[16px]"> max buy options</span> [chads  only] with bonding curve sales (improved balance - optimised) {` >>>`} wen fully bonded, coins migrate to uniswap, <span className="bg-red-1 text-[16px]"> RUG PROOF</span> deployment, CA renounced on Dex listing // all <span className="text-blue-1 text-[16px]">functions automated //</span> (block-timestamps). Add live chats with advanced chat features. <span className="bg-yellow-1 text-[16px] text-blue-1">Data-centric trading</span> with <span className="bg-red-1 text-[16px]">custom XP algo</span> that  <span className="bg-[#130061] text-[16px] text-[#14FF00]">rewards: traders,</span> <span className="bg-[#130061] text-[16px] text-blue-1"> based devs</span> & <span className="bg-[#130061] text-[16px] text-red-1"> engagoors</span>. 
+                  <span className="text-[24px] font-normal text-white-1">
+                    Create coins
+                  </span>{" "}
+                  <span className="text-[13px] font-normal text-white-1">
+                    {" "}
+                    with{" "}
+                  </span>{" "}
+                  <span className="text-black-1 bg-yellow-1 text-[16px]">
+                    {" "}
+                    custom contracts,
+                  </span>{" "}
+                  <span className="text-[16px] bg-blue-1 text-black-1">
+                    {" "}
+                    tax options
+                  </span>{" "}
+                  and{" "}
+                  <span className="bg-[#00663B] text-[16px]">
+                    {" "}
+                    max buy options
+                  </span>{" "}
+                  [chads only] with bonding curve sales (improved balance -
+                  optimised) {` >>>`} wen fully bonded, coins migrate to
+                  uniswap,{" "}
+                  <span className="bg-red-1 text-[16px]"> RUG PROOF</span>{" "}
+                  deployment, CA renounced on Dex listing // all{" "}
+                  <span className="text-blue-1 text-[16px]">
+                    functions automated //
+                  </span>{" "}
+                  (block-timestamps). Add live chats with advanced chat
+                  features.{" "}
+                  <span className="bg-yellow-1 text-[16px] text-blue-1">
+                    Data-centric trading
+                  </span>{" "}
+                  with{" "}
+                  <span className="bg-red-1 text-[16px]">custom XP algo</span>{" "}
+                  that{" "}
+                  <span className="bg-[#130061] text-[16px] text-[#14FF00]">
+                    rewards: traders,
+                  </span>{" "}
+                  <span className="bg-[#130061] text-[16px] text-blue-1">
+                    {" "}
+                    based devs
+                  </span>{" "}
+                  &{" "}
+                  <span className="bg-[#130061] text-[16px] text-red-1">
+                    {" "}
+                    engagoors
+                  </span>
+                  .
                 </p>
-                <p className="bg-[#00C673] text-center py-[3px] text-[13px] font-normal text-black-1">Seasonal Airdrops <span className="text-yellow-1"> - $BUZZ - </span> rewarding the great.</p>
+                <p className="bg-[#00C673] text-center py-[3px] text-[13px] font-normal text-black-1">
+                  Seasonal Airdrops{" "}
+                  <span className="text-yellow-1"> - $BUZZ - </span> rewarding
+                  the great.
+                </p>
                 <p className="text-[14px] font-normal text-yellow-1">{`////////////////////////////////////>> Get Buzzed.`}</p>
               </div>
             </div>
