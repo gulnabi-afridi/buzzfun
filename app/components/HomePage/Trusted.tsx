@@ -27,7 +27,7 @@ const Trusted: React.FC = () => {
   };
 
   return (
-    <div className="w-full block csm:hidden justify-center items-center">
+    <div className="w-full flex justify-center items-center">
       <div
         className={`w-full max-w-[1200px] flex mt-5 csm:mt-8 flex-col border-[1px] border-none csm:border-transparent dark:border-none csm:dark:border-white-1 gap-4 sm:gap-7 dark:bg-transparent bg-white-1 p-3 csm:p-5 `}
       >
@@ -42,7 +42,7 @@ const Trusted: React.FC = () => {
         <div className="w-full flex justify-center items-center">
           <div className="w-full max-w-[700px] cxl:max-w-full grid grid-cols-1 cxl:grid-cols-[.9fr,1fr] gap-4 csm:gap-6">
             {/* 1st col  */}
-            <div className="w-full csm:order-1 order-2 grid gap-4 csm:gap-6 grid-cols-3 sm:grid-cols-4 h-full">
+            <div className="w-full csm:order-1 order-2 grid gap-4 csm:gap-6 h-fit grid-cols-3 sm:grid-cols-4">
               {trustedData.map((item, index) => (
                 <button
                   key={index}

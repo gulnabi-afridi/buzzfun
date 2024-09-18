@@ -278,131 +278,6 @@ const Hero = () => {
             </div>
 
             {/* 2nd col -------------------------------------->  */}
-            <div className="w-full h-full csm:order-2 order-1 flex justify-center items-center">
-              <div className="w-full h-full max-w-[450px] dark:bg-orange-1 bg-yellow-1 navibarCardSh rounded-[5px] flex flex-col p-3">
-                {/* 1st portiom */}
-                <div className="flex mt-1 justify-center gap-1 items-center px-1 bg-black-1">
-                  <p className="text-yellow-1">#1</p>
-                  {[
-                    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,
-                  ].map((item, index) => {
-                    return (
-                      <Image
-                        key={index}
-                        src="/assets/pattern3.svg"
-                        width={15}
-                        height={15}
-                        alt=""
-                      />
-                    );
-                  })}
-                </div>
-                {/* 2nd portion */}
-                <div
-                  className={`w-full ${
-                    isMinimize ? "hidden" : "grid"
-                  } justify-center grid grid-cols-[6px,1fr] sm:grid-cols-[10px,1fr] items-center gap-1 sm:gap-2`}
-                >
-                  <div className="w-full h-[70%] dark:bg-white-1 bg-black-1"></div>
-                  <h2 className="uppercase text-[50px] sm:text-[60px] font-normal dark:text-white-1 text-black-1">
-                    <span className="dark:bg-yellow-1 text-white-1 text-center dark:text-black-1 font-semibold bg-transparent">
-                      BUzz
-                    </span>{" "}
-                    King
-                  </h2>
-                </div>
-                {/* 3rd portion */}
-                <div
-                  className={`w-full h-[40px] csm:block hidden sm:h-[50px] relative`}
-                >
-                  <Image src="/assets/downArrows.svg" alt="" fill />
-                </div>
-                {/* 4rth portion  */}
-                <div className="w-full mt-2 csm:mt-4 flex gap-2 rounded-[5px] flex-col bg-yellow-1 p-2 shadow3">
-                  <div className="w-full flex flex-col">
-                    <div className="w-full bg-transparent grid gap-3 grid-cols-[150px,1fr]">
-                      <div className="w-full h-full relative">
-                        <Image src="/assets/token3.svg" alt="" fill />
-                      </div>
-                      <div className="w-full flex flex-col gap-1 csm:gap-2">
-                        {/* name  */}
-                        <div className="w-full gap-1 px-1 bg-black-1 flex justify-start items-center py-1">
-                          <p className="text-[10px] csm:text-[12px] text-white-1 font-normal">
-                            Name:: Pink Hood Fro...
-                          </p>
-                        </div>
-                        {/* ticker */}
-                        <div className="w-full gap-1 bg-transparent px-1 flex justify-start items-center py-1">
-                          <p className="text-[12px] text-black-1 font-normal">
-                            Ticker:{" "}
-                            <span className="bg-purple-1 text-white-1">
-                              {" "}
-                              Froglic
-                            </span>
-                          </p>
-                        </div>
-                        {/* created by */}
-                        <div className="w-full gap-1 px-1 bg-transparent flex justify-start items-center py-1">
-                          <p className="text-[10px] csm:text-[12px] text-black-1 font-normal">
-                            Creator by:
-                          </p>
-                          <Image
-                            src="/assets/collector.svg"
-                            alt=""
-                            width={18}
-                            height={18}
-                          />
-                          <p className="text-[10px] csm:text-[12px] text-black-1 uppercase font-normal">
-                            user name
-                          </p>
-                        </div>
-                        {/* market cap */}
-                        <div className="w-full gap-1 bg-orange-1 flex justify-start px-1 items-center py-1">
-                          <p className="text-[10px] csm:text-[12px] text-white-1 font-normal">
-                            Market cap: 45.3K [rank:2]
-                          </p>
-                        </div>
-                        {/* Bonding curve  */}
-                        <div className="w-full gap-1 px-1 bg-blue-2 flex justify-start items-center py-1">
-                          <p className="text-[10px] csm:text-[12px] text-white-1 font-normal">
-                            Bonding curve: 89%
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    {/* price + trades + volume  */}
-                    <div className="grid px-3 grid-cols-3 gap-3 csm:gap-6 pt-2">
-                      <p className="px-[2px] whitespace-nowrap text-[10px] csm:text-[12px] font-normal text-black-1 bg-[#04D200]">
-                        Price: +2000%
-                      </p>
-                      <p className="px-[2px] whitespace-nowrap text-[10px] csm:text-[12px] font-normal text-black-1 bg-[#FF2CEA]">
-                        Trades: 1,245
-                      </p>
-                      <p className="px-[2px] whitespace-nowrap text-[10px] csm:text-[12px] font-normal text-black-1 bg-[#A09191]">
-                        Vol: 500k
-                      </p>
-                    </div>
-                  </div>
-                  <p
-                    className={`bg-[#194348] text-[12px] csm:block hidden font-normal text-white-1 p-2 rounded-[5px]`}
-                  >
-                    Description: lorem ipsum talkem sumit here making it cool
-                    and reassruing and no rugginess for sure makin it based,
-                    yeah. innt. lorem ipsum talkem sumit here making it cool and
-                    reassruing and no rugginess for sure makin it based, yeah.
-                    innt.
-                  </p>
-                  <button
-                    onClick={openBuyAndSell}
-                    className="w-full font-courier hover:opacity-80 bg-black-1 rounded-[5px] text-[12px] h-[35px] text-white-1 font-semibold"
-                  >
-                    Ape Now
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* 3rd col ---------------------------------------> */}
             <div className="w-full h-full csm:order-3 order-3 flex justify-center items-center">
               <div className="w-full h-full max-w-[450px] xl:max-w-[480px] flex flex-col gap-4 justify-between items-center">
                 {/* top bar ---->  */}
@@ -479,6 +354,20 @@ const Hero = () => {
                     Like & RT for [100xp]
                   </button>
                 </div>
+              </div>
+            </div>
+
+            {/* 3rd col ---------------------------------------> */}
+            <div className="w-full h-full csm:order-3 order-3 flex justify-center items-center">
+              <div className="w-full h-full max-w-[450px] xl:max-w-[480px] p-3 flex flex-col gap-4 bg-black-1 rounded-[5px] border-[1px] border-yellow-1">
+                <div className="w-full h-[215px] relative">
+                  <Image src="/assets/hero3rdcol.png" alt="" fill />
+                </div>
+                <p className="text-[13px] leading-[24px] text-white-1 font-normal">
+                  <span className='text-[24px] font-normal text-white-1'>Create coins</span> <span className="text-[13px] font-normal text-white-1"> with </span> <span className="text-black-1 bg-yellow-1 text-[16px]"> custom contracts,</span>  <span className="text-[16px] bg-blue-1 text-black-1"> tax options</span> and <span className="bg-[#00663B] text-[16px]"> max buy options</span> [chads  only] with bonding curve sales (improved balance - optimised) {` >>>`} wen fully bonded, coins migrate to uniswap, <span className="bg-red-1 text-[16px]"> RUG PROOF</span> deployment, CA renounced on Dex listing // all <span className="text-blue-1 text-[16px]">functions automated //</span> (block-timestamps). Add live chats with advanced chat features. <span className="bg-yellow-1 text-[16px] text-blue-1">Data-centric trading</span> with <span className="bg-red-1 text-[16px]">custom XP algo</span> that  <span className="bg-[#130061] text-[16px] text-[#14FF00]">rewards: traders,</span> <span className="bg-[#130061] text-[16px] text-blue-1"> based devs</span> & <span className="bg-[#130061] text-[16px] text-red-1"> engagoors</span>. 
+                </p>
+                <p className="bg-[#00C673] text-center py-[3px] text-[13px] font-normal text-black-1">Seasonal Airdrops <span className="text-yellow-1"> - $BUZZ - </span> rewarding the great.</p>
+                <p className="text-[14px] font-normal text-yellow-1">{`////////////////////////////////////>> Get Buzzed.`}</p>
               </div>
             </div>
           </div>

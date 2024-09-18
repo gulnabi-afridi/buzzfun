@@ -54,7 +54,7 @@ export default function Home() {
               <StatsSmallScreen />
             </div>
             {/* Stats */}
-            {/* <Stats /> */}
+            <Stats />
             {/* Trusted */}
             <Trusted />
             {/* Down Section */}
