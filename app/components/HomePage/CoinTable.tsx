@@ -18,18 +18,20 @@ import { useDisclosure } from "@mantine/hooks";
 import { FiMinus } from "react-icons/fi";
 import { AiOutlinePlus } from "react-icons/ai";
 import BuyAndSellFlip from "../shared/Modals/BuyAndSellFlip";
+import { IoMdStar } from "react-icons/io";
 
 const CoinTable = () => {
   // states --------------->
   const { setTheme, resolvedTheme } = useTheme();
+  const [favorites, setFavorites] = useState(
+    Array(rowsData.length).fill(false)
+  );
   const [buyAndSellModal, { open: buyOpen, close: buyClose }] =
     useDisclosure(false);
 
-
-
   // states ends here
 
-  // functions ------->
+  // functions -------------------->
   const [iconStates, setIconStates] = useState<Record<number, boolean>>(
     headerData.reduce((acc, item, index) => {
       if (item.isIcon) {
@@ -39,13 +41,19 @@ const CoinTable = () => {
     }, {} as Record<number, boolean>)
   );
 
-
-
   const toggleIcon = (index: number) => {
     setIconStates((prevStates) => ({
       ...prevStates,
       [index]: !prevStates[index],
     }));
+  };
+
+
+
+  const toggleFavorite = (index:number) => {
+    const newFavorites = [...favorites];
+    newFavorites[index] = !newFavorites[index];
+    setFavorites(newFavorites);
   };
 
   return (
@@ -100,6 +108,7 @@ const CoinTable = () => {
         {/* table row  */}
         <div className="w-full min-w-[1700px] flex flex-col">
           {rowsData.map((item, index) => {
+            const isFavorited = favorites[index];
             return (
               <div
                 key={index}
@@ -195,10 +204,16 @@ const CoinTable = () => {
                   {item.graph}
                 </p>
                 <div className="w-full flex justify-start items-center">
-                  {item.isFavorite ? (
-                    ""
+                  {isFavorited ? (
+                    <IoMdStar
+                      className="text-[16px] text-yellow-500"
+                      onClick={() => toggleFavorite(index)}
+                    /> // Filled star
                   ) : (
-                    <IoMdStarOutline className="text-[16px] text-black-1 dark:text-[#EBFF00]" />
+                    <IoMdStarOutline
+                      className="text-[16px] text-black-1 dark:text-[#EBFF00]"
+                      onClick={() => toggleFavorite(index)}
+                    /> // Outline star
                   )}
                 </div>
                 <div className="flex w-full justify-center items-center">
@@ -245,7 +260,7 @@ const CoinTable = () => {
       </div>
 
       {/* -----------------> Buy and sell widget + Slippage Settings  */}
-              <BuyAndSellFlip openModal={buyAndSellModal} closeModal={buyClose}/>
+      <BuyAndSellFlip openModal={buyAndSellModal} closeModal={buyClose} />
     </React.Fragment>
   );
 };
@@ -332,7 +347,6 @@ const headerData = [
     isIcon: false,
   },
 ];
-
 
 const rowsData = [
   {
