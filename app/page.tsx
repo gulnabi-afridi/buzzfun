@@ -13,6 +13,7 @@ import CreatCoin from "./components/ForSmallScreen/CreateToken";
 import Image from "next/image";
 import StatsSmallScreen from "./components/ForSmallScreen/StatsSmallScreen";
 import Footer from "./components/shared/layout/Footer";
+import CoinTableSmallScreen from "./components/ForSmallScreen/CoinTableSmallScreen";
 
 export default function Home() {
   return (
@@ -49,6 +50,7 @@ export default function Home() {
               <SearchBar />
               {/* Coin Table */}
               <CoinTable />
+              <CoinTableSmallScreen/>
             </div>
             <div className="w-full csm:hidden block">
               <StatsSmallScreen />

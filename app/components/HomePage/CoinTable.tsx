@@ -61,7 +61,7 @@ const CoinTable = () => {
       <div
         className={`w-full dark:bg-[#0E161C] rounded-[5px] bg-transparent dark:border-white-1/50 border-[1px] border-transparent ${
           resolvedTheme === "dark" ? "forDarkShadow" : "tableShadow"
-        } px-4 py-5 overflow-auto flex flex-col`}
+        } px-4 py-5 overflow-auto hidden csm:flex flex-col`}
       >
         {/* table header */}
         <div className="w-full min-w-[1700px] px-5 h-[42px] justify-center items-center grid grid-cols-[200px,1fr] csm:grid-cols-[400px,1fr]">
@@ -87,7 +87,7 @@ const CoinTable = () => {
               </p>
             </button>
           </div>
-          <div className="w-full grid grid-cols-[1.2fr,.7fr,.7fr,1fr,1fr,1fr,1fr,.7fr,.6fr,.6fr,1fr,.7fr,.6fr,1fr] csm:grid-cols-[.7fr,1fr,1.2fr,.7fr,.7fr,1fr,1fr,1fr,1fr,.7fr,.6fr,.6fr,1fr,.7fr,.6fr,1fr]">
+          <div className="w-full grid grid-cols-[.7fr,1fr,1.2fr,.7fr,.7fr,1fr,1fr,1fr,1fr,.7fr,.6fr,.6fr,1fr,.7fr,.6fr,1fr]">
             {/* chain  */}
             <button className="hidden csm:flex w-full justify-start items-center">
               <p
@@ -350,7 +350,7 @@ const CoinTable = () => {
                     </p>
                   </Link>
                 </div>
-                <div className="w-full grid grid-cols-[1.2fr,.7fr,.7fr,1fr,1fr,1fr,1fr,.7fr,.6fr,.6fr,1fr,.7fr,.6fr,1fr] csm:grid-cols-[.7fr,1fr,1.2fr,.7fr,.7fr,1fr,1fr,1fr,1fr,.7fr,.6fr,.6fr,1fr,.7fr,.6fr,1fr]">
+                <div className="w-full grid grid-cols-[.7fr,1fr,1.2fr,.7fr,.7fr,1fr,1fr,1fr,1fr,.7fr,.6fr,.6fr,1fr,.7fr,.6fr,1fr]">
                   <div className="w-full hidden csm:flex justify-start items-center">
                     <Image
                       src={item.chain as string}
