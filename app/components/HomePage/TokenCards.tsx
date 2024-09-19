@@ -63,15 +63,36 @@ const TokenCards: React.FC = () => {
                     <p className="csm:hidden block text-yellow-1 text-[10px] font-normal">
                       Top:
                     </p>
-                    <div className="bg-[#282828] px-[2px] py-[2px]  csm:hidden block rounded-[3px]">
+                    <button
+                      onClick={() => setCard1Filter("Top Creators")}
+                      className={` ${
+                        card1Filter === "Top Creators"
+                          ? "bg-blue-1"
+                          : "bg-[#282828]"
+                      } px-[2px] py-[2px] csm:hidden block rounded-[3px]`}
+                    >
                       <LuChefHat className="text-[14px] text-white-1" />
-                    </div>
-                    <div className="bg-[#282828] px-[2px] py-[2px]  csm:hidden block rounded-[3px]">
+                    </button>
+                    <button
+                      onClick={() => setCard1Filter("Top XP Tokens")}
+                      className={`bg-[#282828] px-[2px] py-[2px] ${
+                        card1Filter === "Top XP Tokens"
+                          ? "bg-blue-1"
+                          : "bg-[#282828]"
+                      }  csm:hidden block rounded-[3px]`}
+                    >
                       <LuCoins className="text-[14px] text-white-1" />
-                    </div>
-                    <div className="bg-blue-1 px-[2px] py-[2px] csm:hidden block rounded-[3px]">
+                    </button>
+                    <button
+                      onClick={() => setCard1Filter("Top Live Chats")}
+                      className={`${
+                        card1Filter === "Top Live Chats"
+                          ? "bg-blue-1"
+                          : "bg-[#282828]"
+                      } px-[2px] py-[2px] csm:hidden block rounded-[3px]`}
+                    >
                       <MdOutlineEmojiEmotions className="text-[14px] text-white-1" />
-                    </div>
+                    </button>
 
                     <button
                       onClick={() => setCard1Filter("Top XP Tokens")}
@@ -201,7 +222,14 @@ const TokenCards: React.FC = () => {
                         >
                           New Tokens
                         </button>
-                        <button className="p-[3px] csm:hidden block rounded-[4px] bg-blue-1">
+                        <button
+                          onClick={() => setCard2Filter("New Tokens")}
+                          className={`p-[3px] ${
+                            card2Filter === "New Tokens"
+                              ? "bg-blue-1"
+                              : "bg-[#282828]"
+                          } csm:hidden block rounded-[4px] `}
+                        >
                           <LuBaby className="text-[13px] text-white-1" />
                         </button>
                         <button
@@ -214,7 +242,14 @@ const TokenCards: React.FC = () => {
                         >
                           Almost There
                         </button>
-                        <p className="text-[12px] csm:hidden block bg-[#282828] font-normal text-white-1">{`>69%`}</p>
+                        <button
+                          onClick={() => setCard2Filter("Almost There")}
+                          className={`text-[12px] ${
+                            card2Filter === "Almost There"
+                              ? "bg-blue-1"
+                              : "bg-[#282828]"
+                          } csm:hidden block  font-normal text-white-1`}
+                        >{`>69%`}</button>
                         <button
                           onClick={() => setCard2Filter("Migrating Now")}
                           className={`
@@ -227,8 +262,17 @@ const TokenCards: React.FC = () => {
                         >
                           Migrating Now
                         </button>
-                        <button className="p-[3px] csm:hidden block rounded-[4px] bg-[#282828]">
-                          <RiGraduationCapLine className="text-[13px] text-white-1" />
+                        <button
+                          onClick={() => setCard2Filter("Migrating Now")}
+                          className={`p-[3px] csm:hidden  ${
+                            card2Filter === "Migrating Now"
+                              ? "bg-blue-1"
+                              : "bg-[#282828]"
+                          } block rounded-[4px]`}
+                        >
+                          <RiGraduationCapLine
+                            className={`text-[13px] text-white-1`}
+                          />
                         </button>
                         <p className="csm:hidden block text-[9px] font-normal text-black-1 bg-[#EBFF00C4] px-[2px]">{`Expert view>>`}</p>
                         <button
@@ -508,12 +552,15 @@ const TokenCards: React.FC = () => {
               })}
             </div>
 
-            <p className="text-[10px] csm:block hidden font-normal px-2 text-white-1">
-              <span className="text-[#EBFF00]">{`//`}</span>{" "}
+            <p
+              className="text-[10px] csm:block hidden font-normal px-2 text-white-1"
+              style={{ textShadow: "0px 0px 2px #B746F0" }}
+            >
+              <span className="text-white-1">{`//`}</span>{" "}
               <span className="text-[#B746F0]">{`ô¿ô `}</span>{" "}
-              <span className="text-[#EBFF00]">{`+`}</span>{" "}
-              <span className="text-[#EBFF00]">{`( .  Y . ) > (@_@)....<*_*> / (♥️_♥️)][L][F][G][][][0]******_______¯\_(ツ)_/¯_________8=======D`}</span>{" "}
-              <span className="text-[#336FFE]">{`ฅ^•ﻌ•^ฅ`}</span>{" "}
+              <span className="text-white-1">{`+`}</span>{" "}
+              <span className="text-white-1">{`( .  Y . ) > (@_@)....<*_*> / (♥_♥)][L][F][G][][][0]******_______¯\\_(ツ)_/¯_________8=======D`}</span>{" "}
+              <span className="text-purple-1">{`ฅ^•ﻌ•^ฅ`}</span>{" "}
             </p>
           </div>
           {/* for small screen  */}

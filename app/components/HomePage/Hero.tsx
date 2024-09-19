@@ -194,15 +194,6 @@ const Hero = () => {
             {/* 1st col ----------------------------------> */}
             <div className="w-full csm:order-1 h-full order-2 flex justify-center items-center">
               <div className="w-full h-full max-w-[450px] justify-between items-center gap-4 flex flex-col">
-                {/* top bar ---->  */}
-                <div
-                  onClick={openProcessModal}
-                  className="w-full cursor-pointer py-2 flex justify-center items-center bg-[#4F40FF] rounded-[5px]"
-                >
-                  <p className="text-[10px] csm:text-[13px] font-normal text-white-1">
-                    {pattern1}
-                  </p>
-                </div>
                 {/* table ---> */}
                 <div className="w-full bg-transparent dark:bg-black-1 border-[1px] border-black-1 dark:border-[#FEF652] rounded-[5px] p-2">
                   {/* table filter -->  */}
@@ -390,10 +381,20 @@ const Hero = () => {
                   </div>
                 </div>
                 {/* down bar ---->  */}
-                <div className="w-full csm:flex hidden py-2 justify-center items-center bg-[#787B99] rounded-[5px]">
-                  <p className="text-[13px] font-normal text-white-1">
-                    {pattern2}
+                <div className="w-full justify-center items-center flex flex-col gap-3">
+                  <p
+                    className="text-[#EF7216] text-[13px] font-normal"
+                    style={{
+                      textShadow:
+                        "0 0 1px #EF7216, 0 0 1px #EF7216, 0 0 1px #EF7216, 0 0 1px #EF7216",
+                    }}
+                  >
+                    {`//YOU ARE A Degen!¯\\_(ツ)_/¯_YOU ARE A Degen!\\`}
                   </p>
+
+                  <div className="w-full h-[20px] relative">
+                    <Image src="/assets/color2.svg" alt="" fill />
+                  </div>
                 </div>
               </div>
             </div>
@@ -545,7 +546,17 @@ const Hero = () => {
                   <span className="text-yellow-1"> - $BUZZ - </span> rewarding
                   the great.
                 </p>
-                <p className="text-[12px] text-center csm:text-[14px] font-normal text-purple-1 dark:text-yellow-1">{`////////////////////////////////////>> Get Buzzed.`}</p>
+                <p
+                  className="text-[12px] text-center csm:text-[14px] font-normal text-purple-1 dark:text-yellow-1"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, #B746F0 0%, #FAFF00 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                  }}
+                >
+                  {`////////////////////////////////////>> Get Buzzed.`}
+                </p>
               </div>
             </div>
           </div>

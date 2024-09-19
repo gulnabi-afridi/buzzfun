@@ -5,20 +5,10 @@ import { FiChevronDown } from "react-icons/fi";
 
 const CreatCoin: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState(list[0]);
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
   };
-
-  // Handle item selection
-  const handleSelect = (item: string) => {
-    setSelectedValue(item);
-    setIsOpen(false);
-  };
-
-  // Get the index of the selected item
-  const selectedIndex = list.indexOf(selectedValue);
 
   return (
     <div className="w-full flex flex-col gap-2 relative">
@@ -30,11 +20,9 @@ const CreatCoin: React.FC = () => {
         <div className="flex justify-center items-center gap-2">
           <p className="text-wrap text-[23px]">/</p>
           <p className="px-[6px] bg-white-1 leading-0 text-black-1 text-[18px] font-normal">
-            #{selectedIndex + 1}
+            #1
           </p>
-          <p className="text-[15px] font-normal text-white-1">
-            {selectedValue}
-          </p>
+          <p className="text-[15px] font-normal text-white-1">Create a Token</p>
         </div>
         <FiChevronDown
           className={`text-yellow-1 text-[30px] transition-transform duration-300 ${
@@ -49,7 +37,6 @@ const CreatCoin: React.FC = () => {
           {list.map((item, index) => (
             <button
               key={index}
-              onClick={() => handleSelect(item)} // Select the item on click
               className={`flex ${
                 list.length === index + 1 ? "pb-3" : "pt-2"
               } px-3 justify-start items-center gap-4`}
@@ -66,8 +53,6 @@ const CreatCoin: React.FC = () => {
     </div>
   );
 };
-
-
 
 const list = [
   "Create a Token",

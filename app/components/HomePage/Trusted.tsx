@@ -29,25 +29,30 @@ const Trusted: React.FC = () => {
   return (
     <div className="w-full flex justify-center items-center">
       <div
-        className={`w-full max-w-[1200px] border-[1px] rounded-[5px] border-none csm:border-yellow-1/50 flex mt-5 csm:mt-8 flex-col tableShadow dark:forDarkShadow gap-4 sm:gap-7 dark:bg-[#0E161C] bg-white-1 p-0 csm:p-5 `}
+        className={`w-full max-w-[1200px] border-[0px] csm:border-[1px] rounded-[5px] border-transparent csm:border-yellow-1/50 flex mt-5 csm:mt-8 flex-col csm:forDarkShadow gap-4 sm:gap-7 dark:bg-[#0E161C] bg-white-1 p-0 csm:p-5 `}
       >
         {/* top section */}
         <div className="flex w-full py-2 dark:bg-[#253039] rounded-[5px] border-[1px] border-[#8D97AE] csm:dark:bg-black-1 px-2 bg-black-1 gap-4 justify-center items-center">
-          <p className="text-[40px] uppercase text-white-1">
-            <span className="text-orange-1  ">{`//// `}</span>
-            thrusted and <span className="text-yellow-1"> backed</span> by{" "}
-            <span className="text-orange-1"> gegens</span> {`/////*`}
+          <p className="text-[41px] uppercase text-white-1">
+            <span className="text-orange-1 csm:block hidden">{`//// `}</span>
+            Trusted and{" "}
+            <span className="text-yellow-1 bg-black-1 px-[2px]">
+              {" "}
+              backed
+            </span>{" "}
+            by <span className="text-orange-1"> gegens</span> {`/////`}
+            <span className="text-purple-1">{`*`}</span>
           </p>
         </div>
         {/* down section */}
         <div className="w-full flex justify-center items-center">
           <div className="w-full max-w-[700px] cxl:max-w-full grid justify-center items-center grid-cols-1 cxl:grid-cols-[.9fr,1fr] gap-4 csm:gap-6">
             {/* 1st col  */}
-            <div className="w-full csm:order-1 order-2 grid gap-4 csm:gap-6 h-fit grid-cols-3 sm:grid-cols-4 csm:grid-cols-3">
+            <div className="w-full csm:order-1 order-2 grid gap-2 csm:gap-6 h-fit grid-cols-3 sm:grid-cols-4 csm:grid-cols-3">
               {trustedData.map((item, index) => (
                 <button
                   key={index}
-                  className="w-full h-[90px] csm:h-[150px] relative"
+                  className="w-full rounded-[6px] h-[110px] csm:h-[150px] relative"
                   onClick={() => handleImageClick(item.img, item.content)}
                 >
                   <Image src={item.img} fill alt="" />
@@ -55,7 +60,7 @@ const Trusted: React.FC = () => {
               ))}
             </div>
             {/* 2nd col  */}
-            <div className="w-full bg-yellow-1 csm:bg-black-1 border-[1px] rounded-[5px] border-white-1/50 csm:order-2 order-1 boxShadow2 gap-3 justify-between flex flex-col p-2">
+            <div className="w-full bg-transparent csm:bg-black-1 border-[1px] rounded-[5px] border-white-1/20 csm:order-2 order-1 boxShadow2 gap-3 justify-between flex flex-col p-2">
               <div className="grid grid-cols-[130px,calc(100%-130px)] csm:grid-cols-[250px,calc(100%-250px)] gap-2">
                 <div className="w-full max-w-[250px] h-[130px] csm:h-full relative">
                   {selectedImage && <Image src={selectedImage} fill alt="" />}
@@ -69,7 +74,7 @@ const Trusted: React.FC = () => {
                         </p>
                       )}
                       {selectedContent.userName && (
-                        <p className="text-[12px] csm:text-[23px] text-white-1 bg-black-1 font-normal px-3 csm:px-5 w-fit">
+                        <p className="text-[12px] csm:text-[23px] text-orange-1 bg-black-1 font-normal px-3 csm:px-5 w-fit">
                           {selectedContent.userName}
                         </p>
                       )}

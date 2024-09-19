@@ -20,7 +20,7 @@ const Footer = () => {
       </div>
 
       {/* for small screen  */}
-      <div className="w-full csm:hidden block bg-black-1 px-3 py-4">
+      <div className="w-full csm:hidden block bg-transparent px-3 py-4">
         <div className="w-full bg-[#25303A] gap-4 border-[1px] border-white-1 flex flex-col justify-center items-center px-4 py-7">
           <p className="text-[10px] max-w-[170px] text-center uppercase w-full bg-black-1 px-4 py-4 font-normal text-white-1">
             buzz.fun 2024

@@ -19,9 +19,9 @@ export default function Home() {
     <main className="bg-white-2 dark:bg-[#151D23] csm:dark:bg-[#201e26]">
       <div className="w-full pb-4 csm:pb-16">
         <ComponentWrapper style="">
-          <div className="pt-6 csm:block hidden">
+          {/* <div className="pt-6 csm:block hidden">
             <Breadcrumb />
-          </div>
+          </div> */}
           <div className="csm:hidden block pt-4">
             <CoinLabel />
           </div>
