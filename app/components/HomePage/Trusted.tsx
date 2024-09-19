@@ -32,9 +32,9 @@ const Trusted: React.FC = () => {
         className={`w-full max-w-[1200px] border-[0px] csm:border-[1px] rounded-[5px] border-transparent csm:border-yellow-1/50 flex mt-5 csm:mt-8 flex-col csm:forDarkShadow gap-4 sm:gap-7 dark:bg-[#0E161C] bg-white-1 p-0 csm:p-5 `}
       >
         {/* top section */}
-        <div className="flex w-full py-2 dark:bg-[#253039] rounded-[5px] border-[1px] border-[#8D97AE] csm:dark:bg-black-1 px-2 bg-black-1 gap-4 justify-center items-center">
-          <p className="text-[41px] uppercase text-white-1">
-            <span className="text-orange-1 csm:block hidden">{`//// `}</span>
+        <div className="flex w-full py-2 dark:bg-[#253039] rounded-[5px] border-[1px] border-[#8D97AE] border-opacity-30 csm:dark:bg-black-1 px-2 bg-black-1 gap-4 justify-center items-center">
+          <p className="text-[41px] block gap-2 lg:flex justify-center items-center csm:text-[40px] w-full text-center uppercase text-white-1">
+            <span className="text-orange-1 csm:block hidden">{`///// `}</span>
             Trusted and{" "}
             <span className="text-yellow-1 bg-black-1 px-[2px]">
               {" "}
@@ -69,7 +69,7 @@ const Trusted: React.FC = () => {
                   {selectedContent && (
                     <>
                       {selectedContent.name && (
-                        <p className="text-[17px] csm:text-[34px] leading-[40px] py-[0px] csm:py-2 text-white-1 bg-black-1 font-normal px-4 csm:px-5 w-fit">
+                        <p className="text-[17px] csm:text-[34px] leading-[40px] text-white-1 bg-black-1 font-normal px-4 csm:px-5 w-fit">
                           {selectedContent.name}
                         </p>
                       )}
@@ -78,11 +78,39 @@ const Trusted: React.FC = () => {
                           {selectedContent.userName}
                         </p>
                       )}
-                      {selectedContent.des && (
-                        <p className="text-[10px] leading-0 csm:text-[14px] text-white-1 py-[0px] csm:py-[6px] break-words bg-black-1 font-normal px-3 csm:px-5 w-fit">
-                          {selectedContent.des}
-                        </p>
-                      )}
+                      <p className="text-[14px] font-normal text-[#BEBEBE]">
+                        Founder{" "}
+                        <span className="text-white-1 underline">@nftftc</span>{" "}
+                        | Advisor{" "}
+                        <span className="text-white-1 underline">
+                          {" "}
+                          @artyfact_game
+                        </span>{" "}
+                        Ambassador
+                        <span className="text-white-1 underline">
+                          {" "}
+                          @planetrefi
+                        </span>{" "}
+                        &{" "}
+                        <span className="text-white-1 underline">
+                          {" "}
+                          @Solchatcoin
+                        </span>{" "}
+                      </p>
+                      <p className="text-green-1 text-[14px] font-normal">
+                        I am a girl, not ur bro | Tweets are NFA |{" "}
+                        <span
+                          className="bg-clip-text text-transparent"
+                          style={{
+                            background:
+                              "linear-gradient(90.22deg, #D30C9C 5.01%, #D51F34 16.25%, #FF5400 28.98%, #E18600 40.22%, #689607 52.35%, #0DBAEC 64.18%)",
+                            WebkitBackgroundClip: "text", // For Safari support
+                          }}
+                        >
+                          ONLY Telegram: “ethsibel
+                        </span>
+                        ”
+                      </p>
                     </>
                   )}
                 </div>
@@ -125,7 +153,7 @@ const trustedData = [
     },
   },
   {
-    img: "/assets/trusted1.png",
+    img: "/assets/trusted2.png",
     content: {
       name: "Sibel 2",
       userName: "@default1",
@@ -135,7 +163,7 @@ const trustedData = [
     },
   },
   {
-    img: "/assets/trusted2.png",
+    img: "/assets/trusted3.png",
     content: {
       name: "Sibel 3",
       userName: "@default2",
@@ -145,7 +173,7 @@ const trustedData = [
     },
   },
   {
-    img: "/assets/trusted1.png",
+    img: "/assets/trusted3.png",
     content: {
       name: "Sibel 4",
       userName: "@default3",
@@ -155,7 +183,7 @@ const trustedData = [
     },
   },
   {
-    img: "/assets/trusted1.png",
+    img: "/assets/trusted3.png",
     content: {
       name: "Sibel 5",
       userName: "@default4",
@@ -165,7 +193,7 @@ const trustedData = [
     },
   },
   {
-    img: "/assets/trusted1.png",
+    img: "/assets/trusted3.png",
     content: {
       name: "Sibel 6",
       userName: "@default5",

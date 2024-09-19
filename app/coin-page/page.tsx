@@ -30,7 +30,7 @@ const CoinPage = () => {
 
   return (
     <div
-      className={`dark:bg-[#201e26] flex flex-col justify-between csm:justify-start ${
+      className={`dark:bg-[#201e26] csm:pb-0 pb-4 flex relative flex-col justify-start csm:gap-0 gap-3 csm:justify-start ${
         tabNamae === "candleChart"
           ? "h-auto csm:overflow-auto overflow-auto"
           : "h-[calc(100vh-65px)] csm:h-auto csm:overflow-auto overflow-hidden"
@@ -176,7 +176,7 @@ const CoinPage = () => {
         </div>
       </ComponentWrapper>
       {/* navigation for small screen ---------->  */}
-      <div className="w-full h-[55px] bg-[#262934] grid csm:hidden grid-cols-5">
+      <div className="w-full fixed bottom-0 min-h-[55px] bg-[#262934] grid csm:hidden grid-cols-5">
         <button
           onClick={() => setTabName("sell")}
           className={`boxShadow3 w-full ${
