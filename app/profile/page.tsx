@@ -26,6 +26,8 @@ const ProfilePage = () => {
   // states ----------->
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [selectedName, setSelectedName] = useState("Followers");
+  const [selectedNameSmallScreen, setSelectedNameSmallScreen] = useState("");
+
   const [opened, { open, close }] = useDisclosure(false);
 
   //   functions --------->
@@ -33,25 +35,6 @@ const ProfilePage = () => {
     setSelectedIndex(index);
     setSelectedName(name);
   };
-
-  // useEffect ------------------------------->
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 540) {
-        setSelectedName("");
-      } else {
-        setSelectedName("Followers");
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    handleResize();
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   return (
     <React.Fragment>
@@ -89,28 +72,29 @@ const ProfilePage = () => {
               <p className="text-[20px] md:text-[30px] text-center xl:text-[40px] uppercase leading-[48px] font-normal text-orange-1">
                 {`////////////////////.\\\\\\\\`}
               </p>
-
-           
             </div>
           </div>
           <div className="w-full pt-4 csm:pt-10 min-h-screen pb-0 csm:pb-10 flex justify-center items-start">
             <div
               className={`w-full grid gap-4 sm:gap-4 md:gap-6 justify-center items-start 
             ${
-              selectedName === "Replies" &&
+              (selectedName === "Replies" ||
+                selectedNameSmallScreen === "Replies") &&
               "max-w-[950px] grid-cols-[1.2fr,1fr] csm:grid-cols-2 xl:grid-cols-[1fr,1fr,2fr]"
             }
             ${
-              selectedName === "Coins Launched" &&
+              (selectedName === "Coins Launched" ||
+                selectedNameSmallScreen === "Coins Launched") &&
               "max-w-[950px] grid-cols-[1.2fr,1fr] csm:grid-cols-2 xl:grid-cols-[1fr,1fr,2fr]"
             }
                 ${
-                  selectedName === "Buzz engage" &&
+                  (selectedName === "Buzz engage" ||
+                    selectedNameSmallScreen === "Buzz engage") &&
                   "max-w-[900px] grid-cols-[1.2fr,1fr] csm:grid-cols-2 xl:grid-cols-[1fr,1fr,1.8fr]"
                 }
             ${
               !["Replies", "Coins Launched", "Buzz engage"].includes(
-                selectedName
+                selectedName || selectedNameSmallScreen
               ) &&
               "max-w-[860px] grid-cols-[1.2fr,1fr] csm:grid-cols-2 xl:grid-cols-[1fr,1fr,1.5fr]"
             }
@@ -119,7 +103,9 @@ const ProfilePage = () => {
               {/* uer profile ----> */}
               <div
                 className={`w-full ${
-                  selectedName === "" ? "flex" : "hidden csm:flex"
+                  selectedName === "" || selectedNameSmallScreen === ""
+                    ? "flex"
+                    : "hidden csm:flex"
                 } flex justify-center items-center`}
               >
                 <div className="w-full max-w-[300px] flex flex-col gap-3">
@@ -201,6 +187,7 @@ const ProfilePage = () => {
                   </div>
                 </div>
               </div>
+
               <div
                 className={`w-full ${
                   selectedName === "" ? "flex" : "hidden csm:flex"
@@ -265,8 +252,9 @@ const ProfilePage = () => {
                   </div>
                 </div>
               </div>
-              {/* for small screen  */}
-              {selectedName === "" && (
+
+              {/* for small screen --------->   */}
+              {(selectedName === "" || selectedNameSmallScreen === "") && (
                 <div className="w-full h-full csm:hidden justify-between flex flex-col">
                   <div className="w-full flex flex-col gap-2">
                     <div className="flex flex-col gap-3 p-2 bg-blue-1">
@@ -288,7 +276,7 @@ const ProfilePage = () => {
                     </div>
                     {/* followers */}
                     <button
-                      onClick={() => setSelectedName("Followers")}
+                      onClick={() => setSelectedNameSmallScreen("Followers")}
                       className="flex flex-col gap-3 p-2 bg-yellow-1"
                     >
                       <div className="w-full flex justify-between items-center">
@@ -309,7 +297,7 @@ const ProfilePage = () => {
                     </button>
                     {/* following */}
                     <button
-                      onClick={() => setSelectedName("Following")}
+                      onClick={() => setSelectedNameSmallScreen("Following")}
                       className="flex flex-col gap-3 p-2 bg-orange-1"
                     >
                       <div className="w-full flex justify-between items-center">
@@ -330,7 +318,7 @@ const ProfilePage = () => {
                     </button>
                     {/* replies */}
                     <button
-                      onClick={() => setSelectedName("Replies")}
+                      onClick={() => setSelectedNameSmallScreen("Replies")}
                       className="flex flex-col gap-3 p-2 bg-[#317C85]"
                     >
                       <div className="w-full flex justify-between items-center">
@@ -366,80 +354,110 @@ const ProfilePage = () => {
               )}
 
               {/* user - details components  */}
-              {selectedName === "Followers" && (
-                <Followers setSelectedItem={setSelectedName} />
-              )}
-              {selectedName === "Following" && (
-                <Following setSelectedItem={setSelectedName} />
-              )}
-              {selectedName === "Replies" && (
-                <Replies setSelectedItem={setSelectedName} />
-              )}
-              {selectedName === "Coins Launched" && (
-                <CoinsLaunched setSelectedItem={setSelectedName} />
-              )}
-              {selectedName === "Coins held" && (
-                <CoinsHeld setSelectedItem={setSelectedName} />
-              )}
-              {selectedName === "Buzz engage" && (
-                <BuzzEngage setSelectedItem={setSelectedName} />
-              )}
+              <div className="w-full csm:block hidden">
+                {selectedName === "Followers" && (
+                  <Followers setSelectedItem={setSelectedName} />
+                )}
+                {selectedName === "Following" && (
+                  <Following setSelectedItem={setSelectedName} />
+                )}
+                {selectedName === "Replies" && (
+                  <Replies setSelectedItem={setSelectedName} />
+                )}
+                {selectedName === "Coins Launched" && (
+                  <CoinsLaunched setSelectedItem={setSelectedName} />
+                )}
+                {selectedName === "Coins held" && (
+                  <CoinsHeld setSelectedItem={setSelectedName} />
+                )}
+                {selectedName === "Buzz engage" && (
+                  <BuzzEngage setSelectedItem={setSelectedName} />
+                )}
+              </div>
+              {/* for small screen  */}
+
+              <div className="w-full xl:col-span-1 col-span-2 csm:hidden block">
+                {selectedNameSmallScreen === "Followers" && (
+                  <Followers setSelectedItem={setSelectedNameSmallScreen} />
+                )}
+                {selectedNameSmallScreen === "Following" && (
+                  <Following setSelectedItem={setSelectedNameSmallScreen} />
+                )}
+                {selectedNameSmallScreen === "Replies" && (
+                  <Replies setSelectedItem={setSelectedNameSmallScreen} />
+                )}
+                {selectedNameSmallScreen === "Coins Launched" && (
+                  <CoinsLaunched setSelectedItem={setSelectedNameSmallScreen} />
+                )}
+                {selectedNameSmallScreen === "Coins held" && (
+                  <CoinsHeld setSelectedItem={setSelectedNameSmallScreen} />
+                )}
+                {selectedNameSmallScreen === "Buzz engage" && (
+                  <BuzzEngage setSelectedItem={setSelectedNameSmallScreen} />
+                )}
+              </div>
             </div>
           </div>
         </ComponentWrapper>
         {/* down navigation bar for small screen -------->  */}
         <div className="w-full fixed bottom-0 min-h-[55px] justify-center items-center bg-[#262934] csm:hidden grid grid-cols-4">
           <button
-            onClick={() => setSelectedName("")}
+            onClick={() => setSelectedNameSmallScreen("")}
             className={`w-full boxShadow3 ${
-              selectedName === "" ? "bg-purple-1" : "bg-transparent"
+              selectedNameSmallScreen === "" ? "bg-purple-1" : "bg-transparent"
             }  h-full flex justify-center items-center`}
           >
             <FaRegUser
               className={`text-[30px] ${
-                selectedName === "" ? "text-white-1" : "text-[#6C6C6C]"
+                selectedNameSmallScreen === ""
+                  ? "text-white-1"
+                  : "text-[#6C6C6C]"
               } `}
             />
           </button>
           <button
-            onClick={() => setSelectedName("Coins Launched")}
+            onClick={() => setSelectedNameSmallScreen("Coins Launched")}
             className={`w-full ${
-              selectedName === "Coins Launched"
+              selectedNameSmallScreen === "Coins Launched"
                 ? "bg-purple-1"
                 : "bg-transparent"
             } boxShadow3 h-full flex justify-center items-center`}
           >
             <IoRocketOutline
               className={`text-[30px] ${
-                selectedName === "Coins Launched"
+                selectedNameSmallScreen === "Coins Launched"
                   ? "text-white-1"
                   : "text-[#6C6C6C]"
               }`}
             />
           </button>
           <button
-            onClick={() => setSelectedName("Coins held")}
+            onClick={() => setSelectedNameSmallScreen("Coins held")}
             className={`w-full ${
-              selectedName === "Coins held" ? "bg-purple-1" : "bg-transparent"
+              selectedNameSmallScreen === "Coins held"
+                ? "bg-purple-1"
+                : "bg-transparent"
             } boxShadow3 h-full flex justify-center items-center`}
           >
             <LuCoins
               className={`text-[30px] ${
-                selectedName === "Coins held"
+                selectedNameSmallScreen === "Coins held"
                   ? "text-white-1"
                   : "text-[#6C6C6C]"
               }`}
             />
           </button>
           <button
-            onClick={() => setSelectedName("Buzz engage")}
+            onClick={() => setSelectedNameSmallScreen("Buzz engage")}
             className={`w-full ${
-              selectedName === "Buzz engage" ? "bg-purple-1" : "bg-transparent"
+              selectedNameSmallScreen === "Buzz engage"
+                ? "bg-purple-1"
+                : "bg-transparent"
             } boxShadow3 h-full flex justify-center items-center`}
           >
             <BsEmojiSmileFill
               className={`text-[30px] ${
-                selectedName === "Buzz engage"
+                selectedNameSmallScreen === "Buzz engage"
                   ? "text-white-1"
                   : "text-[#6C6C6C]"
               } text-[#6C6C6C]`}
