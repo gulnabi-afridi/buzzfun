@@ -33,7 +33,7 @@ const CoinPage = () => {
       className={`dark:bg-[#201e26] csm:pb-0 pb-4 flex relative flex-col justify-start csm:gap-0 gap-3 csm:justify-start ${
         tabNamae === "candleChart"
           ? "h-auto csm:overflow-auto overflow-auto"
-          : "h-[calc(100vh-65px)] csm:h-auto csm:overflow-auto overflow-hidden"
+          : "min-h-[calc(100vh-65px)] csm:h-auto csm:overflow-auto overflow-hidden"
       }  bg-white-2 pt-3 csm:pt-5`}
     >
       {/* top header -----> */}
