@@ -29,7 +29,7 @@ const LeftNavigation: React.FC<Props> = ({ open, close }: Props) => {
       withCloseButton={false}
       classNames={{
         content:
-          " !bg-black-1 !p-0 !overflow-auto !h-[calc(100vh-60px)] !mt-[60px]",
+          " !bg-black-1 !p-0 !overflow-auto !h-[calc(100dvh-60px)] !mt-[60px]",
         body: "!p-0 !h-full",
       }}
     >

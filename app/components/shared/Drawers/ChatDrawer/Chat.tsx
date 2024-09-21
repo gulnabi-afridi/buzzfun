@@ -120,7 +120,7 @@ const Chat: React.FC<Props> = ({ setSetting, setChatInformation }: Props) => {
               return (
                 <div
                   key={index}
-                  className="w-full px-4 py-2 grid items-start grid-cols-[80px,110px,1fr]"
+                  className="w-full group px-4 py-2 grid items-start grid-cols-[80px,110px,1fr]"
                 >
                   <div className="w-full flex items-start flex-col justify-center">
                     <p className="text-[12px] csm:text-[14px] font-normal dark:text-white-1/80 text-black-1">
@@ -151,7 +151,7 @@ const Chat: React.FC<Props> = ({ setSetting, setChatInformation }: Props) => {
                     </p>
                   </div>
                   <div className="w-full pl-3 items-start gap-2 flex flex-col">
-                    <div className="w-full group relative">
+                    <div className="w-full relative">
                       <p className="text-[11px] csm:text-[12px] font-normal dark:text-white-1/80 text-black-1">
                         {item.message}
                       </p>

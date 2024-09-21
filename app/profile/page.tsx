@@ -388,7 +388,7 @@ const ProfilePage = () => {
           </div>
         </ComponentWrapper>
         {/* down navigation bar for small screen -------->  */}
-        <div className="w-full h-[55px] justify-center items-center bg-[#262934] csm:hidden grid grid-cols-4">
+        <div className="w-full fixed bottom-0 min-h-[55px] justify-center items-center bg-[#262934] csm:hidden grid grid-cols-4">
           <button
             onClick={() => setSelectedName("")}
             className={`w-full boxShadow3 ${
