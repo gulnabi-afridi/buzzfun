@@ -10,6 +10,7 @@ import { IoCopyOutline } from "react-icons/io5";
 import Link from "next/link";
 import { LuChefHat } from "react-icons/lu";
 import { LuLogOut } from "react-icons/lu";
+import ThemeSwitch from "../ThemeSwitch";
 
 interface Props {
   open: boolean;
@@ -27,11 +28,12 @@ const LeftNavigation: React.FC<Props> = ({ open, close }: Props) => {
       overlayProps={{ backgroundOpacity: 0, blur: 0 }}
       withCloseButton={false}
       classNames={{
-        content: " !bg-black-1 !p-0 !h-[calc(100vh-60px)] !mt-[60px]",
+        content:
+          " !bg-black-1 !p-0 !overflow-auto !h-[calc(100vh-60px)] !mt-[60px]",
         body: "!p-0 !h-full",
       }}
     >
-      <div className="w-full px-3 pt-3 gap-3 pb-5 !h-full flex flex-col justify-between items-center">
+      <div className="w-full px-3 overflow-auto pt-3 gap-3 pb-5 !h-full flex flex-col justify-between items-center">
         <div className="w-full flex flex-col">
           {/* close drawer  */}
           <button
@@ -131,6 +133,10 @@ const LeftNavigation: React.FC<Props> = ({ open, close }: Props) => {
               <LuLogOut className="text-red-1 text-[24px]" />
               <p className="text-red-1 text-[16px] font-normal">Disconnect</p>
             </button>
+            <div className="w-full px-2 gap-2 flex justify-start items-center">
+              <p className="text-[16px] text-white-1 font-normal">Mode: </p>
+              <ThemeSwitch />
+            </div>
           </div>
         </div>
         <div className="w-full flex flex-col gap-3">
