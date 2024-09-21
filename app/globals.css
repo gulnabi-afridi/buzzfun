@@ -193,3 +193,19 @@
 
 
 
+.mantine-Accordion-control{
+  background-color: transparent !important;
+  height: 45px !important;
+
+}
+
+.mantine-Accordion-root[data-accordion="true"] {
+  background-color: transparent !important; 
+
+}
+
+.mantine-Accordion-item{
+  background-color: transparent !important;
+  border: 1px solid #FEF652 !important;
+
+}

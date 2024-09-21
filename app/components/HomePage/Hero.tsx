@@ -186,7 +186,7 @@ const Hero = () => {
           </div>
         </div>
         <div
-          className={`w-full flex flex-col max-w-[1400px] mt-4 px-0 csm:px-4 py-0 csm:py-3 dark:bg-transparent dark:border-transparent bg-transparent border-[2px] border-black-1 rounded-[5px]`}
+          className={`w-full flex flex-col max-w-[1400px] mt-4 px-0 csm:px-4 py-0 csm:py-3 dark:bg-transparent dark:border-transparent bg-transparent border-[2px] border-none dark:border-black-1 rounded-[5px]`}
         >
           <div
             className={`w-full grid gap-y-6 csm:gap-y-8 gap-x-4 grid-cols-1 xl:grid-cols-2 3xl:grid-cols-[1fr,.9fr,1fr]`}
