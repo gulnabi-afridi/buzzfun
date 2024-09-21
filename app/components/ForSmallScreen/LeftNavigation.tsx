@@ -139,7 +139,7 @@ const LeftNavigation: React.FC<Props> = ({ open, close }: Props) => {
             </div>
           </div>
         </div>
-        <div className="w-full flex flex-col gap-3">
+        <div className="w-full px-2 pb-1 flex flex-col gap-3">
           {/* create token ----> */}
           <div className="w-full rounded-[5px] py-3 bg-yellow-1 flex justify-center items-center gap-4">
             <p className="text-[29px] text-black-1 font-normal">
