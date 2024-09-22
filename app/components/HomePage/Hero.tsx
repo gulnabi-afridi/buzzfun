@@ -659,8 +659,6 @@ const Hero = () => {
 
 export default Hero;
 
-const pattern1 = "//YOU ARE A WINNER!¯_(ツ)_/¯_YOU ARE A winner!\\";
-const pattern2 = "//YOU ARE A Loser!¯_(ツ)_/¯_YOU ARE A Loser!\\";
 const pattern4 = "// SEASON 1 BUZZ AIRDROP ||>>";
 const pattern5 = "Season one start: [xx/xx/xx] End:[xx/xx/xx]";
 
