@@ -11,7 +11,7 @@ export default function ThemeSwitch() {
   const { setTheme, resolvedTheme } = useTheme();
 
   useEffect(() => {
-    setTheme("light");
+    setTheme("dark");
     setMounted(true);
   }, []);
 
